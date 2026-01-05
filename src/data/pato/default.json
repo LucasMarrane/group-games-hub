@@ -1,0 +1,108 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "theme": "Geografia Mundial",
+      "duckValue": 2,
+      "questions": [
+        { "question": "Quantos países existem na América do Sul?", "answer": 12 },
+        { "question": "Qual é a população do Brasil em milhões?", "answer": 215 },
+        { "question": "Quantos fusos horários tem a Rússia?", "answer": 11 },
+        { "question": "Qual a altitude do Monte Everest em metros?", "answer": 8849 },
+        { "question": "Quantos países fazem fronteira com a Alemanha?", "answer": 9 },
+        { "question": "Qual o número de ilhas do Japão (aproximado)?", "answer": 6852 }
+      ]
+    },
+    {
+      "id": 2,
+      "theme": "Corpo Humano",
+      "duckValue": 3,
+      "questions": [
+        { "question": "Quantos ossos tem o corpo humano adulto?", "answer": 206 },
+        { "question": "Quantos litros de sangue tem um adulto?", "answer": 5 },
+        { "question": "Quantos músculos são usados para sorrir?", "answer": 17 },
+        { "question": "Qual a temperatura normal do corpo em °C?", "answer": 37 },
+        { "question": "Quantos dentes tem um adulto?", "answer": 32 },
+        { "question": "Quantos batimentos cardíacos por minuto em repouso?", "answer": 72 }
+      ]
+    },
+    {
+      "id": 3,
+      "theme": "Copa do Mundo",
+      "duckValue": 2,
+      "questions": [
+        { "question": "Quantas Copas do Mundo o Brasil venceu?", "answer": 5 },
+        { "question": "Em que ano foi a primeira Copa do Mundo?", "answer": 1930 },
+        { "question": "Quantos gols Pelé marcou em Copas?", "answer": 12 },
+        { "question": "Quantas seleções participam da Copa atual?", "answer": 32 },
+        { "question": "Quantas Copas a Argentina venceu?", "answer": 3 },
+        { "question": "Qual foi o maior placar da história das Copas?", "answer": 10 }
+      ]
+    },
+    {
+      "id": 4,
+      "theme": "Cinema e TV",
+      "duckValue": 3,
+      "questions": [
+        { "question": "Quantos filmes do Harry Potter foram feitos?", "answer": 8 },
+        { "question": "Em que ano foi lançado o primeiro Star Wars?", "answer": 1977 },
+        { "question": "Quantas temporadas tem Friends?", "answer": 10 },
+        { "question": "Quantos minutos dura o filme Titanic?", "answer": 195 },
+        { "question": "Quantos filmes dos Vingadores existem?", "answer": 4 },
+        { "question": "Em que ano foi lançado O Rei Leão original?", "answer": 1994 }
+      ]
+    },
+    {
+      "id": 5,
+      "theme": "Brasil",
+      "duckValue": 2,
+      "questions": [
+        { "question": "Quantos estados tem o Brasil?", "answer": 26 },
+        { "question": "Em que ano o Brasil foi descoberto?", "answer": 1500 },
+        { "question": "Quantos títulos da Libertadores tem o Flamengo?", "answer": 3 },
+        { "question": "Qual a extensão da costa brasileira em km?", "answer": 7491 },
+        { "question": "Em que ano foi a Independência do Brasil?", "answer": 1822 },
+        { "question": "Quantas regiões tem o Brasil?", "answer": 5 }
+      ]
+    },
+    {
+      "id": 6,
+      "theme": "Tecnologia",
+      "duckValue": 4,
+      "questions": [
+        { "question": "Em que ano o iPhone foi lançado?", "answer": 2007 },
+        { "question": "Quantos bits tem 1 byte?", "answer": 8 },
+        { "question": "Em que ano foi fundado o Facebook?", "answer": 2004 },
+        { "question": "Quantos GB tem 1 TB?", "answer": 1024 },
+        { "question": "Em que ano foi lançado o Windows 95?", "answer": 1995 },
+        { "question": "Quantos funcionários o Google tinha em 2023 (milhares)?", "answer": 190 }
+      ]
+    },
+    {
+      "id": 7,
+      "theme": "Música",
+      "duckValue": 3,
+      "questions": [
+        { "question": "Quantos integrantes tinha os Beatles?", "answer": 4 },
+        { "question": "Em que ano morreu Michael Jackson?", "answer": 2009 },
+        { "question": "Quantos Grammys Beyoncé ganhou?", "answer": 32 },
+        { "question": "Quantas oitavas tem um piano padrão?", "answer": 7 },
+        { "question": "Em que ano nasceu Elvis Presley?", "answer": 1935 },
+        { "question": "Quantas cordas tem um violão padrão?", "answer": 6 }
+      ]
+    },
+    {
+      "id": 8,
+      "theme": "Animais",
+      "duckValue": 2,
+      "questions": [
+        { "question": "Quantas patas tem uma aranha?", "answer": 8 },
+        { "question": "Quantos anos vive um elefante em média?", "answer": 70 },
+        { "question": "Qual a velocidade máxima de um guepardo km/h?", "answer": 120 },
+        { "question": "Quantos estômagos tem uma vaca?", "answer": 4 },
+        { "question": "Quantas horas por dia um gato dorme?", "answer": 16 },
+        { "question": "Quantos dentes tem um tubarão (aproximado)?", "answer": 300 }
+      ]
+    }
+  ]
+}

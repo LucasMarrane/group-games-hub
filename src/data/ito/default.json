@@ -1,0 +1,916 @@
+{
+    "name": "Jogo Padrão",
+    "description": "Temas extraídos do jogo Ito (Cartas 1-100)",
+    "categories": [
+        { "id": 1, "name": "Cultura Pop e Ficção" },
+        { "id": 2, "name": "Cotidiano e Preferências" },
+        { "id": 3, "name": "Comportamento e Habilidades" },
+        { "id": 4, "name": "Situações Hipotéticas" },
+        { "id": 5, "name": "Mundo e Sociedade" },
+        { "id": 6, "name": "Infantil e Lúdico" }
+    ],
+    "items": [
+        {
+            "id": 1,
+            "title": "Manga/anime famoso",
+            "scale": [
+                [1, "Desconhecido"],
+                [100, "Famoso"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 2,
+            "title": "Pessoas famosas que você gostaria de ser",
+            "scale": [
+                [1, "Não gostaria"],
+                [100, "Gostaria de ser"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 3,
+            "title": "Coisas que te dão medo",
+            "scale": [
+                [1, "Nem um sustinho"],
+                [100, "Morreria de medo"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 4,
+            "title": "Coisas que você gostaria de fotografar",
+            "scale": [
+                [1, "Não vale o clique"],
+                [100, "Faria um book"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 5,
+            "title": "Coisas importantes na vida",
+            "scale": [
+                [1, "Não é nada"],
+                [100, "Importantíssimo"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 6,
+            "title": "Esportes mais conhecidos",
+            "scale": [
+                [1, "Pouca gente conhece"],
+                [100, "Muito popular"]
+            ],
+            "category": 5
+        },
+        {
+            "id": 7,
+            "title": "Lugares onde você gostaria de morar",
+            "scale": [
+                [1, "Não ficaria lá 5 minutos"],
+                [100, "Passaria lá a eternidade"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 8,
+            "title": "Itens do dia a dia que poderiam ser boas armas",
+            "scale": [
+                [1, "Nem arranhão"],
+                [100, "Arma forte"]
+            ],
+            "category": 4
+        },
+        {
+            "id": 9,
+            "title": "Coisas que você ficaria olhando com admiração o dia inteiro",
+            "scale": [
+                [1, "Nem pararia pra olhar"],
+                [100, "Ficaria olhando por horas"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 10,
+            "title": "Habilidades importantes para ser líder",
+            "scale": [
+                [1, "Não importante"],
+                [100, "Essencial"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 11,
+            "title": "Contos de fadas populares",
+            "scale": [
+                [1, "Desconhecido"],
+                [100, "Popular"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 12,
+            "title": "Poderes especiais que você gostaria de ter",
+            "scale": [
+                [1, "Não gostaria"],
+                [100, "Gostaria"]
+            ],
+            "category": 4
+        },
+        {
+            "id": 13,
+            "title": "Coisas que você não conseguiria perdoar",
+            "scale": [
+                [1, "Nada demais"],
+                [100, "Imperdoável"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 14,
+            "title": "Mentiras que você acreditaria",
+            "scale": [
+                [1, "Não acreditaria"],
+                [100, "Acreditaria com certeza"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 15,
+            "title": "Coisas que te fazem feliz",
+            "scale": [
+                [1, "Não te faz feliz"],
+                [100, "Felicidade pura"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 16,
+            "title": "Personagens da ficção com quem você gostaria de ter um encontro",
+            "scale": [
+                [1, "Não valeria um encontro"],
+                [100, "Provavelmente casaria"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 17,
+            "title": "Filmes conhecidos",
+            "scale": [
+                [1, "Ninguém viu"],
+                [100, "Todo mundo assistiu"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 18,
+            "title": "Coisas nas quais você gostaria de ficar em imersão",
+            "scale": [
+                [1, "Não, obrigada"],
+                [100, "Quero uma piscina cheia disso"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 19,
+            "title": "Sabores de sorvete que poderiam ser deliciosos",
+            "scale": [
+                [1, "Credo, horrível!"],
+                [100, "Comeria toneladas"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 20,
+            "title": "Itens / armas que você gostaria de ter para lutar contra zumbis",
+            "scale": [
+                [1, "Pra fazer cosquinha"],
+                [100, "Adiós, zumbi!"]
+            ],
+            "category": 4
+        },
+        {
+            "id": 21,
+            "title": "Atletas famosos",
+            "scale": [
+                [1, "Sei nem quem é"],
+                [100, "Grande campeão"]
+            ],
+            "category": 5
+        },
+        {
+            "id": 22,
+            "title": "Personagens da ficção que você gostaria de ser",
+            "scale": [
+                [1, "Não seria"],
+                [100, "Seria muito"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 23,
+            "title": "Coisas que cheiram bem",
+            "scale": [
+                [1, "Cheiro normal"],
+                [100, "Faria um perfume disso"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 24,
+            "title": "Coisas que você gostaria de fazer quando se aposentar",
+            "scale": [
+                [1, "Não faria"],
+                [100, "Faria com toda certeza"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 25,
+            "title": "Coisas importantes para fazer sucesso nas mídias sociais",
+            "scale": [
+                [1, "Pouco importante"],
+                [100, "Obrigatório"]
+            ],
+            "category": 5
+        },
+        {
+            "id": 26,
+            "title": "Comidas famosas",
+            "scale": [
+                [1, "Pouca gente conhece"],
+                [100, "Encontradas em todo o mundo"]
+            ],
+            "category": 2
+        },
+
+        {
+            "id": 27,
+            "title": "Celebridades de filmes e séries mais conhecidas da atualidade",
+            "scale": [
+                [1, "Fez poucas participações"],
+                [100, "Está sempre nos lançamentos"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 28,
+            "title": "Coisas que você gostaria de ter como souvenir",
+            "scale": [
+                [1, "Não teria isso"],
+                [100, "Teria mais de mil"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 29,
+            "title": "Coisas difíceis de suportar",
+            "scale": [
+                [1, "Não tão difícil"],
+                [100, "Praticamente impossível"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 30,
+            "title": "Habilidades essenciais para um comediante",
+            "scale": [
+                [1, "Desnecessário"],
+                [100, "Obrigatório"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 31,
+            "title": "Coisas pesadas",
+            "scale": [
+                [1, "Levinho"],
+                [100, "Pesado"]
+            ],
+            "category": 5
+        },
+        {
+            "id": 32,
+            "title": "Figuras históricas populares",
+            "scale": [
+                [1, "Sei nem quem é"],
+                [100, "Figura importante"]
+            ],
+            "category": 5
+        },
+        {
+            "id": 33,
+            "title": "Coisas que você desejava quando criança",
+            "scale": [
+                [1, "Nem queria"],
+                [100, "Queria pra caramba"]
+            ],
+            "category": 6
+        },
+        {
+            "id": 34,
+            "title": "Coisas úteis em uma casa",
+            "scale": [
+                [1, "Inútil"],
+                [100, "Muito útil"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 35,
+            "title": "Coisas que fazem você se sentir amado(a)",
+            "scale": [
+                [1, "Não faz"],
+                [100, "Puro amor"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 36,
+            "title": "Canções famosas",
+            "scale": [
+                [1, "Ninguém conhece"],
+                [100, "Todo mundo canta junto"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 37,
+            "title": "Marcas mais valiosas",
+            "scale": [
+                [1, "Vale pouco"],
+                [100, "Vale bilhões"]
+            ],
+            "category": 5
+        },
+        {
+            "id": 38,
+            "title": "Coisas que você quer fazer logo quando acorda",
+            "scale": [
+                [1, "Não quero fazer"],
+                [100, "Quero muito"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 39,
+            "title": "Sons que te fazem feliz",
+            "scale": [
+                [1, "Nem é som"],
+                [100, "Felicidade para os ouvidos"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 40,
+            "title": "Pense como um estudante do ensino médio: o que é legal?",
+            "scale": [
+                [1, "Cringe"],
+                [100, "Super legal"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 41,
+            "title": "Presentes de aniversário mais comuns",
+            "scale": [
+                [1, "Ninguém ganha"],
+                [100, "Todo mundo já ganhou"]
+            ],
+            "category": 5
+        },
+        {
+            "id": 42,
+            "title": "Países populares para viajar",
+            "scale": [
+                [1, "Ninguém vai"],
+                [100, "Todo mundo já foi"]
+            ],
+            "category": 5
+        },
+        {
+            "id": 43,
+            "title": "Coisas que te fazem feliz quando feitas pelo seu amor",
+            "scale": [
+                [1, "Pouco feliz"],
+                [100, "Muito feliz"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 44,
+            "title": "Animais nos quais você gostaria de montar",
+            "scale": [
+                [1, "Não gostaria"],
+                [100, "Queria demais"]
+            ],
+            "category": 4
+        },
+        {
+            "id": 45,
+            "title": "Pense como uma criança: o que te faz feliz?",
+            "scale": [
+                [1, "Não te faz muito feliz"],
+                [100, "Isso sim é felicidade"]
+            ],
+            "category": 6
+        },       
+        {
+            "id": 46,
+            "title": "Vilões mais temíveis",
+            "scale": [
+                [1, "Até eu encarava"],
+                [100, "Me faz ter pesadelos"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 47,
+            "title": "Coisas fofinhas",
+            "scale": [
+                [1, "Pouco fofinho"],
+                [100, "Um cuti-cuti"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 48,
+            "title": "Atividades difíceis de serem feitas sozinho(a)",
+            "scale": [
+                [1, "Dá pra fazer"],
+                [100, "Impossível"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 49,
+            "title": "Habilidades úteis para o trabalho",
+            "scale": [
+                [1, "Inútil"],
+                [100, "Essencial"]
+            ],
+            "category": 5
+        },
+        {
+            "id": 50,
+            "title": "Pense como um gato: os lugares mais confortáveis do mundo",
+            "scale": [
+                [1, "Pouco confortável"],
+                [100, "Muito confortável"]
+            ],
+            "category": 4
+        },        
+        {
+            "id": 51,
+            "title": "Tamanho de animais",
+            "scale": [
+                [1, "Pequeno"],
+                [100, "Enorme"]
+            ],
+            "category": 5
+        },
+        {
+            "id": 52,
+            "title": "Coisas leves",
+            "scale": [
+                [1, "Pouco leve"],
+                [100, "Levíssimo"]
+            ],
+            "category": 5
+        },
+        {
+            "id": 53,
+            "title": "Frases estranhas se ditas por uma criança de 5 anos",
+            "scale": [
+                [1, "Normal"],
+                [100, "Muito estranho"]
+            ],
+            "category": 6
+        },
+        {
+            "id": 54,
+            "title": "Algo que te surpreenderia se fosse achado embaixo de uma pedra no parque",
+            "scale": [
+                [1, "Algo comum"],
+                [100, "Algo surpreendente"]
+            ],
+            "category": 4
+        },
+        {
+            "id": 55,
+            "title": "Coisas confiáveis por todo o sempre",
+            "scale": [
+                [1, "Pouco confiável"],
+                [100, "Confiável eternamente"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 56,
+            "title": "Lugares onde você vai com frequência",
+            "scale": [
+                [1, "Vai muito pouco"],
+                [100, "Vai muito"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 57,
+            "title": "Drinques populares",
+            "scale": [
+                [1, "Ninguém bebe isto"],
+                [100, "Todo mundo já bebeu"]
+            ],
+            "category": 5
+        },
+        {
+            "id": 58,
+            "title": "Pedidos de casamento que te fariam feliz",
+            "scale": [
+                [1, "Aquele de passar vergonha"],
+                [100, "Algo memorável"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 59,
+            "title": "Itens encontrados em um baú do tesouro que você gostaria de ter",
+            "scale": [
+                [1, "Não gostaria"],
+                [100, "Queria muito"]
+            ],
+            "category": 4
+        },
+        {
+            "id": 60,
+            "title": "Tipos de festivais que você gostaria de participar",
+            "scale": [
+                [1, "Não iria nem pagando"],
+                [100, "Gastaria o salário pra ir"]
+            ],
+            "category": 5
+        },
+        {
+            "id": 61,
+            "title": "Brinquedos mais conhecidos",
+            "scale": [
+                [1, "Desconhecido"],
+                [100, "Toda criança já teve um"]
+            ],
+            "category": 6
+        },
+        {
+            "id": 62,
+            "title": "Coisas que te deixam com sono",
+            "scale": [
+                [1, "Acordadíssimo"],
+                [100, "zzzzzz..."]
+            ],
+            "category": 2
+        },
+        {
+            "id": 63,
+            "title": "Itens úteis quando você está perdido(a) no deserto",
+            "scale": [
+                [1, "Não serve para nada"],
+                [100, "Salvaria sua vida"]
+            ],
+            "category": 4
+        },
+        
+        {
+            "id": 64,
+            "title": "Momentos históricos que você visitaria se tivesse uma máquina do tempo",
+            "scale": [
+                [1, "Não, loucura!"],
+                [100, "Iria agora"]
+            ],
+            "category": 4
+        },
+        {
+            "id": 65,
+            "title": "Pense como um vilão: qual seria o personagem heróico que você menos gostaria de enfrentar?",
+            "scale": [
+                [1, "Derrotaria facilmente"],
+                [100, "Tenho medo até da sombra"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 66,
+            "title": "Palavras que você gostaria de ouvir",
+            "scale": [
+                [1, "Praticamente uma ofensa"],
+                [100, "Mais que um elogio"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 67,
+            "title": "Veículos mais comuns",
+            "scale": [
+                [1, "Nunca vi"],
+                [100, "Tem um em cada esquina"]
+            ],
+            "category": 5
+        },
+        {
+            "id": 68,
+            "title": "Coisas que te surpreenderiam se saíssem do seu corpo",
+            "scale": [
+                [1, "Normal"],
+                [100, "Não dá pra imaginar isso"]
+            ],
+            "category": 4
+        },
+        {
+            "id": 69,
+            "title": "Alimentos que fazem bem",
+            "scale": [
+                [1, "Nada saudável"],
+                [100, "Puro suco de saúde"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 70,
+            "title": "Pense como um cientista: o que você gostaria de descobrir?",
+            "scale": [
+                [1, "Não gostaria de descobrir"],
+                [100, "Merece um Nobel"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 71,
+            "title": "Itens úteis para levar a uma ilha deserta",
+            "scale": [
+                [1, "Inútil"],
+                [100, "Muito útil"]
+            ],
+            "category": 4
+        },
+        {
+            "id": 72,
+            "title": "Piadas mais engraçadas",
+            "scale": [
+                [1, "Lisa e ofensiva"],
+                [100, "Muito engraçada"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 73,
+            "title": "Melhores nomes de golpes especiais para gritar",
+            "scale": [
+                [1, "Não botou medo"],
+                [100, "Isso sim impõe respeito"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 74,
+            "title": "Títulos de livros que te deixariam curioso para saber seu conteúdo",
+            "scale": [
+                [1, "Ninguém se importaria"],
+                [100, "Vou comprar"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 75,
+            "title": "Pense como um cachorro: o que te faz feliz?",
+            "scale": [
+                [1, "Nada AU-dancioso"],
+                [100, "De balançar a cauda"]
+            ],
+            "category": 4
+        },
+        {
+            "id": 76,
+            "title": "Melhores jogos de tabuleiro já lançados",
+            "scale": [
+                [1, "Aquele que flopou muito"],
+                [100, "Digno de um prêmio Spiel"]
+            ],
+            "category": 6
+        },
+        {
+            "id": 77,
+            "title": "Itens diferentões que você gostaria de ter",
+            "scale": [
+                [1, "Nem tanto"],
+                [100, "Isso é muito legal"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 78,
+            "title": "Características de pessoas que você gostaria de ter em seu círculo de amizade",
+            "scale": [
+                [1, "Nada interessante"],
+                [100, "BFF na certa"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 79,
+            "title": "Pense como um mago: qual seria o seu feitiço favorito?",
+            "scale": [
+                [1, "Feitiço comum"],
+                [100, "Usaria toda hora"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 80,
+            "title": "Coisas que surpreenderiam se fossem ditas por um professor",
+            "scale": [
+                [1, "Faz parte da aula"],
+                [100, "Por essa ninguém esperava"]
+            ],
+            "category": 5
+        },
+        {
+            "id": 81,
+            "title": "As coisas mais bonitas do mundo",
+            "scale": [
+                [1, "Ok"],
+                [100, "Visão do paraíso"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 82,
+            "title": "Os doces mais conhecidos",
+            "scale": [
+                [1, "Nunca vi, nem comi, só ouço falar"],
+                [100, "Vende em todo lugar"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 83,
+            "title": "Amor verdadeiro ou apenas uma aventura?",
+            "scale": [
+                [1, "Aventura"],
+                [100, "Amor verdadeiro"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 84,
+            "title": "Pense como um herói: qual seria sua pose? (Demonstre-a)",
+            "scale": [
+                [1, "Lamentável"],
+                [100, "Épica"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 85,
+            "title": "Mundos imaginários que você gostaria de visitar",
+            "scale": [
+                [1, "Não gostaria"],
+                [100, "Viveria lá o resto da vida"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 86,
+            "title": "Coisas populares com crianças",
+            "scale": [
+                [1, "Pouco conhecida"],
+                [100, "Muito famosa"]
+            ],
+            "category": 6
+        },
+        {
+            "id": 87,
+            "title": "Os nomes mais legais",
+            "scale": [
+                [1, "Muito comum"],
+                [100, "Meu filho vai ter"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 88,
+            "title": "Coisas que você faz quando está de bom humor",
+            "scale": [
+                [1, "Nunca faço"],
+                [100, "Faço muito"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 89,
+            "title": "Pense como um explorador: que lugares te deixam animado?",
+            "scale": [
+                [1, "Desanimador"],
+                [100, "Bora lá agora"]
+            ],
+            "category": 4
+        },
+        {
+            "id": 90,
+            "title": "Habilidades úteis em relacionamentos",
+            "scale": [
+                [1, "Inútil"],
+                [100, "Essencial"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 91,
+            "title": "Personagens mais fortes da ficção",
+            "scale": [
+                [1, "Fraco demais"],
+                [100, "Indestrutível"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 92,
+            "title": "Lugares onde mais acontecem encontros românticos",
+            "scale": [
+                [1, "Poucos encontros"],
+                [100, "Está acontecendo um agora"]
+            ],
+            "category": 5
+        },
+        {
+            "id": 93,
+            "title": "Um único prato pra comer até o fim da vida",
+            "scale": [
+                [1, "Não escolheria"],
+                [100, "Comeria agora, inclusive"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 94,
+            "title": "Pense como um adolescente: o que seria algo ruim se acontecesse durante a aula?",
+            "scale": [
+                [1, "Nem vi"],
+                [100, "Que vergonha!"]
+            ],
+            "category": 5
+        },
+        {
+            "id": 95,
+            "title": "Personagens fictícios com os piores temperamentos",
+            "scale": [
+                [1, "De boas"],
+                [100, "Explosivo"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 96,
+            "title": "Coisas que você ficaria feliz em encontrar no seu bolso ou bolsa",
+            "scale": [
+                [1, "Nada feliz"],
+                [100, "Alegria pura"]
+            ],
+            "category": 2
+        },
+        {
+            "id": 97,
+            "title": "Caretas engraçadas (faça-as)",
+            "scale": [
+                [1, "Isso é ridículo"],
+                [100, "Muito engraçada!"]
+            ],
+            "category": 6
+        },
+        {
+            "id": 98,
+            "title": "Ações e atitudes que exigem coragem",
+            "scale": [
+                [1, "Nada corajoso"],
+                [100, "Pura coragem"]
+            ],
+            "category": 3
+        },
+        {
+            "id": 99,
+            "title": "Se você tivesse um alter ego, o que gostaria que ele fosse?",
+            "scale": [
+                [1, "Não gostaria"],
+                [100, "É meu tipo"]
+            ],
+            "category": 4
+        },
+        {
+            "id": 100,
+            "title": "Habilidades importantes para um streamer",
+            "scale": [
+                [1, "Desnecessária"],
+                [100, "Obrigatória"]
+            ],
+            "category": 5
+        }
+    ]
+}

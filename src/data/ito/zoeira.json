@@ -1,0 +1,162 @@
+{
+    "name": "Ito: Expansão da Zoeira",
+    "description": "Temas focados em humor, situações constrangedoras e caos para animar a galera.",
+    "categories": [
+        {
+            "id": 1,
+            "name": "Zoeira"
+        }
+    ],
+    "items": [
+        {
+            "id": 1,
+            "title": "Piores momentos para soltar um pum barulhento",
+            "scale": [
+                [1, "Sozinho no banheiro de casa"],
+                [50, "No meio de um elevador lotado"],
+                [100, "Durante um minuto de silêncio"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 2,
+            "title": "Coisas que você encontraria no histórico de busca de um psicopata",
+            "scale": [
+                [1, "Receita de bolo de cenoura"],
+                [50, "Como stalkear o ex sem ele saber"],
+                [100, "Melhores lugares para esconder um corpo"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 3,
+            "title": "Desculpas esfarrapadas para não ir ao trabalho",
+            "scale": [
+                [1, "Estou realmente doente"],
+                [50, "Meu cachorro comeu a chave do carro"],
+                [100, "Fui abduzido por alienígenas, mas já voltei"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 4,
+            "title": "Frases para estragar um primeiro encontro",
+            "scale": [
+                [1, "Você está muito bonito(a)"],
+                [50, "Você parece muito com minha mãe/pai"],
+                [100, "Eu esqueci minha tornozeleira eletrônica em casa"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 5,
+            "title": "Presentes de Amigo Oculto que causariam uma briga",
+            "scale": [
+                [1, "Uma caixa de bombom"],
+                [50, "Um desodorante vencido"],
+                [100, "Um teste de gravidez positivo (anônimo)"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 6,
+            "title": "Profissões onde 'estar bêbado' é mais perigoso",
+            "scale": [
+                [1, "Degustador de vinhos"],
+                [50, "Palhaço de festa infantil"],
+                [100, "Cirurgião cerebral"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 7,
+            "title": "Coisas que fariam você ser expulso do grupo da família no WhatsApp",
+            "scale": [
+                [1, "Mandar 'Bom dia' com florzinha"],
+                [50, "Discutir política no Natal"],
+                [100, "Mandar o 'Gemidão do Zap' no volume máximo"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 8,
+            "title": "Piores tatuagens para se fazer no rosto",
+            "scale": [
+                [1, "Uma pintinha falsa"],
+                [50, "O nome do ex-namorado(a)"],
+                [100, "Um alvo na testa"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 9,
+            "title": "Situações onde é proibido rir, mas é impossível segurar",
+            "scale": [
+                [1, "Assistindo uma comédia ruim"],
+                [50, "Quando alguém cai na rua (sem se machucar)"],
+                [100, "Quando o chefe está dando uma bronca séria e tem alface no dente"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 10,
+            "title": "Coisas estranhas para dizer ao atendente do McDonald's",
+            "scale": [
+                [1, "Me vê um Big Mac, por favor"],
+                [50, "O palhaço está me observando?"],
+                [100, "Eu gostaria de fritar minhas próprias batatas, por favor"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 11,
+            "title": "Piores segredos para revelar no leito de morte",
+            "scale": [
+                [1, "Eu roubei uma bala na infância"],
+                [50, "Eu nunca gostei do seu cozido"],
+                [100, "Toda a herança está enterrada em um lugar que eu esqueci"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 12,
+            "title": "Superpoderes inúteis",
+            "scale": [
+                [1, "Voar"],
+                [50, "Ficar invisível, mas só quando ninguém tá olhando"],
+                [100, "Atrair balas (de revólver) com o corpo"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 13,
+            "title": "Maneiras ridículas de começar uma briga de bar",
+            "scale": [
+                [1, "Derrubar a cerveja de alguém sem querer"],
+                [50, "Criticar o time de futebol local"],
+                [100, "Lamber a careca do motoqueiro mais forte"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 14,
+            "title": "Coisas que você não gostaria de ouvir do piloto do avião",
+            "scale": [
+                [1, "Apertem os cintos, vamos decolar"],
+                [50, "Alguém aí sabe pilotar isso aqui?"],
+                [100, "Olha mãe! Sem as mãos!"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 15,
+            "title": "Legendas de foto que fariam você perder seguidores",
+            "scale": [
+                [1, "Gratidão #blessed"],
+                [50, "Aqui é trabalho (foto na praia)"],
+                [100, "Acabei de cometer um crime, deletando em 5 min"]
+            ],
+            "category": 1
+        }
+    ]
+}

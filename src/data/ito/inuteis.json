@@ -1,0 +1,132 @@
+{
+    "name": "Expansão: Conhecimentos Gerais Inúteis",
+    "description": "Temas focados em fatos curiosos, nichados e saberes que provavelmente não vão mudar sua vida, mas são divertidos.",
+    "categories": [
+        {
+            "id": 1,
+            "name": "Conhecimentos Inúteis"
+        }
+    ],
+    "items": [
+        {
+            "id": 1,
+            "title": "Nível de obscuridade de capitais de países",
+            "scale": [
+                [1, "Paris (França) - Todo mundo sabe"],
+                [25, "Buenos Aires (Argentina) - Vizinho"],
+                [50, "Camberra (Austrália) - Muita gente erra"],
+                [75, "Ulan Bator (Mongólia) - Difícil"],
+                [100, "Ngerulmud (Palau) - Ninguém sabe"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 2,
+            "title": "Utilidade de fatos aprendidos na escola no dia a dia",
+            "scale": [
+                [1, "Ler e escrever"],
+                [25, "Somar o troco do pão"],
+                [50, "Regra de três"],
+                [75, "Tabela Periódica"],
+                [100, "Fórmula de Bhaskara"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 3,
+            "title": "Leis bizarras ao redor do mundo",
+            "scale": [
+                [1, "Proibido roubar (Lei Comum)"],
+                [25, "Proibido jogar lixo no chão"],
+                [50, "Proibido mascar chiclete (Cingapura)"],
+                [75, "Proibido esquecer o aniversário da esposa (Samoa)"],
+                [100, "Proibido morrer no Parlamento (Reino Unido)"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 4,
+            "title": "Fatos sobre o Reino Animal",
+            "scale": [
+                [1, "O cachorro faz 'au-au'"],
+                [25, "O gueopardo é rápido"],
+                [50, "O ornitorrinco põe ovos"],
+                [75, "Wombats fazem cocô em forma de cubo"],
+                [100, "Tardígrados sobrevivem no vácuo espacial"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 5,
+            "title": "Eventos históricos que parecem mentira",
+            "scale": [
+                [1, "O homem foi à Lua"],
+                [25, "Napoleão era baixo (mito)"],
+                [50, "Austrália perdeu uma guerra contra Emus (aves)"],
+                [75, "Cleópatra viveu mais perto do iPhone do que das Pirâmides"],
+                [100, "A Guerra do Balde (1325) causada por um balde de madeira"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 6,
+            "title": "Coisas que você encontraria no 'Guinness Book'",
+            "scale": [
+                [1, "Pessoa mais alta do mundo"],
+                [25, "Unhas mais longas"],
+                [50, "Maior tempo prendendo a respiração"],
+                [75, "Maior coleção de patinhos de borracha"],
+                [100, "Maior distância ao soprar uma ervilha"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 7,
+            "title": "Nomes científicos de coisas comuns",
+            "scale": [
+                [1, "Homo Sapiens (Humano)"],
+                [25, "Canis lupus familiaris (Cão)"],
+                [50, "Musa (Banana)"],
+                [75, "Solanum lycopersicum (Tomate)"],
+                [100, "Rattus norvegicus (Ratazana marrom)"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 8,
+            "title": "Invenções e seus criadores",
+            "scale": [
+                [1, "Thomas Edison (Lâmpada)"],
+                [25, "Santos Dumont (Avião/Relógio de Pulso)"],
+                [50, "Alexander Graham Bell (Telefone)"],
+                [75, "László Bíró (Caneta Esferográfica)"],
+                [100, "Johan Vaaler (Clipe de papel - supostamente)"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 9,
+            "title": "Curiosidades sobre o corpo humano",
+            "scale": [
+                [1, "Temos dois pulmões"],
+                [25, "O coração bombeia sangue"],
+                [50, "O fêmur é mais forte que concreto"],
+                [75, "Trocamos de pele completamente a cada mês"],
+                [100, "Produzimos saliva suficiente para encher 2 piscinas na vida"]
+            ],
+            "category": 1
+        },
+        {
+            "id": 10,
+            "title": "Fatos sobre alimentos",
+            "scale": [
+                [1, "A água molha"],
+                [25, "Tomate é fruta"],
+                [50, "Amendoim é uma leguminosa, não uma noz"],
+                [75, "Cenouras eram roxas originalmente"],
+                [100, "O mel é o único alimento que nunca estraga"]
+            ],
+            "category": 1
+        }
+    ]
+}
