@@ -12,7 +12,7 @@ const Pato = lazy(() => import('@components/games/PatoGame'));
 export function AppRoutes() {
     return (
         <Suspense>
-            <BrowserRouter>
+            <BrowserRouter basename={import.meta.env.BASE_URL}>
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route
