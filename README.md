@@ -64,8 +64,8 @@ Pré-requisitos: Tenha o [Node.js](https://nodejs.org/) instalado.
 
 1. **Clone o repositório:**
     ```bash
-    git clone [https://github.com/seu-usuario/groupgames.git](https://github.com/seu-usuario/groupgames.git)
-    cd groupgames
+    git clone [https://github.com/LucasMarrane/group-games-hub.git](https://github.com/LucasMarrane/group-games-hub.git)
+    cd group-games-hub
     ```
 2. **Instale as dependências:**
 
