@@ -30,9 +30,11 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v5
 
-      - name: Build
-        uses: actions/setup-node@v6      
-        run: npm ci
+      - name: Setup Node
+        uses: actions/setup-node@v6   
+        run: npm ci   
+
+      - name: Build project
         run: npm run build
 
       - name: Upload production-ready build files
