@@ -21,7 +21,10 @@ jobs:
             - name: Instalar dependências
               run: npm install
 
-            - name: Build do Vite com Variáveis de Ambiente             
+            - name: Build do Vite com Variáveis de Ambiente   
+              env:
+                VITE_BASE_PATH: /${{ github.event.repository.name }}/ 
+
               run: npm run build -- --base=/${{ github.event.repository.name }}/
 
             - name: Deploy para branch gh-pages
