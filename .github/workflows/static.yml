@@ -28,15 +28,11 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-
-      - name: Install dependencies
-        uses: bahmutov/npm-install@v1
-
-      - name: Build project
+      - name: Build
+        uses: actions/setup-node@v6      
+        run: npm ci
         run: npm run build
 
       - name: Upload production-ready build files
@@ -47,7 +43,7 @@ jobs:
 
   # Single deploy job since we're just deploying
   deploy:
-    name: Build
+    name: Deploy
     needs: build
     runs-on: ubuntu-latest
     environment:
