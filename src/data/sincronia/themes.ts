@@ -9,4 +9,4 @@ import variedades from './variedades.json';
 import zoeira from './zoeira.json';
 import { ThemeExpansion } from '@/@types/ito';
 
-export const ItoThemes = [base, brasilidades, clt, dilemas, inuteis, pop, sobrevivencia, variedades, zoeira] as ThemeExpansion[];
+export const SincroniaThemes = [base, brasilidades, clt, dilemas, inuteis, pop, sobrevivencia, variedades, zoeira] as ThemeExpansion[];

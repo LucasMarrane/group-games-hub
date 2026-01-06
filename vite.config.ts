@@ -56,6 +56,8 @@ export default defineConfig(() => {
                 '@shadcn': path.resolve(__dirname, './src/@shadcn'),
                 '@appTypes': path.resolve(__dirname, './src/@types'),
                 '@data': path.resolve(__dirname, './src/data'),
+                '@features': path.resolve(__dirname, './src/features'),
+                '@games': path.resolve(__dirname, './src/features/games'),
                 '@': path.resolve(__dirname, './src'),
             },
         },

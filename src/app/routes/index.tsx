@@ -5,9 +5,9 @@ import { BrowserRouter, Outlet, Route, Routes } from 'react-router';
 const Home = lazy(() => import('@view/pages/Home'));
 const NotFound = lazy(() => import('@view/pages/NotFound'));
 
-const Sincronia = lazy(() => import('@components/games/SincroniaGame'));
-const Mimica = lazy(() => import('@components/games/MimicaGame'));
-const Pato = lazy(() => import('@components/games/PatoGame'));
+const Sincronia = lazy(() => import('@games/SincroniaGame'));
+const Mimica = lazy(() => import('@games/MimicaGame'));
+const NemAPau = lazy(() => import('@games/NemAPauGame'));
 
 export function AppRoutes() {
     return (
@@ -23,9 +23,9 @@ export function AppRoutes() {
                             </GameLayout>
                         }
                     >
-                        <Route path='ito' element={<Sincronia />} />
+                        <Route path='sincronia' element={<Sincronia />} />
                         <Route path='mimica' element={<Mimica />} />
-                        <Route path='pato' element={<Pato />} />
+                        <Route path='nem_a_pau' element={<NemAPau />} />
                     </Route>
                     <Route path='*' element={<NotFound />} />
                 </Routes>

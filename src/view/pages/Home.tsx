@@ -4,7 +4,7 @@ import { Sparkles, Users, Target, Bird } from 'lucide-react';
 
 export default function Home() {
     return (
-        <div className='min-h-screen min-h-[100dvh] p-6 flex flex-col safe-area-top safe-area-bottom'>
+        <div className='min-h-screen max-h-[100dvh] p-6 flex flex-col safe-area-top safe-area-bottom'>
             {/* Hero */}
             <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className='text-center mb-8 mt-8'>
                 <motion.div
@@ -20,20 +20,18 @@ export default function Home() {
                     Group<span className='text-gradient-sincronia'>Games</span>
                 </h1>
                 <p className='text-muted-foreground'>Sua festa, seus jogos, suas risadas!</p>
+                <p className='text-muted-foreground'> Toque em um jogo para começar</p>
             </motion.div>
 
             {/* Games List */}
             <div className='flex-1 space-y-4'>
-                <GameCard title='ITO (Sincronia)' subtitle='Ordene números em equipe' icon={Target} route='/games/ito' variant='sincronia' delay={0.3} />
-
+                <GameCard title='Sincronia' subtitle='Ordene números em equipe' icon={Target} route='/games/sincronia' variant='sincronia' delay={0.3} />
                 <GameCard title='Mímica' subtitle='Represente e adivinhe para pontuar' icon={Users} route='/games/mimica' variant='mimica' delay={0.4} />
-
-                <GameCard title='Nem a Pato' subtitle='Trivia numérica' icon={Bird} route='/games/pato' variant='pato' delay={0.5} />
+                <GameCard title='Nem a Pau' subtitle='Trivia numérica' icon={Bird} route='/games/nem_a_pau' variant='pato' delay={0.5} />
             </div>
 
-            {/* Footer */}
-            <motion.footer initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className='text-center mt-6 text-xs text-muted-foreground'>
-                Toque em um jogo para começar • Feito com ♥ por Lucas Marrane Siler • 2026 - {new Date().getFullYear()}
+            <motion.footer initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className='text-center mt-5 text-xs text-muted-foreground'>
+                • Feito com ♥ por Lucas Marrane Siler • 2026 - {new Date().getFullYear()}
             </motion.footer>
         </div>
     );

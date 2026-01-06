@@ -8,7 +8,7 @@ import { PatoThemes } from '@data/index';
 
 type GamePhase = 'setup' | 'playing';
 
-export const PatoGame = () => {
+export const NemAPauGame = () => {
     const [phase, setPhase] = useState<GamePhase>('setup');
     const [players, setPlayers] = useState<PatoPlayer[]>([
         { id: '1', name: 'Jogador 1', ducks: 0 },
@@ -83,8 +83,8 @@ export const PatoGame = () => {
         <div className='min-h-full p-4 flex flex-col gap-4'>
             {/* Header */}
             <div className='text-center'>
-                <h1 className='text-3xl font-display font-bold text-gradient-pato mb-2'>Nem a Pato</h1>
-                <p className='text-muted-foreground text-sm'>Adivinhe números, desafie, e fuja dos patos!</p>
+                <h1 className='text-3xl font-display font-bold text-gradient-pato mb-2'>Nem a Pau</h1>
+                <p className='text-muted-foreground text-sm'>Adivinhe números, desafie, e fuja dos pontos!</p>
             </div>
 
             <AnimatePresence mode='wait'>
@@ -236,4 +236,4 @@ export const PatoGame = () => {
     );
 };
 
-export default  PatoGame ;
+export default  NemAPauGame ;

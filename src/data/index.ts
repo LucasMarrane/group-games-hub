@@ -1,3 +1,3 @@
-export { ItoThemes } from './ito/themes';
+export { SincroniaThemes as ItoThemes } from './sincronia/themes';
 export { MimicaThemes } from './mimica/themes';
-export { PatoThemes } from './pato/themes';
+export { NemAPauThemes as PatoThemes } from './nem_a_pau/themes';
