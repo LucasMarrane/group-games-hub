@@ -22,7 +22,7 @@ export class ThemeAdapter {
                 const categoryName = categoryMap.get(item.category) || 'Geral';
 
                 // ID único: nome-do-pacote-id-do-item
-                const uniqueId = `${pack.name.replace(/\s+/g, '-').toLowerCase()}-${item.id}`;
+                const uniqueId = `${pack.id.toLowerCase()}-${item.id}`;
 
                 allThemes.push({
                     id: uniqueId,

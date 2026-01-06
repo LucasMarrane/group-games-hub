@@ -1,6 +1,3 @@
-import { ReactNode } from 'react';
-export interface ChildrenProps {
-    children?: ReactNode;
-}
+import { PropsWithChildren } from 'react';
 
-export interface LayoutProps extends ChildrenProps{}
+export interface LayoutProps extends PropsWithChildren {}

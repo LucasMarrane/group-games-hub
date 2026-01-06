@@ -1,5 +1,6 @@
 {
-  "name": "Ito: Terror & Sobrevivência",
+  "id": "sobrevivencia",
+  "name": "Expansão: Terror & Sobrevivência",
   "description": "Temas assustadores, apocalípticos e de sobrevivência. O quanto você duraria no fim do mundo?",
   "categories": [
     { "id": 1, "name": "Sobrevivência" },

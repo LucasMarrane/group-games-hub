@@ -1,6 +1,4 @@
 import { GameCard, GameCardVariant } from '@components/GameCard';
-
-import * as Player from '@components/player';
 import { MimicaGame, NemAPauGame, SincroniaGame } from '@data/index';
 
 import { motion } from 'framer-motion';
@@ -33,7 +31,7 @@ export default function Home() {
                 <p className='text-muted-foreground'> Toque em um jogo para começar</p>
 
                 <div className='flex w-full justify-center mt-2'>
-                    <Player.Button />
+                    {/* <Player.ModalButton /> */}
                 </div>
             </motion.div>
 

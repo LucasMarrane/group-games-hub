@@ -1,5 +1,6 @@
 {
-  "name": "Ito: Mundo Corporativo (Sobrevivendo ao CLT)",
+  "id": "clt",
+  "name": "Expansão: Mundo Corporativo (Sobrevivendo ao CLT)",
   "description": "Temas para quem ama odiar o trabalho: reuniões, chefes, home office e LinkedIn.",
   "categories": [
     { "id": 1, "name": "Escritório e Home Office" },

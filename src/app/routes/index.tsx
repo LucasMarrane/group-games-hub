@@ -5,7 +5,7 @@ import { BrowserRouter, Outlet, Route, Routes } from 'react-router';
 const Home = lazy(() => import('@view/pages/Home'));
 const NotFound = lazy(() => import('@view/pages/NotFound'));
 
-const Sincronia = lazy(() => import('@games/Sincronia'));
+const Sincronia = lazy(() => import('@games/sincronia'));
 const Mimica = lazy(() => import('@games/Mimica'));
 const NemAPau = lazy(() => import('@games/NemAPau'));
 

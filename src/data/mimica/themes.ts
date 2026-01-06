@@ -1,15 +1,12 @@
-import base from './default.json'
-
-
-interface IGames<Expansion> {
-    name: string;
-    hint: string;
-    description: string;
-    themes: Expansion[];
-}
+import { IGames } from '@appTypes/game';
+import base from './default.json';
+import { UUID_GAMES } from '@/utils/uuid/games';
 
 class Mimica implements IGames<any> {
-    private _themes = [base] ;
+    private _themes = [base];
+    get uuid() {
+        return UUID_GAMES.mimica;
+    }
     get name() {
         return 'Mímica';
     }

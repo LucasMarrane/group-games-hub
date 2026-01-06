@@ -1,5 +1,6 @@
 {
-  "name": "Ito: Mega Expansão de Variedades",
+  "id": "variedades",
+  "name": "Expansão: Mega Expansão de Variedades",
   "description": "Um pacote completo com 100 novos temas misturando cotidiano, cultura pop, dilemas morais e situações absurdas para garantir a diversão.",
   "categories": [
     { "id": 1, "name": "Cotidiano e Perrengues" },

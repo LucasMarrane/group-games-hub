@@ -1,5 +1,6 @@
 {
-  "name": "Ito: Dilemas Morais (O Tribunal)",
+  "id": "dilemas",
+  "name": "Expansão: Dilemas Morais (O Tribunal)",
   "description": "Julgue seus amigos e a sociedade. Temas sobre ética, leis, comportamento e situações hipotéticas.",
   "categories": [
     { "id": 1, "name": "Crimes e Punições" },

@@ -2,13 +2,14 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router';
 import { LucideIcon } from 'lucide-react';
 
-export type GameCardVariant =  'sincronia' | 'mimica' | 'nem_a_pau';
+export type GameCardVariant = 'sincronia' | 'mimica' | 'nem_a_pau';
+
 interface GameCardProps {
     title: string;
     subtitle: string;
     icon: LucideIcon;
     route: string;
-    variant: GameCardVariant,
+    variant: GameCardVariant;
     delay?: number;
 }
 
@@ -30,7 +31,7 @@ const variantStyles = {
     },
 };
 
-export const GameCard = ({ title, subtitle, icon: Icon, route, variant, delay = 0 }: GameCardProps) => {
+export function GameCard({ title, subtitle, icon: Icon, route, variant, delay = 0 }: GameCardProps) {
     const navigate = useNavigate();
     const styles = variantStyles[variant];
 
@@ -66,4 +67,4 @@ export const GameCard = ({ title, subtitle, icon: Icon, route, variant, delay = 
             </div>
         </motion.button>
     );
-};
+}

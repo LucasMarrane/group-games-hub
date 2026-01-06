@@ -8,16 +8,14 @@ import sobrevivencia from './sobrevivencia.json';
 import variedades from './variedades.json';
 import zoeira from './zoeira.json';
 import { ThemeExpansion } from '@appTypes/sincronia';
-
-interface IGames<Expansion> {
-    name: string;
-    hint: string;
-    description: string;
-    themes: Expansion[];
-}
+import { UUID_GAMES } from '@/utils/uuid/games';
+import { IGames } from '@appTypes/game';
 
 class Sincronia implements IGames<ThemeExpansion> {
     private _themes = [base, brasilidades, clt, dilemas, inuteis, pop, sobrevivencia, variedades, zoeira] as ThemeExpansion[];
+    get uuid() {
+        return UUID_GAMES.sincronia;
+    }
     get name() {
         return 'Sincronia';
     }
@@ -31,6 +29,14 @@ class Sincronia implements IGames<ThemeExpansion> {
 
     get themes() {
         return this._themes;
+    }
+
+    get categories() {
+        return this._themes.flatMap((i) => i.categories.map((c) => ({ label: c.name, value: `${i.id}-${c.id}` })));
+    }
+
+    get expansions() {
+        return this._themes.map((i) => ({ label: i.name, value: i.id }));
     }
 }
 

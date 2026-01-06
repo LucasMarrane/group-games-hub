@@ -1,1 +1,1 @@
-export {ModalButton as Button } from './player.button'
+export {ModalButton} from './player.button'

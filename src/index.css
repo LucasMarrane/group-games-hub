@@ -134,6 +134,7 @@
         --gradient-mimica: linear-gradient(135deg, hsl(160 70% 45%), hsl(150 80% 55%));
         --gradient-nem_a_pau: linear-gradient(135deg, hsl(190 90% 50%), hsl(270 75% 60%));
         --gradient-dark: linear-gradient(180deg, hsl(240 15% 9%), hsl(240 15% 6%));
+        --gradient-accent: linear-gradient(135deg, hsl(175, 70%, 45%) 0%, hsl(160, 65%, 50%) 100%);
 
         /* Shadows */
         --shadow-glow-sincronia: 0 0 40px hsl(16 90% 60% / 0.4);
@@ -195,7 +196,11 @@
     }
 
     .gradient-sincronia-progress {
-        background: var( --gradient-sincronia-progress);
+        background: var(--gradient-sincronia-progress);
+    }
+
+    .gradient-accent {
+        background: var(--gradient-accent);
     }
 
     .gradient-mimica {
@@ -245,6 +250,20 @@
 
     .safe-area-top {
         padding-top: env(safe-area-inset-top);
+    }
+}
+
+@layer components {
+    .theme-card {
+        @apply relative bg-card rounded-2xl p-5 shadow-card transition-all duration-300;
+    }
+
+    .theme-card:hover {
+        @apply -translate-y-1;
+    }
+
+    .category-badge {
+        @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
     }
 }
 

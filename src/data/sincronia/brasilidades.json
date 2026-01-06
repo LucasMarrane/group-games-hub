@@ -1,5 +1,6 @@
 {
-  "name": "Ito: Brasilidades (Edição Caos Tupiniquim)",
+  "id": "brasilidades",
+  "name": "Expansão: Brasilidades (Edição Caos Tupiniquim)",
   "description": "Edição especial com o puro suco do Brasil: memes, comidas, perrengues e cultura nacional.",
   "categories": [
     { "id": 1, "name": "Comida e Bebida" },

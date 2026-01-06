@@ -1,5 +1,6 @@
 {
-  "name": "Ito: Geek & Pop (Multiverso)",
+  "id": "pop",
+  "name": "Expansão: Geek & Pop (Multiverso)",
   "description": "De Star Wars a Marvel, passando por animes e videogames. O pacote para os nerds.",
   "categories": [
     { "id": 1, "name": "Filmes e Séries" },

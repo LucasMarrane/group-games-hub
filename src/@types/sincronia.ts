@@ -17,6 +17,7 @@ export interface RawThemeItem {
 }
 
 export interface ThemeExpansion {
+    id: string;
     name: string;
     description: string;
     categories: RawCategory[];
