@@ -8,7 +8,7 @@ import { NemAPauGame } from '@/data/index';
 
 type GamePhase = 'setup' | 'playing';
 
-export function NemAPau()  {
+export function NemAPau() {
     const [phase, setPhase] = useState<GamePhase>('setup');
     const [players, setPlayers] = useState<PatoPlayer[]>([
         { id: '1', name: 'Jogador 1', ducks: 0 },
@@ -234,6 +234,6 @@ export function NemAPau()  {
             </AnimatePresence>
         </div>
     );
-};
+}
 
-export default  NemAPauGame ;
+export default NemAPau;

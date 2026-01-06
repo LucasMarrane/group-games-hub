@@ -15,15 +15,13 @@ export function Sincronia(){
     const pickRandomTheme = useCallback(() => {
         const randomIndex = Math.floor(Math.random() * themes.length);
         setCurrentTheme(themes[randomIndex]);
-    }, [themes]);
-
-   
+    }, [themes]);   
 
     return (
         <div className='min-h-full p-4 flex flex-col gap-6'>
             {/* Header */}
             <div className='text-center'>
-                <h1 className='text-3xl font-display font-bold text-gradient-sincronia mb-2'>Sincronia</h1>
+                <h1 className='text-3xl font-display font-bold text-gradient-sincronia mb-2'>{SincroniaGame.name}</h1>
                 <p className='text-muted-foreground text-sm'>Ordenem seus números baseados no tema!</p>
             </div>
 

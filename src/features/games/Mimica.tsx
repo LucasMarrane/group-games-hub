@@ -272,4 +272,4 @@ export function Mimica() {
     );
 }
 
-export default MimicaGame;
+export default Mimica;

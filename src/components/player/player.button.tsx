@@ -4,7 +4,7 @@ import { Button as SButton } from '@shadcn/components/ui/button';
 
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@shadcn/components/ui/dialog';
 import { Avatar, AvatarFallback } from '@shadcn/components/ui/avatar';
-import { EllipsisVertical } from 'lucide-react';
+import { EllipsisVertical, Mail, User, UserPen } from 'lucide-react';
 import { useSessionStore } from '@/hooks/useSessionStore';
 import { withOnlineStatus } from '@/utils/hoc/withOnlineStatus';
 
@@ -18,7 +18,7 @@ import { useState } from 'react';
 const playerSchema = Yup.object({
     name: Yup.string().default(''),
     nickname: Yup.string().default(''),
-    email: Yup.string().default('')
+    email: Yup.string().default(''),
 });
 
 function Button() {
@@ -82,15 +82,24 @@ function Button() {
                     <div className='grid gap-4'>
                         <div className='grid gap-3'>
                             <Label htmlFor='name'>Nome</Label>
-                            <Input {...registerFn('name')} id='name' name='name' required />
+                            <div className='relative'>
+                                <User className='absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground' />
+                                <Input {...registerFn('name')} className='pl-10 ' id='name' name='name' required />
+                            </div>
                         </div>
                         <div className='grid gap-3'>
                             <Label htmlFor='nickname'>Apelido</Label>
-                            <Input {...registerFn('nickname')} id='nickname' name='nickname' disabled required />
+                            <div className='relative'>
+                                <UserPen className='absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground' />
+                                <Input {...registerFn('nickname')} className='pl-10 ' id='nickname' name='nickname' disabled required />
+                            </div>
                         </div>
                         <div className='grid gap-3'>
                             <Label htmlFor='nickname'>Email</Label>
-                            <Input {...registerFn('email')} id='email' name='email' required />
+                            <div className='relative'>
+                                <Mail className='absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground' />
+                                <Input {...registerFn('email')} className='pl-10 ' id='email' name='email' required />
+                            </div>
                         </div>
                     </div>
                     <DialogFooter>
