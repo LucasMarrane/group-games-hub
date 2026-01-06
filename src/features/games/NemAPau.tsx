@@ -1,14 +1,14 @@
 import { useState, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, ChevronRight, Plus, Minus, Users, RotateCcw, Bird } from 'lucide-react';
-import { PatoCard, PatoPlayer } from '@appTypes/pato';
+import { PatoCard, PatoPlayer } from '@appTypes/nem_a_pau';
 import { Button } from '@shadcn/components/ui/button';
 import { Input } from '@shadcn/components/ui/input';
-import { PatoThemes } from '@data/index';
+import { NemAPauGame } from '@/data/index';
 
 type GamePhase = 'setup' | 'playing';
 
-export const NemAPauGame = () => {
+export function NemAPau()  {
     const [phase, setPhase] = useState<GamePhase>('setup');
     const [players, setPlayers] = useState<PatoPlayer[]>([
         { id: '1', name: 'Jogador 1', ducks: 0 },
@@ -19,7 +19,7 @@ export const NemAPauGame = () => {
     const [showAnswer, setShowAnswer] = useState(false);
     const [shuffledCards, setShuffledCards] = useState<PatoCard[]>([]);
 
-    const cards = PatoThemes[0].cards as PatoCard[];
+    const cards = NemAPauGame.themes[0].cards as PatoCard[];
 
     const shuffleCards = useCallback(() => {
         const shuffled = [...cards].sort(() => Math.random() - 0.5);

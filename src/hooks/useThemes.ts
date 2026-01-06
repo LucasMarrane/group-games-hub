@@ -1,6 +1,6 @@
-import {  AdaptedTheme } from '@/@types/ito';
-import { ItoThemes } from '@/data';
-import { ThemeAdapter } from '@/utils/manager/themeManager';
+import {  AdaptedTheme } from '@appTypes/sincronia';
+import { SincroniaGame } from '@/data';
+import { ThemeAdapter } from '@/utils/manager/theme.manager';
 import { useState, useEffect, useCallback } from 'react';
 
 
@@ -9,7 +9,7 @@ const STORAGE_KEY = 'ito_game_data';
 
 export function useThemes() {
     // 1. Inicializa o Adapter e gera os temas planos uma única vez (ou useMemo se expansões mudarem)
-    const initialAllThemes = new ThemeAdapter(ItoThemes).getAdaptedThemes();
+    const initialAllThemes = new ThemeAdapter(SincroniaGame.themes).getAdaptedThemes();
 
     const [state, setState] = useState(() => {
         // Tenta carregar persistência

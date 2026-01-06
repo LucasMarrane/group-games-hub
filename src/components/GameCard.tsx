@@ -2,12 +2,13 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router';
 import { LucideIcon } from 'lucide-react';
 
+export type GameCardVariant =  'sincronia' | 'mimica' | 'nem_a_pau';
 interface GameCardProps {
     title: string;
     subtitle: string;
     icon: LucideIcon;
     route: string;
-    variant: 'sincronia' | 'mimica' | 'pato';
+    variant: GameCardVariant,
     delay?: number;
 }
 
@@ -22,10 +23,10 @@ const variantStyles = {
         glow: 'shadow-glow-mimica',
         textGradient: 'text-gradient-mimica',
     },
-    pato: {
-        gradient: 'gradient-pato',
-        glow: 'shadow-glow-pato',
-        textGradient: 'text-gradient-pato',
+    nem_a_pau: {
+        gradient: 'gradient-nem_a_pau',
+        glow: 'shadow-glow-nem_a_pau',
+        textGradient: 'text-gradient-nem_a_pau',
     },
 };
 

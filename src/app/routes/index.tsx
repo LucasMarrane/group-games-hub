@@ -5,9 +5,9 @@ import { BrowserRouter, Outlet, Route, Routes } from 'react-router';
 const Home = lazy(() => import('@view/pages/Home'));
 const NotFound = lazy(() => import('@view/pages/NotFound'));
 
-const Sincronia = lazy(() => import('@games/SincroniaGame'));
-const Mimica = lazy(() => import('@games/MimicaGame'));
-const NemAPau = lazy(() => import('@games/NemAPauGame'));
+const Sincronia = lazy(() => import('@games/Sincronia'));
+const Mimica = lazy(() => import('@games/Mimica'));
+const NemAPau = lazy(() => import('@games/NemAPau'));
 
 export function AppRoutes() {
     return (

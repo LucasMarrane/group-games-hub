@@ -33,7 +33,7 @@
           "@components/*": ["./src/components/*"],
           "@shadcn/*": ["./src/@shadcn/*"],
           "@appTypes/*": ["./src/@types/*"],
-          "@data/*": ["./src/data/*"],
+          "@data/*": ["src/data/*"],
           "@games/*": ["./src/features/games/*"],
           "@features/*": ["./src/features/*"],
           "@/*": ["./src/*"],

@@ -1,21 +1,23 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {  Shuffle, Sparkles } from 'lucide-react';
-import { AdaptedTheme } from '@appTypes/ito';
+import { Shuffle, Sparkles } from 'lucide-react';
+import { AdaptedTheme } from '@appTypes/sincronia';
 import { Button } from '@shadcn/components/ui/button';
-import { ItoThemes } from '@data/index';
-import { ThemeAdapter } from '@/utils/manager/themeManager';
+import { SincroniaGame } from '@/data';
+import { ThemeAdapter } from '@/utils/manager/theme.manager';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@shadcn/components/ui/tooltip';
 
-
-export const SincroniaGame = () => {
-    const themes = useMemo(() => new ThemeAdapter(ItoThemes).getAdaptedThemes(), []);
+export function Sincronia(){
+  
+    const themes = useMemo(() => new ThemeAdapter(SincroniaGame.themes).getAdaptedThemes(), []);
     const [currentTheme, setCurrentTheme] = useState<AdaptedTheme | null>(null);
 
     const pickRandomTheme = useCallback(() => {
         const randomIndex = Math.floor(Math.random() * themes.length);
         setCurrentTheme(themes[randomIndex]);
     }, [themes]);
+
+   
 
     return (
         <div className='min-h-full p-4 flex flex-col gap-6'>
@@ -49,7 +51,9 @@ export const SincroniaGame = () => {
                                     <TooltipTrigger asChild>
                                         <span className='px-3 py-1 rounded-full bg-secondary/20 text-secondary text-xs font-medium'>{currentTheme.sourcePack}</span>
                                     </TooltipTrigger>
-                                    <TooltipContent className='m-2 bg-secondary text-white max-w-sm'>{ThemeAdapter.getExpansionDescription(currentTheme.sourcePack, ItoThemes)}</TooltipContent>
+                                    <TooltipContent className='m-2 bg-secondary text-white max-w-sm'>
+                                        {ThemeAdapter.getExpansionDescription(currentTheme.sourcePack, SincroniaGame.themes)}
+                                    </TooltipContent>
                                 </Tooltip>
                                 <span className='px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-medium'>{currentTheme.category}</span>
                             </div>
@@ -79,4 +83,4 @@ export const SincroniaGame = () => {
     );
 };
 
-export default SincroniaGame;
+export default Sincronia;

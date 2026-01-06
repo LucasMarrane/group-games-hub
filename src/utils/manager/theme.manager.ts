@@ -1,4 +1,4 @@
-import { ThemeExpansion, AdaptedTheme } from '@/@types/ito';
+import { ThemeExpansion, AdaptedTheme } from '@appTypes/sincronia';
 
 export class ThemeAdapter {
     private expansions: ThemeExpansion[];

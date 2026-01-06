@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Pause, Check, X, RotateCcw, Users, Timer } from 'lucide-react';
 import { Button } from '@shadcn/components/ui/button';
 import { Input } from '@shadcn/components/ui/input';
-import { MimicaThemes } from '@data/index';
+import { MimicaGame } from '@/data/index';
 import { MimicaCard, MimicaCategory, Team } from '@appTypes/mimica';
 
 const categoryInfo: Record<MimicaCategory, { name: string; color: string; icon: string }> = {
@@ -22,7 +22,7 @@ const defaultTeams: Team[] = [
 
 type GamePhase = 'setup' | 'playing' | 'results';
 
-export const MimicaGame = () => {
+export function Mimica() {
     const [phase, setPhase] = useState<GamePhase>('setup');
     const [teams, setTeams] = useState<Team[]>(defaultTeams);
     const [currentTeamIndex, setCurrentTeamIndex] = useState(0);
@@ -32,7 +32,7 @@ export const MimicaGame = () => {
     const [currentCard, setCurrentCard] = useState<MimicaCard | null>(null);
     const [usedCardIds, setUsedCardIds] = useState<Set<number>>(new Set());
 
-    const cards = MimicaThemes[0].cards as MimicaCard[];
+    const cards = MimicaGame.themes[0].cards as MimicaCard[];
 
     const drawCard = useCallback(() => {
         const availableCards = cards.filter((c) => !usedCardIds.has(c.id));
@@ -270,6 +270,6 @@ export const MimicaGame = () => {
             </AnimatePresence>
         </div>
     );
-};
+}
 
 export default MimicaGame;
