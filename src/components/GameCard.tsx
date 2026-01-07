@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router';
 import { LucideIcon } from 'lucide-react';
 
-export type GameCardVariant = 'sincronia' | 'mimica' | 'palpiteiro';
+export type GameCardVariant = 'sincronia' | 'mimica' | 'palpiteiro' | 'onca' | 'decisoes' | 'caotiqueira';
 
 interface GameCardProps {
     title: string;
@@ -28,6 +28,21 @@ const variantStyles = {
         gradient: 'gradient-palpiteiro',
         glow: 'shadow-glow-palpiteiro',
         textGradient: 'text-gradient-palpiteiro',
+    },
+    onca: {
+        gradient: 'gradient-onca',
+        glow: 'shadow-glow-onca',
+        textGradient: 'text-gradient-onca',
+    },
+    decisoes: {
+        gradient: 'gradient-decisoes',
+        glow: 'shadow-glow-decisoes',
+        textGradient: 'text-gradient-decisoes',
+    },
+    caotiqueira: {
+        gradient: 'gradient-caotiqueira',
+        glow: 'shadow-glow-caotiqueira',
+        textGradient: 'text-gradient-caotiqueira',
     },
 };
 

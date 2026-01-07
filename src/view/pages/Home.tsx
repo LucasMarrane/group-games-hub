@@ -1,13 +1,19 @@
 import { GameCard, GameCardVariant } from '@components/GameCard';
+import { CaotiqueiraGame } from '@data/caotiqueira/theme';
+import { DecisoesGame } from '@data/decisoes/theme';
 import { MimicaGame, PalpiteiroGame, SincroniaGame } from '@data/index';
+import { OncaGame } from '@data/onca/theme';
 
 import { motion } from 'framer-motion';
-import { Sparkles, Users, Target, Bird } from 'lucide-react';
+import { Sparkles, Users, Target, Bird, Cat, Skull, Zap } from 'lucide-react';
 
 const games = [
     { route: 'sincronia', variant: 'sincronia', delay: 0.3, item: SincroniaGame, icon: Target },
     { route: 'mimica', variant: 'mimica', delay: 0.4, item: MimicaGame, icon: Users },
     { route: 'palpiteiro', variant: 'palpiteiro', delay: 0.5, item: PalpiteiroGame, icon: Bird },
+    { route: 'onca', variant: 'onca', delay: 0.6, item: OncaGame, icon: Cat },
+    { route: 'decisoes', variant: 'decisoes', delay: 0.7, item: DecisoesGame, icon: Skull },
+    { route: 'caotiqueira', variant: 'caotiqueira', delay: 0.8, item: CaotiqueiraGame, icon: Zap },
 ];
 
 export default function Home() {
@@ -30,9 +36,7 @@ export default function Home() {
                 <p className='text-muted-foreground'>Sua festa, seus jogos, suas risadas!</p>
                 <p className='text-muted-foreground'> Toque em um jogo para começar</p>
 
-                <div className='flex w-full justify-center mt-2'>
-                    {/* <Player.ModalButton /> */}
-                </div>
+                <div className='flex w-full justify-center mt-2'>{/* <Player.ModalButton /> */}</div>
             </motion.div>
 
             {/* Games List */}

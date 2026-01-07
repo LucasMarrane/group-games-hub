@@ -127,6 +127,12 @@
         --mimica-glow: 150 80% 55%;
         --palpiteiro: 190 90% 50%;
         --palpiteiro-glow: 270 75% 60%;
+        --onca: 45 90% 55%;
+        --onca-glow: 35 100% 60%;
+        --decisoes: 330 80% 55%;
+        --decisoes-glow: 340 90% 65%;
+        --caotiqueira: 280 85% 60%;
+        --caotiqueira-glow: 300 90% 70%;
 
         /* Gradients */
         --gradient-sincronia: linear-gradient(135deg, hsl(16 90% 60%), hsl(28 100% 65%));
@@ -135,11 +141,17 @@
         --gradient-palpiteiro: linear-gradient(135deg, hsl(190 90% 50%), hsl(270 75% 60%));
         --gradient-dark: linear-gradient(180deg, hsl(240 15% 9%), hsl(240 15% 6%));
         --gradient-accent: linear-gradient(135deg, hsl(175, 70%, 45%) 0%, hsl(160, 65%, 50%) 100%);
+        --gradient-onca: linear-gradient(135deg, hsl(45 90% 55%), hsl(35 100% 60%));
+        --gradient-decisoes: linear-gradient(135deg, hsl(330 80% 55%), hsl(340 90% 65%));
+        --gradient-caotiqueira: linear-gradient(135deg, hsl(280 85% 60%), hsl(300 90% 70%));
 
         /* Shadows */
         --shadow-glow-sincronia: 0 0 40px hsl(16 90% 60% / 0.4);
         --shadow-glow-mimica: 0 0 40px hsl(160 70% 45% / 0.4);
         --shadow-glow-palpiteiro: 0 0 40px hsl(190 90% 50% / 0.4);
+        --shadow-glow-onca: 0 0 40px hsl(45 90% 55% / 0.4);
+        --shadow-glow-decisoes: 0 0 40px hsl(330 80% 55% / 0.4);
+        --shadow-glow-caotiqueira: 0 0 40px hsl(280 85% 60% / 0.4);
 
         /* Typography */
         --font-display: 'Fredoka', sans-serif;
@@ -211,6 +223,18 @@
         background: var(--gradient-palpiteiro);
     }
 
+    .gradient-onca {
+        background: var(--gradient-onca);
+    }
+
+    .gradient-decisoes {
+        background: var(--gradient-decisoes);
+    }
+
+    .gradient-caotiqueira {
+        background: var(--gradient-caotiqueira);
+    }
+
     .shadow-glow-sincronia {
         box-shadow: var(--shadow-glow-sincronia);
     }
@@ -221,6 +245,25 @@
 
     .shadow-glow-palpiteiro {
         box-shadow: var(--shadow-glow-palpiteiro);
+    }
+
+    .shadow-glow-onca {
+        box-shadow: var(--shadow-glow-onca);
+    }
+
+    .shadow-glow-decisoes {
+        box-shadow: var(--shadow-glow-decisoes);
+    }
+
+    .shadow-glow-caotiqueira {
+        box-shadow: var(--shadow-glow-caotiqueira);
+    }
+
+    .text-gradient-caotiqueira {
+        background: var(--gradient-caotiqueira);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     .text-gradient-sincronia {
@@ -239,6 +282,20 @@
 
     .text-gradient-palpiteiro {
         background: var(--gradient-palpiteiro);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .text-gradient-onca {
+        background: var(--gradient-onca);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .text-gradient-decisoes {
+        background: var(--gradient-decisoes);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;

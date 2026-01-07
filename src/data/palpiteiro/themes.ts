@@ -6,7 +6,7 @@ import { PalpiteiroItem } from '@appTypes/palpiteiro';
 
 type PalpiteiroGameType =  ITheme<PalpiteiroItem>;
 
-class Palpliteiro extends GameBase<PalpiteiroGameType> implements IGames<PalpiteiroGameType> {  
+class Palpiteiro extends GameBase<PalpiteiroGameType> implements IGames<PalpiteiroGameType> {  
     constructor() {
         super();
         this._themes = [base] as unknown as PalpiteiroGameType[];
@@ -26,4 +26,4 @@ class Palpliteiro extends GameBase<PalpiteiroGameType> implements IGames<Palpite
     }
 }
 
-export const PalpiteiroGame = new Palpliteiro();
+export const PalpiteiroGame = new Palpiteiro();
