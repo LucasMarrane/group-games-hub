@@ -2,8 +2,9 @@ import { IGames, ITheme } from '@appTypes/game';
 import base from './default.json';
 import { UUID_GAMES } from '@/utils/uuid/games';
 import { GameBase } from '@data/game.base';
+import { MimicaItem } from '@appTypes/mimica';
 
-type MimicaGameType = ITheme<any>;
+type MimicaGameType = ITheme<MimicaItem>;
 
 class Mimica extends GameBase<MimicaGameType> implements IGames<MimicaGameType> {
     constructor() {

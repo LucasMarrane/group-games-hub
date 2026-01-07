@@ -1,15 +1,13 @@
+import { IItem } from './game';
+
 // Sincronia Types
+export type SicroniaScaleTuple = [number, string];
 
-export type SicroniaScaleTuple = [number, string]
-
-export interface SincroniaItem {
-    id: number;
-    title: string;
-    category: number;
+export interface SincroniaItem extends IItem {
     scale: SicroniaScaleTuple[];
 }
 
-export interface AdaptedTheme {
+export interface AdaptedSicroniaTheme {
     id: string;
     title: string;
     category: string;

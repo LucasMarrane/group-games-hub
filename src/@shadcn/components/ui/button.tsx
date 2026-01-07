@@ -17,7 +17,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         sincronia: "gradient-sincronia text-primary-foreground shadow-glow-sincronia hover:opacity-90",
         mimica: "gradient-mimica text-primary-foreground shadow-glow-mimica hover:opacity-90",
-        pato: "gradient-pato text-primary-foreground shadow-glow-pato hover:opacity-90",
+        palpiteiro: "gradient-palpiteiro text-primary-foreground shadow-glow-palpiteiro hover:opacity-90",
         glass: "bg-muted/50 backdrop-blur-sm border border-border/50 text-foreground hover:bg-muted/70",
       },
       size: {

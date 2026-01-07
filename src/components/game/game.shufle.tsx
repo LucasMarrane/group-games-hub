@@ -1,7 +1,11 @@
 import { Sparkles } from 'lucide-react';
 import { PropsWithChildren } from 'react';
 
-export function Shuffle({children}: PropsWithChildren) {
+interface ShuffleProps extends PropsWithChildren{
+    totalThemes: number;
+}
+
+export function Shuffle({children, totalThemes}: ShuffleProps) {
     return (
         <div className='bg-card rounded-3xl p-6 shadow-card'>
             <div className='flex flex-col items-center gap-3 mb-6'>
@@ -10,7 +14,7 @@ export function Shuffle({children}: PropsWithChildren) {
                 </div>
                 <div>
                     <h2 className='font-display text-xl font-bold text-foreground'>Sortear Tema</h2>
-                    <p className='text-sm text-muted-foreground'>{100} temas disponíveis</p>
+                    <p className='text-sm text-muted-foreground'>{totalThemes} temas disponíveis</p>
                 </div>
                 {children}
             </div>

@@ -54,8 +54,8 @@
     --color-mimica: hsl(var(--mimica));
     --color-mimica-glow: hsl(var(--mimica-glow));
 
-    --color-nem_a_pau: hsl(var(--nem_a_pau));
-    --color-nem_a_pau-glow: hsl(var(--nem_a_pau-glow));
+    --color-palpiteiro: hsl(var(--palpiteiro));
+    --color-palpiteiro-glow: hsl(var(--palpiteiro-glow));
 
     /* Sidebar */
     --color-sidebar: hsl(var(--sidebar-background));
@@ -125,21 +125,21 @@
         --sincronia-max: 108 100% 65%;
         --mimica: 160 70% 45%;
         --mimica-glow: 150 80% 55%;
-        --nem_a_pau: 190 90% 50%;
-        --nem_a_pau-glow: 270 75% 60%;
+        --palpiteiro: 190 90% 50%;
+        --palpiteiro-glow: 270 75% 60%;
 
         /* Gradients */
         --gradient-sincronia: linear-gradient(135deg, hsl(16 90% 60%), hsl(28 100% 65%));
         --gradient-sincronia-progress: linear-gradient(135deg, hsl(16, 97%, 56%), hsl(108, 100%, 65%));
         --gradient-mimica: linear-gradient(135deg, hsl(160 70% 45%), hsl(150 80% 55%));
-        --gradient-nem_a_pau: linear-gradient(135deg, hsl(190 90% 50%), hsl(270 75% 60%));
+        --gradient-palpiteiro: linear-gradient(135deg, hsl(190 90% 50%), hsl(270 75% 60%));
         --gradient-dark: linear-gradient(180deg, hsl(240 15% 9%), hsl(240 15% 6%));
         --gradient-accent: linear-gradient(135deg, hsl(175, 70%, 45%) 0%, hsl(160, 65%, 50%) 100%);
 
         /* Shadows */
         --shadow-glow-sincronia: 0 0 40px hsl(16 90% 60% / 0.4);
         --shadow-glow-mimica: 0 0 40px hsl(160 70% 45% / 0.4);
-        --shadow-glow-nem_a_pau: 0 0 40px hsl(190 90% 50% / 0.4);
+        --shadow-glow-palpiteiro: 0 0 40px hsl(190 90% 50% / 0.4);
 
         /* Typography */
         --font-display: 'Fredoka', sans-serif;
@@ -207,8 +207,8 @@
         background: var(--gradient-mimica);
     }
 
-    .gradient-nem_a_pau {
-        background: var(--gradient-nem_a_pau);
+    .gradient-palpiteiro {
+        background: var(--gradient-palpiteiro);
     }
 
     .shadow-glow-sincronia {
@@ -219,8 +219,8 @@
         box-shadow: var(--shadow-glow-mimica);
     }
 
-    .shadow-glow-nem_a_pau {
-        box-shadow: var(--shadow-glow-nem_a_pau);
+    .shadow-glow-palpiteiro {
+        box-shadow: var(--shadow-glow-palpiteiro);
     }
 
     .text-gradient-sincronia {
@@ -237,8 +237,8 @@
         background-clip: text;
     }
 
-    .text-gradient-nem_a_pau {
-        background: var(--gradient-nem_a_pau);
+    .text-gradient-palpiteiro {
+        background: var(--gradient-palpiteiro);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;

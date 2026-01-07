@@ -1,8 +1,8 @@
-import { AdaptedTheme } from '@appTypes/sincronia';
+import { AdaptedSicroniaTheme } from '@appTypes/sincronia';
 import { SincroniaGameType } from '@data/sincronia/themes';
 
 export function sincroniaAdapter(expansions: SincroniaGameType[]) {
-    const allThemes: AdaptedTheme[] = [];
+    const allThemes: AdaptedSicroniaTheme[] = [];
 
     expansions.forEach((pack) => {
         // Mapa para converter ID da categoria em Nome

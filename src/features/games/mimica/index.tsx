@@ -4,19 +4,19 @@ import { Play, Pause, Check, X, RotateCcw, Users, Timer } from 'lucide-react';
 import { Button } from '@shadcn/components/ui/button';
 import { Input } from '@shadcn/components/ui/input';
 import { MimicaGame } from '@/data/index';
-import { MimicaCard, MimicaCategory, Team } from '@appTypes/mimica';
+import { AdaptedMimicaTheme, MimicaTeam } from '@appTypes/mimica';
 import * as Games from '@components/game';
 
-const categoryInfo: Record<MimicaCategory, { name: string; color: string; icon: string }> = {
-    P: { name: 'Pessoa/Animal/Lugar', color: 'bg-blue-500', icon: '👤' },
-    O: { name: 'Objeto', color: 'bg-green-500', icon: '📦' },
-    A: { name: 'Ação/Verbo', color: 'bg-yellow-500', icon: '🏃' },
-    D: { name: 'Difícil', color: 'bg-red-500', icon: '🔥' },
-    L: { name: 'Lazer', color: 'bg-purple-500', icon: '🎮' },
-    M: { name: 'Mix', color: 'bg-pink-500', icon: '🎲' },
+const categoryInfo: Record<number, { name: string; color: string; icon: string }> = {
+    1: { name: 'Pessoa/Animal/Lugar', color: 'bg-blue-500', icon: '👤' },
+    2: { name: 'Objeto', color: 'bg-green-500', icon: '📦' },
+    3: { name: 'Ação/Verbo', color: 'bg-yellow-500', icon: '🏃' },
+    4: { name: 'Difícil', color: 'bg-red-500', icon: '🔥' },
+    5: { name: 'Lazer', color: 'bg-purple-500', icon: '🎮' },
+    6: { name: 'Mix', color: 'bg-pink-500', icon: '🎲' },
 };
 
-const defaultTeams: Team[] = [
+const defaultTeams: MimicaTeam[] = [
     { name: 'Time 1', score: 0, color: 'hsl(160 70% 45%)' },
     { name: 'Time 2', score: 0, color: 'hsl(280 75% 60%)' },
 ];
@@ -25,15 +25,15 @@ type GamePhase = 'setup' | 'playing' | 'results';
 
 export function Mimica() {
     const [phase, setPhase] = useState<GamePhase>('setup');
-    const [teams, setTeams] = useState<Team[]>(defaultTeams);
+    const [teams, setTeams] = useState<MimicaTeam[]>(defaultTeams);
     const [currentTeamIndex, setCurrentTeamIndex] = useState(0);
     const [timerDuration, setTimerDuration] = useState(60);
     const [timeLeft, setTimeLeft] = useState(60);
     const [isTimerRunning, setIsTimerRunning] = useState(false);
-    const [currentCard, setCurrentCard] = useState<MimicaCard | null>(null);
+    const [currentCard, setCurrentCard] = useState<AdaptedMimicaTheme | null>(null);
     const [usedCardIds, setUsedCardIds] = useState<Set<number>>(new Set());
 
-    const cards = MimicaGame.themes.flatMap((i) => i.items.map((c) => ({ id: c.id, word: c.title, category: c.category, points: c.value }))) as MimicaCard[];
+    const cards = MimicaGame.themes.flatMap((i) => i.items.map((c) => ({ id: c.id, word: c.title, category: c.category, points: c.value }))) as AdaptedMimicaTheme[];
 
     const drawCard = useCallback(() => {
         const availableCards = cards.filter((c) => !usedCardIds.has(c.id));

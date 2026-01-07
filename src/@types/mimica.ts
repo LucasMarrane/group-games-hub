@@ -1,15 +1,18 @@
-// Mímica Master Types
-export type MimicaCategory = 'P' | 'O' | 'A' | 'D' | 'L' | 'M';
+import { IItem } from './game';
 
-export interface MimicaCard {
-  id: number;
-  word: string;
-  category: MimicaCategory;
-  points: number;
+// Mímica  Types
+export interface MimicaItem extends IItem {
+    value: number;
+}
+export interface AdaptedMimicaTheme {
+    id: number;
+    word: string;
+    category: number;
+    points: number;
 }
 
-export interface Team {
-  name: string;
-  score: number;
-  color: string;
+export interface MimicaTeam {
+    name: string;
+    score: number;
+    color: string;
 }

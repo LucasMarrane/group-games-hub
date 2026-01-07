@@ -7,7 +7,7 @@ const NotFound = lazy(() => import('@view/pages/NotFound'));
 
 const Sincronia = lazy(() => import('@games/sincronia'));
 const Mimica = lazy(() => import('@games/mimica'));
-const NemAPau = lazy(() => import('@games/NemAPau'));
+const Palpiteiro = lazy(() => import('@games/palpiteiro'));
 
 export function AppRoutes() {
     return (
@@ -25,7 +25,7 @@ export function AppRoutes() {
                     >
                         <Route path='sincronia' element={<Sincronia />} />
                         <Route path='mimica' element={<Mimica />} />
-                        <Route path='nem_a_pau' element={<NemAPau />} />
+                        <Route path='palpiteiro' element={<Palpiteiro />} />
                     </Route>
                     <Route path='*' element={<NotFound />} />
                 </Routes>

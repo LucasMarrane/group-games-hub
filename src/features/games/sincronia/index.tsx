@@ -1,7 +1,7 @@
 import { useState, useCallback, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Shuffle } from 'lucide-react';
-import { AdaptedTheme } from '@appTypes/sincronia';
+import { AdaptedSicroniaTheme } from '@appTypes/sincronia';
 import { Button } from '@shadcn/components/ui/button';
 import { SincroniaGame } from '@/data';
 import * as Game from '@components/game';
@@ -13,12 +13,12 @@ import { sincroniaAdapter } from './sicronia.adapter';
 export function Sincronia() {
     const { hideUsed, showOnlyFavorites, favoriteThemes, usedThemes } = useSincronia();
     const themes = useMemo(() => sincroniaAdapter(SincroniaGame.themes), []);
-    const [currentTheme, setCurrentTheme] = useState<AdaptedTheme | null>(null);
+    const [currentTheme, setCurrentTheme] = useState<AdaptedSicroniaTheme | null>(null);
     const [page, setPage] = useState(1);
     const [filter, setFilter] = useState({ query: '', expansion: { selected: 'all', hiden: false }, category: { selected: 'all', hiden: false } });
 
     const getFilteredThemes = useMemo(
-        () => (themes: AdaptedTheme[]) => {
+        () => (themes: AdaptedSicroniaTheme[]) => {
             return themes.filter((theme) => {
                 const [expansion] = theme.id.split('-');
                 if (filter?.expansion.selected !== 'all' && expansion !== filter?.expansion.selected) return false;
@@ -45,7 +45,7 @@ export function Sincronia() {
 
     return (
         <Game.Container className='text-gradient-sincronia' game={SincroniaGame}>
-            <Game.Shuffle>
+            <Game.Shuffle totalThemes={_filteredThemes.length}>
                 {currentTheme ? (
                     <>
                         <Game.Card

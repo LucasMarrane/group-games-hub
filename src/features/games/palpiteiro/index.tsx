@@ -1,25 +1,28 @@
 import { useState, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, ChevronRight, Plus, Minus, Users, RotateCcw, Bird } from 'lucide-react';
-import { PatoCard, PatoPlayer } from '@appTypes/nem_a_pau';
+import { AdaptedPalpiteiroTheme, PalpiteiroPlayer } from '@appTypes/palpiteiro';
 import { Button } from '@shadcn/components/ui/button';
 import { Input } from '@shadcn/components/ui/input';
-import { NemAPauGame } from '@/data/index';
+import { PalpiteiroGame } from '@/data/index';
+import * as Games from '@components/game';
 
 type GamePhase = 'setup' | 'playing';
 
-export function NemAPau() {
+export function Palpiteiro() {
     const [phase, setPhase] = useState<GamePhase>('setup');
-    const [players, setPlayers] = useState<PatoPlayer[]>([
+    const [players, setPlayers] = useState<PalpiteiroPlayer[]>([
         { id: '1', name: 'Jogador 1', ducks: 0 },
         { id: '2', name: 'Jogador 2', ducks: 0 },
     ]);
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [showAnswer, setShowAnswer] = useState(false);
-    const [shuffledCards, setShuffledCards] = useState<PatoCard[]>([]);
+    const [shuffledCards, setShuffledCards] = useState<AdaptedPalpiteiroTheme[]>([]);
 
-    const cards = NemAPauGame.themes[0].cards as PatoCard[];
+    const cards = PalpiteiroGame.themes.flatMap((i) =>
+        i.items.map((c) => ({ ...c, theme: c.title, value: c.value, answer: c.answer, category: i.categories.find((ca) => ca.id == c.category)?.name } as AdaptedPalpiteiroTheme)),
+    );
 
     const shuffleCards = useCallback(() => {
         const shuffled = [...cards].sort(() => Math.random() - 0.5);
@@ -55,7 +58,7 @@ export function NemAPau() {
 
     const nextQuestion = useCallback(() => {
         const currentCard = shuffledCards[currentCardIndex];
-        if (currentQuestionIndex < currentCard.questions.length - 1) {
+        if (currentQuestionIndex < currentCard.theme.length - 1) {
             setCurrentQuestionIndex((prev) => prev + 1);
         } else if (currentCardIndex < shuffledCards.length - 1) {
             setCurrentCardIndex((prev) => prev + 1);
@@ -74,19 +77,12 @@ export function NemAPau() {
         setShowAnswer(false);
     }, []);
 
-    const currentCard = shuffledCards[currentCardIndex];
-    const currentQuestion = currentCard?.questions[currentQuestionIndex];
+    const currentTheme = shuffledCards[currentCardIndex];
 
     const sortedPlayers = useMemo(() => [...players].sort((a, b) => a.ducks - b.ducks), [players]);
 
     return (
-        <div className='min-h-full p-4 flex flex-col gap-4'>
-            {/* Header */}
-            <div className='text-center'>
-                <h1 className='text-3xl font-display font-bold text-gradient-pato mb-2'>Nem a Pau</h1>
-                <p className='text-muted-foreground text-sm'>Adivinhe números, desafie, e fuja dos pontos!</p>
-            </div>
-
+        <Games.Container game={PalpiteiroGame} className='text-gradient-palpiteiro'>
             <AnimatePresence mode='wait'>
                 {phase === 'setup' && (
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className='flex-1 space-y-4'>
@@ -119,14 +115,14 @@ export function NemAPau() {
                             ))}
                         </div>
 
-                        <Button variant='pato' size='xl' className='w-full' onClick={startGame}>
+                        <Button variant='palpiteiro' size='xl' className='w-full' onClick={startGame}>
                             <Bird className='w-5 h-5' />
                             Começar Jogo
                         </Button>
                     </motion.div>
                 )}
 
-                {phase === 'playing' && currentCard && currentQuestion && (
+                {phase === 'playing' && currentTheme && (
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className='flex-1 flex flex-col gap-4'>
                         {/* Scoreboard */}
                         <div className='flex gap-2 overflow-x-auto pb-2'>
@@ -139,7 +135,7 @@ export function NemAPau() {
                                     <div className='text-center'>
                                         <div className='text-xs text-muted-foreground truncate'>{player.name}</div>
                                         <div className='flex items-center justify-center gap-1'>
-                                            <Bird className='w-4 h-4 text-pato' />
+                                            <Bird className='w-4 h-4 text-palpiteiro' />
                                             <span className='text-xl font-display font-bold text-foreground'>{player.ducks}</span>
                                         </div>
                                     </div>
@@ -155,33 +151,29 @@ export function NemAPau() {
                             className='bg-card rounded-2xl border border-border overflow-hidden'
                         >
                             {/* Theme Header */}
-                            <div className='gradient-pato p-4'>
+                            <div className='gradient-palpiteiro p-4'>
                                 <div className='flex items-center justify-between'>
-                                    <h3 className='text-lg font-display font-bold text-white'>{currentCard.theme}</h3>
+                                    <h3 className='text-lg font-display font-bold text-white'>{currentTheme.category}</h3>
                                     <div className='flex items-center gap-1 bg-white/20 px-3 py-1 rounded-full'>
                                         <Bird className='w-4 h-4 text-white' />
-                                        <span className='text-white font-bold'>{currentCard.duckValue}</span>
+                                        <span className='text-white font-bold'>{currentTheme.value}</span>
                                     </div>
-                                </div>
-                                <div className='text-white/70 text-sm mt-1'>
-                                    Pergunta {currentQuestionIndex + 1} de {currentCard.questions.length}
                                 </div>
                             </div>
 
                             {/* Question */}
                             <div className='p-6'>
-                                <p className='text-xl font-display text-foreground text-center mb-6'>{currentQuestion.question}</p>
-
+                                 <p className='text-xl font-display text-foreground text-center mb-6'>{currentTheme.theme}</p>
                                 {/* Answer Section */}
                                 <div className='bg-muted rounded-xl p-4'>
                                     <AnimatePresence mode='wait'>
                                         {showAnswer ? (
                                             <motion.div key='answer' initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.5 }} className='text-center'>
-                                                <span className='text-5xl font-display font-bold text-gradient-pato'>{currentQuestion.answer}</span>
+                                                <span className='text-5xl font-display font-bold text-gradient-palpiteiro'>{currentTheme.answer}</span>
                                             </motion.div>
                                         ) : (
                                             <motion.div key='hidden' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className='text-center'>
-                                                <Button variant='pato' size='lg' onClick={() => setShowAnswer(true)} className='gap-2'>
+                                                <Button variant='palpiteiro' size='lg' onClick={() => setShowAnswer(true)} className='gap-2'>
                                                     <Eye className='w-5 h-5' />
                                                     Revelar Resposta
                                                 </Button>
@@ -197,7 +189,7 @@ export function NemAPau() {
                             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className='bg-card rounded-2xl p-4 border border-border'>
                                 <h4 className='text-sm text-muted-foreground mb-3 flex items-center gap-2'>
                                     <Bird className='w-4 h-4' />
-                                    Distribuir Patos
+                                    Distribuir pontuação
                                 </h4>
                                 <div className='space-y-2'>
                                     {players.map((player) => (
@@ -208,7 +200,7 @@ export function NemAPau() {
                                                     <Minus className='w-4 h-4' />
                                                 </Button>
                                                 <span className='w-8 text-center font-bold'>{player.ducks}</span>
-                                                <Button variant='pato' size='icon' onClick={() => addDucks(player.id, currentCard.duckValue)} className='h-8 w-8'>
+                                                <Button variant='palpiteiro' size='icon' onClick={() => addDucks(player.id, currentTheme.value)} className='h-8 w-8'>
                                                     <Plus className='w-4 h-4' />
                                                 </Button>
                                             </div>
@@ -224,7 +216,7 @@ export function NemAPau() {
                                 <RotateCcw className='w-4 h-4' />
                                 Reiniciar
                             </Button>
-                            <Button variant='pato' className='flex-1' onClick={nextQuestion}>
+                            <Button variant='palpiteiro' className='flex-1' onClick={nextQuestion}>
                                 <ChevronRight className='w-4 h-4' />
                                 Próxima
                             </Button>
@@ -232,8 +224,8 @@ export function NemAPau() {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </div>
+        </Games.Container>
     );
 }
 
-export default NemAPau;
+export default Palpiteiro;

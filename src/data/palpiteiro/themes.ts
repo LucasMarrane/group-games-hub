@@ -1,23 +1,24 @@
 import { IGames, ITheme } from '@appTypes/game';
 import { UUID_GAMES } from '@/utils/uuid/games';
-import base from '@data/nem_a_pau/default.json'
+import base from '@data/palpiteiro/default.json'
 import { GameBase } from '@data/game.base';
+import { PalpiteiroItem } from '@appTypes/palpiteiro';
 
-type NemAPauGameType =  ITheme<any>;
+type PalpiteiroGameType =  ITheme<PalpiteiroItem>;
 
-class NemAPau extends GameBase<NemAPauGameType> implements IGames<NemAPauGameType> {  
+class Palpliteiro extends GameBase<PalpiteiroGameType> implements IGames<PalpiteiroGameType> {  
     constructor() {
         super();
-        this._themes = [base] as unknown as NemAPauGameType[];
+        this._themes = [base] as unknown as PalpiteiroGameType[];
     }
     get uuid() {
-        return UUID_GAMES.nem_a_pau;
+        return UUID_GAMES.palpiteiro;
     }
     get name() {
-        return 'Nem a Pau';
+        return 'Palpiteiro';
     }
     get hint() {
-        return 'Trivia numérica';
+        return 'Trivia numérica, arrisque-se com uma resposta e veja o caos sendo instaurado.';
     }
 
     get description() {
@@ -25,4 +26,4 @@ class NemAPau extends GameBase<NemAPauGameType> implements IGames<NemAPauGameTyp
     }
 }
 
-export const NemAPauGame = new NemAPau();
+export const PalpiteiroGame = new Palpliteiro();

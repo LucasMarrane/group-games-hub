@@ -1,5 +1,5 @@
 import { GameCard, GameCardVariant } from '@components/GameCard';
-import { MimicaGame, NemAPauGame, SincroniaGame } from '@data/index';
+import { MimicaGame, PalpiteiroGame, SincroniaGame } from '@data/index';
 
 import { motion } from 'framer-motion';
 import { Sparkles, Users, Target, Bird } from 'lucide-react';
@@ -7,7 +7,7 @@ import { Sparkles, Users, Target, Bird } from 'lucide-react';
 const games = [
     { route: 'sincronia', variant: 'sincronia', delay: 0.3, item: SincroniaGame, icon: Target },
     { route: 'mimica', variant: 'mimica', delay: 0.4, item: MimicaGame, icon: Users },
-    { route: 'nem_a_pau', variant: 'nem_a_pau', delay: 0.5, item: NemAPauGame, icon: Bird },
+    { route: 'palpiteiro', variant: 'palpiteiro', delay: 0.5, item: PalpiteiroGame, icon: Bird },
 ];
 
 export default function Home() {
