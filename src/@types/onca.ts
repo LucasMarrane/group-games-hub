@@ -7,3 +7,10 @@ export interface AdaptedOncaTheme {
     title: string;
     category: string;
 }
+
+
+export interface OncaPlayer {
+  id: string;
+  name: string;
+  votes: number;
+}

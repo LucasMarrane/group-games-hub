@@ -20,6 +20,7 @@ const buttonVariants = cva(
                 palpiteiro: 'gradient-palpiteiro text-primary-foreground shadow-glow-palpiteiro hover:opacity-90',
                 onca: 'gradient-onca text-foreground shadow-glow-onca hover:opacity-90',
                 decisoes: 'gradient-decisoes text-primary-foreground shadow-glow-decisoes hover:opacity-90',
+                caotiqueira: 'gradient-caotiqueira text-primary-foreground shadow-glow-caotiqueira hover:opacity-90',
                 glass: 'bg-muted/50 backdrop-blur-sm border border-border/50 text-foreground hover:bg-muted/70',
             },
             size: {

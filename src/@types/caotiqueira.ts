@@ -7,3 +7,10 @@ export interface AdaptedCaotiqueiraTheme {
     title: string;
     category: string;
 }
+
+
+export interface CaotiqueiraPlayer {
+  id: string;
+  name: string;
+  score: number;
+}

@@ -7,3 +7,8 @@ export interface AdaptedDecisoesTheme {
     title: string;
     category: string;
 }
+
+export interface DecisoesVote {
+    visceralVoterId: number;
+    option: 'A' | 'B';
+}

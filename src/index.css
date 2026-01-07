@@ -57,6 +57,15 @@
     --color-palpiteiro: hsl(var(--palpiteiro));
     --color-palpiteiro-glow: hsl(var(--palpiteiro-glow));
 
+    --color-onca: hsl(var(--onca));
+    --color-onca-glow: hsl(var(--onca-glow));
+
+    --color-decisoes: hsl(var(--decisoes));
+    --color-decisoes-glow: hsl(var(--decisoes-glow));
+
+    --color-caotiqueira: hsl(var(--caotiqueira));
+    --color-caotiqueira-glow: hsl(var(--caotiqueira-glow));
+
     /* Sidebar */
     --color-sidebar: hsl(var(--sidebar-background));
     --color-sidebar-foreground: hsl(var(--sidebar-foreground));
