@@ -1,5 +1,6 @@
 import { OncaPlayer } from '@appTypes/onca';
 import * as Game from '@components/game';
+import { Icon } from '@components/game/game.icon';
 import { OncaGame } from '@data/onca/theme';
 import { Button } from '@shadcn/components/ui/button';
 import { Input } from '@shadcn/components/ui/input';
@@ -77,7 +78,7 @@ export function Onca() {
 
     const sortedPlayers = [...players].sort((a, b) => b.votes - a.votes);
     return (
-        <Game.Container className='text-gradient-onca' game={OncaGame}>
+        <Game.Container className='text-gradient-onca' game={OncaGame} icon={<Icon variant='onca' />}>
             {phase === 'setup' && (
                 <>
                     {/* Add Players */}

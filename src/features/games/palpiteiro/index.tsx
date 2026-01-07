@@ -6,6 +6,7 @@ import { Button } from '@shadcn/components/ui/button';
 import { Input } from '@shadcn/components/ui/input';
 import { PalpiteiroGame } from '@/data/index';
 import * as Game from '@components/game';
+import { Icon } from '@components/game/game.icon';
 
 type GamePhase = 'setup' | 'playing';
 
@@ -82,7 +83,7 @@ export function Palpiteiro() {
     const sortedPlayers = useMemo(() => [...players].sort((a, b) => a.ducks - b.ducks), [players]);
 
     return (
-        <Game.Container game={PalpiteiroGame} className='text-gradient-palpiteiro'>
+        <Game.Container game={PalpiteiroGame} className='text-gradient-palpiteiro' icon={<Icon variant='palpiteiro' />}>
             <AnimatePresence mode='wait'>
                 {phase === 'setup' && (
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className='flex-1 space-y-4'>

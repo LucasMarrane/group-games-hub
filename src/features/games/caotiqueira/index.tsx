@@ -1,5 +1,6 @@
 import { CaotiqueiraPlayer } from '@appTypes/caotiqueira';
 import * as Game from '@components/game';
+import { Icon } from '@components/game/game.icon';
 import { CaotiqueiraGame } from '@data/caotiqueira/theme';
 import { Button } from '@shadcn/components/ui/button';
 import { Input } from '@shadcn/components/ui/input';
@@ -113,8 +114,8 @@ export function Caotiqueira() {
 
     const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
     return (
-        <Game.Container className='text-gradient-caotiqueira' game={CaotiqueiraGame}>
-            <div className='flex flex-col items-center justify-center min-h-[70vh] p-4'>
+        <Game.Container className='text-gradient-caotiqueira' game={CaotiqueiraGame} icon={<Icon variant='caotiqueira' />}>
+            <div className='flex flex-col items-center justify-center p-4'>
                 {phase === 'setup' && (
                     <>
                         {/* Setup Phase */}

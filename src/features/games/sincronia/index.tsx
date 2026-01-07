@@ -9,6 +9,7 @@ import { paginate } from '@/utils/pagination';
 import { reset, SincroniaStore, toggleFavorite, toggleUsed, useSincronia } from './sincronia.store';
 import { cn } from '@shadcn/lib/utils';
 import { sincroniaAdapter } from './sicronia.adapter';
+import { Icon } from '@components/game/game.icon';
 
 export function Sincronia() {
     const { hideUsed, showOnlyFavorites, favoriteThemes, usedThemes } = useSincronia();
@@ -44,7 +45,7 @@ export function Sincronia() {
     const themesPaginate = paginate(_filteredThemes, page, 24);
 
     return (
-        <Game.Container className='text-gradient-sincronia' game={SincroniaGame}>
+        <Game.Container className='text-gradient-sincronia' game={SincroniaGame} icon={<Icon variant='sincronia' />}>
             <Game.Shuffle totalThemes={_filteredThemes.length}>
                 {currentTheme ? (
                     <>

@@ -6,6 +6,7 @@ import { Input } from '@shadcn/components/ui/input';
 import { MimicaGame } from '@/data/index';
 import { AdaptedMimicaTheme, MimicaTeam } from '@appTypes/mimica';
 import * as Game from '@components/game';
+import { Icon } from '@components/game/game.icon';
 
 const categoryInfo: Record<number, { name: string; color: string; icon: string }> = {
     1: { name: 'Pessoa/Animal/Lugar', color: 'bg-blue-500', icon: '👤' },
@@ -107,7 +108,7 @@ export function Mimica() {
     const catInfo = currentCard ? categoryInfo[currentCard.category] : null;
 
     return (
-        <Game.Container game={MimicaGame} className='text-gradient-mimica'>
+        <Game.Container game={MimicaGame} className='text-gradient-mimica' icon={<Icon variant='mimica' />}>
             {/* Scoreboard */}
             <div className='flex gap-2'>
                 {teams.map((team, idx) => (

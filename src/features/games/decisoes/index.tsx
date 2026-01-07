@@ -1,5 +1,6 @@
 import { DecisoesVote } from '@appTypes/decisoes';
 import * as Game from '@components/game';
+import { Icon } from '@components/game/game.icon';
 import { DecisoesGame } from '@data/decisoes/theme';
 import { Button } from '@shadcn/components/ui/button';
 import { motion } from 'framer-motion';
@@ -86,7 +87,7 @@ export function Decisoes() {
     };
     const [optionA = '', optionB = ''] = currentQuestion.title.split('OU');
     return (
-        <Game.Container className='text-gradient-decisoes' game={DecisoesGame}>
+        <Game.Container className='text-gradient-decisoes' game={DecisoesGame} icon={<Icon variant='decisoes' />}>
             {phase === 'intro' && (
                 <motion.div key='intro' initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className='flex-1 flex flex-col items-center justify-center'>
                     <div className='bg-card/50 backdrop-blur rounded-2xl p-4 mb-8 w-full max-w-sm'>

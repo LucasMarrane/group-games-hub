@@ -7,7 +7,7 @@ import { OncaGame } from '@data/onca/theme';
 import { motion } from 'framer-motion';
 import { Sparkles, Users, Target, Bird, Cat, Skull, Zap } from 'lucide-react';
 
-const games = [
+export const games = [
     { route: 'sincronia', variant: 'sincronia', delay: 0.3, item: SincroniaGame, icon: Target },
     { route: 'mimica', variant: 'mimica', delay: 0.4, item: MimicaGame, icon: Users },
     { route: 'palpiteiro', variant: 'palpiteiro', delay: 0.5, item: PalpiteiroGame, icon: Bird },
