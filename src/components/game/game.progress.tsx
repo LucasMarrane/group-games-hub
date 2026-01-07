@@ -27,7 +27,7 @@ export function ProgressBar({ total, used, favorites, available, onReset }: Prog
             </div>
 
             {/* Stats */}
-            <div className='flex items-center justify-between'>
+            <div className='flex flex-col items-center justify-between sm:flex-row'>
                 <div className='flex gap-4'>
                     <div className='flex items-center gap-2 text-sm'>
                         <div className='w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center'>
@@ -58,7 +58,7 @@ export function ProgressBar({ total, used, favorites, available, onReset }: Prog
                     </div>
                 </div>
 
-                <Button variant='ghost' size='sm' onClick={onReset} className='text-muted-foreground hover:text-destructive'>
+                <Button variant='ghost' size='sm' onClick={onReset} className='text-muted-foreground hover:text-destructive mt-2 sm:mt-0'>
                     <RotateCcw className='w-4 h-4 mr-1' />
                     Resetar
                 </Button>

@@ -1,9 +1,16 @@
-import { IGames } from '@appTypes/game';
+import { IGames, ITheme } from '@appTypes/game';
 import base from './default.json';
 import { UUID_GAMES } from '@/utils/uuid/games';
+import { GameBase } from '@data/game.base';
 
-class Mimica implements IGames<any> {
-    private _themes = [base];
+type MimicaGameType = ITheme<any>;
+
+class Mimica extends GameBase<MimicaGameType> implements IGames<MimicaGameType> {
+    constructor() {
+        super();
+        this._themes = [base] as MimicaGameType[];
+    }
+
     get uuid() {
         return UUID_GAMES.mimica;
     }
@@ -16,10 +23,6 @@ class Mimica implements IGames<any> {
 
     get description() {
         return `Pular, balançar os braços, sinalizar. Vale tudo para fazer com que descubram sua mímica, menos falar! `;
-    }
-
-    get themes() {
-        return this._themes;
     }
 }
 

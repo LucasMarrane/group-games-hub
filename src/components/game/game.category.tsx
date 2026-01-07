@@ -4,7 +4,7 @@ import { cn } from '@shadcn/lib/utils';
 interface CategoryProps {
     selected: string | 'all';
     onSelect: (category: string | 'all') => void;
-    itens: ILabel<string>[];
+    itens: ILabel<any>[];
 }
 export function Category({ selected, onSelect, itens = [] }: CategoryProps) {
     const allItens = [{ label: 'Todos', value: 'all' }, ...itens];

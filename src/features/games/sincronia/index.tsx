@@ -1,18 +1,18 @@
 import { useState, useCallback, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Check, Shuffle} from 'lucide-react';
+import { Check, Shuffle } from 'lucide-react';
 import { AdaptedTheme } from '@appTypes/sincronia';
 import { Button } from '@shadcn/components/ui/button';
 import { SincroniaGame } from '@/data';
-import { ThemeAdapter } from '@/utils/manager/theme.manager';
 import * as Game from '@components/game';
 import { paginate } from '@/utils/pagination';
 import { reset, SincroniaStore, toggleFavorite, toggleUsed, useSincronia } from './sincronia.store';
 import { cn } from '@shadcn/lib/utils';
+import { sincroniaAdapter } from './sicronia.adapter';
 
 export function Sincronia() {
     const { hideUsed, showOnlyFavorites, favoriteThemes, usedThemes } = useSincronia();
-    const themes = useMemo(() => new ThemeAdapter(SincroniaGame.themes).getAdaptedThemes(), []);
+    const themes = useMemo(() => sincroniaAdapter(SincroniaGame.themes), []);
     const [currentTheme, setCurrentTheme] = useState<AdaptedTheme | null>(null);
     const [page, setPage] = useState(1);
     const [filter, setFilter] = useState({ query: '', expansion: { selected: 'all', hiden: false }, category: { selected: 'all', hiden: false } });
@@ -44,13 +44,7 @@ export function Sincronia() {
     const themesPaginate = paginate(_filteredThemes, page, 24);
 
     return (
-        <div className='min-h-full p-4 flex flex-col gap-6'>
-            {/* Header */}
-            <div className='text-center'>
-                <h1 className='text-3xl font-display font-bold text-gradient-sincronia mb-2'>{SincroniaGame.name}</h1>
-                <p className='text-muted-foreground text-sm'>Ordenem seus números baseados no tema!</p>
-            </div>
-
+        <Game.Container className='text-gradient-sincronia' game={SincroniaGame}>
             <Game.Shuffle>
                 {currentTheme ? (
                     <>
@@ -61,6 +55,7 @@ export function Sincronia() {
                             currentTheme={currentTheme}
                             onToggleFavorite={() => toggleFavorite(currentTheme.id)}
                             onToggleUsed={() => toggleUsed(currentTheme.id)}
+                            expansionDescription={SincroniaGame.getExpansionDescription(currentTheme.sourcePack)!}
                         >
                             <div className='flex-1 text-center'>
                                 <div className='text-2xl font-bold text-primary'>1</div>
@@ -132,7 +127,7 @@ export function Sincronia() {
                         selected={filter.category.selected || 'all'}
                     /> */}
                 </div>
-            </motion.div>        
+            </motion.div>
 
             <section>
                 <div className='flex items-center justify-between mb-4'>
@@ -153,6 +148,7 @@ export function Sincronia() {
                                         currentTheme={theme}
                                         onToggleFavorite={() => toggleFavorite(theme.id)}
                                         onToggleUsed={() => toggleUsed(theme.id)}
+                                        expansionDescription={SincroniaGame.getExpansionDescription(theme.sourcePack)!}
                                     >
                                         <div className='flex-1 text-center'>
                                             <div className='text-2xl font-bold text-primary'>1</div>
@@ -175,7 +171,7 @@ export function Sincronia() {
                     </div>
                 )}
             </section>
-        </div>
+        </Game.Container>
     );
 }
 

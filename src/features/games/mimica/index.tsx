@@ -5,6 +5,7 @@ import { Button } from '@shadcn/components/ui/button';
 import { Input } from '@shadcn/components/ui/input';
 import { MimicaGame } from '@/data/index';
 import { MimicaCard, MimicaCategory, Team } from '@appTypes/mimica';
+import * as Games from '@components/game';
 
 const categoryInfo: Record<MimicaCategory, { name: string; color: string; icon: string }> = {
     P: { name: 'Pessoa/Animal/Lugar', color: 'bg-blue-500', icon: '👤' },
@@ -32,7 +33,7 @@ export function Mimica() {
     const [currentCard, setCurrentCard] = useState<MimicaCard | null>(null);
     const [usedCardIds, setUsedCardIds] = useState<Set<number>>(new Set());
 
-    const cards = MimicaGame.themes[0].cards as MimicaCard[];
+    const cards = MimicaGame.themes.flatMap((i) => i.items.map((c) => ({ id: c.id, word: c.title, category: c.category, points: c.value }))) as MimicaCard[];
 
     const drawCard = useCallback(() => {
         const availableCards = cards.filter((c) => !usedCardIds.has(c.id));
@@ -106,13 +107,7 @@ export function Mimica() {
     const catInfo = currentCard ? categoryInfo[currentCard.category] : null;
 
     return (
-        <div className='min-h-full p-4 flex flex-col gap-4'>
-            {/* Header */}
-            <div className='text-center'>
-                <h1 className='text-3xl font-display font-bold text-gradient-mimica mb-2'>Mímica</h1>
-                <p className='text-muted-foreground text-sm'>Represente sem falar, pontue com seu time!</p>
-            </div>
-
+        <Games.Container game={MimicaGame} className='text-gradient-mimica'>
             {/* Scoreboard */}
             <div className='flex gap-2'>
                 {teams.map((team, idx) => (
@@ -268,7 +263,7 @@ export function Mimica() {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </div>
+        </Games.Container>
     );
 }
 

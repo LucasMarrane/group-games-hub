@@ -7,12 +7,19 @@ import pop from './pop.json';
 import sobrevivencia from './sobrevivencia.json';
 import variedades from './variedades.json';
 import zoeira from './zoeira.json';
-import { ThemeExpansion } from '@appTypes/sincronia';
 import { UUID_GAMES } from '@/utils/uuid/games';
-import { IGames } from '@appTypes/game';
+import { IGames, ITheme } from '@appTypes/game';
+import { SincroniaItem } from '@appTypes/sincronia';
+import { GameBase } from '@data/game.base';
 
-class Sincronia implements IGames<ThemeExpansion> {
-    private _themes = [base, brasilidades, clt, dilemas, inuteis, pop, sobrevivencia, variedades, zoeira] as ThemeExpansion[];
+export type SincroniaGameType = ITheme<SincroniaItem>;
+
+class Sincronia extends GameBase<SincroniaGameType> implements IGames<SincroniaGameType> {
+    constructor() {
+        super();
+        this._themes = [base, brasilidades, clt, dilemas, inuteis, pop, sobrevivencia, variedades, zoeira] as SincroniaGameType[];
+    }
+
     get uuid() {
         return UUID_GAMES.sincronia;
     }
@@ -25,19 +32,7 @@ class Sincronia implements IGames<ThemeExpansion> {
 
     get description() {
         return `Cada jogador recebe um conjunto de cartas numéricas e o objetivo é cooperar para colocá-las em ordem crescente. Os jogadores podem discutir e dar dicas a outros, sugerindo algo com base no tema sorteado. Por exemplo, quanto melhor a culinária japonesa, assim, quanto maior o número, mais popular é o prato!`;
-    }
-
-    get themes() {
-        return this._themes;
-    }
-
-    get categories() {
-        return this._themes.flatMap((i) => i.categories.map((c) => ({ label: c.name, value: `${i.id}-${c.id}` })));
-    }
-
-    get expansions() {
-        return this._themes.map((i) => ({ label: i.name, value: i.id }));
-    }
+    }   
 }
 
 export const SincroniaGame = new Sincronia();

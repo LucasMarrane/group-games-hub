@@ -6,7 +6,7 @@ const Home = lazy(() => import('@view/pages/Home'));
 const NotFound = lazy(() => import('@view/pages/NotFound'));
 
 const Sincronia = lazy(() => import('@games/sincronia'));
-const Mimica = lazy(() => import('@games/Mimica'));
+const Mimica = lazy(() => import('@games/mimica'));
 const NemAPau = lazy(() => import('@games/NemAPau'));
 
 export function AppRoutes() {

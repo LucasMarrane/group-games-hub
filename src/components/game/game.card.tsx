@@ -1,5 +1,3 @@
-import { ThemeAdapter } from '@/utils/manager/theme.manager';
-import { SincroniaGame } from '@data/index';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@shadcn/components/ui/tooltip';
 import { cn } from '@shadcn/lib/utils';
 import { motion } from 'framer-motion';
@@ -12,6 +10,7 @@ interface IBaseCard extends PropsWithChildren {
 
 interface CardProps extends IBaseCard {
     currentTheme: any;
+    expansionDescription: string;
     children: ReactNode;
     isUsed: boolean;
     isFavorite: boolean;
@@ -27,7 +26,7 @@ export function BaseCard({ children, className }: IBaseCard) {
     );
 }
 
-export function Card({ currentTheme, children, isUsed, isFavorite, onToggleUsed, onToggleFavorite, className = '' }: CardProps) {
+export function Card({ currentTheme, expansionDescription,children, isUsed, isFavorite, onToggleUsed, onToggleFavorite, className = '' }: CardProps) {
     return (
         <BaseCard className={className}>
             <div className='flex items-start justify-between mb-3'>
@@ -54,7 +53,7 @@ export function Card({ currentTheme, children, isUsed, isFavorite, onToggleUsed,
                     <TooltipTrigger asChild>
                         <span className='px-3 py-1 rounded-full bg-secondary/20 text-secondary text-xs font-medium'>{currentTheme.sourcePack}</span>
                     </TooltipTrigger>
-                    <TooltipContent className='m-2 bg-secondary text-white max-w-sm'>{ThemeAdapter.getExpansionDescription(currentTheme.sourcePack, SincroniaGame.themes)}</TooltipContent>
+                    <TooltipContent className='m-2 bg-secondary text-white max-w-sm'>{expansionDescription}</TooltipContent>
                 </Tooltip>
                 <span className='px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-medium'>{currentTheme.category}</span>
             </div>

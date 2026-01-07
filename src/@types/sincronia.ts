@@ -1,27 +1,12 @@
-// Sincronia (ITO) Types
-export interface RawCategory {
-    id: number;
-    name: string;
-}
+// Sincronia Types
 
-export interface RawScaleTuple extends Array<string | number> {
-    0: number;
-    1: string;
-}
+export type SicroniaScaleTuple = [number, string]
 
-export interface RawThemeItem {
+export interface SincroniaItem {
     id: number;
     title: string;
     category: number;
-    scale: [number, string][];
-}
-
-export interface ThemeExpansion {
-    id: string;
-    name: string;
-    description: string;
-    categories: RawCategory[];
-    items: RawThemeItem[];
+    scale: SicroniaScaleTuple[];
 }
 
 export interface AdaptedTheme {
