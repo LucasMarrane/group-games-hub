@@ -49,7 +49,7 @@ export function Multiplayer({ variant }: MultiplayerProps) {
 
     const handleCreateRoom = async () => {
         try {
-            const id = await createRoom();
+             await createRoom();
             toast.success('Sala criada! Compartilhe o código com seus amigos.');
             setPhase('multiplayer_setup');
         } catch (error) {

@@ -60,7 +60,7 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: Multipl
     const [roomId, setRoomId] = useState<string | null>(null);
     const [players, setPlayers] = useState<Player[]>([]);
     const [gameState, setGameState] = useState<any>();
-    const [order, setOrder] = useState<Player[]>();
+
     const [mainPlayer, setMainPlayer] = useState<string>('');
 
     const peerRef = useRef<Peer | null>(null);
@@ -77,7 +77,6 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: Multipl
         setGameState(null);
         setConnections([]);
         connectionsRef.current = [];
-        setOrder([]);
     };
 
     useEffect(() => {
@@ -183,14 +182,13 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: Multipl
                         playersRef.current = [...playersRef.current, message.player];
                         setPlayers([...playersRef.current]);
                         toast.success(`${message.player.name} entrou na sala`);
-                        setOrder([...playersRef.current]);
                     }
                     break;
 
                 case 'PLAYER_LEFT':
                     playersRef.current = playersRef.current.filter((p) => p.id !== message.playerId);
                     setPlayers([...playersRef.current]);
-                    setOrder([...playersRef.current]);
+
                     break;
 
                 case 'KICKED':
@@ -261,7 +259,7 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: Multipl
             const localPlayer: Player = { ..._defaultHost, isOffline: true };
             playersRef.current = [localPlayer];
             setPlayers([localPlayer]);
-            setOrder([localPlayer]);
+
             return Promise.resolve('local-room');
         }
 
@@ -277,7 +275,7 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: Multipl
                 const localPlayer: Player = { ..._defaultHost, isOffline: false };
                 playersRef.current = [localPlayer];
                 setPlayers([localPlayer]);
-                setOrder([localPlayer]);
+
                 resolve(hostId);
             };
 
@@ -440,7 +438,7 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: Multipl
                 votedPlayerId: targetPlayerId,
             });
         }
-    }; 
+    };
 
     return (
         <MultiplayerContext.Provider
@@ -453,7 +451,7 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: Multipl
                 players,
                 gameState,
                 mode,
-                mainPlayer,               
+                mainPlayer,
                 setMode,
                 createRoom,
                 joinRoom,
@@ -463,7 +461,7 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: Multipl
                 closeRoom,
                 sendAnswer,
                 submitVote,
-                changeGame,                
+                changeGame,
             }}
         >
             {children}
