@@ -1,14 +1,16 @@
-import { Tables } from '@appTypes/database.types';
 import { storeFactory } from '../store';
 import { IndexedDBStorageFactory } from '../storage';
 
 interface ISessionStore {
-    player: Tables<'players'> | null;
+    player: {
+        nickname: string;
+        uuid: string;
+    } | null;
 }
 
 export const SessionStore = storeFactory<ISessionStore>(
     () => ({
-        player: null,       
+        player: null,
     }),
     {
         name: 'session',
@@ -16,14 +18,13 @@ export const SessionStore = storeFactory<ISessionStore>(
     },
 );
 
-
 export class Session {
     static get player() {
         return SessionStore.getState().player;
     }
     static logout() {
         return SessionStore.setState((s) => {
-            s.player = null;          
+            s.player = null;
             return s;
         });
     }

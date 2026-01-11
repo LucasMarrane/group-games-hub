@@ -4,7 +4,7 @@ import { Button as SButton } from '@shadcn/components/ui/button';
 
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@shadcn/components/ui/dialog';
 import { Avatar, AvatarFallback } from '@shadcn/components/ui/avatar';
-import { EllipsisVertical, Mail, User, UserPen } from 'lucide-react';
+import { EllipsisVertical, IdCard, UserPen } from 'lucide-react';
 import { useSessionStore } from '@/hooks/useSessionStore';
 import { withOnlineStatus } from '@/utils/hoc/withOnlineStatus';
 
@@ -13,12 +13,11 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { PlayerManager } from '@/utils/manager/player.manager';
 import { SessionStore } from '@/utils/entities/session';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const playerSchema = Yup.object({
-    name: Yup.string().default(''),
     nickname: Yup.string().default(''),
-    email: Yup.string().default(''),
+    uuid: Yup.string().default(''),
 });
 
 function Button() {
@@ -27,7 +26,7 @@ function Button() {
 
     const _defaults = { ...playerSchema.getDefault(), ...(player ?? {}) };
 
-    const { register, handleSubmit, setValue, reset } = useForm({ resolver: yupResolver(playerSchema), mode: 'all', reValidateMode: 'onSubmit', defaultValues: _defaults as any });
+    const { register, setValue, handleSubmit, reset } = useForm({ resolver: yupResolver(playerSchema), mode: 'all', reValidateMode: 'onSubmit', defaultValues: _defaults as any });
 
     function onOpenChange() {
         setOpen((o) => !o);
@@ -36,22 +35,14 @@ function Button() {
         setOpen(false);
     }
     const submit = handleSubmit(async (form) => {
-        await PlayerManager.createPlayer(form as any);
+        await PlayerManager.createPlayer(form.nickname);
         close();
     });
 
-    function registerFn(key: string) {
-        const { onChange, ...rest } = register(key as any);
-        return {
-            ...rest,
-            onChange: (e: any) => {
-                if (key == 'name') {
-                    setValue('nickname', PlayerManager.getNickname(e?.target?.value));
-                }
-                onChange(e);
-            },
-        };
-    }
+    useEffect(() => {
+        setValue('uuid', player?.uuid);
+        setValue('nickname', player?.nickname);
+    }, [player]);
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
@@ -61,11 +52,11 @@ function Button() {
                 ) : (
                     <>
                         <Avatar className='h-8 w-8 rounded-lg grayscale'>
-                            <AvatarFallback className='rounded-lg'>{PlayerManager.getAvatar(player.name!)}</AvatarFallback>
+                            <AvatarFallback className='rounded-lg'>{PlayerManager.getAvatar(player.nickname!)}</AvatarFallback>
                         </Avatar>
                         <div className='grid flex-1 text-left text-sm leading-tight m-2'>
-                            <span className='truncate font-medium'>{player.name}</span>
-                            <span className='text-muted-foreground truncate text-xs'>{player.nickname}</span>
+                            <span className='truncate font-medium'>{player.nickname}</span>
+                            <span className='text-muted-foreground truncate text-xs'>{player.uuid}</span>
                         </div>
                         <EllipsisVertical className='ml-auto size-4' />
                     </>
@@ -81,24 +72,18 @@ function Button() {
                     </DialogHeader>
                     <div className='grid gap-4'>
                         <div className='grid gap-3'>
-                            <Label htmlFor='name'>Nome</Label>
-                            <div className='relative'>
-                                <User className='absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground' />
-                                <Input {...registerFn('name')} className='pl-10 ' id='name' name='name' required />
-                            </div>
-                        </div>
-                        <div className='grid gap-3'>
                             <Label htmlFor='nickname'>Apelido</Label>
                             <div className='relative'>
                                 <UserPen className='absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground' />
-                                <Input {...registerFn('nickname')} className='pl-10 ' id='nickname' name='nickname' disabled required />
+                                <Input {...register('nickname')} className='pl-10 ' id='nickname' name='nickname' required />
                             </div>
                         </div>
+
                         <div className='grid gap-3'>
-                            <Label htmlFor='nickname'>Email</Label>
+                            <Label htmlFor='uuid'>ID</Label>
                             <div className='relative'>
-                                <Mail className='absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground' />
-                                <Input {...registerFn('email')} className='pl-10 ' id='email' name='email' required />
+                                <IdCard className='absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground' />
+                                <Input {...register('uuid')} className='pl-10 ' id='uuid' name='uuid' disabled />
                             </div>
                         </div>
                     </div>

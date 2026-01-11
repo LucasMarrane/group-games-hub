@@ -5,6 +5,7 @@ import { cn } from '@shadcn/lib/utils';
 import { AnimatePresence } from 'framer-motion';
 import { HelpCircle } from 'lucide-react';
 import { PropsWithChildren, ReactNode } from 'react';
+import * as Player from '@components/player';
 
 interface ContainerProps extends PropsWithChildren {
     game: IGames<any>;
@@ -30,6 +31,7 @@ export function Container({ children, game, icon, className = '' }: ContainerPro
                                     </CollapsibleTrigger>
                                 </div>
                                 <p className='text-muted-foreground text-sm'>{game.hint}</p>
+                                <Player.ModalButton />
                             </div>
                             <CollapsibleContent className='flex flex-col gap-2 mt-2 text-muted-foreground text-sm'>
                                 <p>{game.description}</p>

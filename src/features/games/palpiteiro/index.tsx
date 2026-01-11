@@ -1,129 +1,130 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Eye, ChevronRight, Plus, Minus, Users, RotateCcw, Bird } from 'lucide-react';
-import { AdaptedPalpiteiroTheme, PalpiteiroPlayer } from '@appTypes/palpiteiro';
+import { Eye, ChevronRight, RotateCcw, Bird, Send } from 'lucide-react';
+import { AdaptedPalpiteiroTheme } from '@appTypes/palpiteiro';
 import { Button } from '@shadcn/components/ui/button';
-import { Input } from '@shadcn/components/ui/input';
 import { PalpiteiroGame } from '@/data/index';
 import * as Game from '@components/game';
 import { Icon } from '@components/game/game.icon';
-
-type GamePhase = 'setup' | 'playing';
+import { useMultiplayer } from '@/hooks/useMultiplayer';
+import { Input } from '@shadcn/components/ui/input';
+import { toast } from 'sonner';
 
 export function Palpiteiro() {
-    const [phase, setPhase] = useState<GamePhase>('setup');
-    const [players, setPlayers] = useState<PalpiteiroPlayer[]>([
-        { id: '1', name: 'Jogador 1', ducks: 0 },
-        { id: '2', name: 'Jogador 2', ducks: 0 },
-    ]);
-    const [currentCardIndex, setCurrentCardIndex] = useState(0);
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [showAnswer, setShowAnswer] = useState(false);
-    const [shuffledCards, setShuffledCards] = useState<AdaptedPalpiteiroTheme[]>([]);
+    const [guess, setGuess] = useState(0);
+    const { isHost, startGame, localPlayerId, gameState, changeGame: changeGameState, players: playersRoom } = useMultiplayer<any>();
+
+    const { showAnswer = false, shuffledCards = [], currentCardIndex = 0, players = [], minValue = 0, lastPlayer, actualPlayer } = gameState ?? {};
 
     const cards = PalpiteiroGame.themes.flatMap((i) =>
         i.items.map((c) => ({ ...c, theme: c.title, value: c.value, answer: c.answer, category: i.categories.find((ca) => ca.id == c.category)?.name } as AdaptedPalpiteiroTheme)),
     );
 
-    const shuffleCards = useCallback(() => {
+    const currentTheme = shuffledCards[currentCardIndex];
+
+    function shuffle() {
         const shuffled = [...cards].sort(() => Math.random() - 0.5);
-        setShuffledCards(shuffled);
-        setCurrentCardIndex(0);
-        setCurrentQuestionIndex(0);
-        setShowAnswer(false);
-    }, [cards]);
+        return shuffled;
+    }
 
-    const startGame = useCallback(() => {
-        if (players.every((p) => p.name.trim())) {
-            shuffleCards();
-            setPhase('playing');
+    const starNewGame = useCallback(() => {
+        if (!isHost) return;
+        if (players.every((p: any) => p.name.trim())) {
+            startGame('playing');
+            setDesk();
         }
-    }, [players, shuffleCards]);
+    }, [players]);
 
-    const addPlayer = useCallback(() => {
-        const newId = String(Date.now());
-        setPlayers((prev) => [...prev, { id: newId, name: `Jogador ${prev.length + 1}`, ducks: 0 }]);
-    }, []);
+    function setDesk(action: string = 'shuffle') {
+        const actions: Record<string, Function> = {
+            shuffle: () => {
+                const shuffled = shuffle();
+                changeGameState({
+                    ...gameState,
+                    phase: 'playing',
+                    showAnswer: false,
+                    currentCardIndex: 0,
+                    shuffledCards: shuffled,
+                    players: playersRoom.map((p) => ({ ...p, value: 0, connection: null })),
+                    actualPlayer: localPlayerId,
+                    minValue: 0,
+                });
+            },
+            addValue: () => {
+                const value = currentTheme.value;
+                changeGameState({ ...gameState, players: gameState.players.map((p: any) => ({ ...p, value: Math.max(0, p.ducks + value) })) });
+            },
+            removeValue: () => {
+                const value = currentTheme.value;
+                changeGameState({ ...gameState, players: gameState.players.map((p: any) => ({ ...p, value: Math.max(0, p.ducks - value) })) });
+            },
+            nextQuestion: () => {
+                const index = currentCardIndex >= cards.length - 1 ? 0 : currentCardIndex + 1;
+                changeGameState({ ...gameState, currentCardIndex: index, showAnswer: false });
+            },
+            showAnswer: () => {
+                const loser = currentTheme.answer <= minValue ? localPlayerId : lastPlayer;
+                const _players = gameState.players.map((p: any) => {
+                    let result = { ...p };
 
-    const removePlayer = useCallback((id: string) => {
-        setPlayers((prev) => (prev.length > 2 ? prev.filter((p) => p.id !== id) : prev));
-    }, []);
+                    if (p.id == loser) {
+                        result.value = p.value + currentTheme.value;
+                    }
+                    return result;
+                });
+                changeGameState({ ...gameState, showAnswer: true, players: _players, minValue: 0 });
+            },
+            guess: () => {
+                const indexPlayer = gameState.players.findIndex((i: any) => i.id == localPlayerId);
+                const nextId = indexPlayer >= gameState.players.length - 1 ? 0 : indexPlayer + 1;
+                changeGameState({ ...gameState, minValue: guess, lastPlayer: localPlayerId, actualPlayer: gameState.players[nextId].id });
+            },
+        };
 
-    const updatePlayerName = useCallback((id: string, name: string) => {
-        setPlayers((prev) => prev.map((p) => (p.id === id ? { ...p, name } : p)));
-    }, []);
+        actions?.[action]?.();
+    }
 
-    const addDucks = useCallback((id: string, amount: number) => {
-        setPlayers((prev) => prev.map((p) => (p.id === id ? { ...p, ducks: Math.max(0, p.ducks + amount) } : p)));
-    }, []);
+    function toggleAnswer() {
+        setDesk('showAnswer');
+    }
+
+    function makeGuess() {
+        if (guess <= minValue) {
+            toast.warning('Apenas valor maior que o valor anterior é permitido');
+            return;
+        }
+        setDesk('guess');
+    }
 
     const nextQuestion = useCallback(() => {
-        const currentCard = shuffledCards[currentCardIndex];
-        if (currentQuestionIndex < currentCard.theme.length - 1) {
-            setCurrentQuestionIndex((prev) => prev + 1);
-        } else if (currentCardIndex < shuffledCards.length - 1) {
-            setCurrentCardIndex((prev) => prev + 1);
-            setCurrentQuestionIndex(0);
-        } else {
-            shuffleCards();
-        }
-        setShowAnswer(false);
-    }, [currentCardIndex, currentQuestionIndex, shuffledCards, shuffleCards]);
+        setDesk('nextQuestion');
+    }, [currentCardIndex, shuffledCards]);
 
     const resetGame = useCallback(() => {
-        setPhase('setup');
-        setPlayers((prev) => prev.map((p) => ({ ...p, ducks: 0 })));
-        setCurrentCardIndex(0);
-        setCurrentQuestionIndex(0);
-        setShowAnswer(false);
+        starNewGame();
     }, []);
 
-    const currentTheme = shuffledCards[currentCardIndex];
+    useEffect(() => {
+        setGuess(minValue);
+    }, [minValue]);
 
     const sortedPlayers = useMemo(() => [...players].sort((a, b) => a.ducks - b.ducks), [players]);
 
     return (
         <Game.Container game={PalpiteiroGame} className='text-gradient-palpiteiro' icon={<Icon variant='palpiteiro' />}>
             <AnimatePresence mode='wait'>
-                {phase === 'setup' && (
+                {!gameState?.phase && (
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className='flex-1 space-y-4'>
-                        <div className='bg-card rounded-2xl p-6 border border-border space-y-4'>
-                            <div className='flex items-center justify-between'>
-                                <div className='flex items-center gap-2 text-muted-foreground'>
-                                    <Users className='w-5 h-5' />
-                                    <span className='font-medium'>Jogadores</span>
-                                </div>
-                                <Button variant='glass' size='sm' onClick={addPlayer}>
-                                    <Plus className='w-4 h-4' />
-                                    Adicionar
-                                </Button>
-                            </div>
+                        <Game.Multiplayer variant='palpiteiro' />
 
-                            {players.map((player, idx) => (
-                                <div key={player.id} className='flex items-center gap-2'>
-                                    <Input
-                                        placeholder={`Jogador ${idx + 1}`}
-                                        value={player.name}
-                                        onChange={(e) => updatePlayerName(player.id, e.target.value)}
-                                        className='bg-muted border-border flex-1'
-                                    />
-                                    {players.length > 2 && (
-                                        <Button variant='ghost' size='icon' onClick={() => removePlayer(player.id)} className='text-destructive'>
-                                            <Minus className='w-4 h-4' />
-                                        </Button>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
-
-                        <Button variant='palpiteiro' size='xl' className='w-full' onClick={startGame}>
+                        <Button variant='palpiteiro' size='xl' className='w-full' onClick={starNewGame} disabled={!isHost}>
                             <Bird className='w-5 h-5' />
                             Começar Jogo
                         </Button>
                     </motion.div>
                 )}
 
-                {phase === 'playing' && currentTheme && (
+                {gameState?.phase === 'playing' && currentTheme && (
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className='flex-1 flex flex-col gap-4'>
                         {/* Scoreboard */}
                         <div className='flex gap-2 overflow-x-auto pb-2'>
@@ -137,7 +138,7 @@ export function Palpiteiro() {
                                         <div className='text-xs text-muted-foreground truncate'>{player.name}</div>
                                         <div className='flex items-center justify-center gap-1'>
                                             <Bird className='w-4 h-4 text-palpiteiro' />
-                                            <span className='text-xl font-display font-bold text-foreground'>{player.ducks}</span>
+                                            <span className='text-xl font-display font-bold text-foreground'>{player.value}</span>
                                         </div>
                                     </div>
                                 </motion.div>
@@ -146,7 +147,7 @@ export function Palpiteiro() {
 
                         {/* Current Card */}
                         <motion.div
-                            key={`${currentCardIndex}-${currentQuestionIndex}`}
+                            key={`palpiteiro-${currentCardIndex}`}
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             className='bg-card rounded-2xl border border-border overflow-hidden'
@@ -164,7 +165,7 @@ export function Palpiteiro() {
 
                             {/* Question */}
                             <div className='p-6'>
-                                 <p className='text-xl font-display text-foreground text-center mb-6'>{currentTheme.theme}</p>
+                                <p className='text-xl font-display text-foreground text-center mb-6'>{currentTheme.theme}</p>
                                 {/* Answer Section */}
                                 <div className='bg-muted rounded-xl p-4'>
                                     <AnimatePresence mode='wait'>
@@ -173,10 +174,35 @@ export function Palpiteiro() {
                                                 <span className='text-5xl font-display font-bold text-gradient-palpiteiro'>{currentTheme.answer}</span>
                                             </motion.div>
                                         ) : (
-                                            <motion.div key='hidden' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className='text-center'>
-                                                <Button variant='palpiteiro' size='lg' onClick={() => setShowAnswer(true)} className='gap-2'>
+                                            <motion.div key='hidden' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className=' flex text-center justify-around'>
+                                                <div className='flex justify-center align-center'>
+                                                    <Input
+                                                        placeholder='Valor'
+                                                        type='number'
+                                                        value={guess}
+                                                        min={minValue + 1}
+                                                        disabled={localPlayerId != actualPlayer}
+                                                        onChange={(e) => {
+                                                            const value = e?.target?.value ?? '0';
+                                                            if (!value) {
+                                                                setGuess(e?.target?.value as any);
+                                                                return;
+                                                            }
+                                                            if (/^\d+$/.test(value)) {
+                                                                setGuess(Number(value));
+                                                            }
+                                                        }}
+                                                        className='text-center'
+                                                    />
+                                                    <Button variant='palpiteiro' size='default' onClick={makeGuess} className='gap-2 ml-5' disabled={localPlayerId != actualPlayer}>
+                                                        <Send className='w-5 h-5' />
+                                                        Responder
+                                                    </Button>
+                                                </div>
+
+                                                <Button variant='palpiteiro' size='lg' onClick={() => toggleAnswer()} className='gap-2' disabled={localPlayerId != actualPlayer}>
                                                     <Eye className='w-5 h-5' />
-                                                    Revelar Resposta
+                                                    EU DUVIDO .....
                                                 </Button>
                                             </motion.div>
                                         )}
@@ -185,35 +211,8 @@ export function Palpiteiro() {
                             </div>
                         </motion.div>
 
-                        {/* Duck Assignment */}
-                        {showAnswer && (
-                            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className='bg-card rounded-2xl p-4 border border-border'>
-                                <h4 className='text-sm text-muted-foreground mb-3 flex items-center gap-2'>
-                                    <Bird className='w-4 h-4' />
-                                    Distribuir pontuação
-                                </h4>
-                                <div className='space-y-2'>
-                                    {players.map((player) => (
-                                        <div key={player.id} className='flex items-center justify-between bg-muted rounded-lg p-2'>
-                                            <span className='text-sm font-medium'>{player.name}</span>
-                                            <div className='flex items-center gap-2'>
-                                                <Button variant='ghost' size='icon' onClick={() => addDucks(player.id, -1)} disabled={player.ducks === 0} className='h-8 w-8'>
-                                                    <Minus className='w-4 h-4' />
-                                                </Button>
-                                                <span className='w-8 text-center font-bold'>{player.ducks}</span>
-                                                <Button variant='palpiteiro' size='icon' onClick={() => addDucks(player.id, currentTheme.value)} className='h-8 w-8'>
-                                                    <Plus className='w-4 h-4' />
-                                                </Button>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </motion.div>
-                        )}
-
-                        {/* Navigation */}
                         <div className='flex gap-2'>
-                            <Button variant='glass' className='flex-1' onClick={resetGame}>
+                            <Button variant='glass' className='flex-1' disabled={!isHost} onClick={resetGame}>
                                 <RotateCcw className='w-4 h-4' />
                                 Reiniciar
                             </Button>

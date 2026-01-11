@@ -3,7 +3,7 @@ import { CaotiqueiraGame } from '@data/caotiqueira/theme';
 import { DecisoesGame } from '@data/decisoes/theme';
 import { MimicaGame, PalpiteiroGame, SincroniaGame } from '@data/index';
 import { OncaGame } from '@data/onca/theme';
-
+import * as Player from '@components/player';
 import { motion } from 'framer-motion';
 import { Sparkles, Users, Target, Bird, Cat, Skull, Zap } from 'lucide-react';
 
@@ -36,7 +36,7 @@ export default function Home() {
                 <p className='text-muted-foreground'>Sua festa, seus jogos, suas risadas!</p>
                 <p className='text-muted-foreground'> Toque em um jogo para começar</p>
 
-                <div className='flex w-full justify-center mt-2'>{/* <Player.ModalButton /> */}</div>
+                <div className='flex w-full justify-center mt-2'>{<Player.ModalButton />}</div>
             </motion.div>
 
             {/* Games List */}

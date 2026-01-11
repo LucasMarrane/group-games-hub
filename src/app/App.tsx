@@ -5,6 +5,7 @@ import { AppRoutes } from './routes';
 
 import './App.css';
 import { OnlineProvider } from '@/hooks/useOnlineStatus';
+import { MultiplayerProvider } from '@/hooks/useMultiplayer';
 
 const queryClient = new QueryClient();
 
@@ -12,9 +13,11 @@ const App = () => {
     return (
         <QueryClientProvider client={queryClient}>
             <TooltipProvider>
-                <Toaster />
+                <Toaster position='top-right' />
                 <OnlineProvider>
-                    <AppRoutes />
+                    <MultiplayerProvider>
+                        <AppRoutes />
+                    </MultiplayerProvider>
                 </OnlineProvider>
             </TooltipProvider>
         </QueryClientProvider>
