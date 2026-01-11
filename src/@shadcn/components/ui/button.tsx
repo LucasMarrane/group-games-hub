@@ -21,6 +21,10 @@ const buttonVariants = cva(
                 onca: 'gradient-onca text-foreground shadow-glow-onca hover:opacity-90',
                 decisoes: 'gradient-decisoes text-primary-foreground shadow-glow-decisoes hover:opacity-90',
                 caotiqueira: 'gradient-caotiqueira text-primary-foreground shadow-glow-caotiqueira hover:opacity-90',
+                icognito: 'gradient-icognito text-primary-foreground shadow-glow-icognito hover:opacity-90',
+                eununca: 'gradient-eununca text-primary-foreground shadow-glow-eununca hover:opacity-90',
+                detonador: 'gradient-detonador text-primary-foreground shadow-glow-detonador hover:opacity-90',
+                surto: 'gradient-surto text-primary-foreground shadow-glow-surto hover:opacity-90',
                 glass: 'bg-muted/50 backdrop-blur-sm border border-border/50 text-foreground hover:bg-muted/70',
             },
             size: {

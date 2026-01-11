@@ -142,6 +142,14 @@
         --decisoes-glow: 340 90% 65%;
         --caotiqueira: 280 85% 60%;
         --caotiqueira-glow: 300 90% 70%;
+        --incognito: 270 60% 35%;
+        --incognito-gold: 45 80% 55%;
+        --eununca: 350 75% 55%;
+        --eununca-dark: 340 70% 40%;
+        --detonador: 25 95% 55%;
+        --detonador-dark: 15 90% 45%;
+        --surto: 0 85% 55%;
+        --surto-glow: 330 90% 60%;
 
         /* Gradients */
         --gradient-sincronia: linear-gradient(135deg, hsl(16 90% 60%), hsl(28 100% 65%));
@@ -153,6 +161,10 @@
         --gradient-onca: linear-gradient(135deg, hsl(45 90% 55%), hsl(35 100% 60%));
         --gradient-decisoes: linear-gradient(135deg, hsl(330 80% 55%), hsl(340 90% 65%));
         --gradient-caotiqueira: linear-gradient(135deg, hsl(280 85% 60%), hsl(300 90% 70%));
+        --gradient-incognito: linear-gradient(135deg, hsl(270 60% 35%), hsl(45 80% 55%));
+        --gradient-eununca: linear-gradient(135deg, hsl(350 75% 55%), hsl(340 70% 40%));
+        --gradient-detonador: linear-gradient(135deg, hsl(25 95% 55%), hsl(15 90% 45%));
+        --gradient-surto: linear-gradient(135deg, hsl(0 85% 55%), hsl(330 90% 60%));
 
         /* Shadows */
         --shadow-glow-sincronia: 0 0 40px hsl(16 90% 60% / 0.4);
@@ -161,6 +173,10 @@
         --shadow-glow-onca: 0 0 40px hsl(45 90% 55% / 0.4);
         --shadow-glow-decisoes: 0 0 40px hsl(330 80% 55% / 0.4);
         --shadow-glow-caotiqueira: 0 0 40px hsl(280 85% 60% / 0.4);
+        --shadow-glow-incognito: 0 0 40px hsl(270 60% 35% / 0.4);
+        --shadow-glow-eununca: 0 0 40px hsl(350 75% 55% / 0.4);
+        --shadow-glow-detonador: 0 0 40px hsl(25 95% 55% / 0.4);
+        --shadow-glow-surto: 0 0 40px hsl(0 85% 55% / 0.4);
 
         /* Typography */
         --font-display: 'Fredoka', sans-serif;
@@ -239,6 +255,21 @@
     .gradient-decisoes {
         background: var(--gradient-decisoes);
     }
+    .gradient-incognito {
+        background: var(--gradient-incognito);
+    }
+
+    .gradient-eununca {
+        background: var(--gradient-eununca);
+    }
+
+    .gradient-detonador {
+        background: var(--gradient-detonador);
+    }
+
+    .gradient-surto {
+        background: var(--gradient-surto);
+    }
 
     .gradient-caotiqueira {
         background: var(--gradient-caotiqueira);
@@ -266,6 +297,22 @@
 
     .shadow-glow-caotiqueira {
         box-shadow: var(--shadow-glow-caotiqueira);
+    }
+
+    .shadow-glow-incognito {
+        box-shadow: var(--shadow-glow-incognito);
+    }
+
+    .shadow-glow-eununca {
+        box-shadow: var(--shadow-glow-eununca);
+    }
+
+    .shadow-glow-detonador {
+        box-shadow: var(--shadow-glow-detonador);
+    }
+
+    .shadow-glow-surto {
+        box-shadow: var(--shadow-glow-surto);
     }
 
     .text-gradient-caotiqueira {
@@ -305,6 +352,32 @@
 
     .text-gradient-decisoes {
         background: var(--gradient-decisoes);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .text-gradient-icognito {
+        background: var(--gradient-icognito);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .text-gradient-eununca {
+        background: var(--gradient-eununca);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .text-gradient-detonador {
+        background: var(--gradient-detonador);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .text-gradient-surto {
+        background: var(--gradient-surto);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;

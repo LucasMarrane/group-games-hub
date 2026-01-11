@@ -1,0 +1,2071 @@
+{
+    "id": "base",
+    "name": "Jogo padrão",
+    "description": "Um card game multiplayer de alta velocidade onde a única regra é o caos. Um sistema de reviver jogadores que transforma qualquer eliminação em uma potencial reviravolta. Sobreviva ao surto.",
+    "categories": [
+        {
+            "id": 1,
+            "name": "Surto",
+            "description": "Cartas de eliminação imediata."
+        },
+        {
+            "id": 2,
+            "name": "Defesa",
+            "description": "Proteção e anulação de efeitos."
+        },
+        {
+            "id": 3,
+            "name": "Ataque",
+            "description": "Ações ofensivas contra oponentes."
+        },
+        {
+            "id": 4,
+            "name": "Caos",
+            "description": "Alterações globais na dinâmica do jogo."
+        },
+        {
+            "id": 5,
+            "name": "Sobrevivência",
+            "description": "Reviver, curar e evitar a morte."
+        },
+        {
+            "id": 6,
+            "name": "Inútil",
+            "description": "Cartas sem efeito prático ou piadas."
+        }
+    ],
+    "items": [
+        {
+            "id": 1,
+            "title": "💥 SURTO!",
+            "category": 1,
+            "description": "Você está ELIMINADO! Sem choro nem vela.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion",
+            "rarity": "common",
+            "footer": "A vida é curta."
+        },
+        {
+            "id": 2,
+            "title": "💥 SURTO!",
+            "category": 1,
+            "description": "BOOM! Você foi eliminado! Foi bom enquanto durou.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion",
+            "rarity": "common",
+            "footer": "Game over."
+        },
+        {
+            "id": 3,
+            "title": "💥 SURTO NUCLEAR!",
+            "category": 1,
+            "description": "Eliminação instantânea! Não sobra nem poeira.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "nuclear",
+            "rarity": "common",
+            "footer": "Tchau, foi bom te conhecer."
+        },
+        {
+            "id": 4,
+            "title": "💥 SURTO!",
+            "category": 1,
+            "description": "Game over para você! Tente na próxima vida.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion",
+            "rarity": "common",
+            "footer": "Descanse em paz."
+        },
+        {
+            "id": 5,
+            "title": "💥 SURTO!",
+            "category": 1,
+            "description": "Você surtou! Eliminado por excesso de loucura.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion",
+            "rarity": "common",
+            "footer": "Seu psicólogo avisou."
+        },
+        {
+            "id": 6,
+            "title": "💥 MEGA SURTO!",
+            "category": 1,
+            "description": "Colapso total! Você está fora do sistema.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion",
+            "rarity": "common",
+            "footer": "Era inevitável."
+        },
+        {
+            "id": 7,
+            "title": "💥 SURTO!",
+            "category": 1,
+            "description": "Kaboom! Eliminado! Vá buscar um refri.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion",
+            "rarity": "common",
+            "footer": "Lanches te esperam lá fora."
+        },
+        {
+            "id": 8,
+            "title": "💥 SURTO CARDÍACO!",
+            "category": 1,
+            "description": "Seu coração não aguentou tanta emoção!",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion",
+            "rarity": "common",
+            "footer": "Morreu fazendo o que amava: perdendo."
+        },
+        {
+            "id": 9,
+            "title": "💥 SURTO EXISTENCIAL!",
+            "category": 1,
+            "description": "Você questionou demais... e perdeu a existência!",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion",
+            "rarity": "common",
+            "footer": "Qual o sentido?"
+        },
+        {
+            "id": 10,
+            "title": "💥 SURTO!",
+            "category": 1,
+            "description": "A bomba explodiu na sua mão! Que azar.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion",
+            "rarity": "common",
+            "footer": "Divirta-se assistindo."
+        },
+        {
+            "id": 11,
+            "title": "💥 SURTO FINAL!",
+            "category": 1,
+            "description": "Não tem escapatória desta vez! É o fim da linha.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "nuclear",
+            "rarity": "rare",
+            "footer": "Surpresa!"
+        },
+        {
+            "id": 12,
+            "title": "💥 SURTO CÓSMICO!",
+            "category": 1,
+            "description": "O universo conspirou contra você! As estrelas se alinharam para sua derrota.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion",
+            "rarity": "common",
+            "footer": "Os astros previram."
+        },
+        {
+            "id": 13,
+            "title": "💥 SURTO!",
+            "category": 1,
+            "description": "Você foi surpreendido! Eliminado antes de piscar.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion",
+            "rarity": "common",
+            "footer": "Cara de surpresa não salva."
+        },
+        {
+            "id": 14,
+            "title": "💥 SURTO GOURMET!",
+            "category": 1,
+            "description": "Morte com empratamento bonito e harmonização.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion_sparkle",
+            "rarity": "common",
+            "footer": "Morreu chique."
+        },
+        {
+            "id": 15,
+            "title": "💥 SURTO DE LAG!",
+            "category": 1,
+            "description": "Você travou, pingou 999ms e caiu do servidor.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "glitch_death",
+            "rarity": "common",
+            "footer": "Reconectando... Falha."
+        },
+        {
+            "id": 16,
+            "title": "💥 SURTO 404",
+            "category": 1,
+            "description": "Vida não encontrada. O servidor não responde.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "error_window",
+            "rarity": "common",
+            "footer": "Fatal Error."
+        },
+        {
+            "id": 17,
+            "title": "💥 SURTO DE FOFURA",
+            "category": 1,
+            "description": "Explodiu de tanto 'owwnnn'! Fofura letal.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "hearts_explosion",
+            "rarity": "rare",
+            "footer": "Foi fofo, mas foi fatal."
+        },
+        {
+            "id": 18,
+            "title": "💥 SURTO FINANCEIRO",
+            "category": 1,
+            "description": "A fatura do cartão chegou e você enfartou.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "money_burn",
+            "rarity": "common",
+            "footer": "Nome sujo, caixão limpo."
+        },
+        {
+            "id": 19,
+            "title": "💥 SURTO SILENCIOSO",
+            "category": 1,
+            "description": "Você nem viu o que te atingiu. Foi rápido.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "smoke",
+            "rarity": "uncommon",
+            "footer": "Shhh... dorme."
+        },
+        {
+            "id": 20,
+            "title": "💥 SURTO DE RISO",
+            "category": 1,
+            "description": "Você riu tanto que esqueceu de respirar.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "laughing_skull",
+            "rarity": "common",
+            "footer": "Kkkkkkk... morreu."
+        },
+        {
+            "id": 21,
+            "title": "🛡️ Escudo Sagrado",
+            "category": 2,
+            "description": "Cancela SURTO. Proteção divina.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "shield",
+            "rarity": "uncommon",
+            "footer": "Amém."
+        },
+        {
+            "id": 22,
+            "title": "🛡️ Desfibrilador",
+            "category": 2,
+            "description": "Guarde esta carta. Revive automaticamente ao morrer.",
+            "action_code": "REVIVE_PLAYER",
+            "animation_trigger": "revive",
+            "rarity": "rare",
+            "footer": "A morte é um inconveniente.",
+            "trigger_on_death": true
+        },
+        {
+            "id": 23,
+            "title": "🛡️ Reflexo Felino",
+            "category": 2,
+            "description": "Reflete ataque de volta para o remetente.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "reflect",
+            "rarity": "uncommon",
+            "footer": "Uno reverse card feelings."
+        },
+        {
+            "id": 24,
+            "title": "🛡️ Bunker de Papel",
+            "category": 2,
+            "description": "Bloqueia ataque. É frágil, mas funciona.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "shield",
+            "rarity": "common",
+            "footer": "É de papel, mas é seu."
+        },
+        {
+            "id": 25,
+            "title": "🛡️ Segunda Chance",
+            "category": 2,
+            "description": "Evita eliminação comprando uma carta.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "revive",
+            "rarity": "rare",
+            "footer": "Sorte sua."
+        },
+        {
+            "id": 26,
+            "title": "🛡️ Armadura de Ego",
+            "category": 2,
+            "description": "Cancela 1 SURTO. Seu orgulho é impenetrável.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "shield",
+            "rarity": "uncommon",
+            "footer": "Narcisismo protege."
+        },
+        {
+            "id": 27,
+            "title": "🛡️ Plot Armor",
+            "category": 2,
+            "description": "Imune ao próximo SURTO. O roteiro te salva.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "shield",
+            "rarity": "rare",
+            "footer": "Protagonista não morre."
+        },
+        {
+            "id": 28,
+            "title": "🛡️ Invisibilidade",
+            "category": 2,
+            "description": "Passe o turno sem comprar. Você fica imune.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "invisible",
+            "rarity": "uncommon",
+            "footer": "Você não me viu."
+        },
+        {
+            "id": 29,
+            "title": "🛡️ Escudo de Amizade",
+            "category": 2,
+            "description": "Protege você e um aliado escolhido por 1 rodada.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "shield",
+            "rarity": "uncommon",
+            "footer": "A amizade é mágica.",
+            "duration": 1
+        },
+        {
+            "id": 30,
+            "title": "🛡️ Roleta Russa",
+            "category": 2,
+            "description": "Chance de anular SURTO ou morrer tentando.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "roulette",
+            "rarity": "rare",
+            "footer": "Tente a sorte."
+        },
+        {
+            "id": 31,
+            "title": "🛡️ Colete Kevlar",
+            "category": 2,
+            "description": "Bloqueia o próximo ataque recebido.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "shield",
+            "rarity": "uncommon",
+            "footer": "Tático."
+        },
+        {
+            "id": 32,
+            "title": "🛡️ Anjo da Guarda",
+            "category": 2,
+            "description": "Salva da morte automaticamente (Passiva).",
+            "action_code": "REVIVE_PLAYER",
+            "animation_trigger": "angel",
+            "rarity": "rare",
+            "footer": "Hora extra do anjo.",
+            "trigger_on_death": true
+        },
+        {
+            "id": 33,
+            "title": "🛡️ Firewall",
+            "category": 2,
+            "description": "Bloqueia ataques direcionados a você por 1 rodada.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "firewall",
+            "rarity": "uncommon",
+            "footer": "Acesso negado.",
+            "duration": 1
+        },
+        {
+            "id": 34,
+            "title": "🛡️ Nope!",
+            "category": 2,
+            "description": "Cancela a ação de qualquer carta jogada.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "nope",
+            "rarity": "common",
+            "footer": "Não."
+        },
+        {
+            "id": 35,
+            "title": "🛡️ Bunker Subterrâneo",
+            "category": 2,
+            "description": "Fica protegido por 2 turnos, mas não pode atacar.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "bunker",
+            "rarity": "uncommon",
+            "footer": "Covarde, mas vivo.",
+            "duration": 2
+        },
+        {
+            "id": 36,
+            "title": "🛡️ Advogado do Diabo",
+            "category": 2,
+            "description": "Bloqueia um ataque alegando brechas nas regras.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "papers",
+            "rarity": "uncommon",
+            "footer": "Objeção!"
+        },
+        {
+            "id": 37,
+            "title": "🛡️ Modo Avião",
+            "category": 2,
+            "description": "Fica invulnerável por 1 turno completo.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "airplane",
+            "rarity": "uncommon",
+            "footer": "Fora de área.",
+            "duration": 1
+        },
+        {
+            "id": 38,
+            "title": "🛡️ Espelho de Pobre",
+            "category": 2,
+            "description": "Reflete o ataque (meio torto, mas vai).",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "mirror",
+            "rarity": "common",
+            "footer": "Volta pra quem mandou."
+        },
+        {
+            "id": 39,
+            "title": "🛡️ Cancelamento",
+            "category": 2,
+            "description": "Cancela a ação do oponente e faz ele perder engajamento.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "blue_bird",
+            "rarity": "rare",
+            "footer": "Cancelado."
+        },
+        {
+            "id": 40,
+            "title": "🛡️ Botão de Mute",
+            "category": 2,
+            "description": "Silencia e cancela um atacante.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "mute",
+            "rarity": "common",
+            "footer": "Cala a boca."
+        },
+        {
+            "id": 41,
+            "title": "⚔️ Duplo Surtado",
+            "category": 3,
+            "description": "O próximo jogador compra 2x.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "attack",
+            "rarity": "common",
+            "footer": "Azar em dobro."
+        },
+        {
+            "id": 42,
+            "title": "⚔️ Roubo Descarado",
+            "category": 3,
+            "description": "Roube 2 cartas da mão de um oponente.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "steal",
+            "rarity": "uncommon",
+            "footer": "Perdeu playboy."
+        },
+        {
+            "id": 43,
+            "title": "⚔️ Facada nas Costas",
+            "category": 3,
+            "description": "Escolha um alvo para comprar 3 cartas.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "backstab",
+            "rarity": "uncommon",
+            "footer": "Amizade linda."
+        },
+        {
+            "id": 44,
+            "title": "⚔️ Bomba Relógio",
+            "category": 3,
+            "description": "Coloca bomba na mesa. Explode em 2 turnos se não passarem.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "bomb",
+            "rarity": "rare",
+            "footer": "Tick-tock.",
+            "duration": 2
+        },
+        {
+            "id": 45,
+            "title": "⚔️ Sabotagem",
+            "category": 3,
+            "description": "Obriga o alvo a descartar uma carta de defesa.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "sabotage",
+            "rarity": "uncommon",
+            "footer": "Ops."
+        },
+        {
+            "id": 46,
+            "title": "⚔️ Chute na Canela",
+            "category": 3,
+            "description": "Pula o próximo jogador.",
+            "action_code": "SKIP_PLAYER",
+            "animation_trigger": "kick",
+            "rarity": "common",
+            "footer": "Ai!"
+        },
+        {
+            "id": 47,
+            "title": "⚔️ Espionagem",
+            "category": 3,
+            "description": "Veja a mão completa de um oponente.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "spy",
+            "rarity": "common",
+            "footer": "Stalker."
+        },
+        {
+            "id": 48,
+            "title": "⚔️ Emboscada",
+            "category": 3,
+            "description": "Obriga o alvo a revelar suas cartas para todos.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "reveal",
+            "rarity": "common",
+            "footer": "Mostra aí."
+        },
+        {
+            "id": 49,
+            "title": "⚔️ Presente Grego",
+            "category": 3,
+            "description": "Entregue uma carta SURTO da sua mão para outro jogador.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "gift",
+            "rarity": "rare",
+            "footer": "De coração."
+        },
+        {
+            "id": 50,
+            "title": "⚔️ Jogar 3x",
+            "category": 3,
+            "description": "O próximo jogador compra 3 cartas.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "attack",
+            "rarity": "uncommon",
+            "footer": "Toma."
+        },
+        {
+            "id": 51,
+            "title": "⚔️ Alvo Marcado",
+            "category": 3,
+            "description": "Todos os ataques são redirecionados para o alvo por 1 rodada.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "target",
+            "rarity": "uncommon",
+            "footer": "Centro das atenções.",
+            "duration": 1
+        },
+        {
+            "id": 52,
+            "title": "⚔️ Confisco",
+            "category": 3,
+            "description": "Pegue a carta de maior raridade da mão do alvo.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "steal",
+            "rarity": "rare",
+            "footer": "Imposto."
+        },
+        {
+            "id": 53,
+            "title": "⚔️ Sequestro",
+            "category": 3,
+            "description": "O alvo escolhido não joga por 1 turno.",
+            "action_code": "SKIP_PLAYER",
+            "animation_trigger": "kidnap",
+            "rarity": "uncommon",
+            "footer": "Shhh."
+        },
+        {
+            "id": 54,
+            "title": "⚔️ Duelo",
+            "category": 3,
+            "description": "Desafie alguém. Quem revelar a carta de menor valor perde vida.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "duel",
+            "rarity": "uncommon",
+            "footer": "Mano a mano."
+        },
+        {
+            "id": 55,
+            "title": "⚔️ Míssil Teleguiado",
+            "category": 3,
+            "description": "Ignora defesas e escudos. Alvo compra 2.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "missile",
+            "rarity": "rare",
+            "footer": "Sem choro."
+        },
+        {
+            "id": 56,
+            "title": "⚔️ Epidemia",
+            "category": 3,
+            "description": "Todos os jogadores (menos você) compram 1 carta.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "epidemic",
+            "rarity": "uncommon",
+            "footer": "Compartilhar é viver."
+        },
+        {
+            "id": 57,
+            "title": "⚔️ Gatilho",
+            "category": 3,
+            "description": "Ativa imediatamente o efeito da carta do topo do deck.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "trigger",
+            "rarity": "uncommon",
+            "footer": "Roleta."
+        },
+        {
+            "id": 58,
+            "title": "⚔️ Assassinato",
+            "category": 3,
+            "description": "Elimina um jogador que tenha menos de 3 cartas na mão.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "assassinate",
+            "rarity": "legendary",
+            "footer": "Alvo fácil."
+        },
+        {
+            "id": 59,
+            "title": "⚔️ Vandalismo",
+            "category": 3,
+            "description": "Destrói uma carta ativa na mesa (Board Card).",
+            "action_code": "REMOVE_BOARD_CARD",
+            "animation_trigger": "destroy",
+            "rarity": "common",
+            "footer": "Quebrou."
+        },
+        {
+            "id": 60,
+            "title": "⚔️ Trollagem",
+            "category": 3,
+            "description": "Alvo pula 2 turnos, mas recebe 1 carta de defesa como consolo.",
+            "action_code": "SKIP_PLAYER",
+            "animation_trigger": "troll",
+            "rarity": "common",
+            "footer": "Pegadinha.",
+            "turns": 2
+        },
+        {
+            "id": 61,
+            "title": "⚔️ Forçar Jogada",
+            "category": 3,
+            "description": "Obriga o alvo a jogar uma carta específica da mão dele.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "force",
+            "rarity": "uncommon",
+            "footer": "Sem livre arbítrio."
+        },
+        {
+            "id": 62,
+            "title": "⚔️ Karma Instantâneo",
+            "category": 3,
+            "description": "O jogador que te atacou por último compra 3 cartas.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "karma",
+            "rarity": "uncommon",
+            "footer": "Volta com juros."
+        },
+        {
+            "id": 63,
+            "title": "⚔️ Spoiler",
+            "category": 3,
+            "description": "Alvo perde o turno chorando pelo final da série.",
+            "action_code": "SKIP_PLAYER",
+            "animation_trigger": "spoiler",
+            "rarity": "uncommon",
+            "footer": "Todo mundo morre no fim."
+        },
+        {
+            "id": 64,
+            "title": "⚔️ Rickroll",
+            "category": 3,
+            "description": "Alvo compra 2 cartas achando que ganharia um prêmio.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "rickroll",
+            "rarity": "legendary",
+            "footer": "Never gonna give you up."
+        },
+        {
+            "id": 65,
+            "title": "⚔️ Spam",
+            "category": 3,
+            "description": "Enche a mão do alvo com cartas inúteis do deck.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "spam",
+            "rarity": "uncommon",
+            "footer": "Aumente seu deck."
+        },
+        {
+            "id": 66,
+            "title": "⚔️ DDOS",
+            "category": 3,
+            "description": "Alvo trava e pula o turno devido ao excesso de pacotes.",
+            "action_code": "SKIP_PLAYER",
+            "animation_trigger": "glitch",
+            "rarity": "rare",
+            "footer": "Servidor caiu."
+        },
+        {
+            "id": 67,
+            "title": "🌀 Embaralhar Geral!",
+            "category": 4,
+            "description": "Recolhe todas as mãos, embaralha e redistribui.",
+            "action_code": "SHUFFLE_HANDS",
+            "animation_trigger": "shuffle",
+            "rarity": "rare",
+            "footer": "O caos reina."
+        },
+        {
+            "id": 68,
+            "title": "🌀 Inversão!",
+            "category": 4,
+            "description": "Inverte o sentido do jogo.",
+            "action_code": "REVERSE_DIRECTION",
+            "animation_trigger": "reverse",
+            "rarity": "common",
+            "footer": "Uno feelings."
+        },
+        {
+            "id": 69,
+            "title": "🌀 Cadeira Musical",
+            "category": 4,
+            "description": "Todos passam suas cartas para o jogador da direita.",
+            "action_code": "PASS_CARDS_RIGHT",
+            "animation_trigger": "rotate",
+            "rarity": "common",
+            "footer": "Adeus cartas boas."
+        },
+        {
+            "id": 70,
+            "title": "🌀 Terremoto",
+            "category": 4,
+            "description": "Todos passam suas cartas para o jogador da esquerda.",
+            "action_code": "PASS_CARDS_LEFT",
+            "animation_trigger": "earthquake",
+            "rarity": "common",
+            "footer": "Olá cartas ruins."
+        },
+        {
+            "id": 71,
+            "title": "💤 Câimbra Mental",
+            "category": 4,
+            "description": "Você esqueceu como joga. Pule o seu turno.",
+            "action_code": "SKIP_PLAYER",
+            "animation_trigger": "brain_loading",
+            "rarity": "common",
+            "footer": "Tela azul cerebral."
+        },
+        {
+            "id": 72,
+            "title": "🌀 Reset Total",
+            "category": 4,
+            "description": "Remove todas as cartas ativas na mesa (efeitos contínuos).",
+            "action_code": "REMOVE_BOARD_CARD",
+            "animation_trigger": "reset",
+            "rarity": "uncommon",
+            "footer": "Ctrl+Z."
+        },
+        {
+            "id": 73,
+            "title": "🌀 Dança das Cartas",
+            "category": 4,
+            "description": "Passa cartas para a esquerda (Variante animada).",
+            "action_code": "PASS_CARDS_LEFT",
+            "animation_trigger": "dance",
+            "rarity": "uncommon",
+            "footer": "Gira gira."
+        },
+        {
+            "id": 74,
+            "title": "🌀 Roleta Russa de Cartas",
+            "category": 4,
+            "description": "Cada um compra 1 carta. Quem tirar a de maior valor perde.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "roulette",
+            "rarity": "uncommon",
+            "footer": "Tensão."
+        },
+        {
+            "id": 75,
+            "title": "🌀 Amnésia",
+            "category": 4,
+            "description": "Todos jogam com as cartas viradas para baixo por 1 rodada.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "amnesia",
+            "rarity": "uncommon",
+            "footer": "Esqueceu tudo.",
+            "duration": 1
+        },
+        {
+            "id": 76,
+            "title": "🌀 Câmera Lenta",
+            "category": 4,
+            "description": "Todos os jogadores compram +1 carta no início do turno por 2 rodadas.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "slow",
+            "rarity": "common",
+            "footer": "Draaaamáááático.",
+            "duration": 2
+        },
+        {
+            "id": 77,
+            "title": "🌀 Silêncio!",
+            "category": 4,
+            "description": "Ações do tipo 'Falar' ou 'Chat' estão bloqueadas.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "silence",
+            "rarity": "common",
+            "footer": "Shhhhh.",
+            "duration": 1
+        },
+        {
+            "id": 78,
+            "title": "🌀 Votação Popular",
+            "category": 4,
+            "description": "Jogadores votam para alguém comprar 3 cartas.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "vote",
+            "rarity": "uncommon",
+            "footer": "Democracia."
+        },
+        {
+            "id": 79,
+            "title": "🌀 Apocalipse",
+            "category": 4,
+            "description": "Adiciona 5 cartas de Surto ao topo do deck.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "apocalypse",
+            "rarity": "legendary",
+            "footer": "O fim."
+        },
+        {
+            "id": 80,
+            "title": "🗿 Petrificação",
+            "category": 4,
+            "description": "Você virou estátua. Pule o turno.",
+            "action_code": "SKIP_PLAYER",
+            "animation_trigger": "stone",
+            "rarity": "uncommon",
+            "footer": "Duro como pedra."
+        },
+        {
+            "id": 81,
+            "title": "🌀 Treta Geral",
+            "category": 4,
+            "description": "Inicia um duelo forçado entre os dois jogadores com mais cartas.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "duel",
+            "rarity": "uncommon",
+            "footer": "Briga!"
+        },
+        {
+            "id": 82,
+            "title": "🌀 Comunismo!",
+            "category": 4,
+            "description": "Junta todas as cartas e redistribui igualmente.",
+            "action_code": "SHUFFLE_HANDS",
+            "animation_trigger": "communist",
+            "rarity": "rare",
+            "footer": "Nossas cartas."
+        },
+        {
+            "id": 83,
+            "title": "🌀 Pular Corda",
+            "category": 4,
+            "description": "Pula os próximos 2 jogadores de uma vez.",
+            "action_code": "SKIP_PLAYER",
+            "animation_trigger": "skip",
+            "rarity": "common",
+            "footer": "Dois de uma vez.",
+            "turns": 2
+        },
+        {
+            "id": 84,
+            "title": "🎤 Cantoria Ruim",
+            "category": 4,
+            "description": "O jogador canta mal. Oponentes descartam 1 carta de desgosto.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "mic",
+            "rarity": "rare",
+            "footer": "Meus ouvidos!"
+        },
+        {
+            "id": 85,
+            "title": "🧘 Nó Mental",
+            "category": 4,
+            "description": "Confusão total. Você pula seu próprio turno.",
+            "action_code": "SKIP_PLAYER",
+            "animation_trigger": "yoga",
+            "rarity": "uncommon",
+            "footer": "Buguei."
+        },
+        {
+            "id": 86,
+            "title": "💚 Necromancia",
+            "category": 5,
+            "description": "Traga um jogador morto de volta ao jogo.",
+            "action_code": "REVIVE_PLAYER",
+            "animation_trigger": "necro",
+            "rarity": "legendary",
+            "footer": "Volte!"
+        },
+        {
+            "id": 87,
+            "title": "💚 Zumbificação",
+            "category": 5,
+            "description": "Revive como Zumbi (Não vence, mas atrapalha os outros).",
+            "action_code": "REVIVE_PLAYER",
+            "animation_trigger": "zombie",
+            "rarity": "rare",
+            "footer": "Miolos...",
+            "asZombie": true
+        },
+        {
+            "id": 88,
+            "title": "💚 Cura Milagrosa",
+            "category": 5,
+            "description": "Remove todos os debuffs ativos no jogador.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "heal",
+            "rarity": "uncommon",
+            "footer": "Vida nova."
+        },
+        {
+            "id": 89,
+            "title": "💚 Túnel do Tempo",
+            "category": 5,
+            "description": "Desfaz a última jogada realizada na mesa.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "time",
+            "rarity": "legendary",
+            "footer": "Ctrl+Z."
+        },
+        {
+            "id": 90,
+            "title": "💚 Pacto de Sangue",
+            "category": 5,
+            "description": "Cria um vínculo de vida com um aliado. Se um vive, o outro vive.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "pact",
+            "rarity": "legendary",
+            "footer": "Juntos até o fim."
+        },
+        {
+            "id": 91,
+            "title": "💚 Regeneração",
+            "category": 5,
+            "description": "Recupera cartas aleatórias da pilha de descarte.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "heal",
+            "rarity": "uncommon",
+            "footer": "Reciclagem."
+        },
+        {
+            "id": 92,
+            "title": "💚 Exorcismo",
+            "category": 5,
+            "description": "Remove uma carta Bomba Relógio da mesa.",
+            "action_code": "REMOVE_BOARD_CARD",
+            "animation_trigger": "exorcise",
+            "rarity": "rare",
+            "footer": "Sai desse corpo."
+        },
+        {
+            "id": 93,
+            "title": "💚 Profecia",
+            "category": 5,
+            "description": "Permite ver e reordenar as 3 cartas do topo do deck.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "prophecy",
+            "rarity": "rare",
+            "footer": "O futuro a Deus pertence."
+        },
+        {
+            "id": 94,
+            "title": "💚 Escudo Coletivo",
+            "category": 5,
+            "description": "Protege todos os jogadores por 1 turno.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "shield",
+            "rarity": "rare",
+            "footer": "Paz mundial.",
+            "duration": 1
+        },
+        {
+            "id": 95,
+            "title": "🗑️ Nada",
+            "category": 6,
+            "description": "Não faz absolutamente nada. Que decepção.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "none",
+            "rarity": "common",
+            "footer": "Inútil."
+        },
+        {
+            "id": 96,
+            "title": "🗑️ Meme Morto",
+            "category": 6,
+            "description": "Uma piada que já perdeu a graça.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "none",
+            "rarity": "common",
+            "footer": "Cringe."
+        },
+        {
+            "id": 97,
+            "title": "🗑️ Treta Cancelada",
+            "category": 6,
+            "description": "Ia ter briga, mas ninguém ligou. Nada acontece.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "none",
+            "rarity": "common",
+            "footer": "Flopou."
+        },
+        {
+            "id": 98,
+            "title": "🗑️ Boleto Atrasado",
+            "category": 6,
+            "description": "Só serve para causar tristeza.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "sad",
+            "rarity": "common",
+            "footer": "Paga logo."
+        },
+        {
+            "id": 99,
+            "title": "🗑️ Piada Sem Graça",
+            "category": 6,
+            "description": "Silêncio constrangedor. Você pula o turno de vergonha.",
+            "action_code": "SKIP_PLAYER",
+            "animation_trigger": "none",
+            "rarity": "common",
+            "footer": "Grilos..."
+        },
+        {
+            "id": 100,
+            "title": "🗑️ Filosofia de Bar",
+            "category": 6,
+            "description": "Só sei que nada sei, e nada joguei.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "none",
+            "rarity": "common",
+            "footer": "Profundo."
+        },
+        {
+            "id": 101,
+            "title": "💥 SURTO RETRÔ",
+            "category": 1,
+            "description": "Game Over em 8-bits. Sopre a fita.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion_pixel",
+            "rarity": "common",
+            "footer": "Insert Coin."
+        },
+        {
+            "id": 102,
+            "title": "💥 SURTO BIOLÓGICO",
+            "category": 1,
+            "description": "Um espirro fatal. Ninguém estava de máscara.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "gas",
+            "rarity": "common",
+            "footer": "Saúde... ops."
+        },
+        {
+            "id": 103,
+            "title": "💥 SURTO DE DADOS",
+            "category": 1,
+            "description": "Rolou 1 no dado da vida. Falha crítica.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "dice_fail",
+            "rarity": "common",
+            "footer": "Falha crítica."
+        },
+        {
+            "id": 104,
+            "title": "💥 SURTO DO TEMPO",
+            "category": 1,
+            "description": "Seu tempo acabou. Literalmente.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "clock",
+            "rarity": "uncommon",
+            "footer": "Tick Tock."
+        },
+        {
+            "id": 105,
+            "title": "💥 SURTO GELADO",
+            "category": 1,
+            "description": "Congelou até a alma.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "freeze",
+            "rarity": "common",
+            "footer": "Let it go."
+        },
+        {
+            "id": 106,
+            "title": "💥 SURTO ELÉTRICO",
+            "category": 1,
+            "description": "Choque de realidade de 220v.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "shock",
+            "rarity": "common",
+            "footer": "220v."
+        },
+        {
+            "id": 107,
+            "title": "💥 SURTO TÓXICO",
+            "category": 1,
+            "description": "Venenoso demais para continuar.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "poison",
+            "rarity": "common",
+            "footer": "Toxic."
+        },
+        {
+            "id": 108,
+            "title": "💥 SURTO DE CAFÉ",
+            "category": 1,
+            "description": "Cafeína demais. O coração acelerou e parou.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "coffee",
+            "rarity": "common",
+            "footer": "Mais um expresso?"
+        },
+        {
+            "id": 109,
+            "title": "💥 SURTO ZEN",
+            "category": 1,
+            "description": "Você alcançou o nirvana e saiu do jogo material.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "lotus",
+            "rarity": "rare",
+            "footer": "Paz."
+        },
+        {
+            "id": 110,
+            "title": "💥 SURTO VIRTUAL",
+            "category": 1,
+            "description": "Lagou a vida real. Tela azul.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "glitch",
+            "rarity": "common",
+            "footer": "Buffering..."
+        },
+        {
+            "id": 111,
+            "title": "🛡️ Carta Reverso",
+            "category": 2,
+            "description": "O clássico 'Não, você'. Devolve o efeito.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "uno_reverse",
+            "rarity": "legendary",
+            "footer": "No u."
+        },
+        {
+            "id": 112,
+            "title": "🛡️ Escudo de Vento",
+            "category": 2,
+            "description": "Sopra o ataque para longe.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "wind",
+            "rarity": "common",
+            "footer": "Vuuuush."
+        },
+        {
+            "id": 113,
+            "title": "🛡️ Guarda-Chuva",
+            "category": 2,
+            "description": "Protege contra 'chuva' de azar e ataques.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "umbrella",
+            "rarity": "common",
+            "footer": "Tá chovendo canivete."
+        },
+        {
+            "id": 114,
+            "title": "🛡️ 'Eu conheço o dono'",
+            "category": 2,
+            "description": "Carteirada. Evita punição social e física.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "vip",
+            "rarity": "rare",
+            "footer": "Sabe com quem tá falando?"
+        },
+        {
+            "id": 115,
+            "title": "🛡️ Oculos Escuros",
+            "category": 2,
+            "description": "Ignora efeito visual e ataques de flash.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "glasses",
+            "rarity": "common",
+            "footer": "Deal with it."
+        },
+        {
+            "id": 116,
+            "title": "🛡️ Modo Anônimo",
+            "category": 2,
+            "description": "Ninguém sabe quem jogou, nem quem te atacou.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "spy",
+            "rarity": "uncommon",
+            "footer": "Incognito."
+        },
+        {
+            "id": 117,
+            "title": "🛡️ Paredão",
+            "category": 2,
+            "description": "Bloqueia ataque com força bruta.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "wall",
+            "rarity": "common",
+            "footer": "Daqui não passa."
+        },
+        {
+            "id": 118,
+            "title": "🛡️ Crachá de Visitante",
+            "category": 2,
+            "description": "Imune a efeitos de tabuleiro por não ser funcionário.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "badge",
+            "rarity": "uncommon",
+            "footer": "Só tô olhando."
+        },
+        {
+            "id": 119,
+            "title": "🛡️ Vacina",
+            "category": 2,
+            "description": "Imune a efeitos de vírus e epidemia.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "syringe",
+            "rarity": "common",
+            "footer": "Ciência."
+        },
+        {
+            "id": 120,
+            "title": "🛡️ Tutorial",
+            "category": 2,
+            "description": "Olhe as próximas 3 cartas do deck para aprender a jogar.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "book",
+            "rarity": "common",
+            "footer": "Ah, entendi."
+        },
+        {
+            "id": 121,
+            "title": "⚔️ Compra +4",
+            "category": 3,
+            "description": "O próximo jogador compra 4 cartas e chora.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "draw_4",
+            "rarity": "rare",
+            "footer": "Toma esse presente."
+        },
+        {
+            "id": 122,
+            "title": "⚔️ Clickbait",
+            "category": 3,
+            "description": "Parece bom, mas é ruim. Alvo compra 1 carta inútil.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "mouse",
+            "rarity": "common",
+            "footer": "Você não vai acreditar!"
+        },
+        {
+            "id": 123,
+            "title": "⚔️ Tela Azul",
+            "category": 3,
+            "description": "Alvo descarta a mão toda e compra o mesmo número.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "bsod",
+            "rarity": "rare",
+            "footer": "Reiniciando..."
+        },
+        {
+            "id": 124,
+            "title": "⚔️ Imposto",
+            "category": 3,
+            "description": "Todos os jogadores pagam 1 carta pra você.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "money",
+            "rarity": "rare",
+            "footer": "O Leão morde."
+        },
+        {
+            "id": 125,
+            "title": "⚔️ Troca de Mão",
+            "category": 3,
+            "description": "Escolha um jogador e troque sua mão inteira com a dele.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "swap",
+            "rarity": "legendary",
+            "footer": "O jogo virou."
+        },
+        {
+            "id": 126,
+            "title": "⚔️ Olho Gordo",
+            "category": 3,
+            "description": "Vê a mão de um alvo específico.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "eye",
+            "rarity": "common",
+            "footer": "Secando você."
+        },
+        {
+            "id": 127,
+            "title": "⚔️ Banimento",
+            "category": 3,
+            "description": "Jogador alvo é banido do servidor e pula o turno.",
+            "action_code": "SKIP_PLAYER",
+            "animation_trigger": "ban",
+            "rarity": "rare",
+            "footer": "Banido."
+        },
+        {
+            "id": 128,
+            "title": "⚔️ Vampiro Emocional",
+            "category": 3,
+            "description": "Rouba 1 carta e a alegria de viver do alvo.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "bat",
+            "rarity": "common",
+            "footer": "Dementador."
+        },
+        {
+            "id": 129,
+            "title": "⚔️ Notificação",
+            "category": 3,
+            "description": "Alvo perde o turno distraído com o celular.",
+            "action_code": "SKIP_PLAYER",
+            "animation_trigger": "phone",
+            "rarity": "common",
+            "footer": "Pling!"
+        },
+        {
+            "id": 130,
+            "title": "⚔️ Phishing",
+            "category": 3,
+            "description": "Alvo te entrega uma carta achando que é seguro.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "fish",
+            "rarity": "uncommon",
+            "footer": "Senha 1234."
+        },
+        {
+            "id": 131,
+            "title": "⚔️ Taxa de Conveniência",
+            "category": 3,
+            "description": "Alvo deve descartar 1 carta extra para poder jogar.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "ticket",
+            "rarity": "uncommon",
+            "footer": "Taxinha extra.",
+            "duration": 1
+        },
+        {
+            "id": 132,
+            "title": "⚔️ Unfollow",
+            "category": 3,
+            "description": "Remove um buff ativo de um jogador alvo.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "broken_heart",
+            "rarity": "common",
+            "footer": "Deixei de seguir."
+        },
+        {
+            "id": 133,
+            "title": "⚔️ Imposto de Renda",
+            "category": 3,
+            "description": "Quem tem mais cartas deve descartar metade da mão.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "money_fly",
+            "rarity": "rare",
+            "footer": "Malha fina."
+        },
+        {
+            "id": 134,
+            "title": "⚔️ Corrente de Zap",
+            "category": 3,
+            "description": "Repasse a carta imediatamente ou compre 5.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "phone",
+            "rarity": "uncommon",
+            "footer": "10 anos de azar."
+        },
+        {
+            "id": 135,
+            "title": "⚔️ Spoiler de Novela",
+            "category": 3,
+            "description": "Conte o final. Alvo descarta 1 carta de raiva.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "spoiler",
+            "rarity": "uncommon",
+            "footer": "Quem matou?"
+        },
+        {
+            "id": 136,
+            "title": "⚔️ Áudio de 5 Minutos",
+            "category": 3,
+            "description": "Envie áudio. Alvo perde turno ouvindo.",
+            "action_code": "SKIP_PLAYER",
+            "animation_trigger": "mic",
+            "rarity": "common",
+            "footer": "Resumo?"
+        },
+        {
+            "id": 137,
+            "title": "⚔️ Cancelamento do Twitter",
+            "category": 3,
+            "description": "Alvo perde todos os poderes e efeitos por 1 rodada.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "blue_bird",
+            "rarity": "rare",
+            "footer": "Exposed.",
+            "duration": 1
+        },
+        {
+            "id": 138,
+            "title": "⚔️ Hackeamento",
+            "category": 3,
+            "description": "Troque uma carta inútil sua por uma boa do alvo.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "hacker",
+            "rarity": "uncommon",
+            "footer": "Acesso concedido."
+        },
+        {
+            "id": 139,
+            "title": "⚔️ Bomba de Fragmentação",
+            "category": 3,
+            "description": "Todos os oponentes compram 2 cartas.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "explosion",
+            "rarity": "rare",
+            "footer": "Pega em todo mundo."
+        },
+        {
+            "id": 140,
+            "title": "⚔️ Leilão Forçado",
+            "category": 3,
+            "description": "Todos apostam cartas. Quem der menos perde o turno.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "auction",
+            "rarity": "rare",
+            "footer": "Quem dá mais?"
+        },
+        {
+            "id": 141,
+            "title": "⛈️ Nuvem de Azar",
+            "category": 4,
+            "description": "Quem jogar nesta rodada deve comprar uma carta extra.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "rain",
+            "rarity": "uncommon",
+            "footer": "Chuva de azar.",
+            "duration": 1
+        },
+        {
+            "id": 142,
+            "title": "🏰 Muralha",
+            "category": 4,
+            "description": "Protege todos os jogadores contra ataques diretos.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "wall",
+            "rarity": "rare",
+            "footer": "Safe zone.",
+            "duration": 1
+        },
+        {
+            "id": 143,
+            "title": "☢️ Zona Radioativa",
+            "category": 4,
+            "description": "Reduz o limite de cartas na mão de todos.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "nuclear",
+            "rarity": "rare",
+            "footer": "Queima!",
+            "duration": 2
+        },
+        {
+            "id": 144,
+            "title": "🤐 Voto de Silêncio",
+            "category": 4,
+            "description": "Ninguém pode jogar cartas da categoria Ataque.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "mute",
+            "rarity": "common",
+            "footer": "Shhh."
+        },
+        {
+            "id": 145,
+            "title": "🌀 Apagão",
+            "category": 4,
+            "description": "Todos jogam com suas cartas viradas para baixo (às cegas).",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "dark",
+            "rarity": "uncommon",
+            "footer": "Quem apagou a luz?",
+            "duration": 1
+        },
+        {
+            "id": 146,
+            "title": "🌀 Efeito Mandela",
+            "category": 4,
+            "description": "Inverte o sentido do jogo e pula o próximo jogador.",
+            "action_code": "REVERSE_DIRECTION",
+            "animation_trigger": "spiral",
+            "rarity": "rare",
+            "footer": "Eu lembrava diferente."
+        },
+        {
+            "id": 147,
+            "title": "🌀 Glitch",
+            "category": 4,
+            "description": "O turno atual se repete para o mesmo jogador.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "glitch",
+            "rarity": "uncommon",
+            "footer": "Déjà vu."
+        },
+        {
+            "id": 148,
+            "title": "🤳 Foto Tremida",
+            "category": 4,
+            "description": "Ninguém viu nada. O próximo ataque erra o alvo.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "camera",
+            "rarity": "common",
+            "footer": "Ficou ruim."
+        },
+        {
+            "id": 149,
+            "title": "🗣️ Tagarela",
+            "category": 4,
+            "description": "Você falou demais e perdeu o fôlego. Pule o turno.",
+            "action_code": "SKIP_PLAYER",
+            "animation_trigger": "mic",
+            "rarity": "uncommon",
+            "footer": "Blá blá blá."
+        },
+        {
+            "id": 150,
+            "title": "🌀 Modo Escuro",
+            "category": 4,
+            "description": "Cartas da mesa ficam ocultas, ninguém sabe o que está ativo.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "moon",
+            "rarity": "uncommon",
+            "footer": "Dark mode.",
+            "duration": 1
+        },
+        {
+            "id": 151,
+            "title": "🌀 Fake News",
+            "category": 4,
+            "description": "O próximo efeito jogado será invertido (cura vira dano, etc).",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "newspaper",
+            "rarity": "rare",
+            "footer": "Fonte: confia."
+        },
+        {
+            "id": 152,
+            "title": "🌀 Bug do Milênio",
+            "category": 4,
+            "description": "Reseta todos os contadores e rodadas do jogo.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "glitch",
+            "rarity": "legendary",
+            "footer": "Y2K."
+        },
+        {
+            "id": 153,
+            "title": "🌀 Inflação",
+            "category": 4,
+            "description": "Jogadores precisam descartar 1 carta extra para jogar qualquer coisa.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "graph_up",
+            "rarity": "rare",
+            "footer": "Tudo caro.",
+            "duration": 1
+        },
+        {
+            "id": 154,
+            "title": "🌀 Troca de Lugar",
+            "category": 4,
+            "description": "Passe todas as cartas para o jogador à esquerda.",
+            "action_code": "PASS_CARDS_LEFT",
+            "animation_trigger": "mask",
+            "rarity": "uncommon",
+            "footer": "Nova cadeira."
+        },
+        {
+            "id": 155,
+            "title": "🌀 Roteiro Ruim",
+            "category": 4,
+            "description": "A ordem do turno passa a ser alfabética pelo nome do jogador.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "book",
+            "rarity": "legendary",
+            "footer": "Letra A começa."
+        },
+        {
+            "id": 156,
+            "title": "🌀 Lag Mental",
+            "category": 4,
+            "description": "Pausa o jogo por 10 segundos. Ninguém se move.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "brain_loading",
+            "rarity": "common",
+            "footer": "Loading..."
+        },
+        {
+            "id": 157,
+            "title": "🌀 Aleatoriedade",
+            "category": 4,
+            "description": "Jogue um dado: Par todos compram, Ímpar todos descartam.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "dice",
+            "rarity": "uncommon",
+            "footer": "Sorte."
+        },
+        {
+            "id": 158,
+            "title": "🌀 Ressaca",
+            "category": 4,
+            "description": "Jogadores só podem jogar cartas da categoria 'Inútil'.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "drunk",
+            "rarity": "uncommon",
+            "footer": "Dor de cabeça.",
+            "duration": 1
+        },
+        {
+            "id": 159,
+            "title": "🌀 Trégua",
+            "category": 4,
+            "description": "Ninguém pode atacar ninguém por 1 turno.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "peace",
+            "rarity": "common",
+            "footer": "Paz.",
+            "duration": 1
+        },
+        {
+            "id": 160,
+            "title": "🌀 Inversão de Valores",
+            "category": 4,
+            "description": "Todas as cartas de Ataque funcionam como Defesa e vice-versa.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "reverse",
+            "rarity": "rare",
+            "footer": "O mundo girou.",
+            "duration": 1
+        },
+        {
+            "id": 161,
+            "title": "🌀 Troca-Troca",
+            "category": 4,
+            "description": "Passe sua mão para o jogador à esquerda.",
+            "action_code": "PASS_CARDS_LEFT",
+            "animation_trigger": "swap",
+            "rarity": "common",
+            "footer": "Gira gira."
+        },
+        {
+            "id": 162,
+            "title": "🌀 Giro do Destino",
+            "category": 4,
+            "description": "Gire uma garrafa virtual. O alvo aleatório compra 2.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "bottle",
+            "rarity": "common",
+            "footer": "Apontou, perdeu."
+        },
+        {
+            "id": 163,
+            "title": "🌀 Blackjack",
+            "category": 4,
+            "description": "Você compra cartas até somar 21 ou estourar.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "cards",
+            "rarity": "rare",
+            "footer": "Estourou."
+        },
+        {
+            "id": 164,
+            "title": "🌀 Telefone Sem Fio",
+            "category": 4,
+            "description": "Cada jogador passa 1 carta para o lado.",
+            "action_code": "PASS_CARDS_RIGHT",
+            "animation_trigger": "phone",
+            "rarity": "uncommon",
+            "footer": "O que?"
+        },
+        {
+            "id": 165,
+            "title": "🌀 Balança",
+            "category": 4,
+            "description": "Todos os jogadores descartam ou compram para ter o mesmo nº de cartas.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "balance",
+            "rarity": "uncommon",
+            "footer": "Justiça."
+        },
+        {
+            "id": 166,
+            "title": "💚 1UP",
+            "category": 5,
+            "description": "Revive automaticamente se morrer com ela na mão.",
+            "action_code": "REVIVE_PLAYER",
+            "animation_trigger": "heart",
+            "rarity": "legendary",
+            "footer": "Vida extra."
+        },
+        {
+            "id": 167,
+            "title": "💚 Checkpoint",
+            "category": 5,
+            "description": "Salva seu estado atual. Se morrer, volta para cá.",
+            "action_code": "REVIVE_PLAYER",
+            "animation_trigger": "save",
+            "rarity": "legendary",
+            "footer": "Game saved.",
+            "trigger_on_death": true
+        },
+        {
+            "id": 168,
+            "title": "💚 Fênix",
+            "category": 5,
+            "description": "Renasce das cinzas com 3 cartas novas.",
+            "action_code": "REVIVE_PLAYER",
+            "animation_trigger": "phoenix",
+            "rarity": "legendary",
+            "footer": "Quentinho.",
+            "trigger_on_death": true
+        },
+        {
+            "id": 169,
+            "title": "💚 Backup na Nuvem",
+            "category": 5,
+            "description": "Restaura sua mão original ao morrer.",
+            "action_code": "REVIVE_PLAYER",
+            "animation_trigger": "cloud",
+            "rarity": "rare",
+            "footer": "Download...",
+            "trigger_on_death": true
+        },
+        {
+            "id": 170,
+            "title": "💚 Cheat Code",
+            "category": 5,
+            "description": "Concede vida infinita por 1 rodada.",
+            "action_code": "ADD_BOARD_CARD",
+            "animation_trigger": "joystick",
+            "rarity": "legendary",
+            "footer": "Konami Code.",
+            "duration": 1
+        },
+        {
+            "id": 171,
+            "title": "💚 Reboot",
+            "category": 5,
+            "description": "Reinicia sua mão (descarta tudo e compra novas).",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "restart",
+            "rarity": "common",
+            "footer": "Desliga e liga."
+        },
+        {
+            "id": 172,
+            "title": "💚 Vingança dos Mortos",
+            "category": 5,
+            "description": "Reviva um jogador eliminado para te ajudar.",
+            "action_code": "REVIVE_PLAYER",
+            "animation_trigger": "zombie_hand",
+            "rarity": "rare",
+            "footer": "Voltei."
+        },
+        {
+            "id": 173,
+            "title": "💚 Limbo",
+            "category": 5,
+            "description": "Ao morrer, fica 3 turnos fora e depois volta.",
+            "action_code": "REVIVE_PLAYER",
+            "animation_trigger": "ghost",
+            "rarity": "rare",
+            "footer": "Esperando...",
+            "trigger_on_death": true
+        },
+        {
+            "id": 174,
+            "title": "💚 Transfusão",
+            "category": 5,
+            "description": "Transfere um debuff seu para outro jogador.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "blood",
+            "rarity": "uncommon",
+            "footer": "Toma que é teu."
+        },
+        {
+            "id": 175,
+            "title": "💚 Plano de Saúde",
+            "category": 5,
+            "description": "Revive instantaneamente sem penalidades.",
+            "action_code": "REVIVE_PLAYER",
+            "animation_trigger": "hospital",
+            "rarity": "legendary",
+            "footer": "Cobre tudo.",
+            "trigger_on_death": true
+        },
+        {
+            "id": 176,
+            "title": "🗑️ NFT de Macaco",
+            "category": 6,
+            "description": "Vale nada. Você perdeu dinheiro.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "monkey",
+            "rarity": "common",
+            "footer": "Printaram."
+        },
+        {
+            "id": 177,
+            "title": "🗑️ Cupom Vencido",
+            "category": 6,
+            "description": "Desconto de 0%. Útil como papel de rascunho.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "none",
+            "rarity": "common",
+            "footer": "Venceu ontem."
+        },
+        {
+            "id": 178,
+            "title": "🗑️ Fone com Fio",
+            "category": 6,
+            "description": "Perca tempo desenrolando o nó impossível.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "knot",
+            "rarity": "common",
+            "footer": "O nó impossível."
+        },
+        {
+            "id": 179,
+            "title": "🗑️ Poeira",
+            "category": 6,
+            "description": "Apenas poeira. Atchim!",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "dust",
+            "rarity": "common",
+            "footer": "Atchim."
+        },
+        {
+            "id": 180,
+            "title": "🗑️ Loading...",
+            "category": 6,
+            "description": "Travou em 99%. Aguarde eternamente.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "loading",
+            "rarity": "common",
+            "footer": "Aguarde."
+        },
+        {
+            "id": 181,
+            "title": "🗑️ Bateria Fraca",
+            "category": 6,
+            "description": "1% restante. Corra para o carregador.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "battery",
+            "rarity": "common",
+            "footer": "Corra."
+        },
+        {
+            "id": 182,
+            "title": "🗑️ Sinal Ruim",
+            "category": 6,
+            "description": "4G falhou. Você está offline.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "signal",
+            "rarity": "common",
+            "footer": "Sem rede."
+        },
+        {
+            "id": 183,
+            "title": "🗑️ Vídeo Vertical",
+            "category": 6,
+            "description": "Filmou errado. Ninguém vai assistir.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "phone_rotate",
+            "rarity": "common",
+            "footer": "Vire a tela."
+        },
+        {
+            "id": 184,
+            "title": "🗑️ Comic Sans",
+            "category": 6,
+            "description": "Fonte feia. Designers choram.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "font",
+            "rarity": "common",
+            "footer": "Design feelings."
+        },
+        {
+            "id": 185,
+            "title": "🗑️ Caps Lock",
+            "category": 6,
+            "description": "GRITANDO SEM MOTIVO. CALMA.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "caps",
+            "rarity": "common",
+            "footer": "CALMA."
+        },
+        {
+            "id": 186,
+            "title": "💥 SURTO RELÂMPAGO",
+            "category": 1,
+            "description": "Rápido e indolor. Mentira, dói sim.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion",
+            "rarity": "common",
+            "footer": "Zap."
+        },
+        {
+            "id": 187,
+            "title": "💥 SURTO DE PÂNICO",
+            "category": 1,
+            "description": "Gritaria e confusão. Você sai correndo.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion",
+            "rarity": "common",
+            "footer": "AAAAHHH!"
+        },
+        {
+            "id": 188,
+            "title": "💥 SURTO EXPLOSIVO",
+            "category": 1,
+            "description": "Não sobrou nem o chinelo.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion",
+            "rarity": "common",
+            "footer": "Cabum."
+        },
+        {
+            "id": 189,
+            "title": "💥 SURTO DRAMÁTICO",
+            "category": 1,
+            "description": "Saiu de cena fazendo um monólogo shakespeariano.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion",
+            "rarity": "common",
+            "footer": "Fim do ato."
+        },
+        {
+            "id": 190,
+            "title": "💥 SURTO FINAL",
+            "category": 1,
+            "description": "O último a sair apaga a luz.",
+            "action_code": "ELIMINATE_PLAYER",
+            "animation_trigger": "explosion",
+            "rarity": "common",
+            "footer": "Escuridão."
+        },
+        {
+            "id": 191,
+            "title": "🛡️ Escudo de Madeira",
+            "category": 2,
+            "description": "Melhor que nada, né? Protege o básico.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "shield",
+            "rarity": "common",
+            "footer": "Segura as pontas."
+        },
+        {
+            "id": 192,
+            "title": "🛡️ Tampa de Bueiro",
+            "category": 2,
+            "description": "Proteção urbana improvisada. Pesada e suja.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "shield",
+            "rarity": "common",
+            "footer": "Pesado."
+        },
+        {
+            "id": 193,
+            "title": "🛡️ Grade de Proteção",
+            "category": 2,
+            "description": "Mantém os problemas longe da sua propriedade.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "shield",
+            "rarity": "common",
+            "footer": "Afastem-se."
+        },
+        {
+            "id": 194,
+            "title": "🛡️ Bolha de Sabão",
+            "category": 2,
+            "description": "Frágil, mas funcionou por agora. Pop!",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "shield",
+            "rarity": "common",
+            "footer": "Pop!"
+        },
+        {
+            "id": 195,
+            "title": "⚔️ Pedrada",
+            "category": 3,
+            "description": "Primitivo e eficaz. Alvo compra 1 carta.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "sword",
+            "rarity": "common",
+            "footer": "Na testa."
+        },
+        {
+            "id": 196,
+            "title": "⚔️ Tapa na Cara",
+            "category": 3,
+            "description": "Ofensivo. Alvo perde a dignidade e compra 1.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "sword",
+            "rarity": "common",
+            "footer": "Ardência."
+        },
+        {
+            "id": 197,
+            "title": "⚔️ Rasteira",
+            "category": 3,
+            "description": "Derruba o inimigo. Alvo perde o equilíbrio e compra 1.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "sword",
+            "rarity": "common",
+            "footer": "Chão."
+        },
+        {
+            "id": 198,
+            "title": "⚔️ Voadora",
+            "category": 3,
+            "description": "Chegou com os dois pés. Alvo compra 2 cartas.",
+            "action_code": "PLAY_CARD",
+            "animation_trigger": "sword",
+            "rarity": "common",
+            "footer": "Hii-ya!"
+        },
+        {
+            "id": 199,
+            "title": "🌀 Ventilador no 3",
+            "category": 4,
+            "description": "Voou carta pra todo lado. Reembaralhar mãos.",
+            "action_code": "SHUFFLE_HANDS",
+            "animation_trigger": "spiral",
+            "rarity": "common",
+            "footer": "Vento forte."
+        },
+        {
+            "id": 200,
+            "title": "🌀 Confusão Mental",
+            "category": 4,
+            "description": "Ninguém sabe de quem é a vez. Reembaralha tudo.",
+            "action_code": "SHUFFLE_HANDS",
+            "animation_trigger": "spiral",
+            "rarity": "common",
+            "footer": "¿Que?"
+        }
+    ]
+}

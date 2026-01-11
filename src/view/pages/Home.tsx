@@ -3,9 +3,10 @@ import { CaotiqueiraGame } from '@data/caotiqueira/theme';
 import { DecisoesGame } from '@data/decisoes/theme';
 import { MimicaGame, PalpiteiroGame, SincroniaGame } from '@data/index';
 import { OncaGame } from '@data/onca/theme';
+import { SurtoColetivoGame } from '@data/surto_coletivo/theme';
 
 import { motion } from 'framer-motion';
-import { Sparkles, Users, Target, Bird, Cat, Skull, Zap } from 'lucide-react';
+import { Sparkles, Users, Target, Bird, Cat, Skull, Zap, Goal } from 'lucide-react';
 
 export const games = [
     { route: 'sincronia', variant: 'sincronia', delay: 0.3, item: SincroniaGame, icon: Target },
@@ -14,6 +15,7 @@ export const games = [
     { route: 'onca', variant: 'onca', delay: 0.6, item: OncaGame, icon: Cat },
     { route: 'decisoes', variant: 'decisoes', delay: 0.7, item: DecisoesGame, icon: Skull },
     { route: 'caotiqueira', variant: 'caotiqueira', delay: 0.8, item: CaotiqueiraGame, icon: Zap },
+    { route: 'surto', variant: 'surto', delay: 0.8, item: SurtoColetivoGame, icon: Goal },
 ];
 
 export default function Home() {

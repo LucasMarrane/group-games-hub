@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router';
 import { LucideIcon } from 'lucide-react';
 
-export type GameCardVariant = 'sincronia' | 'mimica' | 'palpiteiro' | 'onca' | 'decisoes' | 'caotiqueira';
+export type GameCardVariant = 'sincronia' | 'mimica' | 'palpiteiro' | 'onca' | 'decisoes' | 'caotiqueira' | 'icognito' | 'eununca' | 'detonador' | 'surto';
 
 interface GameCardProps {
     title: string;
@@ -43,6 +43,26 @@ const variantStyles = {
         gradient: 'gradient-caotiqueira',
         glow: 'shadow-glow-caotiqueira',
         textGradient: 'text-gradient-caotiqueira',
+    },
+    icognito: {
+        gradient: 'gradient-icognito',
+        glow: 'shadow-glow-icognito',
+        textGradient: 'text-gradient-icognito',
+    },
+    eununca: {
+        gradient: 'gradient-eununca',
+        glow: 'shadow-glow-eununca',
+        textGradient: 'text-gradient-eununca',
+    },
+    detonador: {
+        gradient: 'gradient-detonador',
+        glow: 'shadow-glow-detonador',
+        textGradient: 'text-gradient-detonador',
+    },
+    surto: {
+        gradient: 'gradient-surto',
+        glow: 'shadow-glow-surto',
+        textGradient: 'text-gradient-surto',
     },
 };
 
