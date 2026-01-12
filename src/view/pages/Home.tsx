@@ -40,9 +40,9 @@ export default function Home() {
             </motion.div>
 
             {/* Games List */}
-            <div className='flex-1 space-y-4'>
+            <div className='flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-4'>
                 {games.map((i) => (
-                    <GameCard title={i.item.name} subtitle={i.item.hint} icon={i.icon} route={`/games/${i.route}`} variant={i.variant as GameCardVariant} delay={i.delay} />
+                    <GameCard title={i.item.name} subtitle={i.item.hint} icon={i.icon} route={`/games/${i.route}`} variant={i.variant as GameCardVariant} delay={i.delay} description={i.item.description}/>
                 ))}
             </div>
 
