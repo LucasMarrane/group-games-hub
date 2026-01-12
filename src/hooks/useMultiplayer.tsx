@@ -30,8 +30,6 @@ interface MultiplayerContextType<T> {
     addOfflinePlayer: (name: string) => void;
     removePlayer: (playerId: string) => void;
     closeRoom: () => void;
-    sendAnswer: (answer: string, asPlayerId?: string) => void;
-    submitVote: (targetPlayerId: string, asPlayerId?: string) => void;
     changeGame: (gameState: any) => void;
 }
 
@@ -404,41 +402,7 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: Multipl
         if (mode === 'online') {
             broadcastMessage({ type: 'CHANGE_GAME', gameState });
         }
-    };
-
-    const sendAnswer = (answer: string, asPlayerId?: string) => {
-        const actingPlayerId = asPlayerId || localPlayerId;
-        if (isHost || mode === 'local') {
-            setGameState((prev: any) => ({
-                ...prev,
-                answers: { ...prev?.answers, [actingPlayerId]: answer },
-            }));
-        }
-        if (mode === 'online') {
-            broadcastMessage({
-                type: 'PLAYER_ANSWER',
-                playerId: actingPlayerId,
-                answer,
-            });
-        }
-    };
-
-    const submitVote = (targetPlayerId: string, asPlayerId?: string) => {
-        const actingPlayerId = asPlayerId || localPlayerId;
-        if (isHost || mode === 'local') {
-            setGameState((prev: any) => ({
-                ...prev,
-                votes: { ...prev?.votes, [actingPlayerId]: targetPlayerId },
-            }));
-        }
-        if (mode === 'online') {
-            broadcastMessage({
-                type: 'SUBMIT_VOTE',
-                voterId: actingPlayerId,
-                votedPlayerId: targetPlayerId,
-            });
-        }
-    };
+    };    
 
     return (
         <MultiplayerContext.Provider
@@ -459,8 +423,6 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: Multipl
                 addOfflinePlayer,
                 removePlayer,
                 closeRoom,
-                sendAnswer,
-                submitVote,
                 changeGame,
             }}
         >

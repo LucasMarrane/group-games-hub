@@ -49,7 +49,11 @@ export function Multiplayer({ variant }: MultiplayerProps) {
 
     const handleCreateRoom = async () => {
         try {
-             await createRoom();
+            if (!player?.uuid) {
+                toast.warning('Você precisa adicionar um nickname pra jogar.');
+                return;
+            }
+            await createRoom();
             toast.success('Sala criada! Compartilhe o código com seus amigos.');
             setPhase('multiplayer_setup');
         } catch (error) {
@@ -189,7 +193,7 @@ export function Multiplayer({ variant }: MultiplayerProps) {
                                             {copied ? 'Copiado!' : 'Copiar Código'}
                                         </Button>
                                     </>
-                                ) }
+                                )}
                             </>
                         ) : (
                             <div className='glass-card p-4 rounded-xl space-y-3'>
@@ -218,7 +222,7 @@ export function Multiplayer({ variant }: MultiplayerProps) {
                             <ul className='space-y-2'>
                                 {players.map((player) => (
                                     <motion.div
-                                        key={player.id}
+                                        key={`player-${player.id}`}
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         className='flex items-center justify-between p-2 rounded-lg bg-caotiqueira/10'
@@ -227,7 +231,7 @@ export function Multiplayer({ variant }: MultiplayerProps) {
                                             <div className={`w-3 h-3 rounded-full bg-${variant} ${player.id === localPlayerId ? 'bg-green-500' : 'bg-blue-500'}`}></div>
                                             {player.name}
                                         </span>
-                                        {(player.id != localPlayerId && isHost) && (
+                                        {player.id != localPlayerId && isHost && (
                                             <Button variant='ghost' size='sm' onClick={() => removePlayer(player.id)} className='text-destructive hover:text-destructive'>
                                                 ✕
                                             </Button>

@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Eye, ChevronRight, RotateCcw, Bird, Send } from 'lucide-react';
+import { Eye, ChevronRight, RotateCcw, Bird, Send, Minus, Plus } from 'lucide-react';
 import { AdaptedPalpiteiroTheme } from '@appTypes/palpiteiro';
 import { Button } from '@shadcn/components/ui/button';
 import { PalpiteiroGame } from '@/data/index';
@@ -12,7 +12,7 @@ import { toast } from 'sonner';
 
 export function Palpiteiro() {
     const [guess, setGuess] = useState(0);
-    const { isHost, startGame, localPlayerId, gameState, changeGame: changeGameState, players: playersRoom } = useMultiplayer<any>();
+    const { isHost, startGame, localPlayerId, gameState, changeGame: changeGameState, players: playersRoom, mode } = useMultiplayer<any>();
 
     const { showAnswer = false, shuffledCards = [], currentCardIndex = 0, players = [], minValue = 0, lastPlayer, actualPlayer } = gameState ?? {};
 
@@ -35,6 +35,8 @@ export function Palpiteiro() {
         }
     }, [players]);
 
+    const userRef = useRef(localPlayerId);
+
     function setDesk(action: string = 'shuffle') {
         const actions: Record<string, Function> = {
             shuffle: () => {
@@ -51,16 +53,30 @@ export function Palpiteiro() {
                 });
             },
             addValue: () => {
-                const value = currentTheme.value;
-                changeGameState({ ...gameState, players: gameState.players.map((p: any) => ({ ...p, value: Math.max(0, p.ducks + value) })) });
+                const _players = gameState.players.map((p: any) => {
+                    let result = { ...p };
+
+                    if (p.id == userRef.current) {
+                        result.value = p.value + currentTheme.value;
+                    }
+                    return result;
+                });
+                changeGameState({ ...gameState, players: _players });
             },
             removeValue: () => {
-                const value = currentTheme.value;
-                changeGameState({ ...gameState, players: gameState.players.map((p: any) => ({ ...p, value: Math.max(0, p.ducks - value) })) });
+                const _players = gameState.players.map((p: any) => {
+                    let result = { ...p };
+
+                    if (p.id == userRef.current) {
+                        result.value = p.value - currentTheme.value;
+                    }
+                    return result;
+                });
+                changeGameState({ ...gameState, players: _players });
             },
             nextQuestion: () => {
                 const index = currentCardIndex >= cards.length - 1 ? 0 : currentCardIndex + 1;
-                changeGameState({ ...gameState, currentCardIndex: index, showAnswer: false });
+                changeGameState({ ...gameState, players, currentCardIndex: index, showAnswer: false });
             },
             showAnswer: () => {
                 const loser = currentTheme.answer <= minValue ? localPlayerId : lastPlayer;
@@ -83,6 +99,13 @@ export function Palpiteiro() {
 
         actions?.[action]?.();
     }
+    function addValue() {
+        setDesk('addValue');
+    }
+
+    function removeValue() {
+        setDesk('removeValue');
+    }
 
     function toggleAnswer() {
         setDesk('showAnswer');
@@ -96,28 +119,28 @@ export function Palpiteiro() {
         setDesk('guess');
     }
 
-    const nextQuestion = useCallback(() => {
+    const nextQuestion = () => {
         setDesk('nextQuestion');
-    }, [currentCardIndex, shuffledCards]);
+    };
 
-    const resetGame = useCallback(() => {
+    const resetGame = () => {
         starNewGame();
-    }, []);
+    };
 
     useEffect(() => {
         setGuess(minValue);
     }, [minValue]);
 
-    const sortedPlayers = useMemo(() => [...players].sort((a, b) => a.ducks - b.ducks), [players]);
+    const sortedPlayers = useMemo(() => [...players].sort((a, b) => a.value - b.value), [players]);
 
     return (
         <Game.Container game={PalpiteiroGame} className='text-gradient-palpiteiro' icon={<Icon variant='palpiteiro' />}>
             <AnimatePresence mode='wait'>
                 {!gameState?.phase && (
-                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className='flex-1 space-y-4'>
+                    <motion.div key='play' initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className='flex-1 space-y-4'>
                         <Game.Multiplayer variant='palpiteiro' />
 
-                        <Button variant='palpiteiro' size='xl' className='w-full' onClick={starNewGame} disabled={!isHost}>
+                        <Button variant='palpiteiro' size='xl' className='w-full' onClick={starNewGame} disabled={!isHost || playersRoom.length < 2}>
                             <Bird className='w-5 h-5' />
                             Começar Jogo
                         </Button>
@@ -125,12 +148,11 @@ export function Palpiteiro() {
                 )}
 
                 {gameState?.phase === 'playing' && currentTheme && (
-                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className='flex-1 flex flex-col gap-4'>
-                        {/* Scoreboard */}
+                    <motion.div key='counter' initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className='flex-1 flex flex-col gap-4'>
                         <div className='flex gap-2 overflow-x-auto pb-2'>
                             {sortedPlayers.map((player, idx) => (
                                 <motion.div
-                                    key={player.id}
+                                    key={`counter-${player.id ?? idx}`}
                                     layout
                                     className={`flex-shrink-0 min-w-[100px] p-3 rounded-xl border ${idx === 0 ? 'border-secondary bg-secondary/10' : 'border-border bg-card'}`}
                                 >
@@ -175,41 +197,95 @@ export function Palpiteiro() {
                                             </motion.div>
                                         ) : (
                                             <motion.div key='hidden' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className=' flex text-center justify-around'>
-                                                <div className='flex justify-center align-center'>
-                                                    <Input
-                                                        placeholder='Valor'
-                                                        type='number'
-                                                        value={guess}
-                                                        min={minValue + 1}
-                                                        disabled={localPlayerId != actualPlayer}
-                                                        onChange={(e) => {
-                                                            const value = e?.target?.value ?? '0';
-                                                            if (!value) {
-                                                                setGuess(e?.target?.value as any);
-                                                                return;
-                                                            }
-                                                            if (/^\d+$/.test(value)) {
-                                                                setGuess(Number(value));
-                                                            }
-                                                        }}
-                                                        className='text-center'
-                                                    />
-                                                    <Button variant='palpiteiro' size='default' onClick={makeGuess} className='gap-2 ml-5' disabled={localPlayerId != actualPlayer}>
-                                                        <Send className='w-5 h-5' />
-                                                        Responder
-                                                    </Button>
-                                                </div>
+                                                {mode == 'online' ? (
+                                                    <>
+                                                        <div className='flex justify-center align-center'>
+                                                            <Input
+                                                                placeholder='Valor'
+                                                                type='number'
+                                                                value={guess}
+                                                                min={minValue + 1}
+                                                                disabled={localPlayerId != actualPlayer}
+                                                                onChange={(e) => {
+                                                                    const value = e?.target?.value ?? '0';
+                                                                    if (!value) {
+                                                                        setGuess(e?.target?.value as any);
+                                                                        return;
+                                                                    }
+                                                                    if (/^\d+$/.test(value)) {
+                                                                        setGuess(Number(value));
+                                                                    }
+                                                                }}
+                                                                className='text-center'
+                                                            />
+                                                            <Button variant='palpiteiro' size='default' onClick={makeGuess} className='gap-2 ml-5' disabled={localPlayerId != actualPlayer}>
+                                                                <Send className='w-5 h-5' />
+                                                                Responder
+                                                            </Button>
+                                                        </div>
 
-                                                <Button variant='palpiteiro' size='lg' onClick={() => toggleAnswer()} className='gap-2' disabled={localPlayerId != actualPlayer}>
-                                                    <Eye className='w-5 h-5' />
-                                                    EU DUVIDO .....
-                                                </Button>
+                                                        <Button variant='palpiteiro' size='lg' onClick={() => toggleAnswer()} className='gap-2' disabled={localPlayerId != actualPlayer}>
+                                                            <Eye className='w-5 h-5' />
+                                                            EU DUVIDO .....
+                                                        </Button>
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <Button variant='palpiteiro' size='lg' onClick={toggleAnswer} className='gap-2'>
+                                                            <Eye className='w-5 h-5' />
+                                                            Revelar Resposta
+                                                        </Button>
+                                                    </>
+                                                )}
                                             </motion.div>
                                         )}
                                     </AnimatePresence>
                                 </div>
                             </div>
                         </motion.div>
+
+                        {mode == 'local' && showAnswer && (
+                            <>
+                                <motion.div key='local-values' initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className='bg-card rounded-2xl p-4 border border-border'>
+                                    <h4 className='text-sm text-muted-foreground mb-3 flex items-center gap-2'>
+                                        <Bird className='w-4 h-4' />
+                                        Distribuir pontuação
+                                    </h4>
+                                    <div className='space-y-2'>
+                                        {players.map((player: any, idx: number) => (
+                                            <div key={`pontuacao-${player.id ?? idx}`} className='flex items-center justify-between bg-muted rounded-lg p-2'>
+                                                <span className='text-sm font-medium'>{player.name}</span>
+                                                <div className='flex items-center gap-2'>
+                                                    <Button
+                                                        variant='ghost'
+                                                        size='icon'
+                                                        onClick={() => {
+                                                            removeValue();
+                                                            userRef.current = player.id;
+                                                        }}
+                                                        className='h-8 w-8'
+                                                    >
+                                                        <Minus className='w-4 h-4' />
+                                                    </Button>
+                                                    <span className='w-8 text-center font-bold'>{player.value}</span>
+                                                    <Button
+                                                        variant='palpiteiro'
+                                                        size='icon'
+                                                        onClick={() => {
+                                                            addValue();
+                                                            userRef.current = player.id;
+                                                        }}
+                                                        className='h-8 w-8'
+                                                    >
+                                                        <Plus className='w-4 h-4' />
+                                                    </Button>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            </>
+                        )}
 
                         <div className='flex gap-2'>
                             <Button variant='glass' className='flex-1' disabled={!isHost} onClick={resetGame}>
