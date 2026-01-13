@@ -18,7 +18,7 @@ export const games = [
 
 export default function Home() {
     return (
-        <div className='min-h-screen max-h-[100dvh] p-6 flex flex-col safe-area-top safe-area-bottom'>
+        <div className='min-h-screen  p-6 flex flex-col safe-area-top safe-area-bottom'>
             {/* Hero */}
             <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className='text-center mb-8 mt-8 flex flex-col justify-center'>
                 <motion.div
@@ -40,7 +40,7 @@ export default function Home() {
             </motion.div>
 
             {/* Games List */}
-            <div className='flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-4'>
+            <div className='flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
                 {games.map((i) => (
                     <GameCard title={i.item.name} subtitle={i.item.hint} icon={i.icon} route={`/games/${i.route}`} variant={i.variant as GameCardVariant} delay={i.delay} description={i.item.description}/>
                 ))}

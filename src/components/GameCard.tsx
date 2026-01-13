@@ -53,14 +53,20 @@ export function GameCard({ title, subtitle, description, icon: Icon, route, vari
     const styles = variantStyles[variant];
 
     return (
-        <motion.div initial={{ opacity: 0, y: 30, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay, duration: 0.5, type: 'spring', stiffness: 100 }} className='w-full'>
-            <div className={`relative overflow-hidden rounded-2xl p-6 ${styles.gradient} ${styles.glow} transition-all duration-300 h-full`}>
-                {/* Decorative circles */}
-                <div className='absolute -top-10 -right-10 w-32 h-32 rounded-full bg-white/10 blur-xl' />
-                <div className='absolute -bottom-10 -left-10 w-24 h-24 rounded-full bg-black/10 blur-xl' />
+        <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay, duration: 0.5, type: 'spring', stiffness: 100 }}
+            whileHover={{ y: -5 }}
+            className='h-full'
+        >
+            <div className={`relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 h-full flex flex-col`}>
+                {/* Header with gradient */}
+                <div className={`${styles.gradient} ${styles.glow} p-5 pb-12 relative`}>
+                    <div className='absolute -top-8 -right-8 w-32 h-32 rounded-full bg-white/10 blur-xl' />
+                    <div className='absolute -bottom-8 -left-8 w-24 h-24 rounded-full bg-black/10 blur-xl' />
 
-                <div className='relative z-10 flex flex-col h-full'>
-                    <div className='flex items-start gap-4 mb-4'>
+                    <div className='relative z-10 flex items-start gap-4'>
                         <motion.div
                             className='w-16 h-16 rounded-xl bg-white/20 backdrop-blur flex items-center justify-center flex-shrink-0'
                             whileHover={{ rotate: [0, -10, 10, 0] }}
@@ -71,21 +77,21 @@ export function GameCard({ title, subtitle, description, icon: Icon, route, vari
 
                         <div className='flex-1 min-w-0'>
                             <h3 className='text-xl font-display font-bold text-white mb-1 truncate'>{title}</h3>
-                            <p className='text-sm text-white/80 line-clamp-2'>{subtitle}</p>
+                            <p className='text-sm text-white/90 line-clamp-2'>{subtitle}</p>
                         </div>
                     </div>
+                </div>
 
-                    <p className='text-xs text-white/70 mb-4 line-clamp-2 flex-1'>{description}</p>
+                {/* Content */}
+                <div className='p-5 flex-1 flex flex-col'>
+                    <p className='text-sm text-muted-foreground mb-4 flex-1'>{description}</p>
 
-                    <div className='flex gap-2'>
-                        <Button onClick={() => navigate(route)} className='flex-1 bg-white/20 hover:bg-white/30 text-white border-0' size='sm'>
-                            <Play className='w-4 h-4 mr-1' />
-                            Jogar
-                        </Button>
-                        {/* <Button variant='outline' className='bg-white/10 border-white/20 text-white hover:bg-white/20' size='sm'>
+                    <Button onClick={() => navigate(route)} className={`${styles.gradient} hover:opacity-90 text-primary-foreground border-0 w-full`} size='sm'>
+                        <Play className='w-4 h-4 mr-1' /> Jogar
+                    </Button>
+                    {/* <Button variant='outline' className='bg-white/10 border-white/20 text-white hover:bg-white/20' size='sm'>
                             <BookOpen className='w-4 h-4' />
-                        </Button> */}
-                    </div>
+                    </Button> */}
                 </div>
             </div>
         </motion.div>
