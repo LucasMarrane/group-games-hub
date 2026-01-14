@@ -196,10 +196,16 @@ export function Palpiteiro() {
                                                 <span className='text-5xl font-display font-bold text-gradient-palpiteiro'>{currentTheme.answer}</span>
                                             </motion.div>
                                         ) : (
-                                            <motion.div key='hidden' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className=' flex text-center justify-around'>
+                                            <motion.div
+                                                key='hidden'
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                exit={{ opacity: 0 }}
+                                                className=' flex text-center justify-around md:flex-row flex-col'
+                                            >
                                                 {mode == 'online' ? (
                                                     <>
-                                                        <div className='flex justify-center align-center'>
+                                                        <div className='flex justify-center align-center mb-2 sm:mb-0'>
                                                             <Input
                                                                 placeholder='Valor'
                                                                 type='number'
@@ -223,11 +229,12 @@ export function Palpiteiro() {
                                                                 Responder
                                                             </Button>
                                                         </div>
-
-                                                        <Button variant='palpiteiro' size='lg' onClick={() => toggleAnswer()} className='gap-2' disabled={localPlayerId != actualPlayer}>
-                                                            <Eye className='w-5 h-5' />
-                                                            EU DUVIDO .....
-                                                        </Button>
+                                                        <div>
+                                                            <Button variant='palpiteiro' size='lg' onClick={() => toggleAnswer()} className='gap-2' disabled={localPlayerId != actualPlayer}>
+                                                                <Eye className='w-5 h-5' />
+                                                                EU DUVIDO .....
+                                                            </Button>
+                                                        </div>
                                                     </>
                                                 ) : (
                                                     <>

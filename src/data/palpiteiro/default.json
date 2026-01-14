@@ -3,11 +3,11 @@
   "name": "Palpiteiro",
   "description": "200 perguntas de estimativa com níveis de dificuldade para pontuação variável.",
   "categories": [
-    { "id": 1, "name": "T - Tempo e História", "description": "Anos, durações, datas e idades." },
-    { "id": 2, "name": "M - Medidas e Distâncias", "description": "Metros, quilômetros, quilos, alturas e pesos." },
-    { "id": 3, "name": "Q - Quantidades Absurdas", "description": "Número de coisas, populações e unidades." },
-    { "id": 4, "name": "B - Biologia e Corpo", "description": "Ossos, batimentos, expectativa de vida e animais." },
-    { "id": 5, "name": "E - Estatísticas Curiosas", "description": "Porcentagens (0-100), médias e dados do cotidiano." }
+    { "id": 1, "name": "Tempo e História", "description": "Anos, durações, datas e idades." },
+    { "id": 2, "name": "Medidas e Distâncias", "description": "Metros, quilômetros, quilos, alturas e pesos." },
+    { "id": 3, "name": "Quantidades Absurdas", "description": "Número de coisas, populações e unidades." },
+    { "id": 4, "name": "Biologia e Corpo", "description": "Ossos, batimentos, expectativa de vida e animais." },
+    { "id": 5, "name": "Estatísticas Curiosas", "description": "Porcentagens (0-100), médias e dados do cotidiano." }
   ],
   "items": [
     { "id": 1, "title": "Quantos minutos tem uma hora?", "answer": 60, "category": 1, "value": 1 },

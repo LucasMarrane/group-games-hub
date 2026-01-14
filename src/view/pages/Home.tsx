@@ -5,7 +5,8 @@ import { MimicaGame, PalpiteiroGame, SincroniaGame } from '@data/index';
 import { OncaGame } from '@data/onca/theme';
 import * as Player from '@components/player';
 import { motion } from 'framer-motion';
-import { Sparkles, Users, Target, Bird, Cat, Skull, Zap } from 'lucide-react';
+import {  Users, Target, Bird, Cat, Skull, Zap } from 'lucide-react';
+import { SpriteAvatar } from '@components/SpriteAvatar';
 
 export const games = [
     { route: 'sincronia', variant: 'sincronia', delay: 0.3, item: SincroniaGame, icon: Target },
@@ -20,14 +21,16 @@ export default function Home() {
     return (
         <div className='min-h-screen  p-6 flex flex-col safe-area-top safe-area-bottom'>
             {/* Hero */}
+
             <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className='text-center mb-8 mt-8 flex flex-col justify-center'>
                 <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                    className='w-20 h-20 mx-auto mb-4 rounded-2xl gradient-sincronia shadow-glow-sincronia flex items-center justify-center'
+                    className='w-20 h-20 mx-auto mb-4 mt-4 rounded-2xl gradient-sincronia shadow-glow-sincronia flex items-center justify-center'
                 >
-                    <Sparkles className='w-10 h-10 text-white' />
+                    {/* <Sparkles className='w-10 h-10 text-white' /> */}
+                    <SpriteAvatar />
                 </motion.div>
 
                 <h1 className='text-4xl font-display font-bold text-foreground mb-2'>
@@ -42,7 +45,15 @@ export default function Home() {
             {/* Games List */}
             <div className='flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
                 {games.map((i) => (
-                    <GameCard title={i.item.name} subtitle={i.item.hint} icon={i.icon} route={`/games/${i.route}`} variant={i.variant as GameCardVariant} delay={i.delay} description={i.item.description}/>
+                    <GameCard
+                        title={i.item.name}
+                        subtitle={i.item.hint}
+                        icon={i.icon}
+                        route={`/games/${i.route}`}
+                        variant={i.variant as GameCardVariant}
+                        delay={i.delay}
+                        description={i.item.description}
+                    />
                 ))}
             </div>
 
