@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Avatar, AvatarImage, AvatarFallback } from '@shadcn/components/ui/avatar';
 import { cn } from '@shadcn/lib/utils';
 import * as Game from '@components/game';
-import { leftFillNum, PlayerManager } from '@/utils/manager/player.manager';
+import {  PlayerManager } from '@/utils/manager/player.manager';
 
 interface IAvatarSelectorProps {
     spriteIndex?: number;
