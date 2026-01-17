@@ -5,8 +5,7 @@ import { MimicaGame, PalpiteiroGame, SincroniaGame } from '@data/index';
 import { OncaGame } from '@data/onca/theme';
 import * as Player from '@components/player';
 import { motion } from 'framer-motion';
-import {  Users, Target, Bird, Cat, Skull, Zap } from 'lucide-react';
-import { SpriteAvatar } from '@components/SpriteAvatar';
+import { Users, Target, Bird, Cat, Skull, Zap } from 'lucide-react';
 
 export const games = [
     { route: 'sincronia', variant: 'sincronia', delay: 0.3, item: SincroniaGame, icon: Target },
@@ -27,17 +26,15 @@ export default function Home() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                    className='w-20 h-20 mx-auto mb-4 mt-4 rounded-2xl gradient-sincronia shadow-glow-sincronia flex items-center justify-center'
+                    className='w-25 h-25 mx-auto mb-4 mt-4 rounded-2xl  flex items-center justify-center'
                 >
-                    {/* <Sparkles className='w-10 h-10 text-white' /> */}
-                    <SpriteAvatar />
+                    <img src='pwa-512x512.png' />
                 </motion.div>
 
                 <h1 className='text-4xl font-display font-bold text-foreground mb-2'>
                     Group<span className='text-gradient-sincronia'>Games</span>
                 </h1>
                 <p className='text-muted-foreground'>Sua festa, seus jogos, suas risadas!</p>
-                <p className='text-muted-foreground'> Toque em um jogo para começar</p>
 
                 <div className='flex w-full justify-center mt-2'>{<Player.ModalButton />}</div>
             </motion.div>
