@@ -6,6 +6,7 @@ import { useSessionStore } from './useSessionStore';
 interface Player {
     id: string;
     name: string;
+    avatar: number;
     connection?: DataConnection;
     isOffline?: boolean;
     type?: 'host' | 'invited';
@@ -140,6 +141,7 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: Multipl
                     const newPlayer: Player = {
                         id: message.playerId,
                         name: message.playerName || `Jogador ${playersRef.current.length + 1}`,
+                        avatar: message.avatar ||  Math.floor(Math.random() * 120) + 1,
                         connection: conn,
                         isOffline: false,
                     };
@@ -153,7 +155,7 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: Multipl
                             playerId: newPlayer.id,
                             isHost: false,
                             roomId: roomId,
-                            players: playersRef.current.map((p) => ({ id: p.id, name: p.name })),
+                            players: playersRef.current.map((p) => ({ id: p.id, name: p.name, avatar: p.avatar, type: p?.type ?? 'invited' })),
                         }),
                     );
 
@@ -249,7 +251,7 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: Multipl
 
     const createRoom = async (): Promise<string> => {
         resetGameContext();
-        const _defaultHost = { id: localPlayerId, name: `${player?.nickname} (Host)`, type: 'host' } as Player;
+        const _defaultHost = { id: localPlayerId, name: `${player?.nickname} (Host)`, type: 'host', avatar: player?.avatar } as Player;
         setMainPlayer(localPlayerId);
         if (mode === 'local') {
             setIsHost(true);
@@ -312,6 +314,7 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: Multipl
         const newPlayer: Player = {
             id: newPlayerId,
             name: name,
+            avatar: Math.floor(Math.random() * 120) + 1,
             isOffline: true,
         };
         playersRef.current = [...playersRef.current, newPlayer];
@@ -321,7 +324,7 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: Multipl
         if (mode === 'online') {
             broadcastMessage({
                 type: 'PLAYER_JOINED',
-                player: { id: newPlayer.id, name: newPlayer.name },
+                player: { id: newPlayer.id, name: newPlayer.name,  },
             });
         }
     };
@@ -366,6 +369,7 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: Multipl
                         type: 'JOIN_REQUEST',
                         playerId: localPlayerId,
                         playerName: player?.nickname,
+                        avatar: player?.avatar
                     }),
                 );
             });

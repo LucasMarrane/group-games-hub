@@ -1,6 +1,7 @@
 import { useMultiplayer } from '@/hooks/useMultiplayer';
 import { useSessionStore } from '@/hooks/useSessionStore';
 import { GameCardVariant } from '@components/GameCard';
+import * as Player from '@components/player';
 import { Button } from '@shadcn/components/ui/button';
 import { Input } from '@shadcn/components/ui/input';
 import { motion } from 'framer-motion';
@@ -219,24 +220,9 @@ export function Multiplayer({ variant }: MultiplayerProps) {
 
                         <div className='text-left mb-4'>
                             <h3 className='font-medium mb-2'>Jogadores na sala:</h3>
-                            <ul className='space-y-2'>
+                            <ul className='space-y-2  flex grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2'>
                                 {players.map((player) => (
-                                    <motion.div
-                                        key={`player-${player.id}`}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        className='flex items-center justify-between p-2 rounded-lg bg-caotiqueira/10'
-                                    >
-                                        <span className='flex items-center gap-2'>
-                                            <div className={`w-3 h-3 rounded-full bg-${variant} ${player.id === localPlayerId ? 'bg-green-500' : 'bg-blue-500'}`}></div>
-                                            {player.name}
-                                        </span>
-                                        {player.id != localPlayerId && isHost && (
-                                            <Button variant='ghost' size='sm' onClick={() => removePlayer(player.id)} className='text-destructive hover:text-destructive'>
-                                                ✕
-                                            </Button>
-                                        )}
-                                    </motion.div>
+                                    <Player.MultiplayerCard name={player.name} uuid={player.id} isHost={player.type == 'host'} canKick={player.id != localPlayerId && isHost}  avatarIndex={player?.avatar ?? 1} onKick={() => removePlayer(player.id)}/>
                                 ))}
                             </ul>
                         </div>

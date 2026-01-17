@@ -9,7 +9,7 @@ export class PlayerManager {
         SessionStore.setState({
             player: {
                 nickname,
-                uuid: uuid ?? Math.random().toString(36).substring(2, 10),
+                uuid: uuid || Math.random().toString(36).substring(2, 10),
                 avatar,
             },
         });
