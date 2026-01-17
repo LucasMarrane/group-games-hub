@@ -5,11 +5,11 @@ export function leftFillNum(num: number, targetLength: number) {
 }
 
 export class PlayerManager {
-    static async createPlayer(nickname: string, avatar: number) {
+    static async createPlayer(nickname: string,avatar: number, uuid?: string ) {
         SessionStore.setState({
             player: {
                 nickname,
-                uuid: Math.random().toString(36).substring(2, 10),
+                uuid: uuid ?? Math.random().toString(36).substring(2, 10),
                 avatar,
             },
         });

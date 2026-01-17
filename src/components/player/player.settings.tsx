@@ -35,7 +35,7 @@ export function Settings({ open, onChange }: ISettingsProps) {
         onChange();
     }
     const submit = handleSubmit(async (form) => {
-        await PlayerManager.createPlayer(form.nickname, form.avatar);
+        await PlayerManager.createPlayer(form.nickname, form.avatar, form.uuid);
         close();
     });
 
