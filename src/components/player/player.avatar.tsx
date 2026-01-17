@@ -53,7 +53,7 @@ export function AvatarSelector({ spriteIndex = 1, rows = 5, columns = 5, onSelec
                                 <div
                                     className='absolute inset-0 bg-cover bg-no-repeat'
                                     style={{
-                                        backgroundImage: `url('${PlayerManager.getAvatarUrl(index)}')`,
+                                        backgroundImage: `url('${PlayerManager.getAvatarUrl(index + 1)}')`,
                                     }}
                                 />
                             </Button>
