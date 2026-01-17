@@ -1,30 +1,30 @@
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
-import Peer, { DataConnection } from 'peerjs';
 import { toast } from 'sonner';
 import { useSessionStore } from './useSessionStore';
+import { GameProvider } from '@/providers/multiplayer/types';
+import { MultiplayerProviderFactory } from '@/providers/multiplayer/factory';
+
+export type GameMode = 'online' | 'local' | 'server';
 
 export interface Player {
     id: string;
     name: string;
-    avatar: number;
-    connection?: DataConnection;
+    avatar: number;    
     isOffline?: boolean;
     type?: 'host' | 'invited';
 }
 
-export type GameMode = 'online' | 'local';
-
 interface MultiplayerContextType<T> {
-    peer: Peer | null;
-    connections: DataConnection[];
+    provider: GameProvider<T> | null;
+    mode: GameMode;
+    setMode: (mode: GameMode) => void;
     isHost: boolean;
     roomId: string | null;
     localPlayerId: string;
     players: Player[];
     gameState: T;
-    mode: GameMode;
     mainPlayer: string;
-    setMode: (mode: GameMode) => void;
+    serverConnected: boolean;
     createRoom: () => Promise<string>;
     joinRoom: (roomId: string) => void;
     startGame: (gameState?: string, init?: T) => void;
@@ -32,6 +32,9 @@ interface MultiplayerContextType<T> {
     removePlayer: (playerId: string) => void;
     closeRoom: () => void;
     changeGame: (gameState: any) => void;
+    connectToServer: (serverUrl: string) => Promise<void>;
+    disconnectFromServer: () => void;
+    reconnectToRoom: () => Promise<boolean>;
 }
 
 const MultiplayerContext = createContext<MultiplayerContextType<any> | null>(null);
@@ -52,385 +55,162 @@ interface MultiplayerProviderProps {
 export function MultiplayerProvider({ children, initialMode = 'local' }: MultiplayerProviderProps) {
     const { player } = useSessionStore();
     const [mode, setMode] = useState<GameMode>(initialMode);
-
-    const [peer, setPeer] = useState<Peer | null>(null);
-    const [connections, setConnections] = useState<DataConnection[]>([]);
-    const [isHost, setIsHost] = useState(false);
-    const [roomId, setRoomId] = useState<string | null>(null);
-    const [players, setPlayers] = useState<Player[]>([]);
-    const [gameState, setGameState] = useState<any>();
-
-    const [mainPlayer, setMainPlayer] = useState<string>('');
-
-    const peerRef = useRef<Peer | null>(null);
-    const connectionsRef = useRef<DataConnection[]>([]);
-    const playersRef = useRef<Player[]>([]);
+    const [provider, setProvider] = useState<GameProvider<any> | null>(null);
+    const providerRef = useRef<GameProvider<any> | null>(null);
 
     const localPlayerId = player?.uuid!;
 
-    const resetGameContext = () => {
-        setIsHost(false);
-        setRoomId(null);
-        setPlayers([]);
-        playersRef.current = [];
-        setGameState(null);
-        setConnections([]);
-        connectionsRef.current = [];
-    };
-
+    // Criar novo provedor quando o modo muda
     useEffect(() => {
-        if (mode === 'local') {
-            if (peerRef.current) {
-                peerRef.current.destroy();
-                peerRef.current = null;
-                setPeer(null);
-                setConnections([]);
-                connectionsRef.current = [];
-            }
-            return;
+        if (!localPlayerId) return;
+
+        // Destruir provedor anterior
+        if (providerRef.current) {
+            providerRef.current.destroy();
         }
 
-        if (mode === 'online' && !peerRef.current) {
-            const newPeer = new Peer();
-            peerRef.current = newPeer;
-            setPeer(newPeer);
+        // Criar novo provedor
+        const newProvider = MultiplayerProviderFactory.createProvider(mode, localPlayerId);
+        newProvider.initialize();
+        providerRef.current = newProvider;
+        setProvider(newProvider);
 
-            newPeer.on('open', (id) => console.log('My peer ID is: ' + id));
-            newPeer.on('connection', (conn) => handleNewConnection(conn));
-            newPeer.on('error', (err) => toast.error('Erro de conexão: ' + err.message));
-
-            return () => {
-                if (newPeer) newPeer.destroy();
-            };
-        }
-    }, [mode]);
-
-    const handleNewConnection = (conn: DataConnection) => {
-        connectionsRef.current = [...connectionsRef.current, conn];
-        setConnections([...connectionsRef.current]);
-
-        conn.on('data', (data) => handleIncomingData(data, conn));
-
-        conn.on('close', () => {
-            connectionsRef.current = connectionsRef.current.filter((c) => c !== conn);
-            setConnections(connectionsRef.current);
-
-            const playerToRemove = playersRef.current.find((p) => p.connection === conn);
-            if (playerToRemove) {
-                playersRef.current = playersRef.current.filter((p) => p.connection !== conn);
-                setPlayers([...playersRef.current]); // Force update
-
-                toast.info(`${playerToRemove.name} saiu da sala`);
-
-                if (isHost) {
-                    broadcastMessage({
-                        type: 'PLAYER_LEFT',
-                        playerId: playerToRemove.id,
-                    });
-                }
+        return () => {
+            if (newProvider) {
+                newProvider.destroy();
             }
-        });
-    };
+        };
+    }, [mode, localPlayerId]);
 
-    const handleIncomingData = (data: any, conn: DataConnection) => {
-        try {
-            const message = JSON.parse(data);
-
-            switch (message.type) {
-                case 'JOIN_REQUEST':
-                    const newPlayer: Player = {
-                        id: message.playerId,
-                        name: message.playerName || `Jogador ${playersRef.current.length + 1}`,
-                        avatar: message.avatar ||  Math.floor(Math.random() * 120) + 1,
-                        connection: conn,
-                        isOffline: false,
-                    };
-                    playersRef.current = [...playersRef.current, newPlayer];
-                    setPlayers(playersRef.current);
-                    toast.success(`${newPlayer.name} entrou na sala`);
-
-                    conn.send(
-                        JSON.stringify({
-                            type: 'JOIN_CONFIRMED',
-                            playerId: newPlayer.id,
-                            isHost: false,
-                            roomId: roomId,
-                            players: playersRef.current.map((p) => ({ id: p.id, name: p.name, avatar: p.avatar, type: p?.type ?? 'invited' })),
-                        }),
-                    );
-
-                    broadcastMessage(
-                        {
-                            type: 'PLAYER_JOINED',
-                            player: { id: newPlayer.id, name: newPlayer.name },
-                        },
-                        conn,
-                    );
-                    break;
-
-                case 'JOIN_CONFIRMED':
-                    setIsHost(message.isHost);
-                    setRoomId(message.roomId);
-                    const updatedPlayers = message.players.map((p: any) => p);
-                    playersRef.current = updatedPlayers;
-                    setPlayers(updatedPlayers);
-                    toast.success('Conectado à sala!');
-                    break;
-
-                case 'PLAYER_JOINED':
-                    if (!playersRef.current.some((p) => p.id === message.player.id)) {
-                        playersRef.current = [...playersRef.current, message.player];
-                        setPlayers([...playersRef.current]);
-                        toast.success(`${message.player.name} entrou na sala`);
-                    }
-                    break;
-
-                case 'PLAYER_LEFT':
-                    playersRef.current = playersRef.current.filter((p) => p.id !== message.playerId);
-                    setPlayers([...playersRef.current]);
-
-                    break;
-
-                case 'KICKED':
-                    toast.error('Você foi removido da sala pelo Host.');
-                    resetGameContext();
-
-                    break;
-
-                case 'ROOM_CLOSED':
-                    toast.warning('O Host encerrou a sala.');
-                    resetGameContext();
-                    break;
-
-                case 'START_GAME':
-                    setGameState(message.gameState);
-                    toast.success('Jogo iniciado!');
-                    break;
-
-                case 'PLAYER_ANSWER':
-                    setGameState((prev: any) => ({
-                        ...prev,
-                        answers: { ...prev?.answers, [message.playerId]: message.answer },
-                    }));
-                    break;
-
-                case 'SUBMIT_VOTE':
-                    setGameState((prev: any) => ({
-                        ...prev,
-                        votes: { ...prev?.votes, [message.voterId]: message.votedPlayerId },
-                    }));
-                    break;
-                case 'CHANGE_GAME':
-                    setGameState((prev: any) => ({
-                        ...prev,
-                        ...(message?.gameState ?? {}),
-                    }));
-                    break;
-
-                case 'MAIN_PLAYER': {
-                    const actual = players.findIndex((i) => i.id == mainPlayer);
-                    const newMainPlayerIndex = actual >= players.length - 1 ? 0 : actual + 1;
-                    setMainPlayer(players[newMainPlayerIndex].id);
-                    break;
-                }
-            }
-        } catch (error) {
-            console.error('Error parsing message:', error);
-        }
-    };
-
-    const broadcastMessage = (message: any, excludeConn?: DataConnection) => {
-        if (mode === 'local') return;
-        const messageStr = JSON.stringify(message);
-        connectionsRef.current.forEach((conn) => {
-            if (conn !== excludeConn && conn.open) {
-                conn.send(messageStr);
-            }
-        });
+    const handleSetMode = (newMode: GameMode) => {
+        setMode(newMode);
     };
 
     const createRoom = async (): Promise<string> => {
-        resetGameContext();
-        const _defaultHost = { id: localPlayerId, name: `${player?.nickname} (Host)`, type: 'host', avatar: player?.avatar } as Player;
-        setMainPlayer(localPlayerId);
-        if (mode === 'local') {
-            setIsHost(true);
-            setRoomId('local-room');
-            const localPlayer: Player = { ..._defaultHost, isOffline: true };
-            playersRef.current = [localPlayer];
-            setPlayers([localPlayer]);
-
-            return Promise.resolve('local-room');
+        if (!providerRef.current) {
+            toast.error('Provedor não inicializado');
+            return Promise.reject('Provider not initialized');
         }
-
-        return new Promise((resolve, reject) => {
-            if (!peerRef.current) {
-                reject(new Error('Peer not initialized'));
-                return;
-            }
-            const id = peerRef.current.id;
-            const setupHost = (hostId: string) => {
-                setIsHost(true);
-                setRoomId(hostId);
-                const localPlayer: Player = { ..._defaultHost, isOffline: false };
-                playersRef.current = [localPlayer];
-                setPlayers([localPlayer]);
-
-                resolve(hostId);
-            };
-
-            if (id) setupHost(id);
-            else {
-                peerRef.current.on('open', (newId) => setupHost(newId));
-                peerRef.current.on('error', (err) => reject(err));
-            }
-        });
+        return providerRef.current.createRoom();
     };
 
-    const closeRoom = () => {
-        if (!isHost) {
-            removePlayer(localPlayerId);
+    const joinRoom = (roomId: string) => {
+        if (!providerRef.current) {
+            toast.error('Provedor não inicializado');
             return;
         }
+        providerRef.current.joinRoom(roomId);
+    };
 
-        if (isHost) {
-            if (mode === 'online') {
-                broadcastMessage({ type: 'ROOM_CLOSED' });
-
-                setTimeout(() => {
-                    connectionsRef.current.forEach((conn) => conn.close());
-                    resetGameContext();
-                }, 100);
-            } else {
-                resetGameContext();
-            }
-
-            toast.success('Sala encerrada.');
+    const startGame = (gameState?: string, init?: any) => {
+        if (!providerRef.current) {
+            toast.error('Provedor não inicializado');
+            return;
         }
+        providerRef.current.startGame(gameState, init);
     };
 
     const addOfflinePlayer = (name: string) => {
-        const newPlayerId = Math.random().toString(36).substring(2, 10);
-        const newPlayer: Player = {
-            id: newPlayerId,
-            name: name,
-            avatar: Math.floor(Math.random() * 120) + 1,
-            isOffline: true,
-        };
-        playersRef.current = [...playersRef.current, newPlayer];
-        setPlayers([...playersRef.current]);
-        toast.success(`${name} adicionado!`);
-
-        if (mode === 'online') {
-            broadcastMessage({
-                type: 'PLAYER_JOINED',
-                player: { id: newPlayer.id, name: newPlayer.name,  },
-            });
+        if (!providerRef.current) {
+            toast.error('Provedor não inicializado');
+            return;
         }
+        providerRef.current.addOfflinePlayer(name);
     };
 
     const removePlayer = (playerId: string) => {
-        if (!isHost) return;
-        if (playerId === localPlayerId) return;
-
-        const playerToRemove = playersRef.current.find((p) => p.id === playerId);
-        if (!playerToRemove) return;
-
-        if (mode === 'local' || playerToRemove.isOffline) {
-            playersRef.current = playersRef.current.filter((p) => p.id !== playerId);
-            setPlayers([...playersRef.current]);
-            toast.info(`${playerToRemove.name} removido.`);
-            if (mode === 'online') {
-                broadcastMessage({ type: 'PLAYER_LEFT', playerId });
-            }
+        if (!providerRef.current) {
+            toast.error('Provedor não inicializado');
             return;
         }
-
-        if (playerToRemove.connection) {
-            playerToRemove.connection.send(JSON.stringify({ type: 'KICKED' }));
-            setTimeout(() => {
-                playerToRemove.connection?.close();
-            }, 100);
-        }
+        providerRef.current.removePlayer(playerId);
     };
 
-    const joinRoom = (targetRoomId: string) => {
-        if (mode === 'local') return;
-        if (!peerRef.current) {
-            toast.error('Erro: Conexão online não ativa');
+    const closeRoom = () => {
+        if (!providerRef.current) {
+            toast.error('Provedor não inicializado');
             return;
         }
-        try {
-            const conn = peerRef.current.connect(targetRoomId);
-            handleNewConnection(conn);
-            conn.on('open', () => {
-                conn.send(
-                    JSON.stringify({
-                        type: 'JOIN_REQUEST',
-                        playerId: localPlayerId,
-                        playerName: player?.nickname,
-                        avatar: player?.avatar
-                    }),
-                );
-            });
-        } catch (error) {
-            toast.error('Erro ao conectar à sala');
-        }
-    };
-
-    const startGame = (gameState: string = 'setup', initGameState = {}) => {
-        if (!isHost) {
-            toast.error('Apenas o host pode iniciar o jogo');
-            return;
-        }
-        const initialGameState = {
-            phase: gameState,
-            players: playersRef.current.map((p) => p.id),
-            currentCardIndex: 0,
-            currentQuestionIndex: 0,
-            showAnswer: false,
-            shuffledCards: [],
-            answers: {},
-            votes: {},
-            ...initGameState,
-        };
-        setGameState(initialGameState);
-        if (mode === 'online') {
-            broadcastMessage({ type: 'START_GAME', gameState: initialGameState });
-        }
-        toast.success('Jogo iniciado!');
+        providerRef.current.closeRoom();
     };
 
     const changeGame = (gameState: any) => {
-        setGameState(gameState);
-        if (mode === 'online') {
-            broadcastMessage({ type: 'CHANGE_GAME', gameState });
+        if (!providerRef.current) {
+            toast.error('Provedor não inicializado');
+            return;
         }
-    };    
+        providerRef.current.changeGame(gameState);
+    };
+
+    const connectToServer = async (serverUrl: string) => {
+        if (!providerRef.current) {
+            toast.error('Provedor não inicializado');
+            return Promise.reject('Provider not initialized');
+        }
+        
+        // Verificar se o provedor suporta conexão com servidor
+        if ('connectToServer' in providerRef.current) {
+            return (providerRef.current as any).connectToServer(serverUrl);
+        } else {
+            toast.error('Este modo não suporta conexão com servidor');
+            return Promise.reject('Server connection not supported');
+        }
+    };
+
+    const disconnectFromServer = () => {
+        if (!providerRef.current) {
+            toast.error('Provedor não inicializado');
+            return;
+        }
+        
+        // Verificar se o provedor suporta desconexão do servidor
+        if ('disconnectFromServer' in providerRef.current) {
+            (providerRef.current as any).disconnectFromServer();
+        }
+    };
+
+    // Função de reconexão
+    const reconnectToRoom = async (): Promise<boolean> => {
+        if (!providerRef.current) {
+            toast.error('Provedor não inicializado');
+            return Promise.resolve(false);
+        }
+        
+        try {
+            return await providerRef.current.reconnectToRoom();
+        } catch (error) {
+            toast.error('Falha ao reconectar');
+            return Promise.resolve(false);
+        }
+    };
+
+    // Expor propriedades do provedor
+    const contextValue = {
+        provider,
+        mode,
+        setMode: handleSetMode,
+        isHost: provider?.isHost || false,
+        roomId: provider?.roomId || null,
+        localPlayerId: provider?.localPlayerId || '',
+        players: provider?.players || [],
+        gameState: provider?.gameState,
+        mainPlayer: provider?.mainPlayer || '',
+        serverConnected: (provider as any)?.serverConnected || false,
+        createRoom,
+        joinRoom,
+        startGame,
+        addOfflinePlayer,
+        removePlayer,
+        closeRoom,
+        changeGame,
+        connectToServer,
+        disconnectFromServer,
+        reconnectToRoom,
+    };
 
     return (
-        <MultiplayerContext.Provider
-            value={{
-                peer,
-                connections,
-                isHost,
-                roomId,
-                localPlayerId,
-                players,
-                gameState,
-                mode,
-                mainPlayer,
-                setMode,
-                createRoom,
-                joinRoom,
-                startGame,
-                addOfflinePlayer,
-                removePlayer,
-                closeRoom,
-                changeGame,
-            }}
-        >
-            {children}
+        <MultiplayerContext.Provider value={contextValue as any}>
+            {children} 
         </MultiplayerContext.Provider>
     );
 }
