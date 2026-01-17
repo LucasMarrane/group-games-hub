@@ -5,6 +5,7 @@ interface ISessionStore {
     player: {
         nickname: string;
         uuid: string;
+        avatar: number;
     } | null;
 }
 
