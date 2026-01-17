@@ -1,1 +1,3 @@
-export {ModalButton} from './player.button'
+export * from './player.button';
+export * from './player.avatar';
+export * from './player.settings';

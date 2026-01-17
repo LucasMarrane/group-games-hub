@@ -5,8 +5,7 @@ import { MimicaGame, PalpiteiroGame, SincroniaGame } from '@data/index';
 import { OncaGame } from '@data/onca/theme';
 import * as Player from '@components/player';
 import { motion } from 'framer-motion';
-import {  Users, Target, Bird, Cat, Skull, Zap } from 'lucide-react';
-import { SpriteAvatar } from '@components/SpriteAvatar';
+import { Users, Target, Bird, Cat, Skull, Zap } from 'lucide-react';
 
 export const games = [
     { route: 'sincronia', variant: 'sincronia', delay: 0.3, item: SincroniaGame, icon: Target },
@@ -22,25 +21,35 @@ export default function Home() {
         <div className='min-h-screen  p-6 flex flex-col safe-area-top safe-area-bottom'>
             {/* Hero */}
 
-            <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className='text-center mb-8 mt-8 flex flex-col justify-center'>
+            <div className='flex justify-between items-center mb-6'>
                 <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                    className='w-20 h-20 mx-auto mb-4 mt-4 rounded-2xl gradient-sincronia shadow-glow-sincronia flex items-center justify-center'
+                    key='game-header'
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className='flex w-full items-center gap-4 flex-col text-center'
                 >
-                    {/* <Sparkles className='w-10 h-10 text-white' /> */}
-                    <SpriteAvatar />
+                    <motion.div
+                        key='game-header-image'
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
+                        className='flex items-center justify-center'
+                    >
+                        <img src='pwa-512x512.png' alt='Pombo Nelson Logo' className='w-32 h-32 mt-4 object-contain drop-shadow-[0_0_15px_rgba(255,105,180,0.7)]' />
+                    </motion.div>
+
+                    <div>
+                        <h1 className='text-4xl font-display font-bold text-foreground'>
+                            Group<span className='text-gradient-sincronia'>Games</span>
+                        </h1>
+                        <p className='text-muted-foreground text-sm'>Sua festa, seus jogos, suas risadas!</p>
+                        <div className='mt-5'>
+                            <Player.ModalButton />
+                        </div>
+                    </div>
                 </motion.div>
-
-                <h1 className='text-4xl font-display font-bold text-foreground mb-2'>
-                    Group<span className='text-gradient-sincronia'>Games</span>
-                </h1>
-                <p className='text-muted-foreground'>Sua festa, seus jogos, suas risadas!</p>
-                <p className='text-muted-foreground'> Toque em um jogo para começar</p>
-
-                <div className='flex w-full justify-center mt-2'>{<Player.ModalButton />}</div>
-            </motion.div>
+            </div>
 
             {/* Games List */}
             <div className='flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4'>
@@ -53,6 +62,8 @@ export default function Home() {
                         variant={i.variant as GameCardVariant}
                         delay={i.delay}
                         description={i.item.description}
+                        key={i.route}
+                        rule={i.item.rule}
                     />
                 ))}
             </div>

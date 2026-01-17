@@ -7,3 +7,4 @@ export * from '@components/game/game.progress';
 export * from '@components/game/game.search';
 export * from '@components/game/game.shufle';
 export * from '@components/game/game.pagination';
+export * from '@components/game/game.rules';

@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router';
-import { LucideIcon, Play } from 'lucide-react';
+import { BookOpen, LucideIcon, Play } from 'lucide-react';
 import { Button } from '@shadcn/components/ui/button';
+import * as Game from '@components/game';
+import { IGameRule } from '@appTypes/game';
 
 export type GameCardVariant = 'sincronia' | 'mimica' | 'palpiteiro' | 'onca' | 'decisoes' | 'caotiqueira';
 
@@ -13,6 +15,7 @@ interface GameCardProps {
     route: string;
     variant: GameCardVariant;
     delay?: number;
+    rule: IGameRule;
 }
 
 const variantStyles = {
@@ -48,12 +51,13 @@ const variantStyles = {
     },
 };
 
-export function GameCard({ title, subtitle, description, icon: Icon, route, variant, delay = 0 }: GameCardProps) {
+export function GameCard({ title, subtitle, description, icon: Icon, route, variant, rule, delay = 0 }: GameCardProps) {
     const navigate = useNavigate();
     const styles = variantStyles[variant];
 
     return (
         <motion.div
+            key={`game-card-${route}`}
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay, duration: 0.5, type: 'spring', stiffness: 100 }}
@@ -83,15 +87,25 @@ export function GameCard({ title, subtitle, description, icon: Icon, route, vari
                 </div>
 
                 {/* Content */}
-                <div className='p-5 flex-1 flex flex-col'>
+                <div className='p-5 flex-1 flex flex-col justify-between'>
                     <p className='text-sm text-muted-foreground mb-4 flex-1'>{description}</p>
 
-                    <Button onClick={() => navigate(route)} className={`${styles.gradient} hover:opacity-90 text-primary-foreground border-0 w-full`} size='sm'>
-                        <Play className='w-4 h-4 mr-1' /> Jogar
-                    </Button>
-                    {/* <Button variant='outline' className='bg-white/10 border-white/20 text-white hover:bg-white/20' size='sm'>
-                            <BookOpen className='w-4 h-4' />
-                    </Button> */}
+                    <div className='p-5 flex-1 flex items-end  max-md:flex-col '>
+                        <Button onClick={() => navigate(route)} className={`${styles.gradient} hover:opacity-90 text-primary-foreground border-0 w-full`} size='sm'>
+                            <Play className='w-4 h-4 mr-1' /> Jogar
+                        </Button>
+                        <Game.Rules
+                            gameName={title}
+                            rule={rule}
+                            description={description}
+                            trigger={
+                                <Button variant='outline' className='bg-white/10 border-white/20 text-white hover:bg-white/20 min-md:ml-2 max-md:mt-2 max-md:w-full' size='sm'>
+                                    <BookOpen className='w-4 h-4' />
+                                    <span className='min-md:hidden invisible max-md:visible'>Regras</span>
+                                </Button>
+                            }
+                        />
+                    </div>
                 </div>
             </div>
         </motion.div>
