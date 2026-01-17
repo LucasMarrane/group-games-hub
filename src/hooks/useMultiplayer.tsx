@@ -3,7 +3,7 @@ import Peer, { DataConnection } from 'peerjs';
 import { toast } from 'sonner';
 import { useSessionStore } from './useSessionStore';
 
-interface Player {
+export interface Player {
     id: string;
     name: string;
     avatar: number;

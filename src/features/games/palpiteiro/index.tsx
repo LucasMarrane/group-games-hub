@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Eye, ChevronRight, RotateCcw, Bird, Send, Minus, Plus } from 'lucide-react';
+import { Eye, ChevronRight, RotateCcw, Bird, Send, Minus, Plus, Flag, HeartCrack } from 'lucide-react';
 import { AdaptedPalpiteiroTheme } from '@appTypes/palpiteiro';
 import { Button } from '@shadcn/components/ui/button';
 import { PalpiteiroGame } from '@/data/index';
@@ -9,6 +9,7 @@ import { Icon } from '@components/game/game.icon';
 import { useMultiplayer } from '@/hooks/useMultiplayer';
 import { Input } from '@shadcn/components/ui/input';
 import { toast } from 'sonner';
+import * as Player from '@components/player';
 
 export function Palpiteiro() {
     const [guess, setGuess] = useState(0);
@@ -17,7 +18,7 @@ export function Palpiteiro() {
     const { showAnswer = false, shuffledCards = [], currentCardIndex = 0, players = [], minValue = 0, lastPlayer, actualPlayer } = gameState ?? {};
 
     const cards = PalpiteiroGame.themes.flatMap((i) =>
-        i.items.map((c) => ({ ...c, theme: c.title, value: c.value, answer: c.answer, category: i.categories.find((ca) => ca.id == c.category)?.name } as AdaptedPalpiteiroTheme)),
+        i.items.map((c) => ({ ...c, theme: c.title, value: c.value, answer: c.answer, category: i.categories.find((ca) => ca.id == c.category)?.name }) as AdaptedPalpiteiroTheme),
     );
 
     const currentTheme = shuffledCards[currentCardIndex];
@@ -95,6 +96,9 @@ export function Palpiteiro() {
                 const nextId = indexPlayer >= gameState.players.length - 1 ? 0 : indexPlayer + 1;
                 changeGameState({ ...gameState, minValue: guess, lastPlayer: localPlayerId, actualPlayer: gameState.players[nextId].id });
             },
+            finish: () => {
+                changeGameState({ ...gameState, phase: 'finished' });
+            },
         };
 
         actions?.[action]?.();
@@ -127,11 +131,15 @@ export function Palpiteiro() {
         starNewGame();
     };
 
+    const finish = () => {
+        setDesk('finish');
+    };
+
     useEffect(() => {
         setGuess(minValue);
     }, [minValue]);
 
-    const sortedPlayers = useMemo(() => [...players].sort((a, b) => a.value - b.value), [players]);
+    const sortedPlayers = useMemo(() => [...players].sort((a, b) => b.value - a.value), [players]);
 
     return (
         <Game.Container game={PalpiteiroGame} className='text-gradient-palpiteiro' icon={<Icon variant='palpiteiro' />}>
@@ -150,21 +158,23 @@ export function Palpiteiro() {
                 {gameState?.phase === 'playing' && currentTheme && (
                     <motion.div key='counter' initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className='flex-1 flex flex-col gap-4'>
                         <div className='flex gap-2 overflow-x-auto pb-2'>
-                            {sortedPlayers.map((player, idx) => (
-                                <motion.div
-                                    key={`counter-${player.id ?? idx}`}
-                                    layout
-                                    className={`flex-shrink-0 min-w-[100px] p-3 rounded-xl border ${idx === 0 ? 'border-secondary bg-secondary/10' : 'border-border bg-card'}`}
-                                >
-                                    <div className='text-center'>
-                                        <div className='text-xs text-muted-foreground truncate'>{player.name}</div>
+                            <ul className='space-y-2  flex grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2'>
+                                {sortedPlayers.map((player, idx) => (
+                                    <Player.GameCard player={player} key={`player-${idx}`} isPlaying={actualPlayer == player.id}>
+                                        {lastPlayer == player.id && minValue > 0 && (
+                                            <div className='flex items-center justify-center gap-1'>
+                                                <Flag className='w-4 h-4 text-palpiteiro' />
+                                                <span className='text-xl font-display font-bold text-foreground'>{minValue}</span>
+                                            </div>
+                                        )}
+
                                         <div className='flex items-center justify-center gap-1'>
                                             <Bird className='w-4 h-4 text-palpiteiro' />
                                             <span className='text-xl font-display font-bold text-foreground'>{player.value}</span>
                                         </div>
-                                    </div>
-                                </motion.div>
-                            ))}
+                                    </Player.GameCard>
+                                ))}
+                            </ul>
                         </div>
 
                         {/* Current Card */}
@@ -230,7 +240,7 @@ export function Palpiteiro() {
                                                             </Button>
                                                         </div>
                                                         <div>
-                                                            <Button variant='palpiteiro' size='lg' onClick={() => toggleAnswer()} className='gap-2' disabled={localPlayerId != actualPlayer}>
+                                                            <Button variant='palpiteiro' size='lg' onClick={() => toggleAnswer()} className='gap-2' disabled={localPlayerId != actualPlayer || !guess}>
                                                                 <Eye className='w-5 h-5' />
                                                                 EU DUVIDO .....
                                                             </Button>
@@ -293,18 +303,46 @@ export function Palpiteiro() {
                                 </motion.div>
                             </>
                         )}
-
-                        <div className='flex gap-2'>
-                            <Button variant='glass' className='flex-1' disabled={!isHost} onClick={resetGame}>
-                                <RotateCcw className='w-4 h-4' />
-                                Reiniciar
-                            </Button>
-                            <Button variant='palpiteiro' className='flex-1' onClick={nextQuestion}>
-                                <ChevronRight className='w-4 h-4' />
-                                Próxima
-                            </Button>
-                        </div>
                     </motion.div>
+                )}
+
+                {gameState?.phase == 'finished'  && (
+                    <div className='flex gap-2 overflow-x-auto pb-2'>                        
+                        <ul className='space-y-2  flex grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2'>
+                            {sortedPlayers.map((player, idx) => (
+                                <Player.GameCard player={player} key={`player-finished-${player.id}`}>
+                                    <div className='flex flex-col items-center justify-center gap-1'>
+                                        <div className='flex items-center justify-center gap-1 '>
+                                            <HeartCrack className='w-4 h-4 text-palpiteiro' />
+                                            <span className='text-xl font-display font-bold text-foreground'>{player.value}</span>
+                                        </div>
+                                        {idx == 0 && <span className='text-xs bg-destructive/10 text-destructive px-2 py-0.5 rounded'>Perdeu</span>}
+                                    </div>
+                                </Player.GameCard>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+
+                {['playing', 'finished'].includes(gameState?.phase) && (
+                    <div className='flex gap-2'>
+                        <Button variant='glass' className='flex-1' disabled={!isHost} onClick={resetGame}>
+                            <RotateCcw className='w-4 h-4' />
+                            Reiniciar
+                        </Button>
+                        {gameState?.phase != 'finished' && (
+                            <>
+                                <Button variant='destructive' className='flex-1' onClick={finish} disabled={!isHost}>
+                                    <Flag className='w-4 h-4' />
+                                    Finalizar
+                                </Button>
+                                <Button variant='palpiteiro' className='flex-1' onClick={nextQuestion}>
+                                    <ChevronRight className='w-4 h-4' />
+                                    Próxima
+                                </Button>
+                            </>
+                        )}
+                    </div>
                 )}
             </AnimatePresence>
         </Game.Container>
