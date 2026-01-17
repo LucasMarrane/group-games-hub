@@ -7,6 +7,13 @@ export interface IGames<Expansion> {
     categories: ILabel<any>[];
     expansions: ILabel<any>[];
     getExpansionDescription: (name: string) => string;
+    rule: IGameRule;
+    
+}
+
+export interface IGameRule {
+    goal: string;
+    howToPlay: string;
 }
 
 export interface ILabel<T> {

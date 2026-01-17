@@ -25,6 +25,19 @@ class Caotiqueira extends GameBase<CaotiqueiraGameType> implements IGames<Caotiq
     get description() {
         return `Em cada turno, os jogadores escrevem respostas. A resposta mais votada leva o ponto`;
     }
+
+    get rule() {
+        return {
+            goal: 'Criar respostas engraçadas e ganhar votos.',
+            howToPlay: `1. Um tema com lacunas é sorteado (ex: "Prefiro _____ do que ir ao dentista")
+2. Cada jogador escreve uma resposta criativa
+3. Todas as respostas são lidas em voz alta
+4. Votem na resposta mais engraçada ou criativa
+5. Quem tiver mais votos ganha um ponto
+6. O jogo continua com novos temas
+7. Quem tiver mais pontos no final vence`,
+        };
+    }
 }
 
 export const CaotiqueiraGame = new Caotiqueira();

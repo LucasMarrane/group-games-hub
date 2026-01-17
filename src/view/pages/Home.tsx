@@ -63,6 +63,7 @@ export default function Home() {
                         delay={i.delay}
                         description={i.item.description}
                         key={i.route}
+                        rule={i.item.rule}
                     />
                 ))}
             </div>

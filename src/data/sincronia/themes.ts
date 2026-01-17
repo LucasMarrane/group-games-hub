@@ -32,7 +32,20 @@ class Sincronia extends GameBase<SincroniaGameType> implements IGames<SincroniaG
 
     get description() {
         return `Cada jogador recebe um conjunto de cartas numéricas e o objetivo é cooperar para colocá-las em ordem crescente. Os jogadores podem discutir e dar dicas a outros, sugerindo algo com base no tema sorteado. Por exemplo, quanto melhor a culinária japonesa, assim, quanto maior o número, mais popular é o prato!`;
-    }   
+    }
+
+    get rule() {
+        return {
+            goal: 'Colocar cartas numeradas em ordem crescente com base em um tema.',
+            howToPlay: `1. Cada jogador recebe cartas numeradas de 1 a 100
+2. Um tema é sorteado (ex: "Popularidade de pratos japoneses")
+3. Discutam o tema e onde cada número se encaixaria
+4. Tentem colocar as cartas em ordem crescente na mesa
+5. Revezem-se para jogar uma carta por rodada
+6. Se errarem a ordem, perdem pontos
+7. O jogo termina quando todas as cartas forem jogadas`,
+        };
+    }
 }
 
 export const SincroniaGame = new Sincronia();
