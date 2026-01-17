@@ -1,6 +1,6 @@
 import { IGames } from '@appTypes/game';
 import { Button } from '@shadcn/components/ui/button';
-import { Collapsible, CollapsibleContent } from '@shadcn/components/ui/collapsible';
+import { Collapsible } from '@shadcn/components/ui/collapsible';
 import { cn } from '@shadcn/lib/utils';
 import { BookOpen } from 'lucide-react';
 import { PropsWithChildren, ReactNode } from 'react';
