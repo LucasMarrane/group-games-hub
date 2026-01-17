@@ -16,7 +16,8 @@ export class PlayerManager {
     }
 
     static getAvatarUrl(id: number) {
-        return `/sprites/nelson${leftFillNum(id, 3)}.webp`;
+        const path = import.meta.env.BASE_URL.replaceAll('/', '')
+        return `${path ? `/${path}`: ''}/sprites/nelson${leftFillNum(id, 3)}.webp`;
     }
 
     static getAvatarFallback(name: string) {
