@@ -15,7 +15,7 @@ const App = () => {
             <TooltipProvider>
                 <Toaster position='top-right' />
                 <OnlineProvider>
-                    <MultiplayerProvider>
+                    <MultiplayerProvider initialMode='local'>
                         <AppRoutes />
                     </MultiplayerProvider>
                 </OnlineProvider>
