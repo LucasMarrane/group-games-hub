@@ -277,8 +277,8 @@ export function Palpiteiro() {
                                                         variant='ghost'
                                                         size='icon'
                                                         onClick={() => {
-                                                            removeValue();
                                                             userRef.current = player.id;
+                                                            removeValue();
                                                         }}
                                                         className='h-8 w-8'
                                                     >
@@ -289,8 +289,8 @@ export function Palpiteiro() {
                                                         variant='palpiteiro'
                                                         size='icon'
                                                         onClick={() => {
-                                                            addValue();
                                                             userRef.current = player.id;
+                                                            addValue();
                                                         }}
                                                         className='h-8 w-8'
                                                     >
