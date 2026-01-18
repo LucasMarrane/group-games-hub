@@ -266,7 +266,7 @@ export class OnlineProvider<T = any> implements OnlineGameProvider<T> {
                     this.players = [...this.players, newPlayer];
                     toast.success(`${newPlayer.name} entrou na sala`);
 
-                    conn.metadata = { playerId: message.playerId };
+                    // conn.metadata = { playerId: message.playerId };
                     conn.send(
                         JSON.stringify({
                             type: 'JOIN_CONFIRMED',
