@@ -10,10 +10,12 @@ import { useMultiplayer } from '@/hooks/useMultiplayer';
 import { Input } from '@shadcn/components/ui/input';
 import { toast } from 'sonner';
 import * as Player from '@components/player';
+import { useMultiplayerStore } from '@/providers/multiplayer/multiplayer.store';
 
 export function Palpiteiro() {
     const [guess, setGuess] = useState(0);
-    const { isHost, startGame, localPlayerId, gameState, changeGame: changeGameState, players: playersRoom, mode } = useMultiplayer<any>();
+    const { players: playersRoom } = useMultiplayerStore()
+    const { isHost, startGame, localPlayerId, gameState, changeGame: changeGameState,  mode } = useMultiplayer<any>();
 
     const { showAnswer = false, shuffledCards = [], currentCardIndex = 0, players = [], minValue = 0, lastPlayer, actualPlayer } = gameState ?? {};
 
@@ -306,23 +308,7 @@ export function Palpiteiro() {
                     </motion.div>
                 )}
 
-                {gameState?.phase == 'finished'  && (
-                    <div className='flex gap-2 overflow-x-auto pb-2'>                        
-                        <ul className='space-y-2  flex grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2'>
-                            {sortedPlayers.map((player, idx) => (
-                                <Player.GameCard player={player} key={`player-finished-${player.id}`}>
-                                    <div className='flex flex-col items-center justify-center gap-1'>
-                                        <div className='flex items-center justify-center gap-1 '>
-                                            <HeartCrack className='w-4 h-4 text-palpiteiro' />
-                                            <span className='text-xl font-display font-bold text-foreground'>{player.value}</span>
-                                        </div>
-                                        {idx == 0 && <span className='text-xs bg-destructive/10 text-destructive px-2 py-0.5 rounded'>Perdeu</span>}
-                                    </div>
-                                </Player.GameCard>
-                            ))}
-                        </ul>
-                    </div>
-                )}
+                {gameState?.phase === 'finished' ? <Player.Scoreboard key={'score'} players={sortedPlayers.map((item) => ({ ...item, metadata: { score: item.value} }))} /> : undefined}
 
                 {['playing', 'finished'].includes(gameState?.phase) && (
                     <div className='flex gap-2'>

@@ -3,6 +3,8 @@ export interface Player {
     name: string;
     isOffline?: boolean;
     type?: 'host' | 'invited';
+    avatar: number;
+    metadata?: any;
 }
 
 export interface GameProvider<T = any> {
