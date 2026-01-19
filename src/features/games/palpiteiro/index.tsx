@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Eye, ChevronRight, RotateCcw, Bird, Send, Minus, Plus, Flag, HeartCrack } from 'lucide-react';
+import { Eye, ChevronRight, RotateCcw, Bird, Send, Minus, Plus, Flag } from 'lucide-react';
 import { AdaptedPalpiteiroTheme } from '@appTypes/palpiteiro';
 import { Button } from '@shadcn/components/ui/button';
 import { PalpiteiroGame } from '@/data/index';
@@ -82,7 +82,7 @@ export function Palpiteiro() {
                 changeGameState({ ...gameState, players, currentCardIndex: index, showAnswer: false });
             },
             showAnswer: () => {
-                const loser = currentTheme.answer <= minValue ? localPlayerId : lastPlayer;
+                const loser = minValue > currentTheme.answer ?  lastPlayer : localPlayerId ;
                 const _players = gameState.players.map((p: any) => {
                     let result = { ...p };
 
@@ -322,7 +322,7 @@ export function Palpiteiro() {
                                     <Flag className='w-4 h-4' />
                                     Finalizar
                                 </Button>
-                                <Button variant='palpiteiro' className='flex-1' onClick={nextQuestion}>
+                                <Button variant='palpiteiro' className='flex-1' onClick={nextQuestion} disabled={actualPlayer != localPlayerId}>
                                     <ChevronRight className='w-4 h-4' />
                                     Próxima
                                 </Button>

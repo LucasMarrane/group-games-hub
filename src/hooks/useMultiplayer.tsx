@@ -1,31 +1,23 @@
 import { createContext, useContext, useEffect, useRef } from 'react';
 import { useSessionStore } from './useSessionStore';
 
-import { dataToMessage, type GameProvider } from '@/providers/multiplayer/GameProvider';
+import { type GameProvider } from '@/providers/multiplayer/GameProvider';
 import { GameMode, MultiplayerStore, useMultiplayerStore } from '@/providers/multiplayer/multiplayer.store';
 import { MultiplayerProviderFactory } from '@/providers/multiplayer/factory';
+import { Player } from '@/providers/multiplayer/types';
 
-interface Player {
-    id: string;
-    name: string;
-    avatar: number;
-    isOffline?: boolean;
-    type?: 'host' | 'invited';
-}
-
-interface MultiplayerContextType<T> {
+interface MultiplayerContextType<T = any> {
     localPlayerId: string | null;
     players: Player[];
     roomId: string | null;
     isHost: boolean;
     gameState: T;
     mode: GameMode;
-    provider: GameProvider;
 
     setMode(mode: GameMode): void;
-    createRoom(): void;
-    joinRoom(roomId: string, player?: any): void;
-    removePlayer(state?: any): void;
+    createRoom(): Promise<void>;
+    joinRoom(roomId: string, player?: Partial<Player>): Promise<void>;
+    removePlayer(player: Player): Promise<void>;
     startGame(state?: any): void;
     changeGame(state: any): void;
     closeRoom(): void;
@@ -57,7 +49,6 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: any) {
     return (
         <MultiplayerContext.Provider
             value={{
-                provider: providerRef?.current!,
                 localPlayerId,
                 players,
                 roomId,
@@ -68,49 +59,51 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: any) {
                     MultiplayerStore.setState({ mode });
                 },
 
-                createRoom() {
+                async createRoom() {
+                    if (!player?.uuid) {
+                        throw new Error('Player not authenticated');
+                    }
+
+                    providerRef.current?.emit('room_created', {
+                        id: player?.uuid,
+                        name: player?.nickname || 'Jogador',
+                        avatar: player?.avatar || 1,
+                        type: 'host',
+                    });
+                },
+
+                async joinRoom(roomId, playerData) {
+                    if (!player?.uuid && !playerData) {
+                        throw new Error('Player not authenticated');
+                    }
+
                     providerRef.current?.emit(
-                        'room_created',
-                        dataToMessage({
-                            host: {
-                                id: player?.uuid,
-                                name: player?.nickname,
-                                avatar: player?.avatar,
-                                type: 'host',
-                            },
-                        }),
+                        'join_room',
+                        {
+                            id: player?.uuid || playerData?.id || `player_${Date.now()}`,
+                            name: player?.nickname || playerData?.name || 'Jogador',
+                            avatar: player?.avatar || playerData?.avatar || 1,
+                            type: 'invited',
+                            ...playerData,
+                        },
+                        roomId,
                     );
                 },
 
-                joinRoom(roomId, player) {
-                    providerRef.current?.emit(
-                        'join_room',
-                        dataToMessage({
-                            roomId,
-                            player: {
-                                ...player,
-                                id: player?.uuid,
-                                name: player?.nickname,
-                                avatar: player?.avatar,
-                                type: 'invited',
-                            },
-                        }),
-                    );
-                },
-                removePlayer(player) {
-                    providerRef.current?.emit('remove_player', dataToMessage({ player }));
+                async removePlayer(player) {
+                    providerRef.current?.emit('remove_player', player);
                 },
 
                 startGame(state) {
-                    providerRef.current?.emit('state', dataToMessage({ state }));
+                    providerRef.current?.emit('state', state);
                 },
 
                 changeGame(state) {
-                    providerRef.current?.emit('state', dataToMessage({ state }));
+                    providerRef.current?.emit('state', state);
                 },
 
                 closeRoom() {
-                    providerRef.current?.emit('room_closed', dataToMessage({ roomId }));
+                    providerRef.current?.emit('room_closed', roomId);
                 },
             }}
         >
@@ -119,7 +112,7 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: any) {
     );
 }
 
-export function useMultiplayer<T>() {
+export function useMultiplayer<T = any>() {
     const ctx = useContext(MultiplayerContext);
     if (!ctx) {
         throw new Error('useMultiplayer must be used inside MultiplayerProvider');

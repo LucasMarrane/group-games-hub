@@ -1,75 +1,54 @@
-import { dataToMessage, EventMessage, GameProvider } from './GameProvider';
+import {  GameProvider } from './GameProvider';
 import { GameMode } from './multiplayer.store';
+import { Player } from './types';
 
 export class LocalProvider extends GameProvider {
     constructor(mode: GameMode = 'single') {
         super(mode);
     }
 
-    protected createRoom(e: string) {
-        const {
-            data: { host },
-        } = JSON.parse(e) as EventMessage;
-
+    protected createRoom(host: Player) {
         this._multiplayerProvider.createRoom(host, 'local-room');
         this._notify.success('Sala local criada');
     }
 
-    protected joinRoom(e: string) {
-        const {
-            data: { player, roomId },
-        } = JSON.parse(e) as EventMessage;
-        this._multiplayerProvider.addPlayer(player, roomId);
-        this.emit('player_joined', dataToMessage(player));
-    }
-
-    protected addPlayer(e: string) {
-        const {
-            data: { player },
-        } = JSON.parse(e) as EventMessage;
-
+    protected joinRoom(player: Player) {
         this._multiplayerProvider.addPlayer(player);
-        this.emit('player_joined',dataToMessage(player));
     }
 
-    protected removePlayer(e: string) {
-        const {
-            data: { player },
-        } = JSON.parse(e) as EventMessage;
+    protected joinConfirmed(players: Player[], roomId: string, playerId: string) {
+        this._multiplayerProvider.state.setState({
+            roomId,
+            isHost: false,
+            players,
+            localPlayerId: playerId,
+        });
+    }
 
+    protected addPlayer(player: Player) {
         this._multiplayerProvider.addPlayer(player);
-        this.emit('player_left', dataToMessage(player));
     }
 
-    protected playerJoined(e: string) {
-        const {
-            data: { name },
-        } = JSON.parse(e) as EventMessage;
-
-        this._notify(`${name} entrou na sala`);
+    protected removePlayer(player: Player) {
+        this._multiplayerProvider.removePlayer(player);
     }
 
-    protected playerLeft(e: string) {
-        const {
-            data: { name },
-        } = JSON.parse(e) as EventMessage;
-
-        this._notify(`${name} deixou sala`);
+    protected playerJoined(player: Player) {
+        this._notify(`${player.name} entrou na sala`);
     }
-    protected closeRoom(e: string) {
-        const {
-            data: { idRoom = 'local-room' },
-        } = JSON.parse(e) as EventMessage;
 
+    protected playerLeft(player: Player) {
+        this._notify(`${player.name} deixou a sala`);
+    }
+
+    protected closeRoom(roomId: string) {
         this._multiplayerProvider.closeRoom();
-        this._notify(`Sala (${idRoom}) fechada`);
+        this._notify(`Sala (${roomId}) fechada`);
     }
 
-    protected state(e: string) {
-        const {
-            data: { state },
-        } = JSON.parse(e) as EventMessage;
-        
+    protected kicked(){}
+
+    protected state(state: any) {
         this._multiplayerProvider.gameState(state);
     }
 }

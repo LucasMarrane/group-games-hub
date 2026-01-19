@@ -1,4 +1,4 @@
-import { Player } from '@/hooks/useMultiplayer';
+import { Player } from '@/providers/multiplayer/types';
 import { PlayerManager } from '@/utils/manager/player.manager';
 import { Avatar } from '@radix-ui/react-avatar';
 import { AvatarFallback, AvatarImage } from '@shadcn/components/ui/avatar';

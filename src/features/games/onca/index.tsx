@@ -7,7 +7,6 @@ import { Input } from '@shadcn/components/ui/input';
 import { motion } from 'framer-motion';
 import { Cat, ChevronRight, RotateCcw, Trash2, Trophy, UserPlus, Users } from 'lucide-react';
 import { useMemo, useState } from 'react';
-import * as Player from '@components/player'
 
 type GamePhase = 'setup' | 'question' | 'voting' | 'results';
 export function Onca() {
@@ -187,7 +186,54 @@ export function Onca() {
             )}
 
             {phase === 'results' && (
-                  <Player.Scoreboard players={players as any}/>
+                <motion.div key='results' initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className='flex-1 flex flex-col'>
+                    <div className='text-center mb-6'>
+                        <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{ type: 'spring', stiffness: 200 }}
+                            className='w-20 h-20 mx-auto mb-4 rounded-full gradient-onca shadow-glow-onca flex items-center justify-center'
+                        >
+                            <Trophy className='w-10 h-10 text-foreground' />
+                        </motion.div>
+                        <h2 className='text-2xl font-display font-bold text-foreground mb-1'>O escolhido foi...</h2>
+                        <p className='text-3xl font-display font-bold text-onca'>{roundWinner?.name}</p>
+                    </div>
+
+                    {/* Scoreboard */}
+                    <div className='bg-card/50 backdrop-blur rounded-2xl p-4 mb-6'>
+                        <h3 className='font-display font-semibold text-foreground mb-3 flex items-center gap-2'>
+                            <Trophy className='w-5 h-5 text-onca' />
+                            Placar
+                        </h3>
+                        <div className='space-y-2'>
+                            {sortedPlayers.map((player, index) => (
+                                <div key={player.id} className='flex items-center justify-between bg-muted/50 rounded-xl px-3 py-2'>
+                                    <div className='flex items-center gap-2'>
+                                        <span className='text-onca font-bold'>#{index + 1}</span>
+                                        <span className='text-foreground'>{player.name}</span>
+                                    </div>
+                                    <span className='font-display font-bold text-onca'>{player.votes} pts</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className='mt-auto space-y-3'>
+                        {currentQuestionIndex < shuffledQuestions.length - 1 ? (
+                            <Button onClick={nextQuestion} variant='onca' size='lg' className='w-full'>
+                                Próxima Pergunta
+                                <ChevronRight className='w-5 h-5 ml-2' />
+                            </Button>
+                        ) : (
+                            <p className='text-center text-muted-foreground mb-2'>Fim das perguntas!</p>
+                        )}
+                        <Button onClick={resetGame} variant='outline' size='lg' className='w-full'>
+                            <RotateCcw className='w-4 h-4 mr-2' />
+                            Novo Jogo
+                        </Button>
+                    </div>
+                </motion.div>
             )}
         </Game.Container>
     );
