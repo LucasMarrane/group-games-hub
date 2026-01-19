@@ -1,11 +1,12 @@
 import { useMultiplayer } from '@/hooks/useMultiplayer';
 import { useSessionStore } from '@/hooks/useSessionStore';
+import { PlayerManager } from '@/utils/manager/player.manager';
 import { GameCardVariant } from '@components/GameCard';
 import * as Player from '@components/player';
 import { Button } from '@shadcn/components/ui/button';
 import { Input } from '@shadcn/components/ui/input';
 import { motion } from 'framer-motion';
-import { Globe, House, LogIn, Plus, RefreshCw, Server, Share2, Trash, Users, Wifi } from 'lucide-react';
+import { House, LogIn, Plus, Share2, Trash, Users, Wifi } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
@@ -21,38 +22,21 @@ export function Multiplayer({ variant }: MultiplayerProps) {
     const [joinRoomId, setJoinRoomId] = useState('');
     const [copied, setCopied] = useState(false);
     const [serverUrl, setServerUrl] = useState('ws://localhost:8080');
-    const {
-        isHost,
-        roomId,
-        localPlayerId,
-        players,
-        createRoom,
-        joinRoom,
-        setMode,
-        mode,
-        addOfflinePlayer,
-        removePlayer,
-        closeRoom,
-        connectToServer,
-        serverConnected,
-        disconnectFromServer,
-        reconnectToRoom,
-    } = useMultiplayer();
+    const { isHost, roomId, localPlayerId, players, createRoom, joinRoom, setMode, mode, closeRoom, removePlayer } = useMultiplayer();
 
     const [newPlayerName, setNewPlayerName] = useState('');
-    const [isReconnecting, setIsReconnecting] = useState(false);
 
     const handleAddOffline = (e?: React.FormEvent) => {
         e?.preventDefault();
         if (newPlayerName.trim()) {
-            addOfflinePlayer(newPlayerName);
             setNewPlayerName('');
+            joinRoom('local-room', PlayerManager.randomPlayer(newPlayerName.trim()));
         }
     };
 
     const handleJoinRoom = () => {
         if (joinRoomId.trim()) {
-            joinRoom(joinRoomId.trim());
+            joinRoom(joinRoomId.trim(), { ...player, name: player?.nickname } as any);
             setPhase('multiplayer_setup');
             toast.success('Conectando à sala...');
         }
@@ -76,6 +60,7 @@ export function Multiplayer({ variant }: MultiplayerProps) {
             toast.success('Sala criada! Compartilhe o código com seus amigos.');
             setPhase('multiplayer_setup');
         } catch (error) {
+            console.log(error);
             toast.error('Erro ao criar sala');
         }
     };
@@ -94,58 +79,16 @@ export function Multiplayer({ variant }: MultiplayerProps) {
         setPhase('local');
     }
 
-    function openServer() {
-        setMode('server');
-        setPhase('server_connect');
-    }
+    // function openServer() {
+    //     setMode('server');
+    //     setPhase('server_connect');
+    // }
 
     function closeThisRoom() {
         setMode('local');
         setPhase('local');
         closeRoom();
     }
-
-    const handleConnectToServer = async () => {
-        try {
-            await connectToServer(serverUrl);
-            setPhase('server_setup');
-        } catch (error) {
-            toast.error('Falha ao conectar ao servidor');
-        }
-    };
-
-    const handleCreateServerRoom = async () => {
-        if (!player?.uuid) {
-            toast.warning('Você precisa adicionar um nickname pra jogar.');
-            return;
-        }
-        toast.success('Sala criada no servidor!');
-        setPhase('multiplayer_setup');
-    };
-
-    const handleJoinServerRoom = () => {
-        if (!player?.uuid) {
-            toast.warning('Você precisa adicionar um nickname pra jogar.');
-            return;
-        }
-        toast.success('Conectado à sala do servidor!');
-        setPhase('multiplayer_setup');
-    };
-
-    const handleReconnect = async () => {
-        setIsReconnecting(true);
-        try {
-            const success = await reconnectToRoom();
-            if (success) {
-                toast.success('Reconectado com sucesso!');
-                setPhase('multiplayer_setup');
-            }
-        } catch (error) {
-            toast.error('Falha ao reconectar');
-        } finally {
-            setIsReconnecting(false);
-        }
-    };
 
     return (
         <>
@@ -162,10 +105,10 @@ export function Multiplayer({ variant }: MultiplayerProps) {
                                 <Wifi className='w-4 h-4' />
                                 Online
                             </Button>
-                            <Button variant='glass' size='sm' onClick={openServer}>
+                            {/* <Button variant='glass' size='sm' onClick={openServer}>
                                 <Server className='w-4 h-4' />
                                 Servidor
-                            </Button>
+                            </Button> */}
                         </div>
                     </div>
 
@@ -195,10 +138,10 @@ export function Multiplayer({ variant }: MultiplayerProps) {
                                 <House className='w-4 h-4' />
                                 Local
                             </Button>
-                            <Button variant='glass' size='sm' onClick={openServer}>
+                            {/* <Button variant='glass' size='sm' onClick={openServer}>
                                 <Server className='w-4 h-4' />
                                 Servidor
-                            </Button>
+                            </Button> */}
                         </div>
                     </div>
 
@@ -219,10 +162,10 @@ export function Multiplayer({ variant }: MultiplayerProps) {
                         </Button>
                     </div>
 
-                    <Button variant='outline' className='w-full mt-2' onClick={handleReconnect} disabled={isReconnecting}>
+                    {/* <Button variant='outline' className='w-full mt-2' onClick={handleReconnect} disabled={isReconnecting}>
                         <RefreshCw className={`w-4 h-4 mr-2 ${isReconnecting ? 'animate-spin' : ''}`} />
                         {isReconnecting ? 'Reconectando...' : 'Reconectar'}
-                    </Button>
+                    </Button> */}
                 </div>
             )}
             {phase == 'server_connect' && (
@@ -256,21 +199,21 @@ export function Multiplayer({ variant }: MultiplayerProps) {
                                     Voltar
                                 </Button>
 
-                                <Button variant={variant} className='flex-1' onClick={handleConnectToServer} disabled={serverConnected}>
+                                {/* <Button variant={variant} className='flex-1' onClick={handleConnectToServer} disabled={serverConnected}>
                                     <Globe className='w-4 h-4 mr-2' />
                                     {serverConnected ? 'Conectado' : 'Conectar'}
-                                </Button>
+                                </Button> */}
                             </div>
 
-                            <Button variant='outline' className='w-full' onClick={handleReconnect} disabled={isReconnecting || !serverConnected}>
+                            {/* <Button variant='outline' className='w-full' onClick={handleReconnect} disabled={isReconnecting || !serverConnected}>
                                 <RefreshCw className={`w-4 h-4 mr-2 ${isReconnecting ? 'animate-spin' : ''}`} />
                                 {isReconnecting ? 'Reconectando...' : 'Reconectar à Sala'}
-                            </Button>
+                            </Button> */}
                         </div>
                     </div>
                 </motion.div>
             )}
-            {phase == 'server_setup' && (
+            {/* {phase == 'server_setup' && (
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className='flex-1 space-y-4'>
                     <div className='bg-card rounded-2xl p-6 border border-border text-center'>
                         <div className='flex items-center justify-between mb-4'>
@@ -331,7 +274,7 @@ export function Multiplayer({ variant }: MultiplayerProps) {
                         {!isHost && <p className='text-sm text-muted-foreground'>Aguardando o host iniciar o jogo...</p>}
                     </div>
                 </motion.div>
-            )}
+            )} */}
             {phase == 'join_room' && (
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className='flex-1 space-y-4'>
                     <div className='bg-card rounded-2xl p-6 border border-border'>
@@ -417,7 +360,7 @@ export function Multiplayer({ variant }: MultiplayerProps) {
                                         isHost={player.type == 'host'}
                                         canKick={player.id != localPlayerId && isHost}
                                         avatarIndex={player?.avatar ?? 1}
-                                        onKick={() => removePlayer(player.id)}
+                                        onKick={() => removePlayer(player)}
                                     />
                                 ))}
                             </ul>

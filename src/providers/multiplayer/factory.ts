@@ -1,17 +1,19 @@
-import { GameProvider } from './types';
+import { GameProvider } from './GameProvider';
 import { LocalProvider } from './LocalProvider';
+import { GameMode } from './multiplayer.store';
 import { OnlineProvider } from './OnlineProvider';
 import { ServerProvider } from './ServerProvider';
 
 export class MultiplayerProviderFactory {
-    static createProvider<T>(mode: 'local' | 'online' | 'server', localPlayerId: string): GameProvider<T> {
+    static createProvider(mode: GameMode): GameProvider {
         switch (mode) {
+            case 'single':
             case 'local':
-                return new LocalProvider<T>(localPlayerId);
+                return new LocalProvider(mode);
             case 'online':
-                return new OnlineProvider<T>(localPlayerId);
+                return new OnlineProvider();
             case 'server':
-                return new ServerProvider<T>(localPlayerId);
+                return new ServerProvider();
             default:
                 throw new Error(`Unsupported multiplayer mode: ${mode}`);
         }

@@ -1,119 +1,54 @@
-import { Player, GameProvider } from './types';
-import { toast } from 'sonner';
+import {  GameProvider } from './GameProvider';
+import { GameMode } from './multiplayer.store';
+import { Player } from './types';
 
-export class LocalProvider<T = any> implements GameProvider<T> {
-    mode: 'local' = 'local';
-    isHost = false;
-    roomId: string | null = null;
-    localPlayerId = '';
-    players: Player[] = [];
-    gameState: T = undefined as any;
-    mainPlayer = '';
-
-    constructor(localPlayerId: string) {
-        this.localPlayerId = localPlayerId;
+export class LocalProvider extends GameProvider {
+    constructor(mode: GameMode = 'single') {
+        super(mode);
     }
 
-    initialize(): void {
-        // Inicialização específica do modo local
+    protected createRoom(host: Player) {
+        this._multiplayerProvider.createRoom(host, 'local-room');
+        this._notify.success('Sala local criada');
     }
 
-    destroy(): void {
-        // Limpeza específica do modo local
-        this.resetGameContext();
+    protected joinRoom(player: Player) {
+        this._multiplayerProvider.addPlayer(player);
     }
 
-    async createRoom(): Promise<string> {
-        this.resetGameContext();
-        this.isHost = true;
-        this.roomId = 'local-room';
-        
-        // Criar jogador host
-        const hostPlayer: Player = {
-            id: this.localPlayerId,
-            name: 'Host (Você)',
-            isOffline: true,
-            type: 'host'
-        };
-        
-        this.players = [hostPlayer];
-        this.mainPlayer = this.localPlayerId;
-        
-        toast.success('Sala local criada!');
-        return Promise.resolve('local-room');
+    protected joinConfirmed(players: Player[], roomId: string, playerId: string) {
+        this._multiplayerProvider.state.setState({
+            roomId,
+            isHost: false,
+            players,
+            localPlayerId: playerId,
+        });
     }
 
-    joinRoom(): void {
-        // No modo local, não há join room real
-        toast.info('Modo local não requer conexão');
+    protected addPlayer(player: Player) {
+        this._multiplayerProvider.addPlayer(player);
     }
 
-    startGame(gameState: string = 'setup', initGameState = {} as any): void {
-        if (!this.isHost) {
-            toast.error('Apenas o host pode iniciar o jogo');
-            return;
-        }
-        
-        const initialGameState = {
-            phase: gameState,
-            players: this.players.map((p) => p.id),
-            ...initGameState,
-        };
-        
-        this.gameState = initialGameState as any;
-        toast.success('Jogo iniciado!');
+    protected removePlayer(player: Player) {
+        this._multiplayerProvider.removePlayer(player);
     }
 
-    addOfflinePlayer(name: string): void {
-        const newPlayerId = Math.random().toString(36).substring(2, 10);
-        const newPlayer: Player = {
-            id: newPlayerId,
-            name: name,
-            isOffline: true,
-        };
-        
-        this.players = [...this.players, newPlayer];
-        toast.success(`${name} adicionado!`);
+    protected playerJoined(player: Player) {
+        this._notify(`${player.name} entrou na sala`);
     }
 
-    removePlayer(playerId: string): void {
-        if (!this.isHost) return;
-        if (playerId === this.localPlayerId) return;
-
-        const playerToRemove = this.players.find((p) => p.id === playerId);
-        if (!playerToRemove) return;
-
-        this.players = this.players.filter((p) => p.id !== playerId);
-        toast.info(`${playerToRemove.name} removido.`);
+    protected playerLeft(player: Player) {
+        this._notify(`${player.name} deixou a sala`);
     }
 
-    closeRoom(): void {
-        this.resetGameContext();
-        toast.success('Sala local encerrada.');
+    protected closeRoom(roomId: string) {
+        this._multiplayerProvider.closeRoom();
+        this._notify(`Sala (${roomId}) fechada`);
     }
 
-    changeGame(gameState: any): void {
-        this.gameState = { ...this.gameState, ...gameState };
-    }
+    protected kicked(){}
 
-    // Função de reconexão para modo local
-    reconnectToRoom(): Promise<boolean> {
-        // No modo local, não há reconexão real pois tudo é mantido em memória
-        // Se houver uma sala ativa, retorna sucesso
-        if (this.roomId) {
-            toast.info('Você já está na sala local');
-            return Promise.resolve(true);
-        }
-        
-        toast.info('Nenhuma sala local ativa para reconectar');
-        return Promise.resolve(false);
-    }
-
-    private resetGameContext(): void {
-        this.isHost = false;
-        this.roomId = null;
-        this.players = [];
-        this.gameState = undefined as any;
-        this.mainPlayer = '';
+    protected state(state: any) {
+        this._multiplayerProvider.gameState(state);
     }
 }
