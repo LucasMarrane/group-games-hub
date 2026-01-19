@@ -14,8 +14,8 @@ import { useMultiplayerStore } from '@/providers/multiplayer/multiplayer.store';
 
 export function Palpiteiro() {
     const [guess, setGuess] = useState(0);
-    const { players: playersRoom } = useMultiplayerStore()
-    const { isHost, startGame, localPlayerId, gameState, changeGame: changeGameState,  mode } = useMultiplayer<any>();
+    const { players: playersRoom } = useMultiplayerStore();
+    const { isHost, startGame, localPlayerId, gameState, changeGame: changeGameState, mode } = useMultiplayer<any>();
 
     const { showAnswer = false, shuffledCards = [], currentCardIndex = 0, players = [], minValue = 0, lastPlayer, actualPlayer } = gameState ?? {};
 
@@ -82,15 +82,18 @@ export function Palpiteiro() {
                 changeGameState({ ...gameState, players, currentCardIndex: index, showAnswer: false });
             },
             showAnswer: () => {
-                const loser = minValue > currentTheme.answer ?  lastPlayer : localPlayerId ;
-                const _players = gameState.players.map((p: any) => {
-                    let result = { ...p };
+                let _players = gameState.players;
+                if (!['single', 'local'].includes(mode)) {
+                    const loser = minValue > currentTheme.answer ? lastPlayer : localPlayerId;
+                    _players = gameState.players.map((p: any) => {
+                        let result = { ...p };
 
-                    if (p.id == loser) {
-                        result.value = p.value + currentTheme.value;
-                    }
-                    return result;
-                });
+                        if (p.id == loser) {
+                            result.value = p.value + currentTheme.value;
+                        }
+                        return result;
+                    });
+                }
                 changeGameState({ ...gameState, showAnswer: true, players: _players, minValue: 0 });
             },
             guess: () => {
@@ -308,7 +311,7 @@ export function Palpiteiro() {
                     </motion.div>
                 )}
 
-                {gameState?.phase === 'finished' ? <Player.Scoreboard key={'score'} players={sortedPlayers.map((item) => ({ ...item, metadata: { score: item.value} }))} /> : undefined}
+                {gameState?.phase === 'finished' ? <Player.Scoreboard key={'score'} players={sortedPlayers.map((item) => ({ ...item, metadata: { score: item.value } }))} /> : undefined}
 
                 {['playing', 'finished'].includes(gameState?.phase) && (
                     <div className='flex gap-2'>

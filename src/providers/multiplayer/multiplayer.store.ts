@@ -16,7 +16,7 @@ export interface IMultiplayerStore<T = any> {
 }
 
 export const _defaultMultiplayerStore: IMultiplayerStore<any> = {
-    mode: 'single',
+    mode: 'local',
     isHost: false,
     gameState: null,
     localPlayerId: null,

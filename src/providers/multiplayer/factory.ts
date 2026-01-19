@@ -8,8 +8,9 @@ export class MultiplayerProviderFactory {
     static createProvider(mode: GameMode): GameProvider {
         switch (mode) {
             case 'single':
+                return new LocalProvider('single');
             case 'local':
-                return new LocalProvider(mode);
+                return new LocalProvider('local');
             case 'online':
                 return new OnlineProvider();
             case 'server':
