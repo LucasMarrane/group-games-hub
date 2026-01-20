@@ -1,7 +1,7 @@
 import { IGames } from '@appTypes/game';
 import { Button } from '@shadcn/components/ui/button';
 import { cn } from '@shadcn/lib/utils';
-import { BookOpen, Eye, Play, Users2 } from 'lucide-react';
+import { BookOpen, Eye, Play, Trophy, Users2 } from 'lucide-react';
 import { PropsWithChildren, ReactNode, useMemo } from 'react';
 import * as Player from '@components/player';
 import * as Game from '@components/game';
@@ -20,7 +20,7 @@ interface ContainerProps extends PropsWithChildren {
 
 export function Container({ children, game, icon, className = '', onStart = () => {}, showMultiplayer = false }: ContainerProps) {
     const { players } = useMultiplayerStore();
-    const { isHost, gameState } = useMultiplayer<any>();
+    const { isHost, gameState, changeGame } = useMultiplayer<any>();
     const { actualPlayer } = gameState ?? {};
 
     const sortedPlayers = useMemo(() => [...players].sort((a, b) => b.points! - a.points!), [players]);
@@ -80,11 +80,22 @@ export function Container({ children, game, icon, className = '', onStart = () =
                                         <Users2 className='w-4 h-4 text-white' />
                                         <span className='text-white font-bold'>Vez de {sortedPlayers.find((p) => p.id == actualPlayer)?.name}</span>
                                     </div>
-                                    <CollapsibleTrigger asChild>
-                                        <div>
-                                            <Eye className='w-4 h-4 text-white' />
+                                    <div className='flex justify-end'>
+                                        <div
+                                            className='flex items-center gap-1 bg-white/20 px-3 py-1 rounded-full mr-2 pointer'
+                                            onClick={() => {
+                                                changeGame({ ...gameState, phase: 'finished' });
+                                            }}
+                                        >
+                                            <Trophy className='w-4 h-4 text-white' />
+                                            <span className='text-white font-bold'>Finalizar</span>
                                         </div>
-                                    </CollapsibleTrigger>
+                                        <CollapsibleTrigger asChild>
+                                            <div className='flex items-center gap-1 bg-white/20 px-3 py-1 rounded-full'>
+                                                <Eye className='w-4 h-4 text-white' />
+                                            </div>
+                                        </CollapsibleTrigger>
+                                    </div>
                                 </div>
                             </div>
 

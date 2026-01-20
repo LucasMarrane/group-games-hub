@@ -124,6 +124,7 @@ export function Decisoes() {
                                 <div className='text-center mb-6'>
                                     <h2 className='text-xl font-display font-bold text-foreground'>{currentQuestion.title}</h2>
                                     <p className='text-muted-foreground text-md'>{currentQuestion.footer}</p>
+                                    <p className='text-muted-foreground text-sm italic font-bold'>Ass: Nelson, o pombo da discórdia</p>
                                 </div>
                                 <div className='flex-1 flex flex-col gap-4 mx-2 justify-center'>
                                     <motion.button
