@@ -35,6 +35,7 @@ export interface IItem {
     id: number;
     title: string;
     category: number;
+    footer?: string;
 }
 export interface ITheme<I extends IItem> {
     id: string;

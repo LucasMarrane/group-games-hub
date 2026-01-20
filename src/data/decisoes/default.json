@@ -1,234 +1,1219 @@
 {
-  "id": "base",
-  "name": "Jogo Padrão",
-  "description": "A vida é feita de escolhas, e aqui todas são horríveis. Escolha a opção menos pior e julgue as escolhas dos seus amigos.",
-  "categories": [
-    {
-      "id": 1,
-      "name": "N - Nojeira e Desconforto Físico",
-      "description": "Coisas que vão te fazer sentir ânsia ou dor física."
-    },
-    {
-      "id": 2,
-      "name": "S - Vergonha Social",
-      "description": "Situações humilhantes em público, trabalho ou família."
-    },
-    {
-      "id": 3,
-      "name": "M - Moral e Ética",
-      "description": "Dilemas pesados sobre crimes, vida e morte."
-    },
-    {
-      "id": 4,
-      "name": "A - Absurdo e Hipotético",
-      "description": "Poderes inúteis, mudanças corporais e cenários irreais."
-    },
-    {
-      "id": 5,
-      "name": "R - Relacionamento e Intimidade",
-      "description": "Namoro, sexo e ex-parceiros."
-    }
-  ],
-  "items": [
-    { "id": 1, "title": "Ter o histórico de navegação projetado na parede no Natal OU Ter sua galeria de fotos publicada no LinkedIn", "category": 2 },
-    { "id": 2, "title": "Sentir gosto de sabão em tudo o que comer OU Sentir cheiro de ovo podre que só você sente", "category": 1 },
-    { "id": 3, "title": "Encontrar seus pais fazendo sexo OU Seus pais encontrarem você fazendo sexo", "category": 2 },
-    { "id": 4, "title": "Arrotar na boca de quem você beija OU Soltar um pum alto sempre que alguém te abraça", "category": 2 },
-    { "id": 5, "title": "Um ano na cadeia inocente OU Cometer um crime e viver paranoico para sempre", "category": 3 },
-    { "id": 6, "title": "Ter braços no lugar das pernas OU Ter pernas no lugar dos braços", "category": 4 },
-    { "id": 7, "title": "Reiniciar a vida aos 10 anos com memória atual OU Ganhar 10 milhões mas envelhecer 20 anos agora", "category": 3 },
-    { "id": 8, "title": "Nunca mais usar internet OU Nunca mais sair de casa (com internet ilimitada)", "category": 4 },
-    { "id": 9, "title": "Casar com quem odeia mas ter sexo incrível OU Casar com alma gêmea sem sexo", "category": 5 },
-    { "id": 10, "title": "Usar roupas molhadas para sempre OU Ter uma pedrinha no sapato que nunca sai", "category": 1 },
-    { "id": 11, "title": "Salvar a vida do seu pet OU Salvar um primo distante que não vê há anos", "category": 3 },
-    { "id": 12, "title": "Só poder falar gritando OU Só poder falar sussurrando", "category": 2 },
-    { "id": 13, "title": "Saber a data da sua morte OU Saber a causa da sua morte", "category": 3 },
-    { "id": 14, "title": "Lamber chão de banheiro químico OU Beber um copo de suor de desconhecido", "category": 1 },
-    { "id": 15, "title": "Ser um gênio que todos acham louco OU Ser burro mas amado por todos", "category": 2 },
-    { "id": 16, "title": "Ter dentes de unhas OU Ter unhas de dentes", "category": 1 },
-    { "id": 17, "title": "Mijar nas calças todo dia em casa OU Cagar nas calças uma vez por ano em público", "category": 1 },
-    { "id": 18, "title": "Ter mamilos do tamanho de dedos OU Ter dedos do tamanho de mamilos", "category": 4 },
-    { "id": 19, "title": "Assistir seus pais transando todo dia OU Participar uma vez para parar", "category": 3 },
-    { "id": 20, "title": "Ser imortal mas flutuar no espaço sozinho OU Viver só mais 5 anos intensamente", "category": 4 },
-    { "id": 21, "title": "Nunca mais ouvir música OU Nunca mais assistir filmes/séries", "category": 4 },
-    { "id": 22, "title": "Falar tudo o que pensa OU Nunca mais conseguir falar", "category": 2 },
-    { "id": 23, "title": "Ter hálito de fezes OU Ter chulé de queijo podre que dá para sentir de longe", "category": 1 },
-    { "id": 24, "title": "Ser o vilão mais temido do mundo OU Ser o herói mais ridicularizado", "category": 2 },
-    { "id": 25, "title": "Transar com a parte de cima do corpo da Megan Fox e a parte de baixo do seu pai OU Parte de cima do seu pai e parte de baixo da Megan Fox", "category": 5 },
-    { "id": 26, "title": "Comer um prato de vômito OU Comer um prato de cocô mole", "category": 1 },
-    { "id": 27, "title": "Viver num mundo sem cores OU Viver num mundo sem sons", "category": 1 },
-    { "id": 28, "title": "Ter um pênis na testa OU Não ter pênis/vagina", "category": 4 },
-    { "id": 29, "title": "Sempre sentir vontade de fazer xixi OU Sempre sentir coceira nas costas", "category": 1 },
-    { "id": 30, "title": "Ser atacado por um urso OU Ser atacado por um enxame de abelhas", "category": 1 },
-    { "id": 31, "title": "Acabar com a fome no mundo OU Acabar com o câncer", "category": 3 },
-    { "id": 32, "title": "Nunca mais sentir sabor de doce OU Nunca mais sentir sabor de salgado", "category": 1 },
-    { "id": 33, "title": "Ter pele de lagarto OU Ter língua de cobra", "category": 4 },
-    { "id": 34, "title": "Usar apenas calcinha/cueca no inverno OU Usar casaco de pele no verão", "category": 1 },
-    { "id": 35, "title": "Ser a pessoa mais rica do mundo e sozinha OU Ser pobre com amigos e família incríveis", "category": 3 },
-    { "id": 36, "title": "Ter que matar um filhote fofo OU Ter que matar um humano criminoso com as próprias mãos", "category": 3 },
-    { "id": 37, "title": "Só poder andar de costas OU Só poder andar pulando num pé só", "category": 4 },
-    { "id": 38, "title": "Ter a voz do Pato Donald no sexo OU Ter a risada de hiena em velórios", "category": 2 },
-    { "id": 39, "title": "Ser alérgico a água OU Ser alérgico ao sol", "category": 1 },
-    { "id": 40, "title": "Viver no universo de Harry Potter sem magia OU Viver no universo de Star Wars sem ser Jedi", "category": 4 },
-    { "id": 41, "title": "Ter um terceiro braço no peito OU Ter um terceiro olho na nuca", "category": 4 },
-    { "id": 42, "title": "Esquecer quem você é OU Esquecer quem são todos que você ama", "category": 3 },
-    { "id": 43, "title": "Morrer afogado OU Morrer queimado", "category": 1 },
-    { "id": 44, "title": "Nunca mais poder mentir OU Nunca mais saber quando mentem para você", "category": 2 },
-    { "id": 45, "title": "Ter sexo medíocre para sempre OU Ter sexo incrível apenas uma vez por ano", "category": 5 },
-    { "id": 46, "title": "Passar a vida numa cadeira de rodas OU Passar a vida cego", "category": 1 },
-    { "id": 47, "title": "Ter o corte de cabelo do Neymar (moicano) para sempre OU Ter o corte do Ronaldo (Cascão) para sempre", "category": 2 },
-    { "id": 48, "title": "Sempre ter um alface no dente OU Sempre ter a braguilha aberta", "category": 2 },
-    { "id": 49, "title": "Controlar o fogo OU Controlar a água", "category": 4 },
-    { "id": 50, "title": "Ser invisível (mas só quando ninguém olha) OU Voar (mas só a 10cm do chão)", "category": 4 },
-    { "id": 51, "title": "Nunca mais tomar banho OU Nunca mais escovar os dentes", "category": 1 },
-    { "id": 52, "title": "Viver o mesmo dia para sempre (Feitiço do Tempo) OU Perder um ano de memória a cada dia vivido", "category": 3 },
-    { "id": 53, "title": "Ter um filho que te odeia OU Ter um filho que te ama mas é um serial killer", "category": 3 },
-    { "id": 54, "title": "Comer barata frita crocante OU Comer lesma viva gosmenta", "category": 1 },
-    { "id": 55, "title": "Trocar de corpo com sua mãe no sexo OU Trocar de corpo com seu pai no banho", "category": 5 },
-    { "id": 56, "title": "Ser famoso por algo humilhante OU Ser um gênio anônimo", "category": 2 },
-    { "id": 57, "title": "Ter soluço pelo resto da vida OU Ter espirro a cada 5 minutos", "category": 1 },
-    { "id": 58, "title": "Usar roupas de palhaço em funerais OU Usar biquíni/sunga em casamentos", "category": 2 },
-    { "id": 59, "title": "Não ter cotovelos OU Não ter joelhos", "category": 4 },
-    { "id": 60, "title": "Sempre que mentir, seu nariz cresce OU Sempre que falar a verdade, dói o dente", "category": 4 },
-    { "id": 61, "title": "Ser o primeiro a morrer num apocalipse zumbi OU Ser o último sobrevivente e viver sozinho", "category": 3 },
-    { "id": 62, "title": "Nunca mais comer pizza OU Nunca mais comer hambúrguer", "category": 1 },
-    { "id": 63, "title": "Ter a cabeça do tamanho de uma bola de tênis OU Ter a cabeça do tamanho de uma melancia", "category": 4 },
-    { "id": 64, "title": "Dormir 1 hora por dia e não ter sono OU Dormir 15 horas por dia e acordar cansado", "category": 1 },
-    { "id": 65, "title": "Ter mãos de tesoura (Edward) OU Ter pés de pato", "category": 4 },
-    { "id": 66, "title": "Seu parceiro ler todas as suas mensagens OU Você ler as mensagens dele e descobrir traição", "category": 5 },
-    { "id": 67, "title": "Viver sem smartphone OU Viver sem papel higiênico", "category": 1 },
-    { "id": 68, "title": "Ter que caçar sua própria comida OU Comer apenas ração humana sem gosto", "category": 1 },
-    { "id": 69, "title": "Ser atacado por um tubarão OU Ser atacado por um crocodilo", "category": 1 },
-    { "id": 70, "title": "Sempre errar a senha 3 vezes OU Sempre ter internet lenta", "category": 4 },
-    { "id": 71, "title": "Ter um orgasmo toda vez que ouvir o hino nacional OU Nunca mais ter orgasmo", "category": 5 },
-    { "id": 72, "title": "Beber 1 litro de óleo de cozinha OU Beber 1 litro de leite azedo", "category": 1 },
-    { "id": 73, "title": "Ter que usar fraldas para sempre OU Ter que usar babador para sempre", "category": 2 },
-    { "id": 74, "title": "Ser o passageiro num avião caindo OU Ser o motorista num carro sem freio", "category": 3 },
-    { "id": 75, "title": "Ter pelos no globo ocular OU Ter dentes no lugar dos cílios", "category": 1 },
-    { "id": 76, "title": "Nunca mais sentir dor física OU Nunca mais sentir dor emocional", "category": 3 },
-    { "id": 77, "title": "Apertar a mão de todo mundo com a mão suada OU Dar beijo de rosto babado em todo mundo", "category": 2 },
-    { "id": 78, "title": "Ter um stalker que te ama OU Ter um hater que tenta te derrubar", "category": 2 },
-    { "id": 79, "title": "Ver fantasmas (eles gritam) OU Ver o futuro (só tragédias)", "category": 4 },
-    { "id": 80, "title": "Ser obrigado a dançar sempre que ouvir música OU Cantar alto sempre que ler algo", "category": 2 },
-    { "id": 81, "title": "Ter o corpo de uma criança de 10 anos OU Ter o corpo de um idoso de 90 anos", "category": 4 },
-    { "id": 82, "title": "Nunca mais usar sapatos OU Nunca mais usar meias", "category": 1 },
-    { "id": 83, "title": "Comer um sanduíche de cabelo OU Beber um smoothie de unha", "category": 1 },
-    { "id": 84, "title": "Ser a pessoa mais feia e inteligente OU Ser a mais bonita e burra", "category": 2 },
-    { "id": 85, "title": "Ter um botão de 'Rewind' (voltar 1 min) OU Ter um botão de 'Pause'", "category": 4 },
-    { "id": 86, "title": "Passar o resto da vida numa ilha deserta com seu ex OU Com seu chefe", "category": 5 },
-    { "id": 87, "title": "Nunca mais ver o sol OU Nunca mais ver a lua", "category": 4 },
-    { "id": 88, "title": "Ter chifres de verdade OU Ter rabo de verdade", "category": 4 },
-    { "id": 89, "title": "Falar rimando para sempre OU Falar gaguejando para sempre", "category": 2 },
-    { "id": 90, "title": "Sempre ter areia na roupa íntima OU Sempre ter água no ouvido", "category": 1 },
-    { "id": 91, "title": "Ser perseguido por um caracol assassino imortal OU Ser perseguido pelo Jason (Sexta-feira 13)", "category": 3 },
-    { "id": 92, "title": "Ter pele azul permanente OU Ter pele verde permanente", "category": 2 },
-    { "id": 93, "title": "Saber todas as línguas mas não saber ler OU Saber ler tudo mas ser mudo", "category": 4 },
-    { "id": 94, "title": "Comer apenas carne crua OU Comer apenas vegetais podres", "category": 1 },
-    { "id": 95, "title": "Ter o poder de voar (velocidade de caminhada) OU Ter super força (apenas dormindo)", "category": 4 },
-    { "id": 96, "title": "Nunca mais sentir frio OU Nunca mais sentir calor", "category": 1 },
-    { "id": 97, "title": "Ter que matar 1 pessoa inocente para salvar 100 OU Deixar 100 morrerem para não sujar as mãos", "category": 3 },
-    { "id": 98, "title": "Ser um peixe da cintura pra baixo OU Ser um peixe da cintura pra cima", "category": 4 },
-    { "id": 99, "title": "Viver num submarino para sempre OU Viver numa estação espacial para sempre", "category": 4 },
-    { "id": 100, "title": "Limpar banheiro de rodoviária com a língua OU Comer o resto de comida do lixo do McDonald's", "category": 1 },
-    { "id": 101, "title": "Sempre que espirrar, troca de sexo OU Sempre que bocejar, fica careca", "category": 4 },
-    { "id": 102, "title": "Ter um dragão de estimação OU Ter um unicórnio de estimação", "category": 4 },
-    { "id": 103, "title": "Saber quando as pessoas mentem OU Saber quando as pessoas estão com tesão", "category": 4 },
-    { "id": 104, "title": "Nunca mais sentir amor OU Nunca mais sentir prazer", "category": 5 },
-    { "id": 105, "title": "Usar roupas 2 números menores OU Usar roupas 5 números maiores", "category": 1 },
-    { "id": 106, "title": "Ter o rosto do Faustão OU Ter a voz da Anitta", "category": 2 },
-    { "id": 107, "title": "Lutar contra 100 cavalos do tamanho de patos OU Lutar contra 1 pato do tamanho de cavalo", "category": 4 },
-    { "id": 108, "title": "Fazer sexo com uma cabra e ninguém saber OU Não fazer, mas todos acharem que você fez", "category": 2 },
-    { "id": 109, "title": "Ter um nariz de palhaço permanente OU Sapatos de palhaço permanentes", "category": 2 },
-    { "id": 110, "title": "Viver sem café OU Viver sem chocolate", "category": 1 },
-    { "id": 111, "title": "Nunca mais ter ressaca OU Nunca mais ter gripe", "category": 1 },
-    { "id": 112, "title": "Ter um chip no cérebro com Google OU Ter um braço robótico super forte", "category": 4 },
-    { "id": 113, "title": "Passar a vida inteira coçando OU Passar a vida inteira com dor de cabeça leve", "category": 1 },
-    { "id": 114, "title": "Ser o presidente do país em crise OU Ser um lixeiro feliz", "category": 3 },
-    { "id": 115, "title": "Ter sempre a bateria em 1% OU Ter sempre o sinal fraco", "category": 4 },
-    { "id": 116, "title": "Comer pizza com garfo e faca OU Comer sushi com garfo", "category": 2 },
-    { "id": 117, "title": "Ter a risada do Bob Esponja OU Ter a voz do Lula Molusco", "category": 2 },
-    { "id": 118, "title": "Nunca mais ver seu rosto no espelho OU Nunca mais ver fotos suas", "category": 4 },
-    { "id": 119, "title": "Ser o melhor jogador do pior time OU Ser o pior jogador do melhor time", "category": 2 },
-    { "id": 120, "title": "Passar um mês sem tomar banho OU Passar um mês sem escovar os dentes", "category": 1 },
-    { "id": 121, "title": "Ter um macaco que te joga cocô OU Um papagaio que conta seus segredos", "category": 4 },
-    { "id": 122, "title": "Viver num filme de terror OU Viver num musical ruim", "category": 4 },
-    { "id": 123, "title": "Sempre ter comida nos dentes em encontros OU Sempre ter a braguilha aberta em reuniões", "category": 2 },
-    { "id": 124, "title": "Ter o poder de curar qualquer doença (mas sente a dor) OU Ter o poder de ressuscitar (mas voltam zumbis)", "category": 3 },
-    { "id": 125, "title": "Ser obrigado a usar pochete sempre OU Usar Crocs com meia sempre", "category": 2 },
-    { "id": 126, "title": "Ter braços de T-Rex OU Ter pernas de Girafa", "category": 4 },
-    { "id": 127, "title": "Sempre falar a verdade para crianças OU Sempre mentir para seus pais", "category": 3 },
-    { "id": 128, "title": "Ter o cabelo do Donald Trump OU Ter o bronzeado do Donald Trump", "category": 2 },
-    { "id": 129, "title": "Viver numa casa feita de vidro transparente OU Viver numa casa subterrânea sem janelas", "category": 2 },
-    { "id": 130, "title": "Ter gosto de vômito na boca 1h por dia OU Sentir cheiro de pum o dia todo", "category": 1 },
-    { "id": 131, "title": "Nunca mais conseguir dobrar os joelhos OU Nunca mais conseguir dobrar os cotovelos", "category": 1 },
-    { "id": 132, "title": "Saber o segredo de todo mundo OU Ninguém saber nada sobre você", "category": 2 },
-    { "id": 133, "title": "Ser um cachorro de madame OU Ser um gato de rua livre", "category": 4 },
-    { "id": 134, "title": "Ter Wi-Fi grátis onde for (lento) OU Pagar caro por internet ultra-rápida", "category": 4 },
-    { "id": 135, "title": "Dormir numa cama de pregos OU Dormir numa cama de gelo", "category": 1 },
-    { "id": 136, "title": "Só comer sobremesa OU Nunca mais comer sobremesa", "category": 1 },
-    { "id": 137, "title": "Ter umbigo saltado (para fora) de 10cm OU Não ter umbigo", "category": 4 },
-    { "id": 138, "title": "Sempre que rir, sai catarro OU Sempre que chorar, sai sangue", "category": 1 },
-    { "id": 139, "title": "Passar a vida preso num elevador com seu inimigo OU Com alguém que não fala sua língua", "category": 2 },
-    { "id": 140, "title": "Ter o superpoder de atrair mosquitos OU Atrair pombos", "category": 4 },
-    { "id": 141, "title": "Ser atacado por 50 hamsters raivosos OU 1 leão preguiçoso", "category": 3 },
-    { "id": 142, "title": "Trocar de vida com o Papa OU Trocar de vida com a Rainha da Inglaterra (antes de morrer)", "category": 4 },
-    { "id": 143, "title": "Ter uma tatuagem 'Amo minha sogra' na testa OU 'Sou virgem' nas costas", "category": 2 },
-    { "id": 144, "title": "Só poder assistir BBB pelo resto da vida OU Só poder assistir novela mexicana", "category": 4 },
-    { "id": 145, "title": "Nunca mais usar desodorante OU Nunca mais usar perfume", "category": 2 },
-    { "id": 146, "title": "Ter pés no lugar das mãos OU Mãos no lugar dos pés", "category": 4 },
-    { "id": 147, "title": "Ser rico mas ter que viver na Coreia do Norte OU Ser pobre e viver onde quiser", "category": 3 },
-    { "id": 148, "title": "Casar com um zumbi (não te morde) OU Casar com um robô sem emoção", "category": 5 },
-    { "id": 149, "title": "Ter que gritar tudo o que lê OU Sussurrar tudo o que pensa", "category": 2 },
-    { "id": 150, "title": "Nunca mais sentir o gosto de queijo OU Nunca mais sentir o gosto de bacon", "category": 1 },
-    { "id": 151, "title": "Ter uma cobra saindo da boca a cada hora OU Minhocas saindo do nariz", "category": 1 },
-    { "id": 152, "title": "Ser um vampiro (bebe sangue) OU Ser um lobisomem (vira monstro)", "category": 4 },
-    { "id": 153, "title": "Só poder andar de ré OU Só poder andar de quatro", "category": 2 },
-    { "id": 154, "title": "Ter que usar roupas do sexo oposto sempre OU Usar roupas medievais", "category": 2 },
-    { "id": 155, "title": "Sempre que falar, soltar bolhas de sabão OU Sempre que andar, fazer barulho de pum", "category": 2 },
-    { "id": 156, "title": "Ter um olho gigante no meio da testa OU Dois narizes", "category": 4 },
-    { "id": 157, "title": "Viver numa casa assombrada OU Numa casa cheia de baratas", "category": 1 },
-    { "id": 158, "title": "Ter o superpoder de falar com frutas OU Falar com móveis", "category": 4 },
-    { "id": 159, "title": "Ser confundido com um criminoso procurado OU Ser ignorado por todos", "category": 2 },
-    { "id": 160, "title": "Ter dentes de ouro (todos) OU Dentes de madeira", "category": 2 },
-    { "id": 161, "title": "Nunca mais poder sentar OU Nunca mais poder deitar", "category": 1 },
-    { "id": 162, "title": "Comer um pote de maionese pura OU Um pote de manteiga pura", "category": 1 },
-    { "id": 163, "title": "Ter as mãos pegajosas para sempre OU Mãos escorregadias para sempre", "category": 1 },
-    { "id": 164, "title": "Sempre que beijar, trocar saliva com a pessoa anterior OU Beijar de olhos abertos fixos", "category": 5 },
-    { "id": 165, "title": "Ter a memória de um peixe OU A memória de um elefante (lembra traumas)", "category": 3 },
-    { "id": 166, "title": "Ser famoso no TikTok por ser idiota OU Ser respeitado mas desconhecido", "category": 2 },
-    { "id": 167, "title": "Passar a vida com soluço OU Passar a vida com coceira no pé", "category": 1 },
-    { "id": 168, "title": "Ter que usar um cone de cachorro no pescoço OU Usar algemas nas mãos", "category": 2 },
-    { "id": 169, "title": "Só poder beber água quente OU Só poder beber refrigerante sem gás", "category": 1 },
-    { "id": 170, "title": "Ter cabelo que cresce 1 metro por dia OU Unhas que crescem 10cm por dia", "category": 1 },
-    { "id": 171, "title": "Nunca mais ver TV OU Nunca mais ouvir rádio/podcast", "category": 4 },
-    { "id": 172, "title": "Ter que matar sua própria comida (galinha, vaca) OU Ser vegano radical", "category": 3 },
-    { "id": 173, "title": "Ter um chifre de unicórnio OU Ter asas de morcego (não voam)", "category": 4 },
-    { "id": 174, "title": "Sempre que entrar numa sala, anunciar sua chegada gritando OU Sair rastejando", "category": 2 },
-    { "id": 175, "title": "Ter o corpo coberto de pelos (Chewbacca) OU Não ter nenhum pelo (sobrancelha, cílios)", "category": 2 },
-    { "id": 176, "title": "Viver num mundo onde todos leem pensamentos OU Onde ninguém fala", "category": 3 },
-    { "id": 177, "title": "Ter 10 filhos OU Nenhum filho e nenhum amigo", "category": 5 },
-    { "id": 178, "title": "Comer lixo por 1 ano por 1 milhão OU Não comer, mas perder um dedo", "category": 1 },
-    { "id": 179, "title": "Ter que usar fralda geriátrica por fora da calça OU Usar calcinha fio dental por fora", "category": 2 },
-    { "id": 180, "title": "Ser um gigante de 3 metros OU Um anão de 50cm", "category": 4 },
-    { "id": 181, "title": "Ter chulé na mão OU Mau hálito no pé (se cheirar)", "category": 1 },
-    { "id": 182, "title": "Sempre esquecer o nome das pessoas OU Sempre chamar todos de 'Amor'", "category": 2 },
-    { "id": 183, "title": "Ter a força do Hulk mas ser verde OU Ter a inteligência do Stark mas ser arrogante", "category": 4 },
-    { "id": 184, "title": "Nunca mais comer carne OU Só comer carne crua", "category": 1 },
-    { "id": 185, "title": "Ter um parasita inofensivo no olho OU No estômago", "category": 1 },
-    { "id": 186, "title": "Sempre que mentir, levar um choque OU Levar um tapa", "category": 3 },
-    { "id": 187, "title": "Viver sem eletricidade OU Viver sem encanamento (água/esgoto)", "category": 1 },
-    { "id": 188, "title": "Ter o pescoço de uma girafa OU As pernas de um pinguim", "category": 4 },
-    { "id": 189, "title": "Ser obrigado a rir de tudo (até tragédias) OU Chorar de tudo", "category": 2 },
-    { "id": 190, "title": "Ter um clone maligno solto por aí OU Ter um clone burro", "category": 3 },
-    { "id": 191, "title": "Passar a vida com uma pedra no rim OU Dor de dente", "category": 1 },
-    { "id": 192, "title": "Ser alérgico ao próprio suor OU Alérgico à própria saliva", "category": 1 },
-    { "id": 193, "title": "Ter o rosto virado para trás (Exorcista) OU Andar de ponta cabeça", "category": 4 },
-    { "id": 194, "title": "Nunca mais conseguir fechar a boca OU Nunca mais fechar os olhos", "category": 1 },
-    { "id": 195, "title": "Sempre que espirrar, fazer barulho de buzina OU De tiro", "category": 2 },
-    { "id": 196, "title": "Ter que usar roupas de látex apertadas sempre OU Roupas de lã no verão", "category": 1 },
-    { "id": 197, "title": "Só poder comer alimentos brancos OU Alimentos pretos", "category": 1 },
-    { "id": 198, "title": "Ter uma antena na cabeça OU Uma cauda de raposa", "category": 4 },
-    { "id": 199, "title": "Ser imune ao fogo mas morrer com água OU Imune a tiros mas morrer com soco", "category": 4 },
-    { "id": 200, "title": "Viver a vida do seu pior inimigo OU Viver sua vida preso numa solitária", "category": 3 }
-  ]
+    "id": "base",
+    "name": "Jogo Padrão",
+    "description": "A vida é feita de escolhas, e aqui todas são horríveis. Escolha a opção menos pior e julgue as escolhas dos seus amigos.",
+    "categories": [
+        {
+            "id": 1,
+            "name": "N - Nojeira e Desconforto Físico",
+            "description": "Coisas que vão te fazer sentir ânsia ou dor física."
+        },
+        {
+            "id": 2,
+            "name": "S - Vergonha Social",
+            "description": "Situações humilhantes em público, trabalho ou família."
+        },
+        {
+            "id": 3,
+            "name": "M - Moral e Ética",
+            "description": "Dilemas pesados sobre crimes, vida e morte."
+        },
+        {
+            "id": 4,
+            "name": "A - Absurdo e Hipotético",
+            "description": "Poderes inúteis, mudanças corporais e cenários irreais."
+        },
+        {
+            "id": 5,
+            "name": "R - Relacionamento e Intimidade",
+            "description": "Namoro, sexo e ex-parceiros."
+        }
+    ],
+    "items": [
+        {
+            "id": 1,
+            "title": "Ter o histórico de navegação projetado na parede no Natal OU Ter sua galeria de fotos publicada no LinkedIn",
+            "category": 2,
+            "footer": "Sua avó não precisa saber o que é 'step-sister', mas seu chefe adoraria julgar suas selfies no espelho."
+        },
+        {
+            "id": 2,
+            "title": "Sentir gosto de sabão em tudo o que comer OU Sentir cheiro de ovo podre que só você sente",
+            "category": 1,
+            "footer": "Com gosto de sabão, pelo menos sua boca estará sempre limpa quando você falar besteira."
+        },
+        {
+            "id": 3,
+            "title": "Encontrar seus pais fazendo sexo OU Seus pais encontrarem você fazendo sexo",
+            "category": 2,
+            "footer": "A terapia é cara nos dois casos. Escolha o trauma que sai mais barato."
+        },
+        {
+            "id": 4,
+            "title": "Arrotar na boca de quem você beija OU Soltar um pum alto sempre que alguém te abraça",
+            "category": 2,
+            "footer": "O romantismo morreu e foi você quem matou com gases intestinais."
+        },
+        {
+            "id": 5,
+            "title": "Um ano na cadeia inocente OU Cometer um crime e viver paranoico para sempre",
+            "category": 3,
+            "footer": "Na cadeia tem refeição grátis. A paranoia queima calorias. Pense no custo-benefício."
+        },
+        {
+            "id": 6,
+            "title": "Ter braços no lugar das pernas OU Ter pernas no lugar dos braços",
+            "category": 4,
+            "footer": "Com pernas nos braços, seus chutes de caratê seriam lendários, mas boa sorte pra digitar no WhatsApp."
+        },
+        {
+            "id": 7,
+            "title": "Reiniciar a vida aos 10 anos com memória atual OU Ganhar 10 milhões mas envelhecer 20 anos agora",
+            "category": 3,
+            "footer": "Voltar aos 10 anos sabendo o que é Bitcoin ou envelhecer e gastar tudo em remédio para as costas?"
+        },
+        {
+            "id": 8,
+            "title": "Nunca mais usar internet OU Nunca mais sair de casa (com internet ilimitada)",
+            "category": 4,
+            "footer": "Se você escolher ficar em casa, admita logo que você já vive assim e só quer a desculpa oficial."
+        },
+        {
+            "id": 9,
+            "title": "Casar com quem odeia mas ter sexo incrível OU Casar com alma gêmea sem sexo",
+            "category": 5,
+            "footer": "O ódio passa, a vontade de transar também. Mas aguentar a voz de quem você odeia é eterno."
+        },
+        {
+            "id": 10,
+            "title": "Usar roupas molhadas para sempre OU Ter uma pedrinha no sapato que nunca sai",
+            "category": 1,
+            "footer": "A pedrinha vai te deixar manco. A roupa molhada vai te deixar com cheiro de cachorro molhado e fungos."
+        },
+        {
+            "id": 11,
+            "title": "Salvar a vida do seu pet OU Salvar um primo distante que não vê há anos",
+            "category": 3,
+            "footer": "Seu pet te ama incondicionalmente. Seu primo provavelmente só te chama pra pedir dinheiro ou entrar em pirâmide."
+        },
+        {
+            "id": 12,
+            "title": "Só poder falar gritando OU Só poder falar sussurrando",
+            "category": 2,
+            "footer": "Gritando você parece um louco. Sussurrando você parece um serial killer creepy. Escolha sua vibe."
+        },
+        {
+            "id": 13,
+            "title": "Saber a data da sua morte OU Saber a causa da sua morte",
+            "category": 3,
+            "footer": "Saber a causa vai te fazer ter medo de 'escadas' ou 'pudim' para sempre. A data te permite planejar a festa de despedida."
+        },
+        {
+            "id": 14,
+            "title": "Lamber chão de banheiro químico OU Beber um copo de suor de desconhecido",
+            "category": 1,
+            "footer": "O suor é tipo um Gatorade natural, só que salgado e cheio de DNA alheio. O banheiro químico... bem, é o inferno."
+        },
+        {
+            "id": 15,
+            "title": "Ser um gênio que todos acham louco OU Ser burro mas amado por todos",
+            "category": 2,
+            "footer": "A ignorância é uma bênção. Ser gênio só serve para ter depressão com propriedade."
+        },
+        {
+            "id": 16,
+            "title": "Ter dentes de unhas OU Ter unhas de dentes",
+            "category": 1,
+            "footer": "Cortar as unhas de dentes exigiria um alicate industrial. E dentes de unha seriam moles. Boa sorte comendo maçã."
+        },
+        {
+            "id": 17,
+            "title": "Mijar nas calças todo dia em casa OU Cagar nas calças uma vez por ano em público",
+            "category": 1,
+            "footer": "Uma vez por ano vira uma lenda urbana. Todo dia em casa vira um problema de piso laminado."
+        },
+        {
+            "id": 18,
+            "title": "Ter mamilos do tamanho de dedos OU Ter dedos do tamanho de mamilos",
+            "category": 4,
+            "footer": "Dedos de mamilo seriam inúteis para abrir potes. Mamilos de dedos seriam ótimos para pendurar chaves."
+        },
+        {
+            "id": 19,
+            "title": "Assistir seus pais transando todo dia OU Participar uma vez para parar",
+            "category": 3,
+            "footer": "Se você considerou a segunda opção por mais de 1 segundo, procure ajuda psiquiátrica imediatamente."
+        },
+        {
+            "id": 20,
+            "title": "Ser imortal mas flutuar no espaço sozinho OU Viver só mais 5 anos intensamente",
+            "category": 4,
+            "footer": "Flutuar no espaço é poético até você perceber que não tem Netflix. 5 anos intensos é basicamente a vida de um rockstar."
+        },
+        {
+            "id": 21,
+            "title": "Nunca mais ouvir música OU Nunca mais assistir filmes/séries",
+            "category": 4,
+            "footer": "Uma vida sem trilha sonora ou uma vida sem spoilers? O silêncio é ensurdecedor."
+        },
+        {
+            "id": 22,
+            "title": "Falar tudo o que pensa OU Nunca mais conseguir falar",
+            "category": 2,
+            "footer": "Se você falar tudo o que pensa, vai apanhar na rua em menos de 24 horas. O silêncio preserva seus dentes."
+        },
+        {
+            "id": 23,
+            "title": "Ter hálito de fezes OU Ter chulé de queijo podre que dá para sentir de longe",
+            "category": 1,
+            "footer": "O hálito você sente o gosto. O chulé afasta as pessoas. Um isola você socialmente, o outro fisicamente."
+        },
+        {
+            "id": 24,
+            "title": "Ser o vilão mais temido do mundo OU Ser o herói mais ridicularizado",
+            "category": 2,
+            "footer": "Vilões têm os melhores figurinos e tocas secretas. Heróis ridículos usam cueca por cima da calça e moram com a tia."
+        },
+        {
+            "id": 25,
+            "title": "Transar com a parte de cima do corpo da Megan Fox e a parte de baixo do seu pai OU Parte de cima do seu pai e parte de baixo da Megan Fox",
+            "category": 5,
+            "footer": "Não importa a escolha, você vai precisar de muita terapia depois. Feche os olhos e reze."
+        },
+        {
+            "id": 26,
+            "title": "Comer um prato de vômito OU Comer um prato de cocô mole",
+            "category": 1,
+            "footer": "O vômito tecnicamente já foi comida. O cocô... já foi comida processada até o limite. Bom apetite."
+        },
+        {
+            "id": 27,
+            "title": "Viver num mundo sem cores OU Viver num mundo sem sons",
+            "category": 1,
+            "footer": "Sem sons, você nunca mais ouve 'Despacito'. Sem cores, você nunca mais sabe se a carne está crua."
+        },
+        {
+            "id": 28,
+            "title": "Ter um pênis na testa OU Não ter pênis/vagina",
+            "category": 4,
+            "footer": "Um unicórnio humano é exótico, mas difícil de usar chapéu. Não ter nada é prático, mas triste."
+        },
+        {
+            "id": 29,
+            "title": "Sempre sentir vontade de fazer xixi OU Sempre sentir coceira nas costas",
+            "category": 1,
+            "footer": "A vontade de fazer xixi te mantém acordado. A coceira te faz parecer um urso se esfregando nas árvores."
+        },
+        {
+            "id": 30,
+            "title": "Ser atacado por um urso OU Ser atacado por um enxame de abelhas",
+            "category": 1,
+            "footer": "O urso te mata rápido (talvez). As abelhas te matam com mil picadas de dor excruciante. Escolha seu veneno."
+        },
+        {
+            "id": 31,
+            "title": "Acabar com a fome no mundo OU Acabar com o câncer",
+            "category": 3,
+            "footer": "Qualquer escolha vai fazer alguém dizer: 'Nossa, mas você não se importa com a outra causa?'. O cancelamento vem."
+        },
+        {
+            "id": 32,
+            "title": "Nunca mais sentir sabor de doce OU Nunca mais sentir sabor de salgado",
+            "category": 1,
+            "footer": "Adeus pizza ou adeus chocolate? Essa escolha define se sua alma é salgada ou açucarada."
+        },
+        {
+            "id": 33,
+            "title": "Ter pele de lagarto OU Ter língua de cobra",
+            "category": 4,
+            "footer": "Pele de lagarto economiza hidratante. Língua de cobra é ótima para assustar crianças e... outras coisas."
+        },
+        {
+            "id": 34,
+            "title": "Usar apenas calcinha/cueca no inverno OU Usar casaco de pele no verão",
+            "category": 1,
+            "footer": "Hipotermia ou Insolação? De cueca no inverno você vira picolé. De casaco no verão você vira sopa."
+        },
+        {
+            "id": 35,
+            "title": "Ser a pessoa mais rica do mundo e sozinha OU Ser pobre com amigos e família incríveis",
+            "category": 3,
+            "footer": "Chorar numa Ferrari é melhor que rir num ônibus lotado? O capitalismo diz que sim."
+        },
+        {
+            "id": 36,
+            "title": "Ter que matar um filhote fofo OU Ter que matar um humano criminoso com as próprias mãos",
+            "category": 3,
+            "footer": "O filhote nunca roubou um banco. O humano criminoso talvez tenha roubado o coração de alguém. (Mentira, mate o humano)."
+        },
+        {
+            "id": 37,
+            "title": "Só poder andar de costas OU Só poder andar pulando num pé só",
+            "category": 4,
+            "footer": "Andar de costas é perigoso em escadas. Pular num pé só vai deixar sua panturrilha monstrona, mas suas costas vão pro lixo."
+        },
+        {
+            "id": 38,
+            "title": "Ter a voz do Pato Donald no sexo OU Ter a risada de hiena em velórios",
+            "category": 2,
+            "footer": "Gemer 'Quack Quack' destrói qualquer libido. Rir em velório te expulsa da família. Escolha social ou sexual?"
+        },
+        {
+            "id": 39,
+            "title": "Ser alérgico a água OU Ser alérgico ao sol",
+            "category": 1,
+            "footer": "Vampiro ou Cascão? Sem água você morre. Sem sol você fica pálido e gótico. A escolha gótica parece mais viável."
+        },
+        {
+            "id": 40,
+            "title": "Viver no universo de Harry Potter sem magia OU Viver no universo de Star Wars sem ser Jedi",
+            "category": 4,
+            "footer": "Em HP você é um trouxa (já é hoje). Em Star Wars você é um alvo de tiro ao alvo de Stormtrooper."
+        },
+        {
+            "id": 41,
+            "title": "Ter um terceiro braço no peito OU Ter um terceiro olho na nuca",
+            "category": 4,
+            "footer": "O olho na nuca impede que falem mal de você pelas costas. O braço no peito... serve pra segurar o copo enquanto você bate palma."
+        },
+        {
+            "id": 42,
+            "title": "Esquecer quem você é OU Esquecer quem são todos que você ama",
+            "category": 3,
+            "footer": "Dilema clássico de novela mexicana. Esquecer quem você é te dá a chance de não ser esse fracasso atual."
+        },
+        { "id": 43, "title": "Morrer afogado OU Morrer queimado", "category": 1, "footer": "Ambas doem. Uma é úmida, a outra é crocante. Nenhuma é recomendada por especialistas." },
+        {
+            "id": 44,
+            "title": "Nunca mais poder mentir OU Nunca mais saber quando mentem para você",
+            "category": 2,
+            "footer": "Não poder mentir acaba com seu namoro e seu emprego. Não saber a verdade te faz o corno manso mais feliz do mundo."
+        },
+        {
+            "id": 45,
+            "title": "Ter sexo medíocre para sempre OU Ter sexo incrível apenas uma vez por ano",
+            "category": 5,
+            "footer": "Qualidade ou quantidade? Uma vez por ano vira evento, tipo Natal, tem que montar árvore e tudo."
+        },
+        { "id": 46, "title": "Passar a vida numa cadeira de rodas OU Passar a vida cego", "category": 1, "footer": "Perder a mobilidade ou perder a visão dos memes? Pergunta pesada, clima pesou." },
+        {
+            "id": 47,
+            "title": "Ter o corte de cabelo do Neymar (moicano) para sempre OU Ter o corte do Ronaldo (Cascão) para sempre",
+            "category": 2,
+            "footer": "O Cascão é icônico, mas feio. O moicano exige gel e atitude de quem cai em campo. Escolha seu ídolo questionável."
+        },
+        {
+            "id": 48,
+            "title": "Sempre ter um alface no dente OU Sempre ter a braguilha aberta",
+            "category": 2,
+            "footer": "O alface diz 'eu não me olho no espelho'. A braguilha diz 'o passarinho quer voar'. Um é sujo, o outro é crime."
+        },
+        { "id": 49, "title": "Controlar o fogo OU Controlar a água", "category": 4, "footer": "Fogo destrói provas. Água paga a conta no fim do mês se você fizer chover na represa. Pense prático." },
+        {
+            "id": 50,
+            "title": "Ser invisível (mas só quando ninguém olha) OU Voar (mas só a 10cm do chão)",
+            "category": 4,
+            "footer": "Voar a 10cm é basicamente flutuar para não pisar em formigas. Invisibilidade inútil serve pra roubar... nada."
+        },
+        {
+            "id": 51,
+            "title": "Nunca mais tomar banho OU Nunca mais escovar os dentes",
+            "category": 1,
+            "footer": "O cheiro de corpo afasta abraços. O bafo podre afasta beijos. Você prefere ser um gambá ou um dragão?"
+        },
+        {
+            "id": 52,
+            "title": "Viver o mesmo dia para sempre (Feitiço do Tempo) OU Perder um ano de memória a cada dia vivido",
+            "category": 3,
+            "footer": "Viver o mesmo dia te dá tempo pra aprender piano. Perder memória te faz esquecer que você deve ao banco."
+        },
+        {
+            "id": 53,
+            "title": "Ter um filho que te odeia OU Ter um filho que te ama mas é um serial killer",
+            "category": 3,
+            "footer": "O serial killer pelo menos te visita no Dia dos Pais (talvez pra esconder um corpo, mas visita)."
+        },
+        {
+            "id": 54,
+            "title": "Comer barata frita crocante OU Comer lesma viva gosmenta",
+            "category": 1,
+            "footer": "Crocante é textura de chips. Gosmenta é textura de catarro. Escolha sua iguaria exótica."
+        },
+        {
+            "id": 55,
+            "title": "Trocar de corpo com sua mãe no sexo OU Trocar de corpo com seu pai no banho",
+            "category": 5,
+            "footer": "Freud explica, mas nem ele ia querer ouvir essa resposta. É nojeira traumática pura."
+        },
+        {
+            "id": 56,
+            "title": "Ser famoso por algo humilhante OU Ser um gênio anônimo",
+            "category": 2,
+            "footer": "Fama humilhante paga as contas (vide reality shows). Gênio anônimo morre pobre e vira nome de rua depois."
+        },
+        {
+            "id": 57,
+            "title": "Ter soluço pelo resto da vida OU Ter espirro a cada 5 minutos",
+            "category": 1,
+            "footer": "Soluço eterno atrapalha dormir. Espirrar a cada 5 minutos impede que você dirija ou faça cirurgias cardíacas."
+        },
+        {
+            "id": 58,
+            "title": "Usar roupas de palhaço em funerais OU Usar biquíni/sunga em casamentos",
+            "category": 2,
+            "footer": "Palhaço no funeral alegra o morto? Sunga no casamento rouba a cena da noiva. Ambas garantem expulsão."
+        },
+        {
+            "id": 59,
+            "title": "Não ter cotovelos OU Não ter joelhos",
+            "category": 4,
+            "footer": "Sem joelhos você anda igual pinguim. Sem cotovelos você come igual um T-Rex. A evolução falhou com você."
+        },
+        {
+            "id": 60,
+            "title": "Sempre que mentir, seu nariz cresce OU Sempre que falar a verdade, dói o dente",
+            "category": 4,
+            "footer": "Pinóquio ou masoquista honesto? Com dor de dente, você vira o ser mais calado e misterioso do mundo."
+        },
+        {
+            "id": 61,
+            "title": "Ser o primeiro a morrer num apocalipse zumbi OU Ser o último sobrevivente e viver sozinho",
+            "category": 3,
+            "footer": "Morrer primeiro evita o estresse de correr. Viver sozinho significa conversar com uma bola de vôlei chamada Wilson."
+        },
+        {
+            "id": 62,
+            "title": "Nunca mais comer pizza OU Nunca mais comer hambúrguer",
+            "category": 1,
+            "footer": "Essa escolha define sua alma gorda. O queijo derretido ou a carne suculenta? Uma parte de você morre aqui."
+        },
+        {
+            "id": 63,
+            "title": "Ter a cabeça do tamanho de uma bola de tênis OU Ter a cabeça do tamanho de uma melancia",
+            "category": 4,
+            "footer": "Cabeça de tênis: bonés infantis. Cabeça de melancia: pescoço de touro pra segurar o peso. Beetlejuice feelings."
+        },
+        {
+            "id": 64,
+            "title": "Dormir 1 hora por dia e não ter sono OU Dormir 15 horas por dia e acordar cansado",
+            "category": 1,
+            "footer": "1 hora por dia te dá 23 horas pra fazer merda. 15 horas te transforma num bicho preguiça depressivo."
+        },
+        {
+            "id": 65,
+            "title": "Ter mãos de tesoura (Edward) OU Ter pés de pato",
+            "category": 4,
+            "footer": "Mãos de tesoura: adeus coçar o olho e carinho íntimo. Pés de pato: você nunca mais vai usar All Star, mas nada nadando."
+        },
+        {
+            "id": 66,
+            "title": "Seu parceiro ler todas as suas mensagens OU Você ler as mensagens dele e descobrir traição",
+            "category": 5,
+            "footer": "A ignorância é uma bênção. Se ele ler as suas, ele descobre que você é estranho. Se você ler, descobre que é corno."
+        },
+        {
+            "id": 67,
+            "title": "Viver sem smartphone OU Viver sem papel higiênico",
+            "category": 1,
+            "footer": "Sem smartphone você vive em 1990. Sem papel, você vive na Idade Média (ou usa o chuveirinho, seu civilizado)."
+        },
+        {
+            "id": 68,
+            "title": "Ter que caçar sua própria comida OU Comer apenas ração humana sem gosto",
+            "category": 1,
+            "footer": "Caçar dá trabalho e você é sedentário. Ração tem gosto de papelão molhado, mas é só abrir o pacote."
+        },
+        {
+            "id": 69,
+            "title": "Ser atacado por um tubarão OU Ser atacado por um crocodilo",
+            "category": 1,
+            "footer": "Tubarão tem trilha sonora. Crocodilo faz o 'giro da morte'. Ambos te transformam em carne moída."
+        },
+        {
+            "id": 70,
+            "title": "Sempre errar a senha 3 vezes OU Sempre ter internet lenta",
+            "category": 4,
+            "footer": "Errar a senha bloqueia sua conta. Internet lenta te faz querer jogar o computador na parede. O ódio é garantido."
+        },
+        {
+            "id": 71,
+            "title": "Ter um orgasmo toda vez que ouvir o hino nacional OU Nunca mais ter orgasmo",
+            "category": 5,
+            "footer": "Patriotismo extremo? Imagine nas Olimpíadas... vai ser uma maratona de prazer e constrangimento."
+        },
+        {
+            "id": 72,
+            "title": "Beber 1 litro de óleo de cozinha OU Beber 1 litro de leite azedo",
+            "category": 1,
+            "footer": "O óleo vai lubrificar suas veias até entupir. O leite azedo vai transformar seu estômago numa zona de guerra nuclear."
+        },
+        {
+            "id": 73,
+            "title": "Ter que usar fraldas para sempre OU Ter que usar babador para sempre",
+            "category": 2,
+            "footer": "A fralda ninguém vê (se você usar calça larga). O babador é um statement de moda muito ousado e infantil."
+        },
+        {
+            "id": 74,
+            "title": "Ser o passageiro num avião caindo OU Ser o motorista num carro sem freio",
+            "category": 3,
+            "footer": "No avião você reza. No carro você tenta virar o volante e grita. Um é passivo, o outro é desespero ativo."
+        },
+        {
+            "id": 75,
+            "title": "Ter pelos no globo ocular OU Ter dentes no lugar dos cílios",
+            "category": 1,
+            "footer": "Pelos no olho: agonia eterna de cisco. Dentes no olho: você vai 'morder' cada vez que piscar. Terror corporal puro."
+        },
+        {
+            "id": 76,
+            "title": "Nunca mais sentir dor física OU Nunca mais sentir dor emocional",
+            "category": 3,
+            "footer": "Sem dor física, você não sabe que está queimando. Sem dor emocional, você vira um psicopata funcional. Upgrade?"
+        },
+        {
+            "id": 77,
+            "title": "Apertar a mão de todo mundo com a mão suada OU Dar beijo de rosto babado em todo mundo",
+            "category": 2,
+            "footer": "Mão suada é nojento. Beijo babado é invasivo e deixa rastro. Você prefere ser o 'Mãos de Peixe' ou o 'Babeiro'?"
+        },
+        {
+            "id": 78,
+            "title": "Ter um stalker que te ama OU Ter um hater que tenta te derrubar",
+            "category": 2,
+            "footer": "O stalker pode matar seu gato por ciúmes. O hater só comenta 'lixo' nas suas fotos. O hater engaja mais."
+        },
+        {
+            "id": 79,
+            "title": "Ver fantasmas (eles gritam) OU Ver o futuro (só tragédias)",
+            "category": 4,
+            "footer": "Fantasmas gritando atrapalham o sono. Futuro trágico te dá ansiedade. Basicamente, esquizofrenia ou depressão."
+        },
+        {
+            "id": 80,
+            "title": "Ser obrigado a dançar sempre que ouvir música OU Cantar alto sempre que ler algo",
+            "category": 2,
+            "footer": "Dançar no elevador com música ambiente? Ou cantar o cardápio do restaurante? Ambos garantem internação."
+        },
+        {
+            "id": 81,
+            "title": "Ter o corpo de uma criança de 10 anos OU Ter o corpo de um idoso de 90 anos",
+            "category": 4,
+            "footer": "Corpo de 10 anos: energia infinita, mas ninguém te respeita. Corpo de 90: respeito, mas tudo dói e vaza."
+        },
+        {
+            "id": 82,
+            "title": "Nunca mais usar sapatos OU Nunca mais usar meias",
+            "category": 1,
+            "footer": "Sem sapatos: tétano e vidro. Sem meias: chulé e bolhas. Seus pés vão sofrer de qualquer jeito."
+        },
+        {
+            "id": 83,
+            "title": "Comer um sanduíche de cabelo OU Beber um smoothie de unha",
+            "category": 1,
+            "footer": "Cabelo enrosca na garganta e dá tosse. Unha é crocante mas arranha o esôfago. A textura é o pesadelo aqui."
+        },
+        {
+            "id": 84,
+            "title": "Ser a pessoa mais feia e inteligente OU Ser a mais bonita e burra",
+            "category": 2,
+            "footer": "Bonito e burro vive feliz e ganha coisas grátis. Feio e inteligente sofre sabendo exatamente por que o mundo é ruim."
+        },
+        {
+            "id": 85,
+            "title": "Ter um botão de 'Rewind' (voltar 1 min) OU Ter um botão de 'Pause'",
+            "category": 4,
+            "footer": "Rewind corrige a besteira que você falou. Pause serve pra colar na prova ou roubar carteiras. Um é corretivo, o outro é crime."
+        },
+        {
+            "id": 86,
+            "title": "Passar o resto da vida numa ilha deserta com seu ex OU Com seu chefe",
+            "category": 5,
+            "footer": "Com o ex, tem chance de flashback (ou assassinato). Com o chefe, ele vai pedir pra você fazer planilha na areia."
+        },
+        {
+            "id": 87,
+            "title": "Nunca mais ver o sol OU Nunca mais ver a lua",
+            "category": 4,
+            "footer": "Sem sol você vira um vampiro anêmico. Sem lua, adeus lobisomens e marés. A vitamina D vai fazer falta."
+        },
+        {
+            "id": 88,
+            "title": "Ter chifres de verdade OU Ter rabo de verdade",
+            "category": 4,
+            "footer": "Chifres são difíceis de explicar no Tinder. O rabo... bem, furries vão adorar você, mas sentar será um desafio."
+        },
+        {
+            "id": 89,
+            "title": "Falar rimando para sempre OU Falar gaguejando para sempre",
+            "category": 2,
+            "footer": "Rimando você parece um poeta de rua ruim. Gaguejando demora muito. 'Eu... eu... eu prefiro... rima!'"
+        },
+        {
+            "id": 90,
+            "title": "Sempre ter areia na roupa íntima OU Sempre ter água no ouvido",
+            "category": 1,
+            "footer": "Areia assa e coça em lugares impróprios. Água no ouvido te deixa surdo e desequilibrado. Tortura chinesa moderna."
+        },
+        {
+            "id": 91,
+            "title": "Ser perseguido por um caracol assassino imortal OU Ser perseguido pelo Jason (Sexta-feira 13)",
+            "category": 3,
+            "footer": "O caracol te deixa paranoico pra sempre, mas é lento. O Jason corre (anda rápido) e te mata hoje. A ansiedade do caracol vence."
+        },
+        {
+            "id": 92,
+            "title": "Ter pele azul permanente OU Ter pele verde permanente",
+            "category": 2,
+            "footer": "Smurf ou Shrek? Avatar ou Hulk? Escolha qual cosplay forçado você vai viver até morrer."
+        },
+        {
+            "id": 93,
+            "title": "Saber todas as línguas mas não saber ler OU Saber ler tudo mas ser mudo",
+            "category": 4,
+            "footer": "Analfabeto poliglota é útil no turismo. Mudo letrado vira o maior comentarista de internet do mundo."
+        },
+        {
+            "id": 94,
+            "title": "Comer apenas carne crua OU Comer apenas vegetais podres",
+            "category": 1,
+            "footer": "Carne crua = Tênia e Salmonella. Vegetais podres = Chorume e diarreia. Sua flora intestinal pede socorro."
+        },
+        {
+            "id": 95,
+            "title": "Ter o poder de voar (velocidade de caminhada) OU Ter super força (apenas dormindo)",
+            "category": 4,
+            "footer": "Voar devagar é um alvo fácil pra pombos. Força dormindo só serve pra quebrar a cama e matar quem dorme com você."
+        },
+        {
+            "id": 96,
+            "title": "Nunca mais sentir frio OU Nunca mais sentir calor",
+            "category": 1,
+            "footer": "Nunca mais sentir frio te permite morar na Antártida pelado. Nunca mais sentir calor economiza ar-condicionado. Lucro."
+        },
+        {
+            "id": 97,
+            "title": "Ter que matar 1 pessoa inocente para salvar 100 OU Deixar 100 morrerem para não sujar as mãos",
+            "category": 3,
+            "footer": "O dilema do bonde. Se você matar, vai preso, mas é herói utilitarista. Se não matar, dorme tranquilo (seu covarde)."
+        },
+        {
+            "id": 98,
+            "title": "Ser um peixe da cintura pra baixo OU Ser um peixe da cintura pra cima",
+            "category": 4,
+            "footer": "Sereia invertida morre sufocada fora d'água. Sereia clássica não tem como... você sabe. Reprodução complicada."
+        },
+        {
+            "id": 99,
+            "title": "Viver num submarino para sempre OU Viver numa estação espacial para sempre",
+            "category": 4,
+            "footer": "Fundo do mar tem monstros e pressão. Espaço tem vácuo e comida desidratada. A claustrofobia é brinde nos dois."
+        },
+        {
+            "id": 100,
+            "title": "Limpar banheiro de rodoviária com a língua OU Comer o resto de comida do lixo do McDonald's",
+            "category": 1,
+            "footer": "O lixo tem conservantes que te mumificam vivo. O banheiro tem doenças ainda não catalogadas pela ciência."
+        },
+        {
+            "id": 101,
+            "title": "Sempre que espirrar, troca de sexo OU Sempre que bocejar, fica careca",
+            "category": 4,
+            "footer": "Espirrar na hora H cria uma surpresa interessante. Ficar careca a cada sono exige uma coleção enorme de perucas."
+        },
+        {
+            "id": 102,
+            "title": "Ter um dragão de estimação OU Ter um unicórnio de estimação",
+            "category": 4,
+            "footer": "O dragão queima sua casa e come vizinhos. O unicórnio é gay icon e fura olhos com o chifre. O dragão impõe mais respeito."
+        },
+        {
+            "id": 103,
+            "title": "Saber quando as pessoas mentem OU Saber quando as pessoas estão com tesão",
+            "category": 4,
+            "footer": "Saber das mentiras te deixa cínico. Saber do tesão torna reuniões de família e velórios extremamente constrangedores."
+        },
+        {
+            "id": 104,
+            "title": "Nunca mais sentir amor OU Nunca mais sentir prazer",
+            "category": 5,
+            "footer": "Psicopata frio ou monge celibatário? Uma vida sem orgasmos ou uma vida sem coração quentinho?"
+        },
+        {
+            "id": 105,
+            "title": "Usar roupas 2 números menores OU Usar roupas 5 números maiores",
+            "category": 1,
+            "footer": "Roupa apertada corta circulação e marca as gordurinhas. Roupa larga te faz parecer um rapper falido dos anos 2000."
+        },
+        {
+            "id": 106,
+            "title": "Ter o rosto do Faustão OU Ter a voz da Anitta",
+            "category": 2,
+            "footer": "Oloco bicho! Com o rosto do Faustão você nunca passa fome. Com a voz da Anitta você irrita ou excita, depende do público."
+        },
+        {
+            "id": 107,
+            "title": "Lutar contra 100 cavalos do tamanho de patos OU Lutar contra 1 pato do tamanho de cavalo",
+            "category": 4,
+            "footer": "Os minicavalos mordem canelas. O pato gigante te esmaga e tem um bico mortal. Chute os minicavalos, é mais fácil."
+        },
+        {
+            "id": 108,
+            "title": "Fazer sexo com uma cabra e ninguém saber OU Não fazer, mas todos acharem que você fez",
+            "category": 2,
+            "footer": "Dignidade interna vs Reputação externa. Você consegue viver com a memória da cabra? Ou prefere ser o 'Garoto da Cabra'?"
+        },
+        {
+            "id": 109,
+            "title": "Ter um nariz de palhaço permanente OU Sapatos de palhaço permanentes",
+            "category": 2,
+            "footer": "Nariz vermelho estraga velórios. Sapatos gigantes fazem você tropeçar e impedem dirigir. Honk Honk."
+        },
+        {
+            "id": 110,
+            "title": "Viver sem café OU Viver sem chocolate",
+            "category": 1,
+            "footer": "Sem café você não funciona de manhã. Sem chocolate você não tem alegria na TPM. Escolha qual vício abandonar."
+        },
+        {
+            "id": 111,
+            "title": "Nunca mais ter ressaca OU Nunca mais ter gripe",
+            "category": 1,
+            "footer": "Sem ressaca você vira alcoólatra funcional. Sem gripe você economiza em vitamina C. A ressaca dói mais na alma."
+        },
+        {
+            "id": 112,
+            "title": "Ter um chip no cérebro com Google OU Ter um braço robótico super forte",
+            "category": 4,
+            "footer": "Google na mente: cola em tudo, mas vê anúncios mentais. Braço forte: abre potes e mata pessoas sem querer no 'toca aqui'."
+        },
+        {
+            "id": 113,
+            "title": "Passar a vida inteira coçando OU Passar a vida inteira com dor de cabeça leve",
+            "category": 1,
+            "footer": "Coceira eterna parece sarna. Dor de cabeça te deixa rabugento. Você vai ser insuportável de qualquer jeito."
+        },
+        {
+            "id": 114,
+            "title": "Ser o presidente do país em crise OU Ser um lixeiro feliz",
+            "category": 3,
+            "footer": "Poder com úlcera e ódio popular ou simplicidade com cheiro de lixo e sorriso no rosto? A felicidade fede ou o poder estressa?"
+        },
+        {
+            "id": 115,
+            "title": "Ter sempre a bateria em 1% OU Ter sempre o sinal fraco",
+            "category": 4,
+            "footer": "Bateria em 1% é adrenalina pura, vive no limite. Sinal fraco é frustração de carregamento eterno. O 1% te ensina a ser rápido."
+        },
+        {
+            "id": 116,
+            "title": "Comer pizza com garfo e faca OU Comer sushi com garfo",
+            "category": 2,
+            "footer": "Pizza de garfo e faca é frescura. Sushi de garfo é crime cultural. Os dois fazem chefs italianos e japoneses chorarem."
+        },
+        {
+            "id": 117,
+            "title": "Ter a risada do Bob Esponja OU Ter a voz do Lula Molusco",
+            "category": 2,
+            "footer": "A risada é irritante e aguda. A voz é anasalada e ranzinza. Escolha qual vizinho da Fenda do Biquíni te representa."
+        },
+        {
+            "id": 118,
+            "title": "Nunca mais ver seu rosto no espelho OU Nunca mais ver fotos suas",
+            "category": 4,
+            "footer": "Vampiro moderno? Não ver fotos apaga seu passado. Não ver espelho apaga seu presente (e se tem alface no dente)."
+        },
+        {
+            "id": 119,
+            "title": "Ser o melhor jogador do pior time OU Ser o pior jogador do melhor time",
+            "category": 2,
+            "footer": "Carregar bagres nas costas e ser herói ou ganhar títulos sentado no banco sendo zoado? Ego vs Troféus."
+        },
+        {
+            "id": 120,
+            "title": "Passar um mês sem tomar banho OU Passar um mês sem escovar os dentes",
+            "category": 1,
+            "footer": "Um mês de craca corporal ou um mês criando uma colônia de bactérias na boca? Seu namoro termina em ambos os casos."
+        },
+        {
+            "id": 121,
+            "title": "Ter um macaco que te joga cocô OU Um papagaio que conta seus segredos",
+            "category": 4,
+            "footer": "O macaco suja sua roupa. O papagaio suja sua reputação contando sobre aquela vez no acampamento..."
+        },
+        {
+            "id": 122,
+            "title": "Viver num filme de terror OU Viver num musical ruim",
+            "category": 4,
+            "footer": "Terror: risco de morte. Musical ruim: risco de vergonha alheia eterna cantando 'Bom dia sol' desafinado. O terror é mais digno."
+        },
+        {
+            "id": 123,
+            "title": "Sempre ter comida nos dentes em encontros OU Sempre ter a braguilha aberta em reuniões",
+            "category": 2,
+            "footer": "Comida no dente mata o beijo. Braguilha aberta mata a promoção. Escolha onde você quer fracassar: amor ou trabalho."
+        },
+        {
+            "id": 124,
+            "title": "Ter o poder de curar qualquer doença (mas sente a dor) OU Ter o poder de ressuscitar (mas voltam zumbis)",
+            "category": 3,
+            "footer": "Sentir a dor de um parto ou pedra no rim pra curar estranhos? Ou criar o apocalipse zumbi tentando trazer a vovó de volta?"
+        },
+        {
+            "id": 125,
+            "title": "Ser obrigado a usar pochete sempre OU Usar Crocs com meia sempre",
+            "category": 2,
+            "footer": "Pochete voltou à moda (dizem). Crocs com meia é conforto estético negativo. Ambos são anticoncepcionais visuais."
+        },
+        {
+            "id": 126,
+            "title": "Ter braços de T-Rex OU Ter pernas de Girafa",
+            "category": 4,
+            "footer": "Braços curtos: não alcança o papel higiênico. Pernas longas: bate a cabeça em todos os batentes de porta."
+        },
+        {
+            "id": 127,
+            "title": "Sempre falar a verdade para crianças OU Sempre mentir para seus pais",
+            "category": 3,
+            "footer": "Dizer pra criança que o Papai Noel morreu e a vida é triste? Ou dizer pros pais que você é astronauta quando é desempregado?"
+        },
+        {
+            "id": 128,
+            "title": "Ter o cabelo do Donald Trump OU Ter o bronzeado do Donald Trump",
+            "category": 2,
+            "footer": "O ninho de pássaro loiro ou a pele laranja cheetos radioativo? Escolha sua estética presidencial falida."
+        },
+        {
+            "id": 129,
+            "title": "Viver numa casa feita de vidro transparente OU Viver numa casa subterrânea sem janelas",
+            "category": 2,
+            "footer": "Vidro: sem privacidade pra andar pelado ou cagar. Subterrânea: bunker deprimente sem sol. Exibicionista ou Tatu?"
+        },
+        {
+            "id": 130,
+            "title": "Ter gosto de vômito na boca 1h por dia OU Sentir cheiro de pum o dia todo",
+            "category": 1,
+            "footer": "Gosto de vômito é intenso mas passa. Cheiro de pum é constante e você nunca sabe se foi você ou o outro."
+        },
+        {
+            "id": 131,
+            "title": "Nunca mais conseguir dobrar os joelhos OU Nunca mais conseguir dobrar os cotovelos",
+            "category": 1,
+            "footer": "Sem joelhos: anda igual boneco de olinda. Sem cotovelos: não consegue levar comida à boca. Vai morrer de fome ou de vergonha."
+        },
+        {
+            "id": 132,
+            "title": "Saber o segredo de todo mundo OU Ninguém saber nada sobre você",
+            "category": 2,
+            "footer": "Saber segredos é um fardo pesado de fofoca. Ser um anônimo misterioso é chique, tipo espião (ou solitário)."
+        },
+        {
+            "id": 133,
+            "title": "Ser um cachorro de madame OU Ser um gato de rua livre",
+            "category": 4,
+            "footer": "Cachorro: ração premium, laços ridículos e castração. Gato de rua: liberdade, lixo e briga de telhado. Conforto ou Anarquia?"
+        },
+        {
+            "id": 134,
+            "title": "Ter Wi-Fi grátis onde for (lento) OU Pagar caro por internet ultra-rápida",
+            "category": 4,
+            "footer": "Wi-Fi lento carrega pornô pixelado. Internet cara quebra seu orçamento. A paciência é uma virtude (ou não)."
+        },
+        {
+            "id": 135,
+            "title": "Dormir numa cama de pregos OU Dormir numa cama de gelo",
+            "category": 1,
+            "footer": "Fakir ou Elsa? Pregos furam, gelo queima e molha. Sua coluna nunca mais será a mesma."
+        },
+        {
+            "id": 136,
+            "title": "Só comer sobremesa OU Nunca mais comer sobremesa",
+            "category": 1,
+            "footer": "Diabetes tipo 2 garantida em 1 ano ou uma vida triste sem brigadeiro? A saúde agradece a segunda opção, a alma chora."
+        },
+        {
+            "id": 137,
+            "title": "Ter umbigo saltado (para fora) de 10cm OU Não ter umbigo",
+            "category": 4,
+            "footer": "Umbigo de 10cm é um terceiro mamilo na barriga, roça na camisa. Sem umbigo você parece um clone alienígena (o que é legal)."
+        },
+        {
+            "id": 138,
+            "title": "Sempre que rir, sai catarro OU Sempre que chorar, sai sangue",
+            "category": 1,
+            "footer": "Rir e babar gosma verde acaba com o clima. Chorar sangue te faz parecer um vilão de anime. O sangue é mais dramático."
+        },
+        {
+            "id": 139,
+            "title": "Passar a vida preso num elevador com seu inimigo OU Com alguém que não fala sua língua",
+            "category": 2,
+            "footer": "Inimigo: briga e sexo de ódio (talvez). Estrangeiro: mímica eterna e paz relativa. O inferno são os outros."
+        },
+        {
+            "id": 140,
+            "title": "Ter o superpoder de atrair mosquitos OU Atrair pombos",
+            "category": 4,
+            "footer": "Mosquitos transmitem dengue. Pombos cagam na sua cabeça. Você será o mestre das pragas urbanas."
+        },
+        {
+            "id": 141,
+            "title": "Ser atacado por 50 hamsters raivosos OU 1 leão preguiçoso",
+            "category": 3,
+            "footer": "50 hamsters roem seus tornozelos até o osso. O leão preguiçoso talvez só te lamba. Aposte na preguiça do rei da selva."
+        },
+        {
+            "id": 142,
+            "title": "Trocar de vida com o Papa OU Trocar de vida com a Rainha da Inglaterra (antes de morrer)",
+            "category": 4,
+            "footer": "Papa: celibato e roupas pesadas. Rainha: chás chatos e família problemática. Muito protocolo, pouca diversão."
+        },
+        {
+            "id": 143,
+            "title": "Ter uma tatuagem 'Amo minha sogra' na testa OU 'Sou virgem' nas costas",
+            "category": 2,
+            "footer": "Na testa não dá pra esconder. Nas costas só vê quem dorme com você (e descobre que a frase é mentira ou verdade na hora)."
+        },
+        {
+            "id": 144,
+            "title": "Só poder assistir BBB pelo resto da vida OU Só poder assistir novela mexicana",
+            "category": 4,
+            "footer": "Dramalhão repetitivo ou Dramalhão de gente 'vida real' forçada? Sua cultura vai para o ralo de qualquer jeito."
+        },
+        {
+            "id": 145,
+            "title": "Nunca mais usar desodorante OU Nunca mais usar perfume",
+            "category": 2,
+            "footer": "Sem desodorante você é um risco biológico no verão. Sem perfume você só cheira a sabão (ou a suor). O desodorante é essencial."
+        },
+        {
+            "id": 146,
+            "title": "Ter pés no lugar das mãos OU Mãos no lugar dos pés",
+            "category": 4,
+            "footer": "Pés nas mãos: adeus polegar opositor, olá chutar a cara de quem te irrita. Mãos nos pés: macaco style, sobe em tudo."
+        },
+        {
+            "id": 147,
+            "title": "Ser rico mas ter que viver na Coreia do Norte OU Ser pobre e viver onde quiser",
+            "category": 3,
+            "footer": "Rico na Coreia do Norte: o dinheiro não compra liberdade nem internet. Pobre livre: passa fome mas posta no Instagram."
+        },
+        {
+            "id": 148,
+            "title": "Casar com um zumbi (não te morde) OU Casar com um robô sem emoção",
+            "category": 5,
+            "footer": "O zumbi fede e cai aos pedaços. O robô é frio e calculista. Necrofilia light ou Tecnosexualidade monótona?"
+        },
+        {
+            "id": 149,
+            "title": "Ter que gritar tudo o que lê OU Sussurrar tudo o que pensa",
+            "category": 2,
+            "footer": "Gritar cardápios e placas de rua? Ou sussurrar 'que bunda bonita' do nada? O manicômio te espera."
+        },
+        {
+            "id": 150,
+            "title": "Nunca mais sentir o gosto de queijo OU Nunca mais sentir o gosto de bacon",
+            "category": 1,
+            "footer": "A base da pirâmide alimentar da felicidade. Tirar um é crueldade, tirar o outro é tortura. A vida perde o sentido."
+        },
+        {
+            "id": 151,
+            "title": "Ter uma cobra saindo da boca a cada hora OU Minhocas saindo do nariz",
+            "category": 1,
+            "footer": "Cobra saindo da boca assusta e sufoca. Minhocas no nariz dão coceira e nojo. Orochimaru feelings."
+        },
+        {
+            "id": 152,
+            "title": "Ser um vampiro (bebe sangue) OU Ser um lobisomem (vira monstro)",
+            "category": 4,
+            "footer": "Vampiro: chique, imortal, mas tem dieta líquida nojenta. Lobisomem: depilação difícil e acorda pelado no mato."
+        },
+        {
+            "id": 153,
+            "title": "Só poder andar de ré OU Só poder andar de quatro",
+            "category": 2,
+            "footer": "Andar de ré: cai em bueiros. Andar de quatro: dor nas costas e vista privilegiada de chão sujo."
+        },
+        {
+            "id": 154,
+            "title": "Ter que usar roupas do sexo oposto sempre OU Usar roupas medievais",
+            "category": 2,
+            "footer": "Crossdressing forçado ou Cosplay de RPG eterno? Armadura enferruja, vestido ventila."
+        },
+        {
+            "id": 155,
+            "title": "Sempre que falar, soltar bolhas de sabão OU Sempre que andar, fazer barulho de pum",
+            "category": 2,
+            "footer": "Bolhas de sabão dão um ar lúdico e limpo. Barulho de pum tira toda a sua autoridade moral."
+        },
+        {
+            "id": 156,
+            "title": "Ter um olho gigante no meio da testa OU Dois narizes",
+            "category": 4,
+            "footer": "Ciclope ou Peppa Pig? O olho gigante te dá visão panorâmica. Dois narizes te dão olfato de perdigueiro (e dobro de meleca)."
+        },
+        {
+            "id": 157,
+            "title": "Viver numa casa assombrada OU Numa casa cheia de baratas",
+            "category": 1,
+            "footer": "Fantasmas não tocam em você (geralmente). Baratas andam na sua cara enquanto você dorme. Fantasmas são mais higiênicos."
+        },
+        {
+            "id": 158,
+            "title": "Ter o superpoder de falar com frutas OU Falar com móveis",
+            "category": 4,
+            "footer": "Frutas gritam quando são mordidas. Móveis reclamam do seu peso. Ambos vão te fazer sentir culpado."
+        },
+        {
+            "id": 159,
+            "title": "Ser confundido com um criminoso procurado OU Ser ignorado por todos",
+            "category": 2,
+            "footer": "Confundido: apanha da polícia. Ignorado: solidão eterna. É melhor ser visto negativamente ou não ser visto?"
+        },
+        {
+            "id": 160,
+            "title": "Ter dentes de ouro (todos) OU Dentes de madeira",
+            "category": 2,
+            "footer": "Dentes de ouro: alvo de assalto, visual de rapper. Dentes de madeira: cupim na boca e farpa na língua. Ouro vale mais."
+        },
+        {
+            "id": 161,
+            "title": "Nunca mais poder sentar OU Nunca mais poder deitar",
+            "category": 1,
+            "footer": "Não sentar: pernas de aço, cansaço eterno. Não deitar: dormir em pé igual cavalo. Sua coluna vai pedir aposentadoria."
+        },
+        {
+            "id": 162,
+            "title": "Comer um pote de maionese pura OU Um pote de manteiga pura",
+            "category": 1,
+            "footer": "Colesterol mandou abraço. Maionese pura enjoa rápido. Manteiga pura entope artéria na hora. O infarto vem."
+        },
+        {
+            "id": 163,
+            "title": "Ter as mãos pegajosas para sempre OU Mãos escorregadias para sempre",
+            "category": 1,
+            "footer": "Pegajoso: tudo gruda, poeira, cabelo. Escorregadio: quebra pratos, não segura o celular. Homem-Aranha falhado ou Manteiga-Man?"
+        },
+        {
+            "id": 164,
+            "title": "Sempre que beijar, trocar saliva com a pessoa anterior OU Beijar de olhos abertos fixos",
+            "category": 5,
+            "footer": "Trocar saliva da ex com a atual é nojeira biológica. Olhos abertos fixos é psicopatia pura. Escolha ser nojento ou assustador."
+        },
+        {
+            "id": 165,
+            "title": "Ter a memória de um peixe OU A memória de um elefante (lembra traumas)",
+            "category": 3,
+            "footer": "Peixe: quem sou eu? Onde estou? Elefante: lembra de cada vergonha de 1998. Ignorância ou Rancor eterno?"
+        },
+        {
+            "id": 166,
+            "title": "Ser famoso no TikTok por ser idiota OU Ser respeitado mas desconhecido",
+            "category": 2,
+            "footer": "Fama de idiota dá dinheiro hoje em dia. Respeito não paga boleto, mas mantém o orgulho. Dinheiro ou Honra?"
+        },
+        {
+            "id": 167,
+            "title": "Passar a vida com soluço OU Passar a vida com coceira no pé",
+            "category": 1,
+            "footer": "Soluço impede de falar sério. Coceira no pé exige tirar o sapato em público. O inferno é aqui."
+        },
+        {
+            "id": 168,
+            "title": "Ter que usar um cone de cachorro no pescoço OU Usar algemas nas mãos",
+            "category": 2,
+            "footer": "Cone da vergonha: bate nas paredes, difícil comer. Algemas: difícil limpar a bunda. O cone é humilhante, as algemas limitantes."
+        },
+        {
+            "id": 169,
+            "title": "Só poder beber água quente OU Só poder beber refrigerante sem gás",
+            "category": 1,
+            "footer": "Água quente parece chá sem gosto. Refri sem gás é xarope de açúcar. A hidratação nunca foi tão triste."
+        },
+        {
+            "id": 170,
+            "title": "Ter cabelo que cresce 1 metro por dia OU Unhas que crescem 10cm por dia",
+            "category": 1,
+            "footer": "Cabelo: Rapunzel diária, gasto com cabeleireiro. Unhas: Zé do Caixão diário, impossível digitar. Cortar unha todo dia é pior."
+        },
+        {
+            "id": 171,
+            "title": "Nunca mais ver TV OU Nunca mais ouvir rádio/podcast",
+            "category": 4,
+            "footer": "Sem TV: perde as séries. Sem áudio: perde a música no trânsito. O silêncio ou a tela preta?"
+        },
+        {
+            "id": 172,
+            "title": "Ter que matar sua própria comida (galinha, vaca) OU Ser vegano radical",
+            "category": 3,
+            "footer": "Matar a vaca exige coragem e estômago. Ser vegano radical exige paciência para ler rótulos e ser chato em churrasco."
+        },
+        {
+            "id": 173,
+            "title": "Ter um chifre de unicórnio OU Ter asas de morcego (não voam)",
+            "category": 4,
+            "footer": "Chifre fura balões e olhos. Asas inúteis só atrapalham pra dormir de costas e comprar jaqueta."
+        },
+        {
+            "id": 174,
+            "title": "Sempre que entrar numa sala, anunciar sua chegada gritando OU Sair rastejando",
+            "category": 2,
+            "footer": "O rei do drama ou a cobra furtiva? Gritar assusta. Rastejar suja o joelho e mostra o cofrinho."
+        },
+        {
+            "id": 175,
+            "title": "Ter o corpo coberto de pelos (Chewbacca) OU Não ter nenhum pelo (sobrancelha, cílios)",
+            "category": 2,
+            "footer": "Chewbacca: calor e shampoo caro. Sem pelos: suor no olho e cara de alien. Tony Ramos ou Esfinge?"
+        },
+        {
+            "id": 176,
+            "title": "Viver num mundo onde todos leem pensamentos OU Onde ninguém fala",
+            "category": 3,
+            "footer": "Ler pensamentos acaba com a mentira social (caos). Ninguém falar traz paz, mas solidão. O mundo sem filtro é perigoso."
+        },
+        {
+            "id": 177,
+            "title": "Ter 10 filhos OU Nenhum filho e nenhum amigo",
+            "category": 5,
+            "footer": "10 filhos: falência financeira e barulho. Solidão total: depressão silenciosa. O hospício doméstico ou o vazio?"
+        },
+        {
+            "id": 178,
+            "title": "Comer lixo por 1 ano por 1 milhão OU Não comer, mas perder um dedo",
+            "category": 1,
+            "footer": "Lixo dá doença. Dedo faz falta. 1 milhão paga o hospital depois de comer lixo? Talvez."
+        },
+        {
+            "id": 179,
+            "title": "Ter que usar fralda geriátrica por fora da calça OU Usar calcinha fio dental por fora",
+            "category": 2,
+            "footer": "Fralda: bebê gigante. Fio dental: super-herói pervertido. O estilo 'Superman Bizarro' está em alta."
+        },
+        {
+            "id": 180,
+            "title": "Ser um gigante de 3 metros OU Um anão de 50cm",
+            "category": 4,
+            "footer": "3 metros: bate a cabeça, morre cedo do coração. 50cm: mundo perigoso, pisoteado em shows. A escala está errada."
+        },
+        {
+            "id": 181,
+            "title": "Ter chulé na mão OU Mau hálito no pé (se cheirar)",
+            "category": 1,
+            "footer": "Chulé na mão: ninguém te cumprimenta, comida fede. Hálito no pé: só é problema para fetichistas de pé. Pé ganha fácil."
+        },
+        {
+            "id": 182,
+            "title": "Sempre esquecer o nome das pessoas OU Sempre chamar todos de 'Amor'",
+            "category": 2,
+            "footer": "Esquecer é rude. Chamar chefe e sogra de 'Amor' é estranho e perigoso. 'E aí, campeão' resolve o primeiro caso."
+        },
+        {
+            "id": 183,
+            "title": "Ter a força do Hulk mas ser verde OU Ter a inteligência do Stark mas ser arrogante",
+            "category": 4,
+            "footer": "Verde é difícil de combinar roupa. Arrogante você já é, só falta a inteligência. Stark vence."
+        },
+        {
+            "id": 184,
+            "title": "Nunca mais comer carne OU Só comer carne crua",
+            "category": 1,
+            "footer": "Vegetariano forçado ou homem das cavernas com parasitas? O churrasco de domingo está arruinado de qualquer jeito."
+        },
+        {
+            "id": 185,
+            "title": "Ter um parasita inofensivo no olho OU No estômago",
+            "category": 1,
+            "footer": "No olho: você vê a minhoquinha nadando. No estômago: você come por dois. O visual é pior que a sensação."
+        },
+        {
+            "id": 186,
+            "title": "Sempre que mentir, levar um choque OU Levar um tapa",
+            "category": 3,
+            "footer": "Choque é condicionamento de Pavlov. Tapa é humilhação física. O choque pelo menos não deixa marca vermelha na cara."
+        },
+        {
+            "id": 187,
+            "title": "Viver sem eletricidade OU Viver sem encanamento (água/esgoto)",
+            "category": 1,
+            "footer": "Sem luz: velas e tédio. Sem esgoto: baldes e doenças. A civilização depende do cano, acredite."
+        },
+        {
+            "id": 188,
+            "title": "Ter o pescoço de uma girafa OU As pernas de um pinguim",
+            "category": 4,
+            "footer": "Pescoço de girafa: ótimo em shows, ruim em portas. Pernas de pinguim: fofo, mas você nunca vai correr de um assalto."
+        },
+        {
+            "id": 189,
+            "title": "Ser obrigado a rir de tudo (até tragédias) OU Chorar de tudo",
+            "category": 2,
+            "footer": "Rir no enterro: psicopata coringa. Chorar na piada: depressivo chato. O riso ofende mais."
+        },
+        {
+            "id": 190,
+            "title": "Ter um clone maligno solto por aí OU Ter um clone burro",
+            "category": 3,
+            "footer": "Maligno: comete crimes no seu nome. Burro: passa vergonha no seu nome. O burro é mais perigoso socialmente."
+        },
+        {
+            "id": 191,
+            "title": "Passar a vida com uma pedra no rim OU Dor de dente",
+            "category": 1,
+            "footer": "Pedra no rim é parto masculino. Dor de dente é latejante na cabeça. Ambas levam à loucura e vício em remédios."
+        },
+        {
+            "id": 192,
+            "title": "Ser alérgico ao próprio suor OU Alérgico à própria saliva",
+            "category": 1,
+            "footer": "Suor: não pode correr nem fazer sexo. Saliva: sua boca queima o tempo todo. A vida se torna uma tortura alérgica."
+        },
+        {
+            "id": 193,
+            "title": "Ter o rosto virado para trás (Exorcista) OU Andar de ponta cabeça",
+            "category": 4,
+            "footer": "Rosto pra trás: precisa de espelho pra andar. Ponta cabeça: o sangue desce todo, desmaio constante. Terror anatômico."
+        },
+        {
+            "id": 194,
+            "title": "Nunca mais conseguir fechar a boca OU Nunca mais fechar os olhos",
+            "category": 1,
+            "footer": "Boca aberta: baba e mosca entra. Olhos abertos: ressecam e não dorme. Olhos abertos exigem colírio industrial."
+        },
+        {
+            "id": 195,
+            "title": "Sempre que espirrar, fazer barulho de buzina OU De tiro",
+            "category": 2,
+            "footer": "Buzina: susto engraçado. Tiro: polícia é chamada e você leva bala de volta. A buzina é mais segura."
+        },
+        {
+            "id": 196,
+            "title": "Ter que usar roupas de látex apertadas sempre OU Roupas de lã no verão",
+            "category": 1,
+            "footer": "Látex: assa tudo e faz barulho. Lã: insolação e pinica. Fetiche desconfortável ou tortura térmica?"
+        },
+        {
+            "id": 197,
+            "title": "Só poder comer alimentos brancos OU Alimentos pretos",
+            "category": 1,
+            "footer": "Brancos: arroz, pão, açúcar (carboidrato puro). Pretos: feijão, caviar, chocolate amargo. A dieta gótica é mais chique."
+        },
+        {
+            "id": 198,
+            "title": "Ter uma antena na cabeça OU Uma cauda de raposa",
+            "category": 4,
+            "footer": "Antena: parece Teletubbie. Cauda: parece Furry. Escolha qual comunidade bizarra você quer atrair."
+        },
+        {
+            "id": 199,
+            "title": "Ser imune ao fogo mas morrer com água OU Imune a tiros mas morrer com soco",
+            "category": 4,
+            "footer": "Imune a fogo: bombeiro herói, mas banho mata. Imune a tiro: policial, mas briga de bar mata. O banho é essencial, logo..."
+        },
+        {
+            "id": 200,
+            "title": "Viver a vida do seu pior inimigo OU Viver sua vida preso numa solitária",
+            "category": 3,
+            "footer": "Se você se odeia, viver a vida do inimigo é um upgrade. A solitária te deixa louco em uma semana."
+        }
+    ]
 }

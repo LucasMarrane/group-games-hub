@@ -6,15 +6,14 @@ import { Button } from '@shadcn/components/ui/button';
 import { motion } from 'framer-motion';
 import { ChevronRight, RotateCcw, Skull, Trophy } from 'lucide-react';
 
-
 export function Decisoes() {
     const { startGame, localPlayerId, gameState, changeGame: changeGameState, players, setPlayers, mode } = useMultiplayer<any>();
 
-    const { currentCardIndex = 0, phase, step, nextPlayer, hostWon, hostGuess, actualPlayer, winner, shuffledCards=[] } = gameState ?? {};
+    const { currentCardIndex = 0, phase, step, nextPlayer, hostWon, hostGuess, actualPlayer, winner, shuffledCards = [] } = gameState ?? {};
 
     const questionsData = DecisoesGame.themes.flatMap((i) => i.items);
 
-     function shuffle() {
+    function shuffle() {
         const shuffled = [...questionsData].sort(() => Math.random() - 0.5);
         return shuffled;
     }
@@ -55,7 +54,7 @@ export function Decisoes() {
                 if (winner == _hostGuess && p.type == 'host') {
                     result.points!++;
                     hostWon = true;
-                } else if ( winner != _hostGuess && p.type != 'host') {
+                } else if (winner != _hostGuess && p.type != 'host') {
                     result.points!++;
                 }
                 return result;
@@ -122,6 +121,10 @@ export function Decisoes() {
 
                         {step === 'voting' && currentQuestion && (
                             <motion.div key='voting' initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className='flex-1 flex flex-col'>
+                                <div className='text-center mb-6'>
+                                    <h2 className='text-xl font-display font-bold text-foreground'>{currentQuestion.title}</h2>
+                                    <p className='text-muted-foreground text-md'>{currentQuestion.footer}</p>
+                                </div>
                                 <div className='flex-1 flex flex-col gap-4 mx-2 justify-center'>
                                     <motion.button
                                         whileHover={{ scale: 1.02 }}
