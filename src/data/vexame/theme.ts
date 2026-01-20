@@ -13,7 +13,7 @@ class Vexame extends GameBase<VexameGameType> implements IGames<VexameGameType> 
         this._themes = [base] as VexameGameType[];
     }
     get variant() {
-        return 'sincronia';
+        return 'vexame';
     }
 
     get gameModes() {
@@ -27,17 +27,15 @@ class Vexame extends GameBase<VexameGameType> implements IGames<VexameGameType> 
         return 'Vexame';
     }
     get hint() {
-        return 'Em equipe, ordene os números baseados no tema!';
+        return 'Obedeça a carta ou destrua seu fígado. A dignidade é opcional.';
     }
-
     get description() {
-        return `Cada jogador recebe um conjunto de cartas numéricas e o objetivo é cooperar para colocá-las em ordem crescente. Os jogadores podem discutir e dar dicas a outros, sugerindo algo com base no tema sorteado. Por exemplo, quanto melhor a culinária japonesa, assim, quanto maior o número, mais popular é o prato!`;
+        return `Um jogo de cartas socialmente destrutivo onde a escolha é simples: cumprir um desafio absurdo ou beber a punição. Teste os limites da sua vergonha alheia, exponha seus amigos e tente terminar a noite sem ser bloqueado em todas as redes sociais. Não há vencedores, apenas sobreviventes.`;
     }
-
     get rules() {
         return {
-            goal: 'Colocar cartas numeradas em ordem crescente com base em um tema.',
-            howToPlay: `1. Cada jogador recebe cartas numeradas de 1 a 100\n 2. Um tema é sorteado (ex: "Popularidade de pratos japoneses")\n 3. Discutam o tema e onde cada número se encaixaria\n 4. Tentem colocar as cartas em ordem crescente na mesa\n 5. Revezem-se para jogar uma carta por rodada\n 6. Se errarem a ordem, perdem pontos\n 7. O jogo termina quando todas as cartas forem jogadas`,
+            goal: 'Humilhar seus amigos e evitar o coma alcoólico enquanto ri da desgraça alheia.',
+            howToPlay: `1. Sentem-se em roda e coloquem as bebidas no centro (longe de eletrônicos caros).\n 2. O jogador da vez aperta o botão.\n 3. Leia o desafio em voz alta com entonação dramática.\n 4. ESCOLHA: Cumpra o desafio (FAÇA) ou aceite a punição (BEBA).\n 5. Se falhar ou recusar, beba a quantidade indicada.\n 6. O jogo segue em sentido horário até que a bebida acabe, alguém chore ou a polícia chegue.`,
         };
     }
 }

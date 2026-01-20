@@ -15,7 +15,7 @@ export const games = [
     { route: 'onca', variant: 'onca', delay: 0.6, item: OncaGame, icon: Cat },
     { route: 'decisoes', variant: 'decisoes', delay: 0.7, item: DecisoesGame, icon: Skull },
     { route: 'caotiqueira', variant: 'caotiqueira', delay: 0.8, item: CaotiqueiraGame, icon: Zap },
-    { route: 'vexame', variant: 'caotiqueira', delay: 0.8, item: VexameGame, icon: Beer }
+    { route: 'vexame', variant: 'vexame', delay: 0.8, item: VexameGame, icon: Beer }
 ];
 
 export default function Home() {

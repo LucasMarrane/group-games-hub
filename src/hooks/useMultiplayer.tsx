@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useRef } from 'react';
 import { useSessionStore } from './useSessionStore';
 
 import { type GameProvider } from '@/providers/multiplayer/GameProvider';
-import { TGameMode, MultiplayerStore, useMultiplayerStore } from '@/providers/multiplayer/multiplayer.store';
+import { TGameMode, MultiplayerStore, useMultiplayerStore, _defaultMultiplayerStore } from '@/providers/multiplayer/multiplayer.store';
 import { MultiplayerProviderFactory } from '@/providers/multiplayer/factory';
 import { Player } from '@/providers/multiplayer/types';
 
@@ -32,6 +32,7 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: any) {
     const providerRef = useRef<GameProvider | null>(null);
 
     useEffect(() => {
+        MultiplayerStore.setState(_defaultMultiplayerStore, true)
         MultiplayerStore.setState({ mode: initialMode });
     }, []);
 

@@ -1,10 +1,11 @@
+import { _defaultMultiplayerStore, MultiplayerStore } from '@/providers/multiplayer/multiplayer.store';
 import { LayoutProps } from '@appTypes/layout';
 import { Button } from '@shadcn/components/ui/button';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, Home } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router';
 
-export function GameLayout({ children } : LayoutProps) {
+export function GameLayout({ children }: LayoutProps) {
     const navigate = useNavigate();
     const location = useLocation();
     const isHome = location.pathname === '/';
@@ -19,7 +20,15 @@ export function GameLayout({ children } : LayoutProps) {
                         exit={{ y: -60, opacity: 0 }}
                         className='sticky top-0 z-50 px-4 py-3 bg-background/80 backdrop-blur-lg border-b border-border/50'
                     >
-                        <Button variant='glass' size='sm' onClick={() => navigate('/')} className='gap-2'>
+                        <Button
+                            variant='glass'
+                            size='sm'
+                            onClick={() => {
+                                MultiplayerStore.setState(_defaultMultiplayerStore, true);
+                                navigate('/');
+                            }}
+                            className='gap-2'
+                        >
                             <ArrowLeft className='w-4 h-4' />
                             <Home className='w-4 h-4' />
                             <span>Menu</span>

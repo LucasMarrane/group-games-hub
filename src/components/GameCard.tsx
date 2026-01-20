@@ -5,7 +5,7 @@ import { Button } from '@shadcn/components/ui/button';
 import * as Game from '@components/game';
 import { IGameRule } from '@appTypes/game';
 
-export type GameCardVariant = 'sincronia' | 'mimica' | 'palpiteiro' | 'onca' | 'decisoes' | 'caotiqueira';
+export type GameCardVariant = 'sincronia' | 'mimica' | 'palpiteiro' | 'onca' | 'decisoes' | 'caotiqueira' | 'vexame';
 
 interface GameCardProps {
     title: string;
@@ -48,6 +48,11 @@ const variantStyles = {
         gradient: 'gradient-caotiqueira',
         glow: 'shadow-glow-caotiqueira',
         textGradient: 'text-gradient-caotiqueira',
+    },
+    vexame: {
+        gradient: 'gradient-vexame',
+        glow: 'shadow-glow-vexame',
+        textGradient: 'text-gradient-vexame',
     },
 };
 

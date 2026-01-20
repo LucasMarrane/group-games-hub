@@ -71,7 +71,7 @@ export function Container({ children, game, icon, className = '', onStart = () =
                     </motion.div>
                 )}
 
-                {gameState?.phase == 'playing' && (
+                {gameState?.phase == 'playing' && showMultiplayer && (
                     <motion.div key={`players-card`} initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className='bg-card rounded-2xl border border-border overflow-hidden'>
                         <Collapsible defaultOpen>
                             <div className='p-4'>
@@ -115,7 +115,21 @@ export function Container({ children, game, icon, className = '', onStart = () =
                     </motion.div>
                 )}
 
-                {gameState?.phase === 'finished' && <Player.Scoreboard key={'score'} players={sortedPlayers} />}
+                {gameState?.phase === 'finished' && showMultiplayer && (
+                    <>
+                        <Player.Scoreboard key={'score'} players={sortedPlayers} />{' '}
+                        <Button
+                            variant={game.variant as any}
+                            size='xl'
+                            className='w-full'
+                            onClick={onStart as any}
+                            disabled={!isHost || players.length < game.minPlayers || players.length > game.maxPlayers}
+                        >
+                            Começar Jogo
+                            <Play className='w-5 h-5' />
+                        </Button>
+                    </>
+                )}
                 {children}
             </AnimatePresence>
         </div>

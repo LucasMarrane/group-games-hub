@@ -4,7 +4,7 @@ import { Icon } from '@components/game/game.icon';
 import { OncaGame } from '@data/onca/theme';
 import { Button } from '@shadcn/components/ui/button';
 import { motion } from 'framer-motion';
-import { Cat, ChevronRight, RotateCcw, Trophy } from 'lucide-react';
+import { Bird, Cat, ChevronRight, RotateCcw, Trophy } from 'lucide-react';
 import { useState } from 'react';
 
 export function Onca() {
@@ -68,6 +68,8 @@ export function Onca() {
     const resetGame = () => {
         startNewGame();
     };
+
+    console.log(currentQuestion)
 
     return (
         <Game.Container className='text-gradient-onca' game={OncaGame} icon={<Icon variant='onca' />} onStart={startNewGame} showMultiplayer>
@@ -150,6 +152,13 @@ export function Onca() {
                                     </motion.div>
                                     <h2 className='text-2xl font-display font-bold text-foreground mb-1'>O escolhido foi...</h2>
                                     <p className='text-3xl font-display font-bold text-onca'>{gameState?.winner?.name}</p>
+                                    <div className='bg-muted rounded-xl mt-4 p-2 flex items-center text-center'>
+                                        <Bird className='mr-2' />
+                                        <div>
+                                            <p className='text-md text-white text-muted'>{currentQuestion.footer}</p>
+                                            <p className='text-muted-foreground text-sm italic font-bold'>Ass: Nelson, o pombo da discórdia</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </motion.div>
                         )}
