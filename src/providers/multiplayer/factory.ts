@@ -1,11 +1,11 @@
 import { GameProvider } from './GameProvider';
 import { LocalProvider } from './LocalProvider';
-import { GameMode } from './multiplayer.store';
+import { TGameMode } from './multiplayer.store';
 import { OnlineProvider } from './OnlineProvider';
 import { ServerProvider } from './ServerProvider';
 
 export class MultiplayerProviderFactory {
-    static createProvider(mode: GameMode): GameProvider {
+    static createProvider(mode: TGameMode): GameProvider {
         switch (mode) {
             case 'single':
                 return new LocalProvider('single');

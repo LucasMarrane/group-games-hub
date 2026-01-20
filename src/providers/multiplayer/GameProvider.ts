@@ -1,5 +1,5 @@
 import { GameModeCore, MultiplayerProviderEventsKeys } from './GameModeCore';
-import { GameMode } from './multiplayer.store';
+import { TGameMode } from './multiplayer.store';
 import { toast } from 'sonner';
 
 export type EventMessage<T = any> = { type: MultiplayerProviderEventsKeys; data: T };
@@ -12,7 +12,7 @@ export abstract class GameProvider {
     protected _multiplayerProvider: GameModeCore;
     protected _notify = toast;
 
-    constructor(mode: GameMode = 'single') {
+    constructor(mode: TGameMode = 'single') {
         this._multiplayerProvider = new GameModeCore();
         this._multiplayerProvider.state.setState({ mode });
         this.init();
@@ -28,6 +28,7 @@ export abstract class GameProvider {
         this._multiplayerProvider.on('room_closed', this.closeRoom.bind(this));
         this._multiplayerProvider.on('room_created', this.createRoom.bind(this));
         this._multiplayerProvider.on('kicked', this.kicked.bind(this));
+        this._multiplayerProvider.on('players', this.players.bind(this));
         this._multiplayerProvider.on('state', this.state.bind(this));
     }
 
@@ -46,5 +47,6 @@ export abstract class GameProvider {
     protected abstract closeRoom(...args: any[]): void;
     protected abstract createRoom(...args: any[]): void;
     protected abstract kicked(...args:any[]): void;
+    protected abstract players(...args:any[]): void;
     protected abstract state(...args: any[]): void;
 }

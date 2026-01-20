@@ -18,4 +18,12 @@ export abstract class GameBase<T extends ITheme<any>> {
     public getExpansionDescription(name: string) {
         return this._themes.find((e) => e.name == name)?.description!;
     }
+
+    get maxPlayers(){
+        return 15;
+    }
+
+    get minPlayers(){
+        return 1;
+    }
 }

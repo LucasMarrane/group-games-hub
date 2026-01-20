@@ -108,7 +108,7 @@ export function Mimica() {
     const catInfo = currentCard ? categoryInfo[currentCard.category] : null;
 
     return (
-        <Game.Container game={MimicaGame} className='text-gradient-mimica' icon={<Icon variant='mimica' />}>
+        <Game.Container game={MimicaGame} className='text-gradient-mimica' icon={<Icon variant='mimica' />} onStart={()=>{}}>
             {/* Scoreboard */}
             <div className='flex gap-2'>
                 {teams.map((team, idx) => (

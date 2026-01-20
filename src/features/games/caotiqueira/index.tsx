@@ -114,7 +114,7 @@ export function Caotiqueira() {
 
     const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
     return (
-        <Game.Container className='text-gradient-caotiqueira' game={CaotiqueiraGame} icon={<Icon variant='caotiqueira' />}>
+        <Game.Container className='text-gradient-caotiqueira' game={CaotiqueiraGame} icon={<Icon variant='caotiqueira' />} onStart={()=>{}}>
             <div className='flex flex-col items-center justify-center p-4'>
                 {phase === 'setup' && (
                     <>

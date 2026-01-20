@@ -6,4 +6,5 @@ export interface Player {
     avatar: number;
     metadata?: any;
     connection?: any;
+    points?: number;
 }

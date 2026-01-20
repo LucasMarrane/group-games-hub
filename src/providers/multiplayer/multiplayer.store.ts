@@ -2,10 +2,16 @@ import { storeFactory } from '@/utils/store';
 import { Player } from './types';
 import { useStore } from 'zustand';
 
-export type GameMode = 'single' | 'local' | 'online' | 'server';
+export type TGameMode = 'single' | 'local' | 'online' | 'server';
 
+export const GameMode = {
+    SINGLE: 'single',
+    LOCAL: 'local',
+    ONLINE: 'online',
+    SERVER: 'server',
+};
 export interface IMultiplayerStore<T = any> {
-    mode: GameMode;
+    mode: TGameMode;
     isHost: boolean;
     roomId: string | null;
     localPlayerId: string | null;

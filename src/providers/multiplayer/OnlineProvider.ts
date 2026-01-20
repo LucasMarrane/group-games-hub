@@ -149,6 +149,11 @@ export class OnlineProvider extends GameProvider {
         this._multiplayerProvider.reset();
     }
 
+    protected players(players: Player[]) {
+        this._multiplayerProvider.state.setState({ players });
+        this.broadcastMessage({ type: 'players', data: players });
+    }
+
     protected state(state: any) {
         this._multiplayerProvider.gameState(state);
         this.broadcastMessage({ type: 'state', data: state });
@@ -204,6 +209,9 @@ export class OnlineProvider extends GameProvider {
 
                 case 'player_left':
                     this.playerLeft(data.player);
+                    break;
+                case 'players':
+                    this._multiplayerProvider.state.setState({players: data});
                     break;
                 case 'kicked':
                     this.kicked();

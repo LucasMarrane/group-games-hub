@@ -3,6 +3,7 @@ import base from './default.json';
 import { UUID_GAMES } from '@/utils/uuid/games';
 import { GameBase } from '@data/game.base';
 import { MimicaItem } from '@appTypes/mimica';
+import { GameMode } from '@/providers/multiplayer/multiplayer.store';
 
 type MimicaGameType = ITheme<MimicaItem>;
 
@@ -11,7 +12,13 @@ class Mimica extends GameBase<MimicaGameType> implements IGames<MimicaGameType> 
         super();
         this._themes = [base] as MimicaGameType[];
     }
+    get variant() {
+        return 'mimica';
+    }
 
+    get gameModes() {
+        return [GameMode.LOCAL];
+    }
     get uuid() {
         return UUID_GAMES.mimica;
     }
@@ -26,7 +33,7 @@ class Mimica extends GameBase<MimicaGameType> implements IGames<MimicaGameType> 
         return `Pular, balançar os braços, sinalizar. Vale tudo para fazer com que descubram sua mímica, menos falar! `;
     }
 
-    get rule() {
+    get rules() {
         return {
             goal: ' Fazer seu time adivinhar palavras sem falar.',
             howToPlay: `1. Dividam-se em times

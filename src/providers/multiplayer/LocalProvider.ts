@@ -1,9 +1,9 @@
-import {  GameProvider } from './GameProvider';
-import { GameMode } from './multiplayer.store';
+import { GameProvider } from './GameProvider';
+import { TGameMode } from './multiplayer.store';
 import { Player } from './types';
 
 export class LocalProvider extends GameProvider {
-    constructor(mode: GameMode = 'single') {
+    constructor(mode: TGameMode = 'single') {
         super(mode);
     }
 
@@ -46,8 +46,10 @@ export class LocalProvider extends GameProvider {
         this._notify(`Sala (${roomId}) fechada`);
     }
 
-    protected kicked(){}
-
+    protected kicked() {}
+    protected players(players: Player[]) {
+        this._multiplayerProvider.state.setState({ players });
+    }
     protected state(state: any) {
         this._multiplayerProvider.gameState(state);
     }
