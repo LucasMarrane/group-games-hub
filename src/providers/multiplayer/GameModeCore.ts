@@ -12,6 +12,7 @@ export const MultiplayerProviderEvents = {
     ROOM_CREATED: 'room_created',
     KICKED: 'kicked',
     STATE: 'state',
+    PLAYERS: 'players',
 } as const;
 
 export type EventCallback = (...args: any[]) => void;
@@ -30,21 +31,21 @@ export class GameModeCore {
     }
 
     addPlayer(player: Player) {
-        this.state.setState((prev) => ({ 
-            players: [...prev.players, player], 
-            localPlayerId: prev.localPlayerId || player.id
+        this.state.setState((prev) => ({
+            players: [...prev.players, player],
+            localPlayerId: prev.localPlayerId || player.id,
         }));
     }
 
     removePlayer(player: Player): Promise<boolean> {
-        if ((player.type == 'host')) {
+        if (player.type == 'host') {
             return Promise.reject(new Error('Cannot remove host'));
         }
-        
-        this.state.setState((prev) => ({ 
-            players: prev.players.filter((i) => i.id != player.id) 
+
+        this.state.setState((prev) => ({
+            players: prev.players.filter((i) => i.id != player.id),
         }));
-        
+
         return Promise.resolve(true);
     }
 
@@ -63,8 +64,8 @@ export class GameModeCore {
         this.state.setState({ gameState: state });
     }
 
-    reset(){
-        this.state.setState(_defaultMultiplayerStore, true)
+    reset() {
+        this.state.setState(_defaultMultiplayerStore, true);
     }
 
     emit(event: MultiplayerProviderEventsKeys, ...data: any[]): void {
@@ -79,7 +80,7 @@ export class GameModeCore {
         current.push(callback);
         this.listeners.set(event, current);
     }
-    
+
     off(event: MultiplayerProviderEventsKeys, callback: EventCallback): void {
         const current = this.listeners.get(event);
         if (current) {

@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useRef } from 'react';
 import { useSessionStore } from './useSessionStore';
 
 import { type GameProvider } from '@/providers/multiplayer/GameProvider';
-import { GameMode, MultiplayerStore, useMultiplayerStore } from '@/providers/multiplayer/multiplayer.store';
+import { TGameMode, MultiplayerStore, useMultiplayerStore } from '@/providers/multiplayer/multiplayer.store';
 import { MultiplayerProviderFactory } from '@/providers/multiplayer/factory';
 import { Player } from '@/providers/multiplayer/types';
 
@@ -12,15 +12,16 @@ interface MultiplayerContextType<T = any> {
     roomId: string | null;
     isHost: boolean;
     gameState: T;
-    mode: GameMode;
+    mode: TGameMode;
 
-    setMode(mode: GameMode): void;
+    setMode(mode: TGameMode): void;
     createRoom(): Promise<void>;
     joinRoom(roomId: string, player?: Partial<Player>): Promise<void>;
     removePlayer(player: Player): Promise<void>;
     startGame(state?: any): void;
     changeGame(state: any): void;
     closeRoom(): void;
+    setPlayers(players: Player[]): void;
 }
 
 const MultiplayerContext = createContext<MultiplayerContextType<any> | null>(null);
@@ -69,6 +70,7 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: any) {
                         name: player?.nickname || 'Jogador',
                         avatar: player?.avatar || 1,
                         type: 'host',
+                        points: 0,
                     });
                 },
 
@@ -84,6 +86,7 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: any) {
                             name: player?.nickname || playerData?.name || 'Jogador',
                             avatar: player?.avatar || playerData?.avatar || 1,
                             type: 'invited',
+                            points: 0,
                             ...playerData,
                         },
                         roomId,
@@ -92,6 +95,10 @@ export function MultiplayerProvider({ children, initialMode = 'local' }: any) {
 
                 async removePlayer(player) {
                     providerRef.current?.emit('remove_player', player);
+                },
+
+                setPlayers(players: Player[]) {
+                    providerRef.current?.emit('players', players);
                 },
 
                 startGame(state) {

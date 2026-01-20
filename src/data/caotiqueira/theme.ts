@@ -4,6 +4,7 @@ import { IGames, ITheme } from '@appTypes/game';
 import { GameBase } from '@data/game.base';
 import base from '@data/caotiqueira/default.json';
 import { CaotiqueiraItem } from '@appTypes/caotiqueira';
+import { GameMode } from '@/providers/multiplayer/multiplayer.store';
 
 type CaotiqueiraGameType = ITheme<CaotiqueiraItem>;
 
@@ -11,6 +12,13 @@ class Caotiqueira extends GameBase<CaotiqueiraGameType> implements IGames<Caotiq
     constructor() {
         super();
         this._themes = [base] as unknown as CaotiqueiraGameType[];
+    }
+    get variant() {
+        return 'caotiqueira';
+    }
+
+    get gameModes() {
+        return [GameMode.LOCAL, GameMode.ONLINE];
     }
     get uuid() {
         return UUID_GAMES.caotiqueira;
@@ -26,7 +34,7 @@ class Caotiqueira extends GameBase<CaotiqueiraGameType> implements IGames<Caotiq
         return `Em cada turno, os jogadores escrevem respostas. A resposta mais votada leva o ponto`;
     }
 
-    get rule() {
+    get rules() {
         return {
             goal: 'Criar respostas engraçadas e ganhar votos.',
             howToPlay: `1. Um tema com lacunas é sorteado (ex: "Prefiro _____ do que ir ao dentista")

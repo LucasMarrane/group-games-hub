@@ -1,3 +1,4 @@
+import { GameMode } from '@/providers/multiplayer/multiplayer.store';
 import { UUID_GAMES } from '@/utils/uuid/games';
 import { IGames, ITheme } from '@appTypes/game';
 import { OncaItem } from '@appTypes/onca';
@@ -10,6 +11,17 @@ class Onca extends GameBase<OncaGameType> implements IGames<OncaGameType> {
     constructor() {
         super();
         this._themes = [base] as unknown as OncaGameType[];
+    }
+  
+    get variant() {
+        return 'onca';
+    }
+    get minPlayers(){
+        return 2;
+    }
+
+    get gameModes() {
+        return [GameMode.LOCAL, GameMode.ONLINE];
     }
     get uuid() {
         return UUID_GAMES.amigos_da_onca;
@@ -25,7 +37,7 @@ class Onca extends GameBase<OncaGameType> implements IGames<OncaGameType> {
         return `Em cada turno, uma tema é sorteado. Esse tema possui uma pergunta e vocês devem votar para decidir a resposta.`;
     }
 
-    get rule() {
+    get rules() {
         return {
             goal: 'Descobrir quem mais combina com a descrição.',
             howToPlay: `1. Uma carta com uma pergunta é lida (ex: "Quem tem mais cara de dormir de barriga?")

@@ -7,7 +7,11 @@ export interface IGames<Expansion> {
     categories: ILabel<any>[];
     expansions: ILabel<any>[];
     getExpansionDescription: (name: string) => string;
-    rule: IGameRule;
+    rules: IGameRule;
+    variant: string;
+    gameModes: string[];
+    maxPlayers: number;
+    minPlayers: number;
     
 }
 

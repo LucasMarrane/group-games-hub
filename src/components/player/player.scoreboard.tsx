@@ -49,7 +49,7 @@ export function Scoreboard({ players, className }: IScoreboardProps) {
                                 <h3 className='font-medium text-sm truncate max-w-[80px] md:max-w-[100px]'>{player.name}</h3>
                                 <div className='flex items-center gap-1'>
                                     <Trophy className='w-3 h-3 text-yellow-500' />
-                                    <span className='text-xs font-bold text-yellow-600'>{player?.metadata?.score}</span>
+                                    <span className='text-xs font-bold text-yellow-600'>{player?.points ?? 0}</span>
                                 </div>
                             </div>
                         </motion.div>
@@ -86,7 +86,7 @@ export function Scoreboard({ players, className }: IScoreboardProps) {
 
                                 <div className='flex items-center gap-1'>
                                     <Medal className='w-4 h-4 text-muted-foreground' />
-                                    <span className='text-sm font-bold text-muted-foreground'>{player?.metadata?.score}</span>
+                                    <span className='text-sm font-bold text-muted-foreground'>{player?.points ?? 0}</span>
                                 </div>
                             </motion.div>
                         ))}

@@ -4,6 +4,7 @@ import { IGames, ITheme } from '@appTypes/game';
 
 import { GameBase } from '@data/game.base';
 import base from '@data/decisoes/default.json';
+import { GameMode } from '@/providers/multiplayer/multiplayer.store';
 
 type DecisoesGameType = ITheme<DecisoesItem>;
 
@@ -11,6 +12,13 @@ class Decisoes extends GameBase<DecisoesGameType> implements IGames<DecisoesGame
     constructor() {
         super();
         this._themes = [base] as unknown as DecisoesGameType[];
+    }
+    get variant() {
+        return 'decisoes';
+    }
+
+    get gameModes() {
+        return [GameMode.LOCAL, GameMode.ONLINE];
     }
     get uuid() {
         return UUID_GAMES.pessimas_decisoes;
@@ -26,7 +34,7 @@ class Decisoes extends GameBase<DecisoesGameType> implements IGames<DecisoesGame
         return `Em cada turno, uma tema é sorteado. Esse tema possui uma pergunta e você deve escolher uma,  caso  o Host acerte o que a maioria acha menos pior ele ganha o ponto, caso contrario os jogadores ganham.`;
     }
 
-    get rule() {
+    get rules() {
         return {
             goal: 'Adivinhar o que a maioria escolheria.',
             howToPlay: `1. Uma pergunta com duas opções é lida

@@ -178,6 +178,8 @@ export class ServerProvider extends GameProvider {
         });
     }
 
+    protected players() {}
+
     private handleIncomingData(incoming: any, conn: DataConnection): void {
         try {
             const message: EventMessage<any> = JSON.parse(incoming);
