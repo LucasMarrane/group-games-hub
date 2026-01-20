@@ -5,7 +5,8 @@ import { MimicaGame, PalpiteiroGame, SincroniaGame } from '@data/index';
 import { OncaGame } from '@data/onca/theme';
 import * as Player from '@components/player';
 import { motion } from 'framer-motion';
-import { Users, Target, Bird, Cat, Skull, Zap } from 'lucide-react';
+import { Users, Target, Bird, Cat, Skull, Zap, Beer } from 'lucide-react';
+import { VexameGame } from '@data/vexame/theme';
 
 export const games = [
     { route: 'sincronia', variant: 'sincronia', delay: 0.3, item: SincroniaGame, icon: Target },
@@ -14,6 +15,7 @@ export const games = [
     { route: 'onca', variant: 'onca', delay: 0.6, item: OncaGame, icon: Cat },
     { route: 'decisoes', variant: 'decisoes', delay: 0.7, item: DecisoesGame, icon: Skull },
     { route: 'caotiqueira', variant: 'caotiqueira', delay: 0.8, item: CaotiqueiraGame, icon: Zap },
+    { route: 'vexame', variant: 'vexame', delay: 0.8, item: VexameGame, icon: Beer }
 ];
 
 export default function Home() {

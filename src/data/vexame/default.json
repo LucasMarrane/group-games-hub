@@ -1,0 +1,292 @@
+{
+    "id": "base",
+    "name": "Jogo Padrão",
+    "description": "Faça ou beba.",
+    "categories": [
+        { "id": 1, "name": "Teatrinho da Vergonha", "description": "Atuações ridículas." },
+        { "id": 2, "name": "Democracia do Azar", "description": "Votação em grupo." },
+        { "id": 3, "name": "Coordenação de Bêbado", "description": "Desafios físicos." }
+    ],
+    "items": [
+        {
+            "id": 1,
+            "title": "O T-Rex Sedento",
+            "category": 1,
+            "description": "Coloque os cotovelos colados na costela, mãos de garras curtas. Beba e aja como um T-Rex até sua próxima vez.",
+            "footer": "Nelson: Braços curtos, cérebro curto. Combina com você."
+        },
+        {
+            "id": 2,
+            "title": "Estátua da Praça",
+            "category": 3,
+            "description": "Fique imóvel em uma pose ridícula escolhida pelo grupo. Se mexer antes de 1 minuto, bebe.",
+            "footer": "Nelson: Não se mexa, vou mirar no seu ombro."
+        },
+        {
+            "id": 3,
+            "title": "Bêbado Bilíngue",
+            "category": 1,
+            "description": "Fale com um sotaque estrangeiro (ruim) até a próxima rodada. Se falhar, bebe.",
+            "footer": "Nelson: Você já fala mal o português, isso deve ser fácil."
+        },
+        {
+            "id": 4,
+            "title": "Censura Prévia",
+            "category": 3,
+            "description": "Não mostre os dentes (cubra com os lábios) ao falar por 2 rodadas. Se rir mostrando dente, bebe.",
+            "footer": "Nelson: Banguela style. Clássico da lixeira."
+        },
+        {
+            "id": 5,
+            "title": "O Escolhido",
+            "category": 2,
+            "description": "No 3, todos apontam para quem morreria primeiro num apocalipse zumbi. O mais votado bebe.",
+            "footer": "Nelson: O cérebro mais fresco é o primeiro a ser comido."
+        },
+        {
+            "id": 6,
+            "title": "Mão Trocada",
+            "category": 3,
+            "description": "Use apenas sua mão não-dominante para segurar o copo. Errou a mão? Bebe.",
+            "footer": "Nelson: Coordenação motora zero."
+        },
+        {
+            "id": 7,
+            "title": "DJ do Elevador",
+            "category": 1,
+            "description": "Cantarole uma música fazendo apenas sons de 'Puruu'. Quem adivinhar distribui 2 goles. Ninguém acertou? Você bebe.",
+            "footer": "Nelson: Minha voz é angelical, a sua é poluição sonora."
+        },
+        {
+            "id": 8,
+            "title": "Dedo Podre (NOVA)",
+            "category": 2,
+            "description": "Já que não pode largar o celular: Aponte para a pessoa que passa mais tempo no Instagram. A pessoa apontada mostra o 'Tempo de Uso' da tela. Se for mais de 4h hoje, ela bebe.",
+            "footer": "Nelson: Substituí sua carta odiada por essa vergonha estatística. De nada."
+        },
+        {
+            "id": 9,
+            "title": "A Regra do Anão",
+            "category": 1,
+            "description": "Quem for o menor da roda em altura distribui 3 goles.",
+            "footer": "Nelson: Pequeno no tamanho, grande no álcool."
+        },
+        {
+            "id": 10,
+            "title": "Titanic",
+            "category": 2,
+            "description": "O último a colocar a mão na testa gritando 'ICEBERG!' bebe.",
+            "footer": "Nelson: Afunde com dignidade."
+        },
+        {
+            "id": 11,
+            "title": "Fashion Week da Sarjeta",
+            "category": 2,
+            "description": "Troque um item de roupa ou acessório com a pessoa à esquerda. Recusou? Bebe tudo.",
+            "footer": "Nelson: Piolho é brinde."
+        },
+        {
+            "id": 12,
+            "title": "Silêncio no Ninho",
+            "category": 3,
+            "description": "Ninguém fala nada até sua próxima vez. Quem emitir som bebe.",
+            "footer": "Nelson: Shhh... estou caçando migalhas."
+        },
+        {
+            "id": 13,
+            "title": "Raio-X",
+            "category": 2,
+            "description": "Beba se você já stalkeou alguém hoje. Beba 2 vezes se foi um ex.",
+            "footer": "Nelson: Doentio."
+        },
+        {
+            "id": 14,
+            "title": "Mestre dos Magos",
+            "category": 3,
+            "description": "Vá para outro cômodo e fique sozinho por 2 minutos. Se voltar antes, bebe.",
+            "footer": "Nelson: Reflexão solitária é a base da loucura."
+        },
+        {
+            "id": 15,
+            "title": "Sinceridade Alcoólica",
+            "category": 1,
+            "description": "Diga uma qualidade da pessoa à direita. Se parecer falso, o grupo te faz beber.",
+            "footer": "Nelson: Tente não vomitar enquanto elogia."
+        },
+        {
+            "id": 16,
+            "title": "O Chão é Lava",
+            "category": 3,
+            "description": "Quem estiver com os pés no chão agora, bebe. (5 segundos pra subir).",
+            "footer": "Nelson: O chão é sujo igual sua consciência."
+        },
+        {
+            "id": 17,
+            "title": "Espelho, Espelho Meu",
+            "category": 1,
+            "description": "Imite os gestos da pessoa à frente por 1 minuto. Tudo o que ela fizer, você faz.",
+            "footer": "Nelson: Cópia barata."
+        },
+        {
+            "id": 18,
+            "title": "Paparazzi",
+            "category": 2,
+            "description": "Selfie com cara feia no Story. Deixe 10 min ou beba 2 doses.",
+            "footer": "Nelson: A internet nunca esquece."
+        },
+        {
+            "id": 19,
+            "title": "Medusa",
+            "category": 3,
+            "description": "Cabeças baixas. No 3, olhem pra alguém. Se o olhar cruzar, brindem e bebam.",
+            "footer": "Nelson: O amor está no ar... mentira, é bafo de cachaça."
+        },
+        {
+            "id": 20,
+            "title": "O Grande Orador",
+            "category": 1,
+            "description": "Faça um brinde de 30 segundos ao Nelson. Se não for bom, bebe.",
+            "footer": "Nelson: Me adorem."
+        },
+        {
+            "id": 21,
+            "title": "Vendedor de Lixo",
+            "category": 1,
+            "description": "Pegue o objeto mais inútil perto de você e tente vendê-lo para o grupo por 1 minuto como se fosse luxo. Se ninguém 'comprar' (fingir interesse), você bebe.",
+            "footer": "Nelson: Capitalismo é saber vender lixo. Vocês caem nessa todo dia."
+        },
+        {
+            "id": 22,
+            "title": "Equilíbrio de Bar",
+            "category": 3,
+            "description": "Equilibre um objeto (celular, copo vazio, saleiro) na cabeça. Tente beber seu copo sem deixar o objeto cair. Se cair, repete a dose.",
+            "footer": "Nelson: Vocês têm a cabeça chata mesmo, deve ser fácil."
+        },
+        {
+            "id": 23,
+            "title": "Tribunal do Calçado",
+            "category": 2,
+            "description": "No 3, todos apontam para quem tem o sapato/tênis mais feio ou sujo. O dono do pisante bebe 2 goles.",
+            "footer": "Nelson: Sapatos são prisões de couro para os pés. O meu é a liberdade."
+        },
+        {
+            "id": 24,
+            "title": "Banho de Gato",
+            "category": 1,
+            "description": "Lamba as costas da sua própria mão e passe no cabelo, arrumando-o, três vezes. Se recusar, vira o copo.",
+            "footer": "Nelson: Gatos são meus inimigos naturais, mas admito que sabem se limpar."
+        },
+        {
+            "id": 25,
+            "title": "Sem Mãos!",
+            "category": 3,
+            "description": "Você deve beber seu próximo gole sem usar as mãos. O copo deve ficar na mesa ou alguém segura pra você (com risco de babar).",
+            "footer": "Nelson: Mergulhe a cara no cocho como um animal decente."
+        },
+        {
+            "id": 26,
+            "title": "Narrador da Sarjeta",
+            "category": 1,
+            "description": "Narre, com emoção de final de copa do mundo, a pessoa à sua frente bebendo um gole. 'OLHA O GOLE, OLHA O GOLE...!'",
+            "footer": "Nelson: Haja garganta pra narrar tanta mediocridade."
+        },
+        {
+            "id": 27,
+            "title": "Futuro Presidiário",
+            "category": 2,
+            "description": "No 3, apontem para quem tem mais chance de ser preso por um motivo idiota. O criminoso em potencial bebe.",
+            "footer": "Nelson: Cadeia é só uma gaiola maior. Fiquem espertos."
+        },
+        {
+            "id": 28,
+            "title": "Mímica da Morte",
+            "category": 1,
+            "description": "Faça uma mímica de 30 segundos encenando uma morte dramática e lenta. Se alguém rir, todos bebem. Se ninguém rir, você bebe.",
+            "footer": "Nelson: Drama Queen. Adoro."
+        },
+        {
+            "id": 29,
+            "title": "Guerra de Vermes",
+            "category": 3,
+            "description": "Desafie a pessoa à sua direita para uma guerra de polegar. Quem perder bebe 2 doses.",
+            "footer": "Nelson: A evolução do polegar opositor serviu pra isso?"
+        },
+        {
+            "id": 30,
+            "title": "O Último Romântico",
+            "category": 2,
+            "description": "Votação: Quem do grupo é o mais trouxa em relacionamentos? O eleito bebe para esquecer.",
+            "footer": "Nelson: O amor humano dura menos que um pão na chuva."
+        },
+        {
+            "id": 31,
+            "title": "Câmera Lenta",
+            "category": 3,
+            "description": "Pelas próximas 2 rodadas, você deve se mover como se estivesse em câmera lenta (Matrix). Se agir na velocidade normal, bebe.",
+            "footer": "Nelson: Vocês já são lentos de raciocínio, agora sejam de corpo."
+        },
+        {
+            "id": 32,
+            "title": "Só Perguntas?",
+            "category": 1,
+            "description": "Até sua próxima vez, você só pode se comunicar fazendo perguntas. Se fizer uma afirmação, bebe.",
+            "footer": "Nelson: Por que você é tão chato? Viu, é fácil."
+        },
+        {
+            "id": 33,
+            "title": "Linha Reta",
+            "category": 3,
+            "description": "Ande em linha reta colocando um pé imediatamente à frente do outro por 3 metros. Se desequilibrar, bebe.",
+            "footer": "Nelson: O labirinto do seu ouvido já foi pro brejo."
+        },
+        {
+            "id": 34,
+            "title": "Mendigo de Likes",
+            "category": 1,
+            "description": "Implore, de joelhos, para o grupo te seguir nas redes sociais por 30 segundos. Seja patético. Se não convencer, bebe.",
+            "footer": "Nelson: A carência de vocês alimenta meu desprezo."
+        },
+        {
+            "id": 35,
+            "title": "Roleta Musical",
+            "category": 2,
+            "description": "Coloque sua playlist no aleatório. Se a música que tocar for vergonhosa (julgamento do grupo), você bebe. Se for boa, todos bebem.",
+            "footer": "Nelson: Se tocar sertanejo universitário, beba o dobro."
+        },
+        {
+            "id": 36,
+            "title": "Botox Caseiro",
+            "category": 3,
+            "description": "Mantenha uma expressão de surpresa (boca aberta, olhos arregalados) até sua próxima vez. Se relaxar o rosto, bebe.",
+            "footer": "Nelson: Cuidado pro vento não bater e você ficar assim pra sempre."
+        },
+        {
+            "id": 37,
+            "title": "Líder da Seita",
+            "category": 2,
+            "description": "No 3, apontem para quem fundaria uma seita maluca. O novo Guru bebe e abençoa o grupo.",
+            "footer": "Nelson: Eu seguiria qualquer um que me prometesse alpiste eterno."
+        },
+        {
+            "id": 38,
+            "title": "Olho de Peixe Morto",
+            "category": 3,
+            "description": "Faça um concurso de 'não piscar' com a pessoa à sua esquerda. O primeiro a piscar bebe.",
+            "footer": "Nelson: Eu não tenho pálpebras, eu ganharia fácil. Mentira, tenho sim."
+        },
+        {
+            "id": 39,
+            "title": "O Papagaio",
+            "category": 1,
+            "description": "Repita a última palavra de tudo o que for dito na mesa até sua próxima vez. Se esquecer, bebe.",
+            "footer": "Nelson: Plágio é a forma mais sincera de estupidez."
+        },
+        {
+            "id": 40,
+            "title": "Abraço de Tamanduá",
+            "category": 2,
+            "description": "Abrace a pessoa à sua direita por 10 segundos ininterruptos. Se um dos dois soltar antes ou fizer cara de nojo, ambos bebem.",
+            "footer": "Nelson: Eca. Contato físico. Passem álcool gel depois."
+        }
+    ]
+}
