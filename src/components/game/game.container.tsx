@@ -9,6 +9,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useMultiplayer } from '@/hooks/useMultiplayer';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@shadcn/components/ui/collapsible';
 import { useMultiplayerStore } from '@/providers/multiplayer/multiplayer.store';
+import { Nelson } from '@data/nelson';
 
 interface ContainerProps extends PropsWithChildren {
     game: IGames<any>;
@@ -16,9 +17,10 @@ interface ContainerProps extends PropsWithChildren {
     icon?: ReactNode;
     onStart?: Function;
     showMultiplayer?: boolean;
+    isWinner?: boolean;
 }
 
-export function Container({ children, game, icon, className = '', onStart = () => {}, showMultiplayer = false }: ContainerProps) {
+export function Container({ children, game, icon, className = '', onStart = () => {}, showMultiplayer = false, isWinner = false }: ContainerProps) {
     const { players } = useMultiplayerStore();
     const { isHost, gameState, changeGame } = useMultiplayer<any>();
     const { actualPlayer } = gameState ?? {};
@@ -84,7 +86,7 @@ export function Container({ children, game, icon, className = '', onStart = () =
                                         <div
                                             className='flex items-center gap-1 bg-white/20 px-3 py-1 rounded-full mr-2 pointer'
                                             onClick={() => {
-                                                changeGame({ ...gameState, phase: 'finished' });
+                                                isHost && changeGame({ ...gameState, phase: 'finished' });
                                             }}
                                         >
                                             <Trophy className='w-4 h-4 text-white' />
@@ -116,8 +118,15 @@ export function Container({ children, game, icon, className = '', onStart = () =
                 )}
 
                 {gameState?.phase === 'finished' && showMultiplayer && (
-                    <>
-                        <Player.Scoreboard key={'score'} players={sortedPlayers} />{' '}
+                    <>                        
+                        <div className='text-center mb-6 border border-border rounded-xl p-5 background bg-card'>                           
+                            <p className='text-muted-foreground text-xl font-bold text-white'>{players[0].name}</p>
+                            <p className='text-muted-foreground text-md'>{isWinner ? Nelson.winner :  Nelson.loser}</p>
+                            <p className='text-muted-foreground text-sm italic font-bold'>Ass: Nelson, o pombo da discórdia</p>
+                            {!isWinner && (<p className='text-muted-foreground text-sm font-bold'>Ps: Quem ganha, perde.</p>)}
+                             
+                        </div>
+                        <Player.Scoreboard key={'score'} players={sortedPlayers} />
                         <Button
                             variant={game.variant as any}
                             size='xl'

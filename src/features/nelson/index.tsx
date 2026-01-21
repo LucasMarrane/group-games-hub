@@ -47,14 +47,14 @@ export function Nelson() {
                     <h4 className='font-bold text-md mb-2'>💌 Um Recado para os meus "Fãs" (Súditos)</h4>
                     <p className='mb-2'>(Nelson sobe em cima de uma caixa de papelão vazia para ficar mais alto, limpa a garganta com um som horrível de catarro e discursa:)</p>
                     <p className='mb-2 italic'>"Escutem aqui, seus bípedes sem penas.</p>
-                    <p className='mb-2'>
+                    <p className='mb-2 italic'>
                         Vocês dizem que são meus fãs, mas eu quero ver atitude. Ser fã do Nelson não é achar o jogo 'engraçadinho'. É olhar pro seu melhor amigo e pensar: 'Como eu posso arruinar o dia
                         dele hoje?'
                     </p>
-                    <p className='mb-2'>Eu quero ver mesas viradas. Eu quero ver gritaria. Eu quero ver traições tão feias que vão precisar de terapia familiar depois.</p>
-                    <p className='mb-2'>Não joguem para ganhar. Ganhar é chato. Joguem para garantir que ninguém mais se divirta. O caos é a única moeda que vale nessa economia falida.</p>
+                    <p className='mb-2 italic'>Eu quero ver mesas viradas. Eu quero ver gritaria. Eu quero ver traições tão feias que vão precisar de terapia familiar depois.</p>
+                    <p className='mb-2 italic'>Não joguem para ganhar. Ganhar é chato. Joguem para garantir que ninguém mais se divirta. O caos é a única moeda que vale nessa economia falida.</p>
                     <p>Agora saiam da minha frente e vão espalhar a discórdia. E se virem a senhora do pão de queijo, digam que estou na estátua do cavalo."</p>
-                    <p className='mt-2 font-semibold'>"Puruu. Fim da transmissão."</p>
+                    <p className='mt-2 font-semibold'>Puruu. Fim da transmissão.</p>
                 </div>
             </div>
         </DialogContent>

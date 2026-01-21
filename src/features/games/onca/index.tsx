@@ -166,7 +166,7 @@ export function Onca() {
                 </>
             )}
 
-            {phase && !['voting', 'question', 'finished'].includes(step) && (
+            {phase && phase != 'finished' && !['voting', 'question'].includes(step) && (
                 <motion.div key='results' initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className='flex-1 flex flex-col'>
                     <div className='mt-auto space-y-3'>
                         {currentCardIndex < shuffledCards.length - 1 ? (
