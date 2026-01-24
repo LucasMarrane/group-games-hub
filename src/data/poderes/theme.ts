@@ -14,7 +14,7 @@ class Poderes extends GameBase<PoderesGameType> implements IGames<PoderesGameTyp
     }
   
     get variant() {
-        return 'onca';
+        return 'poderes';
     }
     get minPlayers(){
         return 2;
