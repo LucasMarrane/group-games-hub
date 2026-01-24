@@ -22,6 +22,7 @@ const buttonVariants = cva(
                 decisoes: 'gradient-decisoes text-primary-foreground shadow-glow-decisoes hover:opacity-90',
                 caotiqueira: 'gradient-caotiqueira text-primary-foreground shadow-glow-caotiqueira hover:opacity-90',
                 vexame: 'gradient-vexame text-primary-foreground shadow-glow-vexame hover:opacity-90',
+                poderes: 'gradient-poderes text-primary-foreground shadow-glow-poderes hover:opacity-90',
                 glass: 'bg-muted/50 backdrop-blur-sm border border-border/50 text-foreground hover:bg-muted/70',
             },
             size: {
