@@ -12,6 +12,7 @@ const Onca = lazy(() => import('@games/onca'));
 const Decisoes = lazy(() => import('@games/decisoes'));
 const Caotiqueira = lazy(() => import('@games/caotiqueira'));
 const Vexame = lazy(() => import('@games/vexame'));
+const Poderes = lazy(() => import('@games/poderes'));
 
 export function AppRoutes() {
     return (
@@ -34,6 +35,7 @@ export function AppRoutes() {
                         <Route path='decisoes' element={<Decisoes />} />
                         <Route path='caotiqueira' element={<Caotiqueira />} />
                          <Route path='vexame' element={<Vexame />} />
+                          <Route path='poderes' element={<Poderes />} />
                     </Route>
                     <Route path='*' element={<NotFound />} />
                 </Routes>

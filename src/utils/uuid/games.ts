@@ -5,5 +5,6 @@ export const UUID_GAMES = {
     pessimas_decisoes: '09b22771-5518-442f-94fd-af8aed1308ec',
     amigos_da_onca: 'fab49760-8e47-4c45-b2fd-96f0e19d8966',
     caotiqueira: 'a718e4bf-de44-4f97-9c4b-de223aad480e',
-    vexame: 'd4b6e91f-f5ab-408c-9e76-b175d86f5e25'
+    vexame: 'd4b6e91f-f5ab-408c-9e76-b175d86f5e25',
+    poderes: 'aff4f164-e60c-4a9f-bd15-463b6c1c4ccb'
 }

@@ -31,7 +31,15 @@ class Caotiqueira extends GameBase<CaotiqueiraGameType> implements IGames<Caotiq
     }
 
     get description() {
-        return `Em cada turno, os jogadores escrevem respostas. A resposta mais votada leva o ponto`;
+        return `Em cada turno, os jogadores escolhem respostas. A resposta mais votada leva o ponto`;
+    }
+
+    get blackCards(){
+        return this.themes.flatMap(i => (i.items as any).black) as CaotiqueiraItem[]
+    }
+
+     get whiteCards(){
+        return this.themes.flatMap(i => (i.items as any).white) as CaotiqueiraItem[]
     }
 
     get rules() {

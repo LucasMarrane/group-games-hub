@@ -71,6 +71,9 @@
     --color-vexame: hsl(var(--vexame));
     --color-vexame-glow: hsl(var(--vexame-glow));
 
+    --color-poderes: hsl(var(--poderes));
+    --color-poderes-glow: hsl(var(--poderes-glow));
+
     /* Sidebar */
     --color-sidebar: hsl(var(--sidebar-background));
     --color-sidebar-foreground: hsl(var(--sidebar-foreground));
@@ -149,6 +152,8 @@
         --caotiqueira-glow: 300 90% 70%;
         --vexame: 35 90% 55%;
         --vexame-glow: 25 95% 60%;
+        --poderes: 200 90% 50%;
+        --poderes-glow: 180 85% 55%;
 
         /* Gradients */
         --gradient-sincronia: linear-gradient(135deg, hsl(16 90% 60%), hsl(28 100% 65%));
@@ -161,6 +166,7 @@
         --gradient-decisoes: linear-gradient(135deg, hsl(330 80% 55%), hsl(340 90% 65%));
         --gradient-caotiqueira: linear-gradient(135deg, hsl(280 85% 60%), hsl(300 90% 70%));
         --gradient-vexame: linear-gradient(135deg, hsl(35 90% 55%), hsl(25 95% 60%));
+        --gradient-poderes: linear-gradient(135deg, hsl(200 90% 50%), hsl(180 85% 55%));
 
         /* Shadows */
         --shadow-glow-sincronia: 0 0 40px hsl(16 90% 60% / 0.4);
@@ -170,6 +176,7 @@
         --shadow-glow-decisoes: 0 0 40px hsl(330 80% 55% / 0.4);
         --shadow-glow-caotiqueira: 0 0 40px hsl(280 85% 60% / 0.4);
         --shadow-glow-vexame: 0 0 40px hsl(35 90% 55% / 0.5);
+        --shadow-glow-poderes: 0 0 40px hsl(200 90% 50% / 0.5);
 
         /* Typography */
         --font-display: 'Fredoka', sans-serif;
@@ -256,6 +263,9 @@
     .gradient-vexame {
         background: var(--gradient-vexame);
     }
+    .gradient-poderes {
+        background: var(--gradient-poderes);
+    }
 
     .shadow-glow-sincronia {
         box-shadow: var(--shadow-glow-sincronia);
@@ -283,6 +293,9 @@
 
     .shadow-glow-vexame {
         box-shadow: var(--shadow-glow-vexame);
+    }
+    .shadow-glow-poderes {
+        box-shadow: var(--shadow-glow-poderes);
     }
 
     .text-gradient-caotiqueira {
@@ -329,6 +342,12 @@
 
     .text-gradient-vexame {
         background: var(--gradient-vexame);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .text-gradient-poderes {
+        background: var(--gradient-poderes);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
