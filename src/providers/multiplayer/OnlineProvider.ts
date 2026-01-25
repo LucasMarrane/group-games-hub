@@ -1,6 +1,7 @@
 import Peer, { DataConnection } from 'peerjs';
 import { dataToMessage, EventMessage, GameProvider } from './GameProvider';
 import { Player } from './types';
+import { Session } from '@/utils/entities/session';
 
 export class OnlineProvider extends GameProvider {
     private peer: Peer | null = null;
@@ -8,7 +9,7 @@ export class OnlineProvider extends GameProvider {
 
     constructor() {
         super('online');
-        this.peer = new Peer();
+        this.peer = new Peer(Session.player?.uuid!);
 
         this.peer.on('open', (id) => {
             console.log('My peer ID is: ' + id);
